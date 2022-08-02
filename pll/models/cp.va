@@ -1,0 +1,25 @@
+// VerilogA for serdes, charge_pump, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module charge_pump(siginc, sigdec, vout);
+electrical siginc, sigdec, vout;
+input siginc, sigdec;
+inout vout;
+parameter real vth = 0.5;
+parameter real trf = 0.5p;
+parameter real I_out = 100u;
+real iout_i = 0;
+
+analog begin
+@(cross(V(siginc)-vth,0));
+@(cross(V(sigdec)-vth,0));
+
+if((V(siginc)>vth) && (V(sigdec)<vth)) iout_i = I_out;
+else if((V(siginc)<vth) && (V(sigdec)>vth)) iout_i = -I_out;
+else iout_i = 0;
+I(vout) <+ transition(iout_i, 0, trf, trf);
+end
+
+endmodule

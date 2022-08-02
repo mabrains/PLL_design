@@ -1,0 +1,31 @@
+// VerilogA for serdes, vco, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module vco(vin, vout);
+parameter real VHIGH = 1;
+parameter real Vmin=0;
+parameter real Vmax=1 from (Vmin:inf);
+parameter real Fmin=5G from (0:inf);
+parameter real Fmax=15G from (Fmin:inf);
+parameter real trise=5p, tfall=5p, td=0;
+input vin;
+output vout;
+voltage vin,vout;
+real VOUT_i, freq, phase, sine;
+analog begin
+freq =((V(vin) - Vmin)*(Fmax - Fmin) / (Vmax - Vmin)) + Fmin;
+if (freq > Fmax) freq = Fmax;
+if (freq < Fmin) freq = Fmin;
+phase = 2*`M_PI*idtmod(freq, 0, 1, -0.5);
+sine = sin(phase);
+@(cross(sine,0));
+if (sine > 0) 
+VOUT_i = VHIGH;
+else 
+VOUT_i = 0;
+V(vout) <+ transition(VOUT_i,td,trise,tfall);
+$bound_step(0.1/freq);	
+end
+endmodule

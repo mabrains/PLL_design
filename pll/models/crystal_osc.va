@@ -1,0 +1,29 @@
+// VerilogA model for OSC with accumulating jitter.
+// Original author: Ken Kundert
+//
+`include "discipline.h"
+`include "constants.h"
+module osc( out);
+
+electrical out;
+parameter real freq=1M from (0:inf);
+parameter real Vlo=0, Vhi=1;
+parameter real tt=0.01/100e6 from (0:inf);
+parameter real jitter=0 from [0:0.1/100e6); // period jitter
+//
+integer n, seed;
+real next, dT;
+analog begin
+@(initial_step) begin
+seed = 286;
+next = 0.5/freq + $abstime;
+
+end
+@(timer(next)) begin
+n = !n;
+dT = jitter*$dist_normal(seed,0,1);
+next = next + 0.5/freq + 0.707*dT;
+end
+V(out) <+ transition(n ? Vhi : Vlo, 0, tt);
+end
+endmodule //osc

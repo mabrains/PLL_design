@@ -113,7 +113,7 @@ C {devices/lab_pin.sym} -120 -660 2 0 {name=l8 sig_type=std_logic lab=out3}
 C {devices/lab_pin.sym} -770 -660 0 0 {name=l9 sig_type=std_logic lab=out3_}
 C {devices/code.sym} -1190 -180 0 0 {name=s1 only_toplevel=false value="
 
-.tran 1p 10n
+.tran .1p 10n
 .probe I(x1)
 .save all"}
 C {sky130_fd_pr/corner.sym} -1180 -400 0 0 {name=CORNER only_toplevel=false corner=tt
@@ -133,7 +133,7 @@ C {devices/lab_pin.sym} -480 -110 0 0 {name=l15 sig_type=std_logic lab=vf}
 C {devices/lab_pin.sym} -490 90 0 0 {name=l16 sig_type=std_logic lab=vc}
 C {devices/vsource.sym} -910 -140 0 0 {name=V4 value=0}
 C {devices/gnd.sym} -910 -80 0 0 {name=l17 lab=GND}
-C {devices/vsource.sym} -810 -140 0 0 {name=V5 value=0}
+C {devices/vsource.sym} -810 -140 0 0 {name=V5 value=.3}
 C {devices/gnd.sym} -810 -80 0 0 {name=l18 lab=GND}
 C {devices/lab_pin.sym} -910 -220 0 0 {name=l19 sig_type=std_logic lab=vc}
 C {devices/lab_pin.sym} -810 -220 0 0 {name=l20 sig_type=std_logic lab=vf}

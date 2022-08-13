@@ -140,7 +140,7 @@ C {devices/ipin.sym} 350 -180 0 1 {name=p5 lab=vf}
 C {devices/ipin.sym} 550 -180 0 1 {name=p8 lab=vc}
 C {sky130_fd_pr/nfet3_01v8.sym} -160 90 0 0 {name=M1
 L=0.15
-W=6
+W=2.6
 body=GND
 nf=1
 mult=1
@@ -155,7 +155,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} 150 90 0 1 {name=M2
 L=0.15
-W=6
+W=2.6
 body=GND
 nf=1
 mult=1
@@ -183,9 +183,9 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet3_01v8.sym} -460 -180 0 0 {name=M4
+C {sky130_fd_pr/pfet3_01v8.sym} -300 -180 0 0 {name=M4
 L=0.15
-W=1
+W=.6
 body=VDD
 nf=1
 mult=1
@@ -198,7 +198,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet3_01v8.sym} -300 -180 0 0 {name=M5
+C {sky130_fd_pr/pfet3_01v8.sym} -460 -180 0 0 {name=M5
 L=0.15
 W=1
 body=VDD
@@ -230,7 +230,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet3_01v8.sym} 300 -180 0 1 {name=M7
 L=0.15
-W=1
+W=.6
 body=VDD
 nf=1
 mult=1

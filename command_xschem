@@ -1,5 +1,0 @@
-export PDK_ROOT=/foundry/pdks/skywaters/share/pdk
-cp -rf /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/xschem/xschemrc .
-xschem
-.lib/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-

@@ -1,0 +1,28 @@
+v {xschem version=3.1.0 file_version=1.2 }
+G {}
+K {type=subciruit 
+format="@name @pinlist @symname"
+template="name=X1"}
+V {}
+S {}
+E {}
+L 4 320 -260 320 -110 {}
+L 4 170 -260 320 -260 {}
+L 4 170 -260 170 -110 {}
+L 4 170 -110 320 -110 {}
+L 4 140 -240 170 -240 {}
+L 4 140 -130 170 -130 {}
+L 4 320 -240 350 -240 {}
+L 4 320 -130 350 -130 {}
+L 4 240 -110 240 -90 {}
+B 5 137.5 -242.5 142.5 -237.5 {name=D
+dir=inout}
+B 5 137.5 -132.5 142.5 -127.5 {name=clk
+dir=inout}
+B 5 347.5 -242.5 352.5 -237.5 {name=Q
+dir=inout}
+B 5 347.5 -132.5 352.5 -127.5 {name=Qbar
+dir=inout}
+B 5 237.5 -92.5 242.5 -87.5 {name=rstn
+dir=inout}
+T {@name} 230 -190 0 0 0.2 0.2 {}

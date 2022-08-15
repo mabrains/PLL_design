@@ -8,8 +8,6 @@ Initial Design
     - The size of the NMOS cross coupled pair is adjusted to generate a negative resistance which negates the positive resistance of the inductor.
 
 _________________________________________________________________________
-_________________________________________________________________________
-
 - Implemented NMOS based LC VCO operating at 2.45 GHz
     - Schematic:
     ![NMOS LC VCO Schematic](NMOS_LC_VCO_Schematic.png "NMOS LC VCO Schematic")
@@ -17,8 +15,6 @@ _________________________________________________________________________
     ![NMOS LC VCO Output](NMOS_LC_VCO_Diff_Output.png "NMOS LC VCO Differential Output")
 
 _________________________________________________________________________
-_________________________________________________________________________
-
 - Implemented CMOS based LC VCO operating at 2.45 GHz
     - Schematic:
     ![CMOS LC VCO Schematic](CMOS_LC_VCO_Schematic.png "CMOS LC VCO Schematic")

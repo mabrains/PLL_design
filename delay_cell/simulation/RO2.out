@@ -1,0 +1,119 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/mohammed/desktop/ro/ro2.sch
+
+binary raw file "/home/mohammed/Desktop/RO/simulation/RO2.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+No. of Data Columns : 51  
+Warning: singular matrix:  check nodes out1_ and out1_
+
+Note: Starting dynamic gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Note: One successful gmin step
+Trying gmin =   1.0000E-07 Note: One successful gmin step
+Trying gmin =   1.0000E-08 Note: One successful gmin step
+Trying gmin =   1.0000E-09 Note: One successful gmin step
+Trying gmin =   1.0000E-10 Note: One successful gmin step
+Trying gmin =   1.0000E-11 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Note: One successful gmin step
+Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Trying gmin =   1.0000E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   5.6234E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   8.6596E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   9.6466E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   9.9105E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   9.9775E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   9.9944E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   9.9986E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Further gmin increment
+Trying gmin =   9.9996E-03 Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: Last gmin step failed
+Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Supplies reduced to   0.0000% Warning: singular matrix:  check nodes out1_ and out1_
+
+
+Trying gmin =   1.0000E-02 Note: One successful gmin step
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Note: One successful gmin step
+Trying gmin =   1.0000E-07 Note: One successful gmin step
+Trying gmin =   1.0000E-08 Note: One successful gmin step
+Trying gmin =   1.0000E-09 Note: One successful gmin step
+Trying gmin =   1.0000E-10 Note: One successful gmin step
+Trying gmin =   1.0000E-11 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Note: One successful gmin step
+Note: One successful source step
+Supplies reduced to   0.1000% Warning: singular matrix:  check nodes out1_ and out1_
+
+Supplies reduced to   0.0000% Warning: singular matrix:  check nodes out1_ and out1_
+
+Warning: source stepping failed
+Note: Transient op started
+Note: Transient op finished successfully
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+out1                                   1.79961
+x1.net1                                1.79961
+out3                                   1.79961
+x1.net2                                1.79961
+out3_                                 0.308797
+out1_                                 0.308797
+out2                                  0.374098
+x2.net1                               0.374099
+x2.net2                                1.79955
+out2_                                 0.504401
+x3.net1                                1.79955
+x3.net2                               0.374099
+v1#branch                         -1.62667e-07
+
+
+No. of Data Rows : 10008
+
+Total analysis time (seconds) = 0.573
+
+Total elapsed time (seconds) = 2.739 
+
+Total DRAM available = 3925.961 MB.
+DRAM currently available =  438.797 MB.
+Maximum ngspice program size =  163.105 MB.
+Current ngspice program size =  145.523 MB.
+
+Shared ngspice pages =   10.406 MB.
+Text (code) pages =    5.375 MB.
+Stack = 0 bytes.
+Library pages =  143.281 MB.
+

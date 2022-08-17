@@ -46,28 +46,28 @@ N 350 -220 390 -220 {
 lab=out}
 C {sky130_fd_pr/pfet_01v8.sym} 180 -280 0 0 {name=M11
 L=0.15
-W=2
+W=4
 nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 330 -280 0 0 {name=M1
 L=0.15
-W=2
+W=4
 nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 260 -170 0 0 {name=M2
 L=0.15
-W=2
+W=4
 nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 260 -80 0 0 {name=M3
 L=0.15
-W=2
+W=4
 nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X

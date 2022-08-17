@@ -11,18 +11,18 @@ _________________________________________________________________________
 - Implemented NMOS based LC VCO operating at 2.45 GHz
     - Schematic:
     
-    ![NMOS LC VCO Schematic](NMOS_LC_VCO_Schematic.png "NMOS LC VCO Schematic")
+    ![NMOS LC VCO Schematic](images/NMOS_LC_VCO_Schematic.png "NMOS LC VCO Schematic")
     
     - Output: 
     
-    ![NMOS LC VCO Output](NMOS_LC_VCO_Diff_Output.png "NMOS LC VCO Differential Output")
+    ![NMOS LC VCO Output](images/NMOS_LC_VCO_Diff_Output.png "NMOS LC VCO Differential Output")
 
 _________________________________________________________________________
 - Implemented CMOS based LC VCO operating at 2.45 GHz
     - Schematic:
  
-    ![CMOS LC VCO Schematic](CMOS_LC_VCO_Schematic.png "CMOS LC VCO Schematic")
+    ![CMOS LC VCO Schematic](images/CMOS_LC_VCO_Schematic.png "CMOS LC VCO Schematic")
     
     - Output:
     
-    ![CMOS LC VCO Output](CMOS_LC_VCO_Diff_Output.png "CMOS LC VCO Differential Output")
+    ![CMOS LC VCO Output](images/CMOS_LC_VCO_Diff_Output.png "CMOS LC VCO Differential Output")

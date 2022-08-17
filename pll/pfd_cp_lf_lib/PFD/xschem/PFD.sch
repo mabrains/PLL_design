@@ -146,43 +146,21 @@ N 800 -1000 960 -1000 {
 lab=#net3}
 N 800 -1020 800 -1000 {
 lab=#net3}
-N 1960 -1060 2040 -1060 {
-lab=#net9}
-N 1960 -1190 2020 -1190 {
-lab=#net10}
-N 1890 -1160 1890 -1130 {
-lab=GND}
-N 1890 -1130 2060 -1130 {
-lab=GND}
-N 2060 -1160 2060 -1130 {
-lab=GND}
-N 1890 -1030 2060 -1030 {
-lab=GND}
-N 2060 -1030 2080 -1030 {
-lab=GND}
-N 1740 -1060 1850 -1060 {
-lab=up}
-N 1720 -1190 1850 -1190 {
-lab=dn}
-N 2150 -1060 2190 -1060 {
-lab=upf}
-N 2130 -1190 2160 -1190 {
-lab=dnf}
 C {devices/vdd.sym} 900 -1640 0 0 {name=l5 lab=VDD}
-C {sky130_fd_pr/corner.sym} 1490 -1420 0 0 {name=CORNER only_toplevel=false corner=tt}
+C {sky130_fd_pr/corner.sym} 1490 -1420 0 0 {name=CORNER only_toplevel=false corner=ff}
 C {devices/vsource.sym} 120 -1250 0 0 {name=VDD value=1.8}
 C {devices/gnd.sym} 120 -1220 0 0 {name=l13 lab=GND}
 C {devices/vdd.sym} 120 -1280 0 0 {name=l14 lab=VDD}
-C {devices/vsource.sym} 200 -1230 0 0 {name=V1 value="pulse(0 1.8 100p 0.1p 0.1p 0.5n 1n)"}
+C {devices/vsource.sym} 200 -1230 0 0 {name=V1 value="pulse(0 1.8 10n 1n 1n 50n 100n)"}
 C {devices/gnd.sym} 200 -1200 0 0 {name=l15 lab=GND}
 C {devices/lab_pin.sym} 200 -1300 1 0 {name=l16 sig_type=std_logic lab=REF
 }
 C {devices/vsource.sym} 200 -1430 0 0 {name=V2 
-value="pulse(0 1.8 0 0.1p 0.1p 0.5n 1n)"}
+value="pulse(0 1.8 0 1n 1n 50n 100n)"}
 C {devices/gnd.sym} 200 -1400 0 0 {name=l17 lab=GND}
 C {devices/lab_pin.sym} 200 -1510 1 0 {name=l18 sig_type=std_logic lab=FB
 }
-C {devices/code_shown.sym} 1490 -980 0 0 {name=spice only_toplevel=false value=".tran 10p 5n
+C {devices/code_shown.sym} 1490 -980 0 0 {name=spice only_toplevel=false value=".tran 10n 500n
 .save all"}
 C {sky130_fd_pr/nfet3_01v8.sym} 1080 -1160 0 1 {name=M3
 L=0.15
@@ -437,17 +415,4 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {/home/ahmedelbadry/open_pdks/first_work/first_work.sym} -990 -740 0 0 {name=X1}
-C {/home/ahmedelbadry/open_pdks/first_work/first_work.sym} -1160 -740 0 0 {name=X2}
-C {/home/ahmedelbadry/open_pdks/first_work/first_work.sym} -1160 -610 0 0 {name=X3}
-C {/home/ahmedelbadry/open_pdks/first_work/first_work.sym} -970 -610 0 0 {name=X4}
-C {devices/vdd.sym} 1890 -1220 0 0 {name=l12 lab=VDD}
-C {devices/vdd.sym} 2060 -1220 0 0 {name=l22 lab=VDD}
-C {devices/gnd.sym} 1970 -1130 0 0 {name=l23 lab=GND}
-C {devices/gnd.sym} 1980 -1030 0 0 {name=l24 lab=GND}
-C {devices/vdd.sym} 2080 -1090 0 0 {name=l25 lab=VDD}
-C {devices/vdd.sym} 1890 -1090 0 0 {name=l26 lab=VDD}
-C {devices/lab_pin.sym} 1720 -1190 0 0 {name=l27 sig_type=std_logic lab=dn}
-C {devices/lab_pin.sym} 1740 -1060 0 0 {name=l28 sig_type=std_logic lab=up}
-C {devices/lab_pin.sym} 2190 -1060 2 0 {name=l29 sig_type=std_logic lab=upf}
-C {devices/lab_pin.sym} 2160 -1190 2 0 {name=l30 sig_type=std_logic lab=dnf}
+

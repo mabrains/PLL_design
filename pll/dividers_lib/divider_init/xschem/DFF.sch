@@ -6,8 +6,6 @@ S {}
 E {}
 N 150 -370 180 -370 {
 lab=D}
-N 320 -370 360 -370 {
-lab=#net1}
 N 230 -320 230 -250 {
 lab=clk}
 N 230 -450 230 -420 {
@@ -23,15 +21,15 @@ lab=gnd}
 N 260 -220 290 -220 {
 lab=clk}
 N 340 -170 410 -170 {
-lab=#net2}
+lab=#net1}
 N 490 -120 490 -100 {
 lab=gnd}
 N 530 -170 570 -170 {
-lab=#net3}
+lab=#net2}
 N 570 -370 570 -170 {
-lab=#net3}
+lab=#net2}
 N 480 -370 570 -370 {
-lab=#net3}
+lab=#net2}
 N 490 -240 490 -220 {
 lab=vdd}
 N 390 -250 400 -250 {
@@ -41,9 +39,7 @@ lab=gnd}
 N 390 -220 420 -220 {
 lab=clkb}
 N 650 -370 680 -370 {
-lab=#net3}
-N 820 -370 860 -370 {
-lab=#net4}
+lab=#net2}
 N 730 -320 730 -250 {
 lab=clkb}
 N 730 -450 730 -420 {
@@ -55,7 +51,7 @@ lab=vdd}
 N 900 -320 900 -300 {
 lab=gnd}
 N 840 -170 910 -170 {
-lab=#net5}
+lab=#net3}
 N 990 -120 990 -100 {
 lab=gnd}
 N 1030 -170 1070 -170 {
@@ -73,7 +69,7 @@ lab=gnd}
 N 890 -220 920 -220 {
 lab=clk}
 N 570 -370 650 -370 {
-lab=#net3}
+lab=#net2}
 N 230 -220 260 -220 {
 lab=clk}
 N 230 -250 230 -220 {
@@ -86,15 +82,21 @@ N 730 -220 770 -220 {
 lab=clkb}
 N 770 -220 790 -220 {
 lab=clkb}
-N 340 -370 340 -310 {
-lab=#net1}
-N 840 -370 840 -310 {
-lab=#net4}
 N 1070 -310 1080 -310 {
 lab=out}
+N 190 -260 230 -260 {
+lab=clk}
+N 320 -370 360 -370 {
+lab=#net4}
+N 340 -370 340 -310 {
+lab=#net4}
+N 820 -370 860 -370 {
+lab=#net5}
+N 840 -370 840 -310 {
+lab=#net5}
 C {inv.sym} 340 -250 0 0 {name=x3}
 C {devices/ipin.sym} 150 -370 0 0 {name=p1 lab=D}
-C {devices/ipin.sym} 230 -260 0 0 {name=p2 lab=clk}
+C {devices/ipin.sym} 190 -260 0 0 {name=p2 lab=clk}
 C {TG.sym} 140 -220 0 0 {name=x1}
 C {TG.sym} 490 -130 3 0 {name=x2}
 C {devices/ipin.sym} 230 -450 0 0 {name=p3 lab=clkb}

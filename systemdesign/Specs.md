@@ -5,8 +5,8 @@
 | --- | --- |
 | `Center frequencies` | 2.402-2.480 GHz|
 | `Phase noise @ 1MHz offset (From Standard)` |<-74 dBc/Hz |
-| `Phase noise @ 2MHz offset (From Standard) ` |<-106 dB/Hz|
-| `Phase noise @ 3MHz offset (From Standard)` | <-116 dB/Hz |
+| `Phase noise @ 2MHz offset (From Standard) ` |<-106 dBc/Hz|
+| `Phase noise @ 3MHz offset (From Standard)` | <-116 dBc/Hz |
 | `Synthesizer lock time (From Standard)  ` | (<68𝜇)|
 | `Loop Bandwidth` | 150 KHz|
 | `Phase margin ` | 55°|

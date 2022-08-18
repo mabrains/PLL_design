@@ -1,5 +1,6 @@
 # PLL System Design
-### System Parameters:
+
+## System Parameters:
 * Kvco = 200MHz/V
 * Ichp = 100uA
 * Fref = 10 MHz
@@ -7,31 +8,33 @@
 * Loop Bandwidth = 150 KHz
 * Phase margin = 55
 
-### Open loop response:
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/OL_Tf.png)
+## Open loop response:
 
-### Closed loop response:
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/CL_Tf.png)
+![Open loop response](../phase_noise_images/OL_Tf.png)
+
+## Closed loop response:
+
+![Closed loop response](../phase_noise_images/CL_Tf.png)
 
 ## Phase noise profile of each block:
 
 ### Crystal Oscillator Noise Model
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/Crystal_PN_Model.png)
+![Crystal Oscillator Noise Model](../phase_noise_images/Crystal_PN_Model.png)
 
 ### PFD/CHP Noise Model
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/PFDCHP_PN_Model.png)
+![PFD/CHP Noise Model](../phase_noise_images/PFDCHP_PN_Model.png)
 
 ### VCO Noise Model
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/VCO_PN_Model.png)
+![VCO Noise Model](../phase_noise_images/VCO_PN_Model.png)
 
 ### Divider Noise Model
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/PFDCHP_PN_Model.png)
+![Divider Noise Model](../phase_noise_images/PFDCHP_PN_Model.png)
 
-As we can see in the following figure, each noise source sees a different transfer function depending on the position in the loop to the output.
+As in the following figure, each noise source sees a different transfer function depending on the position in the loop to the output.
 ![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/Linearized_Model.png)
 
-### Total Output Phase noise
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/Total_out_PN.png)
+## Total Output Phase noise
+![](../phase_noise_images/Total_out_PN.png)
 
 | Phase Noise | Value |
 | --- | --- |

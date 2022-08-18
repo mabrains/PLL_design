@@ -11,8 +11,8 @@ We can get Tout= (256 - 0 * 128 - 0 * 64  - 0 * 32 - 0 * 16 - 0 * 8 - 1 * 4 - 1 
 
 The Testbench and output signal are depicted here:
 
-![output signal](testbench.png)
-![output signal](fout.png)
+![output signal](images/testbench.png)
+![output signal](images/fout.png)
 
 
 The output frequency (fout) is 10 MHZ or 0.1us period.

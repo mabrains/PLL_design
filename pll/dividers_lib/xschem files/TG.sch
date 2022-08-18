@@ -43,4 +43,4 @@ C {devices/ipin.sym} 340 -160 0 0 {name=p2 lab=in}
 C {devices/ipin.sym} 340 -90 0 0 {name=p3 lab=gnd}
 C {devices/ipin.sym} 420 -310 0 0 {name=p4 lab=clkb}
 C {devices/ipin.sym} 420 -10 0 0 {name=p5 lab=clk}
-C {devices/opin.sym} 480 -160 0 0 {name=p6 lab=out}
+C {devices/iopin.sym} 480 -160 0 0 {name=p6 lab=out}

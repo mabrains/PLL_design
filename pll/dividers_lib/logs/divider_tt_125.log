@@ -1,0 +1,239 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/monem/simulations/divider_tb.sch
+
+Doing analysis at TEMP = 125.000000 and TNOM = 27.000000
+
+Warning: v1: no DC value, transient time 0 value used
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+p2                                           0
+p4                                         1.8
+p1                                           0
+p3                                           0
+p5                                           0
+p6                                           0
+p0                                           0
+p7                                           0
+x1.x1.x2.net1                      7.71236e-05
+x1.net1                                1.74227
+x1.net2                                    1.8
+x1.x1.x2.x1.net1                   3.79633e-05
+x1.x1.net3                             1.74226
+x1.x1.net1                         2.89669e-05
+x1.x1.net2                                 1.8
+x1.x1.x3.net1                       9.8576e-08
+fin                                        0.9
+x1.x1.x4.net1                         0.753236
+x1.x1.x4.net2                        0.0188828
+opennet                            2.89661e-05
+x1.x1.fib                             0.919628
+x1.x1.x1.net2                          1.78873
+x1.x1.x1.net4                         0.620336
+x1.x1.x1.net1                        0.0337747
+x1.x1.x1.net5                          1.79363
+x1.x1.x1.net3                          1.79876
+x1.x1.x6.net2                          1.78873
+x1.x1.x6.net4                         0.620315
+x1.x1.x6.net1                        0.0337743
+x1.x1.x6.net5                          1.79363
+x1.x1.x6.net3                          1.79876
+x1.x2.x2.net1                              1.8
+x1.net3                            5.08524e-05
+x1.net4                            2.67138e-05
+x1.x2.x2.x1.net1                     0.0625104
+x1.x2.net3                         2.67601e-05
+x1.x2.net1                                 1.8
+x1.x2.net2                                 1.8
+x1.x2.x3.net1                       2.5426e-05
+x1.x2.x4.net1                          1.44941
+x1.x2.x4.net2                      2.66457e-08
+x1.x2.fib                          5.48813e-05
+x1.x2.x1.net2                          1.79991
+x1.x2.x1.net4                      5.08844e-05
+x1.x2.x1.net1                      2.67604e-05
+x1.x2.x1.net5                      0.000134688
+x1.x2.x1.net3                      7.98311e-05
+x1.x2.x6.net2                          1.79991
+x1.x2.x6.net4                      2.67921e-05
+x1.x2.x6.net1                      2.67604e-05
+x1.x2.x6.net5                      0.000134688
+x1.x2.x6.net3                      7.98311e-05
+x1.x3.x2.net1                              1.8
+x1.net5                                1.79995
+x1.net6                            2.67138e-05
+x1.x3.x2.x1.net1                       1.48147
+x1.x3.net3                         2.67297e-05
+x1.x3.net1                         2.67138e-05
+x1.x3.net2                                 1.8
+x1.x3.x3.net1                      1.03164e-07
+x1.x3.x4.net1                        0.0368359
+x1.x3.x4.net2                       0.00494169
+x1.x3.fib                                  1.8
+x1.x3.x1.net2                              1.8
+x1.x3.x1.net4                      8.02265e-05
+x1.x3.x1.net1                      5.34774e-05
+x1.x3.x1.net5                              1.8
+x1.x3.x1.net3                              1.8
+x1.x3.x6.net2                              1.8
+x1.x3.x6.net4                      2.67913e-05
+x1.x3.x6.net1                      2.67602e-05
+x1.x3.x6.net5                              1.8
+x1.x3.x6.net3                              1.8
+x1.x4.x2.net1                              1.8
+x1.net7                            5.08524e-05
+x1.net8                            2.67138e-05
+x1.x4.x2.x1.net1                     0.0625104
+x1.x4.net3                         2.67602e-05
+x1.x4.net1                                 1.8
+x1.x4.net2                                 1.8
+x1.x4.x3.net1                       2.5426e-05
+x1.x4.x4.net1                          1.51146
+x1.x4.x4.net2                        0.0310595
+x1.x4.fib                          2.67295e-05
+x1.x4.x1.net2                          1.79995
+x1.x4.x1.net4                      5.08835e-05
+x1.x4.x1.net1                      2.67452e-05
+x1.x4.x1.net5                      8.02574e-05
+x1.x4.x1.net3                      5.34925e-05
+x1.x4.x6.net2                              1.8
+x1.x4.x6.net4                      2.67913e-05
+x1.x4.x6.net1                      2.67296e-05
+x1.x4.x6.net5                              1.8
+x1.x4.x6.net3                              1.8
+x1.x5.x2.net1                              1.8
+x1.net9                            7.62111e-05
+x1.net10                           2.67138e-05
+x1.x5.x2.x1.net1                     0.0625255
+x1.x5.net3                         2.67296e-05
+x1.x5.net1                                 1.8
+x1.x5.net2                                 1.8
+x1.x5.x3.net1                       3.8105e-05
+x1.x5.x4.net1                        0.0243621
+x1.x5.x4.net2                        0.0243621
+x1.x5.fib                                  1.8
+x1.x5.x1.net2                      2.67914e-05
+x1.x5.x1.net4                          1.79991
+x1.x5.x1.net1                          1.79995
+x1.x5.x1.net5                      2.68225e-05
+x1.x5.x1.net3                      2.67296e-05
+x1.x5.x6.net2                              1.8
+x1.x5.x6.net4                      2.67913e-05
+x1.x5.x6.net1                      2.67602e-05
+x1.x5.x6.net5                              1.8
+x1.x5.x6.net3                              1.8
+x1.x6.x2.net1                      5.08232e-05
+x1.net11                               1.79995
+x1.net12                                   1.8
+x1.x6.x2.x1.net1                   2.54111e-05
+x1.x6.net3                             1.79995
+x1.x6.net1                         2.67138e-05
+x1.x6.net2                                 1.8
+x1.x6.x3.net1                      1.03164e-07
+x1.x6.x4.net1                         0.036848
+x1.x6.x4.net2                       0.00494275
+x1.x6.fib                                  1.8
+x1.x6.x1.net2                              1.8
+x1.x6.x1.net4                      8.02266e-05
+x1.x6.x1.net1                      5.34775e-05
+x1.x6.x1.net5                              1.8
+x1.x6.x1.net3                              1.8
+x1.x6.x6.net2                              1.8
+x1.x6.x6.net4                      8.02268e-05
+x1.x6.x6.net1                      5.34776e-05
+x1.x6.x6.net5                              1.8
+x1.x6.x6.net3                              1.8
+x1.x7.x2.net1                              1.8
+x1.net13                           5.08525e-05
+x1.net14                           2.67138e-05
+x1.x7.x2.x1.net1                     0.0625104
+x1.x7.net3                         2.67602e-05
+x1.x7.net1                                 1.8
+x1.x7.net2                                 1.8
+x1.x7.x3.net1                       2.5426e-05
+x1.x7.x4.net1                          1.49718
+x1.x7.x4.net2                       2.7623e-08
+x1.x7.fib                          2.67295e-05
+x1.x7.x1.net2                          1.79995
+x1.x7.x1.net4                      5.08836e-05
+x1.x7.x1.net1                      2.67452e-05
+x1.x7.x1.net5                      8.02574e-05
+x1.x7.x1.net3                      5.34925e-05
+x1.x7.x6.net2                          1.79995
+x1.x7.x6.net4                      2.67913e-05
+x1.x7.x6.net1                      2.67452e-05
+x1.x7.x6.net5                      8.02574e-05
+x1.x7.x6.net3                      5.34925e-05
+x1.x8.x2.net1                      5.08232e-05
+fout                                   1.79995
+x1.x8.x2.x1.net1                   2.54111e-05
+x1.x8.net3                             1.79995
+x1.x8.net1                         2.67138e-05
+x1.x8.net2                                 1.8
+x1.x8.x3.net1                      1.03164e-07
+x1.x8.x4.net1                        0.0368358
+x1.x8.x4.net2                       0.00494169
+x1.x8.fib                                  1.8
+x1.x8.x1.net2                              1.8
+x1.x8.x1.net4                      8.02265e-05
+x1.x8.x1.net1                      5.34774e-05
+x1.x8.x1.net5                              1.8
+x1.x8.x1.net3                              1.8
+x1.x8.x6.net2                              1.8
+x1.x8.x6.net4                      8.02268e-05
+x1.x8.x6.net1                      5.34776e-05
+x1.x8.x6.net5                              1.8
+x1.x8.x6.net3                              1.8
+v1#branch                                    0
+vdd8#branch                                  0
+vdd7#branch                                  0
+vdd6#branch                                  0
+vdd5#branch                                  0
+vdd4#branch                                  0
+vdd3#branch                                  0
+vdd2#branch                                  0
+vdd1#branch                                  0
+vdd#branch                        -0.000271203
+
+
+No. of Data Rows : 50008
+
+  Measurements for Transient Analysis
+
+tdiff               =  1.000000e-07 targ=  2.860013e-07 trig=  1.860013e-07
+frequency           =  1.00000e+07
+
+Doing analysis at TEMP = 125.000000 and TNOM = 27.000000
+
+Warning: v1: no DC value, transient time 0 value used
+
+  Measurements for Transient Analysis
+
+tdiff               =  1.000000e-07 targ=  2.860013e-07 trig=  1.860013e-07
+Netlist line no. 27:
+insertnumber: fails.
+  s = ".measure tran frequency param=    9.999997131813668e+06   " u="  9.999997131813668e+06  " id=0
+frequency           =  1.00000e+07
+
+
+Total analysis time (seconds) = 289.221
+
+Total elapsed time (seconds) = 364.388 
+
+Total DRAM available = 5052.961 MB.
+DRAM currently available =  663.449 MB.
+Maximum ngspice program size =  859.473 MB.
+Current ngspice program size =  841.863 MB.
+
+Shared ngspice pages =   10.441 MB.
+Text (code) pages =    5.375 MB.
+Stack = 0 bytes.
+Library pages =  839.648 MB.
+

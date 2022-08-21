@@ -12,9 +12,8 @@ C1 = Cf/2
 C2 = C1
 
 ### Calculating Rs and Rp ###
-Rs = L*w/Q
-Rp = Q*L*w
-
+Rs = L*w/(2*Q)
+Rp = 2*Q*L*w
 ### Printing model parameters ###
 print("### Model parameters at Q =",Q,"& frequency =",f,"GHz ###")
 print("Inductor inductance (L) =",L,"nH")

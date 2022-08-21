@@ -28,7 +28,7 @@
 ![VCO Noise Model](../phase_noise_images/VCO_PN_Model.png)
 
 ### Divider Noise Model
-![Divider Noise Model](../phase_noise_images/PFDCHP_PN_Model.png)
+![Divider Noise Model](https://github.com/mabrains/PLL_design/blob/main/pll/system/phase_noise_images/Divider_PN_Model.png)
 
 As in the following figure, each noise source sees a different transfer function depending on the position in the loop to the output.
 ![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/Linearized_Model.png)

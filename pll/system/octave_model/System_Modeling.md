@@ -10,31 +10,31 @@
 
 ## Open loop response:
 
-![Open loop response](../phase_noise_images/OL_Tf.png)
+![Open loop response](images/OL_Tf.png)
 
 ## Closed loop response:
 
-![Closed loop response](../phase_noise_images/CL_Tf.png)
+![Closed loop response](images/CL_Tf.png)
 
 ## Phase noise profile of each block:
 
 ### Crystal Oscillator Noise Model
-![Crystal Oscillator Noise Model](../phase_noise_images/Crystal_PN_Model.png)
+![Crystal Oscillator Noise Model](images/Crystal_PN_Model.png)
 
 ### PFD/CHP Noise Model
-![PFD/CHP Noise Model](../phase_noise_images/PFDCHP_PN_Model.png)
+![PFD/CHP Noise Model](images/PFDCHP_PN_Model.png)
 
 ### VCO Noise Model
-![VCO Noise Model](../phase_noise_images/VCO_PN_Model.png)
+![VCO Noise Model](images/VCO_PN_Model.png)
 
 ### Divider Noise Model
-![Divider Noise Model](../phase_noise_images/PFDCHP_PN_Model.png)
+![Divider Noise Model](images/PFDCHP_PN_Model.png)
 
 As in the following figure, each noise source sees a different transfer function depending on the position in the loop to the output.
-![](https://github.com/mabrains/PLL_design/blob/System_Design/systemdesign/phase_noise_images/Linearized_Model.png)
+![Linearized_Model](images/Linearized_Model.png)
 
 ## Total Output Phase noise
-![](../phase_noise_images/Total_out_PN.png)
+![Total_out_PN](images/Total_out_PN.png)
 
 | Phase Noise | Value |
 | --- | --- |

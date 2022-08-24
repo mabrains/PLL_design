@@ -1,4 +1,4 @@
-// VerilogA for GP_2022, PFD, veriloga
+// VerilogA for PFD, veriloga
 `include "constants.vams"
 `include "disciplines.vams"
 module PFD(REF,FB,UP,DN);

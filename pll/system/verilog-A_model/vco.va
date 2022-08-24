@@ -1,4 +1,4 @@
-// VerilogA for serdes, vco, veriloga
+// VerilogA for vco, veriloga
 
 `include "constants.vams"
 `include "disciplines.vams"

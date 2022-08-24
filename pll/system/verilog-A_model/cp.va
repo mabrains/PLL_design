@@ -1,4 +1,4 @@
-// VerilogA for serdes, charge_pump, veriloga
+// VerilogA for charge_pump, veriloga
 
 `include "constants.vams"
 `include "disciplines.vams"

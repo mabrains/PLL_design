@@ -1,1 +1,0 @@
-{"buildTargets":["Makefile","all","check-caravel","check-pdk","check-precheck","clean","help","install","openlane","precheck","run-precheck","simenv","simlink","uninstall","update_caravel","verify","verify-mprj_por"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

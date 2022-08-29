@@ -1,4 +1,0 @@
-ngspice transient_no_noise.spice
-python3 noise_param_calc.py 
-ngspice transient_with_noise.spice
-python3 phaseNoise_calc.py

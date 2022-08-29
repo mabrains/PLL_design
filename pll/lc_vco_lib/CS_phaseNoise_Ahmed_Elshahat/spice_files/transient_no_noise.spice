@@ -95,6 +95,7 @@ VresNoise vout net2 DC 0 trnoise (0 0 0 0)
   print eps_o eps_r t_ox k_flkr_mos k temp cox length(fc_flkr) length(v_flkr_mos) v_whit_res 
   wrdata gm_no_noise.csv tran1.gm_no_noise
   
+  
 .endc
 
 **** end user architecture code

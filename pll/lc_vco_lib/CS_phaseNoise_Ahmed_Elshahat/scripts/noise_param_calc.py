@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-gm_file = pd.read_csv ("gm_no_noise.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
+gm_file = pd.read_csv ("../csv_files/gm_no_noise.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
 gm_array = gm_file.to_numpy()
 gm_array = gm_array.ravel()
 gm_array = np.array(gm_array)

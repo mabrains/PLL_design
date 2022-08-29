@@ -10,14 +10,14 @@ def get_gm(file_name):
 	gm_array = np.array(gm_array)
 	return gm_array
 
-gm1 = get_gm("gm1_no_noise.csv").max()
-gm2 = get_gm("gm2_no_noise.csv").max()
-gm3 = get_gm("gm3_no_noise.csv").max()
-gm4 = get_gm("gm4_no_noise.csv").max()
-gm5 = get_gm("gm5_no_noise.csv").max()
-gm7 = get_gm("gm7_no_noise.csv").max()
-gm10 = get_gm("gm10_no_noise.csv").max()
-gm11 = get_gm("gm11_no_noise.csv").max()
+gm1 = get_gm("../csv_files/gm1_no_noise.csv").max()
+gm2 = get_gm("../csv_files/gm2_no_noise.csv").max()
+gm3 = get_gm("../csv_files/gm3_no_noise.csv").max()
+gm4 = get_gm("../csv_files/gm4_no_noise.csv").max()
+gm5 = get_gm("../csv_files/gm5_no_noise.csv").max()
+gm7 = get_gm("../csv_files/gm7_no_noise.csv").max()
+gm10 = get_gm("../csv_files/gm10_no_noise.csv").max()
+gm11 = get_gm("../csv_files/gm11_no_noise.csv").max()
 
 gm = [gm1, gm2, gm4, gm5, gm7, gm11]
 # constants

@@ -85,11 +85,10 @@ lab=GND}
 C {devices/vsource.sym} 100 -40 0 0 {name=VDD value=1.8}
 C {devices/gnd.sym} 100 -10 0 0 {name=l5 lab=GND}
 C {devices/vdd.sym} 100 -80 0 0 {name=l6 lab=VDD}
-C {devices/code_shown.sym} 60 140 0 0 {name=SPICE only_toplevel=false value=".tran 1n 2u
+C {devices/code_shown.sym} 710 60 0 0 {name=SPICE only_toplevel=false value=".tran 1n 2u
 .nodeset v(Vout)=0
 .op
 .save all"}
-C {sky130_fd_pr/corner.sym} -60 -40 0 0 {name=CORNER only_toplevel=false corner=tt}
 C {sky130_fd_pr/nfet_01v8.sym} 440 -190 0 0 {name=M2
 L=0.15
 W=1
@@ -153,3 +152,12 @@ m=1
 value=1u
 footprint=1206
 device="ceramic capacitor"}
+C {devices/code.sym} 720 -130 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+
+"
+spice_ignore=false}

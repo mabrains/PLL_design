@@ -12,7 +12,7 @@ N 1860 -970 1860 -920 {
 lab=REF}
 N 1860 -1170 1860 -1120 {
 lab=FB}
-C {/home/ahmedelbadry/PFD/PFD.sym} 2060 -1060 0 0 {name=X1}
+C {../../PFD/xschem/PFD.sym} 2060 -1060 0 0 {name=X1}
 C {devices/gnd.sym} 2150 -1000 0 0 {name=l16 lab=GND}
 C {devices/vdd.sym} 2150 -1070 0 0 {name=l17 lab=VDD}
 C {devices/lab_pin.sym} 2200 -1050 2 0 {name=l18 sig_type=std_logic lab=UP}
@@ -36,4 +36,15 @@ C {devices/lab_pin.sym} 1860 -1170 1 0 {name=l23 sig_type=std_logic lab=FB
 C {devices/gnd.sym} 1860 -860 0 0 {name=l3 lab=GND}
 C {sky130_fd_pr/corner.sym} 2355 -1125 0 0 {name=CORNER only_toplevel=false corner=tt}
 C {devices/code_shown.sym} 2380 -910 0 0 {name=spice1 only_toplevel=false value=".tran 0.1ns 400ns
-.save all"}
+.control
+plot UP DN
+.endc"}
+C {devices/code.sym} 2480 -1120 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+
+"
+spice_ignore=false}

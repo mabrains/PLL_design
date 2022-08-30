@@ -95,25 +95,19 @@ lab=#net6}
 N 4260 -610 4330 -610 {
 lab=UBP}
 N 3830 -610 3900 -610 {
-lab=UB}
+lab=UP}
 N 4050 -710 4050 -690 {
 lab=#net6}
 N 4050 -820 4050 -770 {
 lab=#net7}
-N 4250 -200 4300 -200 {
+N 4280 -320 4330 -320 {
 lab=DN}
-N 4410 -200 4470 -200 {
+N 4440 -320 4500 -320 {
 lab=DNB}
 N 3930 -560 4030 -560 {
 lab=VON}
 N 4220 -550 4450 -550 {
 lab=VOP}
-N 3230 -480 3230 -410 {
-lab=UB}
-N 3220 -700 3220 -620 {
-lab=DN}
-N 3220 -620 3220 -610 {
-lab=DN}
 N 3540 -540 3580 -540 {
 lab=VBN}
 N 3580 -540 3580 -450 {
@@ -122,10 +116,18 @@ N 3580 -450 3620 -450 {
 lab=VBN}
 N 3620 -450 3620 -320 {
 lab=VBN}
-N 3040 -130 3080 -130 {
+N 4240 -770 4280 -770 {
 lab=GND}
-N 3090 -470 3090 -420 {
+N 4300 -940 4300 -880 {
 lab=U}
+N 4450 -550 4490 -550 {
+lab=VOP}
+N 4330 -500 4370 -500 {
+lab=DN}
+N 4370 -500 4370 -480 {
+lab=DN}
+N 3830 -650 3830 -610 {
+lab=UP}
 C {sky130_fd_pr/nfet3_01v8.sym} 3690 -200 0 0 {name=M1
 L=0.6
 W=2
@@ -231,8 +233,6 @@ C {devices/lab_pin.sym} 3650 -320 1 0 {name=l1 sig_type=std_logic lab=VBN}
 C {devices/lab_pin.sym} 3650 -200 1 0 {name=l2 sig_type=std_logic lab=Nbais}
 C {devices/lab_pin.sym} 3640 -480 0 0 {name=l3 sig_type=std_logic lab=VBp}
 C {devices/lab_pin.sym} 3600 -640 2 0 {name=l4 sig_type=std_logic lab=p_bais}
-C {devices/gnd.sym} 3610 -110 0 0 {name=l5 lab=GND}
-C {devices/vdd.sym} 3630 -750 0 0 {name=l7 lab=VDD}
 C {sky130_fd_pr/nfet3_01v8.sym} 4080 -200 0 0 {name=M7
 L=0.6
 W=2
@@ -249,7 +249,6 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 3980 -200 0 0 {name=l6 sig_type=std_logic lab=Nbais}
-C {devices/gnd.sym} 4100 -110 0 0 {name=l8 lab=GND}
 C {sky130_fd_pr/nfet3_01v8.sym} 4080 -300 0 0 {name=M8
 L=0.6
 W=2
@@ -356,54 +355,45 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/vdd.sym} 4050 -880 0 0 {name=l10 lab=VDD}
 C {devices/lab_pin.sym} 4010 -850 0 0 {name=l11 sig_type=std_logic lab=p_bais}
 C {devices/lab_pin.sym} 4010 -740 0 0 {name=l12 sig_type=std_logic lab=VBp}
-C {devices/lab_pin.sym} 4330 -500 2 0 {name=l13 sig_type=std_logic lab=DN}
 C {devices/lab_pin.sym} 3820 -490 3 0 {name=l14 sig_type=std_logic lab=DNB}
-C {devices/lab_pin.sym} 3830 -610 3 0 {name=l15 sig_type=std_logic lab=UB}
 C {devices/lab_pin.sym} 4330 -610 3 0 {name=l16 sig_type=std_logic lab=UBP}
-C {devices/lab_pin.sym} 4250 -200 0 0 {name=l17 sig_type=std_logic lab=DN}
-C {devices/lab_pin.sym} 4470 -200 3 0 {name=l18 sig_type=std_logic lab=DNB}
-C {devices/gnd.sym} 4350 -10 0 0 {name=l19 lab=GND}
-C {devices/vdd.sym} 4350 -70 0 0 {name=l21 lab=VDD}
-C {devices/lab_pin.sym} 4310 -40 0 0 {name=l22 sig_type=std_logic lab=UB}
-C {devices/lab_pin.sym} 4420 -40 2 0 {name=l23 sig_type=std_logic lab=UBP}
+C {devices/lab_pin.sym} 4280 -320 0 0 {name=l17 sig_type=std_logic lab=DN}
+C {devices/lab_pin.sym} 4500 -320 3 0 {name=l18 sig_type=std_logic lab=DNB}
+C {devices/lab_pin.sym} 4340 -160 0 0 {name=l22 sig_type=std_logic lab=UP}
+C {devices/lab_pin.sym} 4450 -160 2 0 {name=l23 sig_type=std_logic lab=UBP}
 C {devices/lab_pin.sym} 4030 -560 3 0 {name=l25 sig_type=std_logic lab=VON}
-C {devices/vsource.sym} 3360 -370 0 0 {name=Vdd
-value=1.8}
-C {devices/gnd.sym} 3360 -340 0 0 {name=l26 lab=GND}
-C {devices/vdd.sym} 3360 -400 0 0 {name=l27 lab=VDD}
-C {devices/vsource.sym} 3230 -385 0 0 {name=Vin
-value=1.8
+C {inverter.sym} 1330 290 0 0 {name=X1}
+C {inverter.sym} 1320 130 0 0 {name=X2}
+C {OTA.sym} 4180 -830 0 0 {name=X3}
+C {devices/lab_pin.sym} 4230 -800 0 0 {name=l33 sig_type=std_logic lab=VON}
+C {devices/lab_pin.sym} 4230 -830 0 0 {name=l34 sig_type=std_logic lab=VOP}
+C {devices/lab_pin.sym} 4330 -820 2 0 {name=l35 sig_type=std_logic lab=VON}
+C {devices/lab_pin.sym} 4300 -770 3 0 {name=l41 sig_type=std_logic lab=U}
+C {devices/iopin.sym} 4010 -1010 3 0 {name=p4 lab=VDD}
+C {devices/iopin.sym} 4060 90 1 0 {name=p5 lab=GND}
+C {devices/lab_pin.sym} 4380 -130 3 0 {name=l19 sig_type=std_logic lab=GND
 }
-C {devices/gnd.sym} 3230 -355 0 0 {name=l28 lab=GND}
-C {devices/vsource.sym} 3220 -585 0 0 {name=Vin1
-value=1.8
+C {devices/lab_pin.sym} 4370 -290 3 0 {name=l21 sig_type=std_logic lab=GND
 }
-C {devices/gnd.sym} 3220 -555 0 0 {name=l30 lab=GND}
-C {devices/lab_pin.sym} 3230 -480 1 0 {name=l32 sig_type=std_logic lab=UB}
-C {devices/lab_pin.sym} 3220 -700 1 0 {name=l29 sig_type=std_logic lab=DN}
-C {devices/vsource.sym} 4450 -520 0 0 {name=VOP value=0.9}
-C {devices/gnd.sym} 4450 -490 0 0 {name=l36 lab=GND}
-C {sky130_fd_pr/corner.sym} 4755 -515 0 0 {name=CORNER only_toplevel=false corner=tt}
-C {devices/code_shown.sym} 4790 -300 0 0 {name=spice only_toplevel=false value=".dc VOP 0 1.8 0.1
-.save all"}
-C {devices/gnd.sym} 4340 -170 0 0 {name=l37 lab=GND}
-C {devices/lab_pin.sym} 4390 -550 3 0 {name=l38 sig_type=std_logic lab=VOP}
-C {inverter.sym} 1300 410 0 0 {name=X1}
-C {inverter.sym} 1290 250 0 0 {name=X2}
-C {devices/vdd.sym} 4340 -230 0 0 {name=l24 lab=VDD}
-C {OTA.sym} 2980 -190 0 0 {name=X3}
-C {devices/vdd.sym} 3070 -240 0 0 {name=l20 lab=VDD}
-C {devices/gnd.sym} 3040 -130 0 0 {name=l31 lab=GND}
-C {devices/lab_pin.sym} 3030 -160 0 0 {name=l33 sig_type=std_logic lab=VON}
-C {devices/lab_pin.sym} 3030 -190 0 0 {name=l34 sig_type=std_logic lab=VOP}
-C {devices/lab_pin.sym} 3130 -180 2 0 {name=l35 sig_type=std_logic lab=VON}
-C {devices/vsource.sym} 3090 -395 0 0 {name=Vin2
-value=0.9
+C {devices/lab_pin.sym} 4380 -190 1 0 {name=l24 sig_type=std_logic lab=VDD
 }
-C {devices/gnd.sym} 3090 -365 0 0 {name=l39 lab=GND}
-C {devices/lab_pin.sym} 3090 -470 1 0 {name=l40 sig_type=std_logic lab=U}
-C {devices/lab_pin.sym} 3100 -130 3 0 {name=l41 sig_type=std_logic lab=U}
-C {devices/lab_pin.sym} 3100 -240 1 0 {name=l42 sig_type=std_logic lab=U}
+C {devices/lab_pin.sym} 4370 -350 1 0 {name=l37 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} 4100 -110 3 0 {name=l8 sig_type=std_logic lab=GND
+}
+C {devices/lab_pin.sym} 4050 -880 1 0 {name=l10 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} 3630 -750 1 0 {name=l7 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} 3630 -110 3 0 {name=l5 sig_type=std_logic lab=GND
+}
+C {devices/lab_pin.sym} 4240 -770 3 0 {name=l31 sig_type=std_logic lab=GND
+}
+C {devices/lab_pin.sym} 4270 -880 1 0 {name=l20 sig_type=std_logic lab=VDD
+}
+C {devices/opin.sym} 4480 -550 0 0 {name=p1 lab=VOP}
+C {devices/ipin.sym} 4370 -490 3 0 {name=p2 lab=DN}
+C {devices/ipin.sym} 3830 -640 1 0 {name=p3 lab=UP}
+C {devices/ipin.sym} 4300 -930 1 0 {name=p6 lab=U}

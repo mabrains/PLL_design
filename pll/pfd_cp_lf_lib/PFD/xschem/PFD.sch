@@ -140,6 +140,14 @@ N 800 -1000 960 -1000 {
 lab=#net3}
 N 800 -1020 800 -1000 {
 lab=#net3}
+N 1550 -1080 1580 -1080 {
+lab=REF}
+N 210 -1070 250 -1070 {
+lab=FB}
+N 400 -1220 470 -1220 {
+lab=up}
+N 1330 -1220 1420 -1220 {
+lab=dn}
 C {sky130_fd_pr/nfet3_01v8.sym} 1080 -1160 0 1 {name=M3
 L=0.15
 W=2.5
@@ -357,8 +365,6 @@ C {devices/lab_pin.sym} 610 -1550 3 0 {name=l8 sig_type=std_logic lab=FB}
 C {devices/lab_pin.sym} 1150 -1440 2 0 {name=l9 sig_type=std_logic lab=FB}
 C {devices/lab_pin.sym} 630 -1440 0 0 {name=l10 sig_type=std_logic lab=REF}
 C {devices/lab_pin.sym} 1100 -1130 3 0 {name=l11 sig_type=std_logic lab=FB}
-C {devices/lab_pin.sym} 470 -1190 0 0 {name=l19 sig_type=std_logic lab=up}
-C {devices/lab_pin.sym} 1330 -1200 2 0 {name=l20 sig_type=std_logic lab=dn}
 C {devices/lab_pin.sym} 720 -1130 3 0 {name=l21 sig_type=std_logic lab=REF}
 C {sky130_fd_pr/nfet3_01v8.sym} 1040 -1020 0 0 {name=M11
 L=0.15
@@ -390,8 +396,8 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/iopin.sym} 320 -1760 0 0 {name=p4 lab=VDD}
-C {devices/iopin.sym} 440 -770 0 0 {name=p5 lab=GND}
+C {devices/iopin.sym} 850 -1700 3 0 {name=p4 lab=VDD}
+C {devices/iopin.sym} 800 -860 1 0 {name=p5 lab=GND}
 C {devices/lab_pin.sym} 1380 -980 3 0 {name=l3 sig_type=std_logic lab=GND
 }
 C {devices/lab_pin.sym} 960 -930 3 0 {name=l1 sig_type=std_logic lab=GND
@@ -400,7 +406,7 @@ C {devices/lab_pin.sym} 510 -970 3 0 {name=l12 sig_type=std_logic lab=GND
 }
 C {devices/lab_pin.sym} 1090 -1630 1 0 {name=l23 sig_type=std_logic lab=VDD
 }
-C {devices/ipin.sym} 450 -840 0 0 {name=p1 lab=REF}
-C {devices/ipin.sym} 460 -800 0 0 {name=p2 lab=FB}
-C {devices/opin.sym} 760 -820 0 0 {name=p3 lab=up}
-C {devices/opin.sym} 760 -770 0 0 {name=p6 lab=dn}
+C {devices/ipin.sym} 1570 -1080 2 0 {name=p1 lab=REF}
+C {devices/ipin.sym} 220 -1070 0 0 {name=p2 lab=FB}
+C {devices/opin.sym} 410 -1220 2 0 {name=p3 lab=up}
+C {devices/opin.sym} 1410 -1220 0 0 {name=p6 lab=dn}

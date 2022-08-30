@@ -8,12 +8,12 @@ def moving_average(a, n=3) :
     ret[n:] = ret[n:] - ret[:-n]
     return ret[n - 1:]
     
-freq_file = pd.read_csv ("vout_fft.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
+freq_file = pd.read_csv ("../csv_files/vout_fft.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
 freq_array = freq_file.to_numpy()
 freq_array = freq_array.ravel()
 freq_array = np.array(freq_array)
 
-mag_file = pd.read_csv ("vout_fft.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
+mag_file = pd.read_csv ("../csv_files/vout_fft.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
 mag_array = mag_file.to_numpy()
 mag_array = mag_array.ravel()
 mag_array = np.array(mag_array)

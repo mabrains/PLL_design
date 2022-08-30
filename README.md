@@ -4,7 +4,7 @@
 
 *Warning*
 
-   The current design still under progress. This is an **experimental release**.
+   The current design is still under progress. This is an **experimental release**.
 
 ----------------------
 # Table of Contents

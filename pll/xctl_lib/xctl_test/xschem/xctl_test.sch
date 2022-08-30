@@ -98,8 +98,6 @@ N 100 -550 100 -540 {
 lab=VDD}
 N 590 -530 590 -480 {
 lab=VDD}
-N 1290 -190 1290 -150 {
-lab=GND}
 N 100 -270 100 -260 {
 lab=Vin}
 N 690 -390 730 -390 {
@@ -172,16 +170,16 @@ N 1040 -280 1040 -270 {
 lab=V2}
 N 730 -200 730 -190 {
 lab=GND}
-N 610 110 610 130 {
-lab=GND}
-N 610 10 610 50 {
-lab=VSS}
 N 100 -450 100 -440 {
 lab=GND}
 N 100 -200 100 -180 {
 lab=GND}
-N 1290 -150 1290 -130 {
+N 1290 -190 1290 -170 {
 lab=GND}
+N 20 -470 20 -450 {
+lab=GND}
+N 20 -550 20 -530 {
+lab=VSS}
 C {devices/ind.sym} 1170 -360 3 0 {name=Lx
 m=1
 value=14.07u
@@ -213,7 +211,7 @@ value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 1460 -280 2 0 {name=l1 sig_type=std_logic lab=Vout}
-C {devices/code_shown.sym} 1540 -130 0 0 {name=SPICE only_toplevel=false value=".tran 1n 10u
+C {devices/code_shown.sym} 1540 -130 0 0 {name=SPICE only_toplevel=false value=".tran 1n 5u
 .op"}
 C {devices/code.sym} 1550 -320 0 0 {name=TT_MODELS
 only_toplevel=true
@@ -365,13 +363,14 @@ m=1
 value=5p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} 100 -270 2 0 {name=l1 sig_type=std_logic lab=Vin}
+C {devices/lab_pin.sym} 100 -270 1 0 {name=l1 sig_type=std_logic lab=Vin}
 C {devices/lab_pin.sym} 610 10 2 0 {name=l1 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 1040 -270 2 0 {name=l1 sig_type=std_logic lab=V2}
-C {devices/vsource.sym} 610 80 0 0 {name=VSS value=-1.8}
 C {devices/gnd.sym} 100 -180 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 100 -440 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 730 -190 0 0 {name=l1 lab=GND}
-C {devices/gnd.sym} 610 130 0 0 {name=l1 lab=GND}
-C {devices/gnd.sym} 1290 -130 0 0 {name=l1 lab=GND}
+C {devices/gnd.sym} 1290 -170 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 700 -310 2 0 {name=l1 sig_type=std_logic lab=V1}
+C {devices/vsource.sym} 20 -500 0 0 {name=VSS1 value=-1.8}
+C {devices/gnd.sym} 20 -450 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} 20 -550 1 0 {name=l1 sig_type=std_logic lab=VSS}

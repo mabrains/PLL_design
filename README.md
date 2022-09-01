@@ -65,10 +65,23 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 ### Phase/Frequency Detector (PFD) 
 ----------------------------------
 
-![PFD](images/schematics/pfd_sch.png)
+- PFD Symbol
+![PFD_Sym](images/schematics/pfd.png)
+
+- PFD Schematic 
+![PFD](images/schematics/pfd.png)
 
 ### Charge Pump (CP)
 --------------------
+
+- CP Symbol
+![CP_Sym](images/symbols/cp.png)
+
+- CP Schematic 
+![CP_Sch](images/schematics/cp.png)
+
+- Inverter Schematic 
+![CP_Inv](images/schematics/cp_inv.png)
 
 ### Loop Filter
 ---------------
@@ -79,25 +92,25 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 ### Fractional Divider
 ----------------------
 #### Full Divider design
-![Divider](images/schematics/divider_sch.png)
+![Divider](images/schematics/divider.png)
 
 #### Divider Cell 
-![Divider Cell](images/schematics/divider_cell_sch.png)
+![Divider Cell](images/schematics/divider_cell.png)
 
 #### D-Flipflop design
-![Divider DFF](images/schematics/divider_dff_sch.png)
+![Divider DFF](images/schematics/divider_dff.png)
 
 #### Transmission gate (TG) design
-![Divider TG](images/schematics/divider_tg_sch.png)
+![Divider TG](images/schematics/divider_tg.png)
 
 #### AND gate design
-![Divider and](images/schematics/divider_and_sch.png)
+![Divider and](images/schematics/divider_and.png)
 
 #### NAND gate design
-![Divider nand](images/schematics/divider_nand_sch.png)
+![Divider nand](images/schematics/divider_nand.png)
 
 #### Inverter design
-![Divider inv](images/schematics/divider_inv_sch.png)
+![Divider inv](images/schematics/divider_inv.png)
 
 ### Delta Sigma Modulator
 -------------------------

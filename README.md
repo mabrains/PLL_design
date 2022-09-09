@@ -170,16 +170,16 @@ You can find the full specs for each block [here](pll/system/design_specs/Specs.
   - [python model](pll/system/python_model/README.md)
 
 
-# Circuit Design
+# ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Circuit Design
 
 During this stage, we designed the PLL using [xschem](https://github.com/StefanSchippers/xschem) tool. Each block is designed to achieve system design specifications. 
 
 ## Schematic 
 
-### Crystal Oscillator
+### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Crystal Oscillator
 ----------------------
 
-### Phase/Frequency Detector (PFD) 
+### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Phase/Frequency Detector (PFD) 
 ----------------------------------
 
 - PFD Symbol
@@ -200,13 +200,13 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 - Inverter Schematic 
 ![CP_Inv](images/schematics/cp_inv.png)
 
-### Loop Filter
+### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Loop Filter
 ---------------
 
-### Voltage Controlled Oscillator 
+### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Voltage Controlled Oscillator 
 ---------------------------------
 
-### Fractional Divider
+### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Fractional Divider
 ----------------------
 #### Full Divider design
 ![Divider](images/schematics/divider.png)

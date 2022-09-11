@@ -14,8 +14,6 @@ N -460 530 -460 560 {
 lab=GND}
 N -100 530 -100 560 {
 lab=GND}
-N -460 440 -460 500 {
-lab=#net2}
 N -380 460 -380 530 {
 lab=#net2}
 N -460 460 -380 460 {
@@ -108,46 +106,50 @@ N -280 580 -280 600 {
 lab=GND}
 N -100 -370 -100 -350 {
 lab=VDD}
-N 170 170 170 210 {
+N 170 200 170 240 {
 lab=V_ctrl}
-N 170 170 270 170 {
+N 170 200 270 200 {
 lab=V_ctrl}
-N 270 170 270 310 {
+N 270 200 270 340 {
 lab=V_ctrl}
-N 170 310 270 310 {
+N 170 340 270 340 {
 lab=V_ctrl}
-N 170 270 170 310 {
+N 170 300 170 340 {
 lab=V_ctrl}
-N 90 240 130 240 {
+N 90 270 130 270 {
 lab=vp}
-N 170 240 270 240 {
+N 170 270 270 270 {
 lab=V_ctrl}
-N -380 240 -340 240 {
+N -380 270 -340 270 {
 lab=V_ctrl}
-N -340 170 -340 210 {
+N -340 200 -340 240 {
 lab=V_ctrl}
-N -430 170 -340 170 {
+N -430 200 -340 200 {
 lab=V_ctrl}
-N -430 170 -430 320 {
+N -430 200 -430 350 {
 lab=V_ctrl}
-N -430 320 -340 320 {
+N -430 350 -340 350 {
 lab=V_ctrl}
-N -340 270 -340 320 {
+N -340 300 -340 350 {
 lab=V_ctrl}
-N -430 240 -380 240 {
+N -430 270 -380 270 {
 lab=V_ctrl}
-N -300 240 -280 240 {
+N -300 270 -280 270 {
 lab=vn}
-N 320 -200 320 -170 {
+N 380 -170 380 -140 {
 lab=V_ctrl}
-N -680 440 -460 440 {
+N -640 410 -640 460 {
 lab=#net2}
-N -680 320 -680 440 {
+N -640 460 -460 460 {
 lab=#net2}
-C {devices/vsource.sym} 210 -140 0 0 {name=VDD value=1.8}
-C {devices/gnd.sym} 210 -110 0 0 {name=l6 lab=GND}
-C {devices/vdd.sym} 210 -170 0 0 {name=l7 lab=VDD}
-C {sky130_fd_pr/corner.sym} -480 -210 0 0 {name=CORNER only_toplevel=false corner=tt}
+N -460 460 -460 500 {
+lab=#net2}
+N -640 -110 -640 410 {
+lab=#net2}
+C {devices/vsource.sym} 260 -100 0 0 {name=VDD value=1.8}
+C {devices/gnd.sym} 260 -70 0 0 {name=l6 lab=GND}
+C {devices/vdd.sym} 260 -130 0 0 {name=l7 lab=VDD}
+C {sky130_fd_pr/corner.sym} 240 -340 0 0 {name=CORNER only_toplevel=false corner=tt}
 C {sky130_fd_pr/nfet_01v8.sym} 70 420 0 0 {name=M4
 L=0.15
 W=50
@@ -219,25 +221,25 @@ m=1
 value=2.233058p
 footprint=1206
 device="ceramic capacitor"}
-C {sky130_fd_pr/nfet_01v8.sym} 150 240 0 0 {name=M8
+C {sky130_fd_pr/nfet_01v8.sym} 150 270 0 0 {name=M8
 L=0.15
 W=50
 nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/nfet_01v8.sym} -320 240 0 1 {name=M7
+C {sky130_fd_pr/nfet_01v8.sym} -320 270 0 1 {name=M7
 L=0.15
 W=50
 nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 320 -140 0 0 {name=Tuner value=0}
-C {devices/gnd.sym} 320 -110 0 0 {name=l10 lab=GND}
-C {devices/lab_pin.sym} 320 -190 2 0 {name=l11 sig_type=std_logic lab=V_ctrl}
-C {devices/lab_pin.sym} -430 210 0 0 {name=l12 sig_type=std_logic lab=V_ctrl}
-C {devices/lab_pin.sym} 270 200 2 0 {name=l13 sig_type=std_logic lab=V_ctrl}
-C {BGR_Banba.sym} -670 20 0 0 {name=X1}
-C {devices/vdd.sym} -800 200 0 0 {name=l14 lab=VDD}
-C {devices/gnd.sym} -800 440 0 0 {name=l15 lab=GND}
+C {devices/vsource.sym} 380 -110 0 0 {name=Tuner value=0}
+C {devices/gnd.sym} 380 -80 0 0 {name=l10 lab=GND}
+C {devices/lab_pin.sym} 380 -160 2 0 {name=l11 sig_type=std_logic lab=V_ctrl}
+C {devices/lab_pin.sym} -430 240 0 0 {name=l12 sig_type=std_logic lab=V_ctrl}
+C {devices/lab_pin.sym} 270 230 2 0 {name=l13 sig_type=std_logic lab=V_ctrl}
+C {BGR_Banba.sym} -340 -90 1 0 {name=X1}
+C {devices/vdd.sym} -520 -220 1 0 {name=l14 lab=VDD}
+C {devices/gnd.sym} -760 -220 1 0 {name=l15 lab=GND}

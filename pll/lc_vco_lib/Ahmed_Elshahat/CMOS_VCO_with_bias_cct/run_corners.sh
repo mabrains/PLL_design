@@ -1,12 +1,18 @@
 #!/bin/bash
 # Read a string with spaces using for loop
 
-cornerArr=("tttt" "ssss" "sssf" "ssfs" "ssff" "sfss" "sfsf" "sffs" "sfff" "fsss" "fssf" "fsfs" "fsff" "ffss" "ffsf" "fffs" "ffff")
+#cornerArr=("tssf")
 #cornerArr=("tttt")
+#cornerArr=("tttt" "ssss" "sssf" "ssfs" "ssff" "sfss" "sfsf" "sffs" "sfff" "fsss" "fssf" "fsfs" "fsff" "ffss" "ffsf" "fffs" "ffff")
+cornerArr=("ssss" "sssf" "ssfs" "ssff" "sstt" "sfss" "sfsf" "sffs" "sfff" "sftt" "stss" "stsf" "stfs" "stff" "sttt" "fsss" "fssf" "fsfs" "fsff" "fstt" "ffss" "ffsf" "fffs" "ffff" "fftt" "ftss" "ftsf" "ftfs" "ftff" "fttt" "tsss" "tssf" "tsfs" "tsff" "tstt" "tfss" "tfsf" "tffs" "tfff" "tftt" "ttss" "ttsf" "ttfs" "ttff" "tttt")
+
+
+
 
 i=0
 len=${#cornerArr[@]}
-while [ $i -lt $len ];
+mkdir -p csv_files
+while [ $i -lt $len ];#
 do
     corner=${cornerArr[$i]}
     vddFlag=${corner:0:1}

@@ -37,8 +37,8 @@ lab=#net2}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 140 70 0 0 {name=C1 model=cap_mim_m3_1 W=5 L=5 MF=25 spiceprefix=X}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 360 70 0 0 {name=C2 model=cap_mim_m3_1 W=15 L=15 MF=55 spiceprefix=X}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 570 30 0 0 {name=C3 model=cap_mim_m3_1 W=2 L=2 MF=10 spiceprefix=X}
-C {PFD.sym} -710 0 0 0 {name=X1}
-C {/home/ahmedelbadry/CP/charge_pump.sym} -330 10 0 0 {name=X2}
+C {../../PFD/xschem/PFD.sym} -710 0 0 0 {name=X1}
+C {../../CP/xschem/CP.sym} -330 10 0 0 {name=X2}
 C {devices/lab_pin.sym} -570 10 2 0 {name=l18 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} -570 40 2 0 {name=l19 sig_type=std_logic lab=DN}
 C {devices/lab_pin.sym} -670 50 0 0 {name=l24 sig_type=std_logic lab=FB
@@ -51,7 +51,7 @@ C {devices/lab_pin.sym} -80 20 2 0 {name=l10 sig_type=std_logic lab=Vo
 }
 C {devices/lab_pin.sym} -250 280 0 0 {name=l6 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} -140 280 2 0 {name=l9 sig_type=std_logic lab=UPb}
-C {/home/ahmedelbadry/CP/inverter.sym} -3260 730 0 0 {name=X4}
+C {../../CP/xschem/inverter.sym} -3260 730 0 0 {name=X4}
 C {devices/lab_pin.sym} 140 -50 0 0 {name=l1 sig_type=std_logic lab=Vo
 }
 C {devices/iopin.sym} -880 -30 0 0 {name=p4 lab=VDD}

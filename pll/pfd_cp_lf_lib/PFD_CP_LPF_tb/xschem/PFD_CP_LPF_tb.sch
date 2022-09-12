@@ -26,7 +26,7 @@ C {devices/gnd.sym} 90 -80 0 0 {name=l22 lab=GND}
 C {devices/lab_pin.sym} 90 -190 1 0 {name=l23 sig_type=std_logic lab=FB
 }
 C {devices/gnd.sym} 90 120 0 0 {name=l3 lab=GND}
-C {PFD_CP_LPF.sym} 13890 6200 0 0 {name=PFD_CP_loop_filter
+C {../../PFD_CP_LPF/xschem/PFD_CP_LPF.sym} 13890 6200 0 0 {name=XFD_CP_loop_filter
 }
 C {devices/gnd.sym} 350 40 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 290 -40 0 0 {name=l2 sig_type=std_logic lab=REF

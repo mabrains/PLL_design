@@ -10,14 +10,6 @@ def get_gm(file_name):
 	gm_array = np.array(gm_array)
 	return gm_array
 
-
-
-
-
-
-
-
-
 gm1 = get_gm("gm1_no_noise.csv").max()
 gm2 = get_gm("gm2_no_noise.csv").max()
 gm3 = get_gm("gm3_no_noise.csv").max()
@@ -37,7 +29,6 @@ gm21 = get_gm("gm21_no_noise.csv").max()
 gm22 = get_gm("gm22_no_noise.csv").max()
 gm23 = get_gm("gm23_no_noise.csv").max()
 gm24 = get_gm("gm24_no_noise.csv").max()
-
 
 
 gm = [gm1, gm2, gm3, gm4, gm5, gm6, gm10, gm13, gm14, gm15, gm16, gm17, gm18, gm19, gm20, gm21, gm22, gm23, gm24]

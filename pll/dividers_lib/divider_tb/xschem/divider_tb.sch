@@ -1,4 +1,4 @@
-v {xschem version=3.1.0 file_version=1.2
+v {xschem version=3.1.0 file_version=1.2 
 }
 G {}
 K {}
@@ -69,7 +69,7 @@ C {devices/lab_pin.sym} 540 -120 1 0 {name=l20 sig_type=std_logic lab=p5}
 C {devices/lab_pin.sym} 610 -120 1 0 {name=l21 sig_type=std_logic lab=p6}
 C {devices/lab_pin.sym} 680 -120 1 0 {name=l22 sig_type=std_logic lab=p7}
 C {devices/gnd.sym} 380 -220 0 0 {name=l23 lab=GND}
-C {divider.sym} 460 -360 0 0 {name=x1}
+C {../../divider/xschem/divider.sym} 460 -360 0 0 {name=x1}
 C {devices/lab_pin.sym} 430 -220 3 0 {name=l24 sig_type=std_logic lab=p0}
 C {devices/lab_pin.sym} 450 -220 3 0 {name=l25 sig_type=std_logic lab=p1}
 C {devices/lab_pin.sym} 470 -220 3 0 {name=l26 sig_type=std_logic lab=p2}

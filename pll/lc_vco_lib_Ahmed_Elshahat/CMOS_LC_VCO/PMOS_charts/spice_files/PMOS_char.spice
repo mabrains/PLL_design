@@ -1,0 +1,80 @@
+** sch_path: /home/ahmed/PLL_Internship/Ahmed Elshahat LC VCO/CMOS_LC_VCO/PMOS_char.sch
+**.subckt PMOS_char
+.param Length=4.8
+VDS net2 GND 0.6
+VGS net2 net1 0
+XM1 GND net1 net2 net2 sky130_fd_pr__pfet_01v8_lvt L=Length W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+**** begin user architecture code
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+
+
+.control
+let vgs_min  = 0
+let vgs_step = 0.01
+let vgs_max  = 1.8
+
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vth] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gmbs] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gds] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgg] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgs] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgd] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cdd] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cdb] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgb] 
+save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[csb]
+
+DC VGS $&vgs_min $&vgs_max $&vgs_step
+*plot @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] 
+*plot @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm] 
+
+let vov =  @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs] - @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vth] 
+let vstar  = 2*@m.xm1.msky130_fd_pr__pfet_01v8_lvt[id]/@m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]
+let gm_id = @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]/@m.xm1.msky130_fd_pr__pfet_01v8_lvt[id]
+
+let cgd = @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgd] 
+let cgs = @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgs]
+let cgb = @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgb]
+let cdb = @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cdb]
+let cds = @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cds]    
+let CNMOS = 4*cgd + cgs + cgb+ cdb + cds
+
+*print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] 
+*plot CNMOS vs gm_id
+*plot @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] vs gm_id
+*plot vstar  vov
+*print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] 
+*plot @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] vs @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs]
+*plot @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs] vs gm_id
+
+
+set appendwrite
+*wrdata csv_files/gm_id_vec.csv gm_id
+*wrdata csv_files/vgs_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs] 
+*wrdata csv_files/id_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id] 
+*wrdata csv_files/gm_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm] 
+*wrdata csv_files/gds_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gds] 
+*wrdata csv_files/cgg_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgg] 
+*wrdata csv_files/cdd_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cdd] 
+*wrdata csv_files/cgs_vec.csv @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgs] 
+
+quit
+.endc
+
+.end

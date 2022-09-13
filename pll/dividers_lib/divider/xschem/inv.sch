@@ -26,14 +26,14 @@ N 250 -260 250 -240 {
 lab=vdd}
 C {sky130_fd_pr/pfet_01v8.sym} 230 -210 0 0 {name=M11
 L=0.15
-W=4
-nf=1 mult=1
+W=7
+nf=2 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 230 -80 0 0 {name=M2
 L=0.15
-W=2
+W=7
 nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X

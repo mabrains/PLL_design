@@ -25,11 +25,11 @@ C {devices/vsource.sym} 1530 -1020 0 0 {name=Vdd
 value=1.8}
 C {devices/gnd.sym} 1530 -970 0 0 {name=l26 lab=GND}
 C {devices/vdd.sym} 1530 -1080 0 0 {name=l27 lab=VDD}
-C {devices/vsource.sym} 1860 -890 0 0 {name=V4 value="pulse(0 1.8 5ns 10p 10p 12.5ns 25ns)"}
+C {devices/vsource.sym} 1860 -890 0 0 {name=V4 value="pulse(0 1.8 20ns 10p 10p 50ns 100ns)"}
 C {devices/lab_pin.sym} 1860 -960 1 0 {name=l21 sig_type=std_logic lab=REF
 }
 C {devices/vsource.sym} 1860 -1090 0 0 {name=V5 
-value="pulse(0 1.8 0 10p 10p  12.5ns 25ns)"}
+value="pulse(0 1.8 0 10p 10p  50ns 100ns)"}
 C {devices/gnd.sym} 1860 -1060 0 0 {name=l22 lab=GND}
 C {devices/lab_pin.sym} 1860 -1170 1 0 {name=l23 sig_type=std_logic lab=FB
 }

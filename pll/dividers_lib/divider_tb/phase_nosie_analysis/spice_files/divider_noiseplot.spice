@@ -1,0 +1,263 @@
+
+ V14 B net13 DC 0 trnoise (5.957890974091192e-06 0.03n 1 5.957890974091193e-06)
+ V13 A net12 DC 0 trnoise (2.3752603562139988e-09 0.03n 1 2.3752603562139988e-09)
+ V15 B net14 DC 0 trnoise (4.038530637411214e-09 0.03n 1 4.038530637411214e-09)
+ V12 A net11 DC 0 trnoise (5.457975199130569e-07 0.03n 1 5.457975199130569e-07)
+ V6 A net05 DC 0 trnoise (2.073119571656039e-08 0.03n 1 2.073119571656039e-08)
+ V8 B net07 DC 0 trnoise (2.4295561659580384e-08 0.03n 1 2.4295561659580384e-08)
+ V10 C net09 DC 0 trnoise (2.4301644533804475e-08 0.03n 1 2.4301644533804475e-08)
+ V7 A net06 DC 0 trnoise (0.005838818880286843 0.03n 1 0.005838818880286844)
+ V11 C net10 DC 0 trnoise (3.221557968805006e-06 0.03n 1 3.2215579688050055e-06)
+ V9 B net08 DC 0 trnoise (1.565820407024079e-06 0.03n 1 1.565820407024079e-06)
+ V4 in net03 DC 0 trnoise (2.254160500566859e-08 0.03n 1 2.254160500566859e-08)
+ V5 in net04 DC 0 trnoise (3.748869997900357e-09 0.03n 1 3.748869997900357e-09)
+ V2 clkb net01 DC 0 trnoise (2.0992198394291334e-06 0.03n 1 2.0992198394291334e-06)
+ V3 clk net02 DC 0 trnoise (0.019120925591991408 0.03n 1 0.019120925591991408)
+ 
+ 
+** sch_path: /home/monem/Simulations/divider_tb.sch
+**.subckt divider_tb
+VDD VDD GND 1.8
+VDD1 p2 GND 1.8
+VDD2 p4 GND 0
+VDD3 p1 GND 1.8
+VDD4 p3 GND 0
+VDD5 p5 GND 0
+VDD6 p6 GND 0
+VDD7 p0 GND 0
+VDD8 p7 GND 0
+x1 VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin opennet divider
+V1 fin GND SIN (0.9 0.9 2.5G 0 0 0)
+C1 fout GND 25f m=1
+I0 opennet GND 0
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+.tran 0.001u 5u
+.op
+.control 
+ run
+
+linearize fout
+fft fout
+ 
+plot mag(fout) xlimit 1 10MEG
+wrdata vout_fft.csv mag(fout)
+
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  divider.sym # of pins=13
+** sym_path: /home/monem/Simulations/divider.sym
+** sch_path: /home/monem/Simulations/divider.sch
+.subckt divider  vdd fout gnd p2 p7 p1 p6 p5 p4 p3 p0 fin float
+*.ipin vdd
+*.ipin fin
+*.ipin gnd
+*.opin fout
+*.ipin p0
+*.ipin p1
+*.ipin p2
+*.ipin p3
+*.ipin p4
+*.ipin p5
+*.ipin p6
+*.ipin p7
+*.ipin float
+x1 vdd net1 fin p0 float gnd net2 cell
+x2 vdd net3 net1 p1 net2 gnd net4 cell
+x3 vdd net5 net3 p2 net4 gnd net6 cell
+x4 vdd net7 net5 p3 net6 gnd net8 cell
+x5 vdd net9 net7 p4 net8 gnd net10 cell
+x6 vdd net11 net9 p5 net10 gnd net12 cell
+x7 vdd net13 net11 p6 net12 gnd net14 cell
+x8 vdd fout net13 p7 net14 gnd vdd cell
+.ends
+
+
+* expanding   symbol:  cell.sym # of pins=7
+** sym_path: /home/monem/Simulations/cell.sym
+** sch_path: /home/monem/Simulations/cell.sch
+.subckt cell  vdd FO FI P MODO gnd MODI
+*.iopin FI
+*.iopin P
+*.iopin MODO
+*.ipin vdd
+*.ipin gnd
+*.opin FO
+*.iopin MODI
+x2 vdd FO net3 MODI gnd and
+x3 vdd FO net1 net2 gnd nand
+x4 vdd net2 FI P MODO gnd nand_3in
+x5 vdd FI FIB gnd inv
+x1 vdd FIB FO net1 gnd FI DFF
+x6 vdd FIB net3 MODO gnd FI DFF
+.ends
+
+
+* expanding   symbol:  and.sym # of pins=5
+** sym_path: /home/monem/Simulations/and.sym
+** sch_path: /home/monem/Simulations/and.sch
+.subckt and  vdd A out B gnd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.ipin vdd
+*.opin out
+x1 vdd net1 A B gnd nand
+x2 vdd net1 out gnd inv
+.ends
+
+
+* expanding   symbol:  nand.sym # of pins=5
+** sym_path: /home/monem/Simulations/nand.sym
+** sch_path: /home/monem/Simulations/nand.sch
+.subckt nand  vdd out A B gnd
+*.ipin vdd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.opin out
+
+*noise
+ V14 B net13 DC 0 trnoise (5.957890974091192e-06 0.03n 1 5.957890974091193e-06)
+ V13 A net12 DC 0 trnoise (2.3752603562139988e-09 0.03n 1 2.3752603562139988e-09)
+ V15 B net14 DC 0 trnoise (4.038530637411214e-09 0.03n 1 4.038530637411214e-09)
+ V12 A net11 DC 0 trnoise (5.457975199130569e-07 0.03n 1 5.457975199130569e-07)
+
+XM4 out net11 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM1 out net13 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out net12 net1 gnd sky130_fd_pr__nfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net1 net14 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+
+* expanding   symbol:  nand_3in.sym # of pins=6
+** sym_path: /home/monem/Simulations/nand_3in.sym
+** sch_path: /home/monem/Simulations/nand_3in.sch
+.subckt nand_3in  vdd out A B C gnd
+*.ipin vdd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.opin out
+*.ipin C
+
+*noise
+ V6 A net05 DC 0 trnoise (2.073119571656039e-08 0.03n 1 2.073119571656039e-08)
+ V8 B net07 DC 0 trnoise (2.4295561659580384e-08 0.03n 1 2.4295561659580384e-08)
+ V10 C net09 DC 0 trnoise (2.4301644533804475e-08 0.03n 1 2.4301644533804475e-08)
+ V7 A net06 DC 0 trnoise (0.005838818880286843 0.03n 1 0.005838818880286844)
+ V11 C net10 DC 0 trnoise (3.221557968805006e-06 0.03n 1 3.2215579688050055e-06)
+ V9 B net08 DC 0 trnoise (1.565820407024079e-06 0.03n 1 1.565820407024079e-06)
+ 
+XM1 out net05 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out net07 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 out net06 net1 gnd sky130_fd_pr__nfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 net1 net08 net2 gnd sky130_fd_pr__nfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 out net09 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net2 net10 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+
+
+* expanding   symbol:  inv.sym # of pins=4
+** sym_path: /home/monem/Simulations/inv.sym
+** sch_path: /home/monem/Simulations/inv.sch
+.subckt inv  vdd in out gnd
+*.ipin vdd
+*.ipin in
+*.ipin gnd
+*.opin out
+
+*noise
+ V4 in net03 DC 0 trnoise (2.254160500566859e-08 0.03n 1 2.254160500566859e-08)
+ V5 in net04 DC 0 trnoise (3.748869997900357e-09 0.03n 1 3.748869997900357e-09)
+ 
+XM1 out net03 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out net04 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+
+* expanding   symbol:  DFF.sym # of pins=6
+** sym_path: /home/monem/Simulations/DFF.sym
+** sch_path: /home/monem/Simulations/DFF.sch
+.subckt DFF  vdd clkb D out gnd clk
+*.ipin D
+*.ipin clk
+*.ipin clkb
+*.ipin vdd
+*.ipin gnd
+*.opin out
+x3 vdd net4 net2 gnd inv
+x1 clk vdd D net4 gnd clkb TG
+x2 clkb vdd net1 net4 gnd clk TG
+x4 vdd net2 net1 gnd inv
+x5 vdd net5 out gnd inv
+x6 clkb vdd net2 net5 gnd clk TG
+x7 clk vdd net3 net5 gnd clkb TG
+x8 vdd out net3 gnd inv
+.ends
+
+
+* expanding   symbol:  TG.sym # of pins=6
+** sym_path: /home/monem/Simulations/TG.sym
+** sch_path: /home/monem/Simulations/TG.sch
+.subckt TG  clk vdd in out gnd clkb
+*.ipin vdd
+*.ipin in
+*.ipin gnd
+*.ipin clkb
+*.ipin clk
+*.iopin out
+
+*noise
+ V2 clkb net01 DC 0 trnoise (2.0992198394291334e-06 0.03n 1 2.0992198394291334e-06)
+ V3 clk net02 DC 0 trnoise (0.019120925591991408 0.03n 1 0.019120925591991408)
+ 
+XM1 out net01 in vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out net02 in gnd sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end
+
+

@@ -146,8 +146,6 @@ Phase Noise $@\  1\  MHz$ offset	$<-140$ dBc/Hz
 ![](https://github.com/mabrains/PLL_design/blob/System/pll/system/python_model/2nd_sample_images/TOTAL.png)
 
 
-
-
 ## System specifications 
 
 | Spec | Value |
@@ -168,6 +166,8 @@ You can find the full specs for each block [here](pll/system/design_specs/Specs.
   - [Verilog-A model](pll/system/verilog-A_model/README.md)
   - [Octave model](pll/system/octave_model/System_Modeling.md)
   - [python model](pll/system/python_model/README.md)
+
+For PLL python modling, you could use google colab added [here](./pll/system/python_model/Jupyter_files/README.md) to have an interactive interface that you can use.
 
 
 # ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Circuit Design

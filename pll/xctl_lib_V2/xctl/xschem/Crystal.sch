@@ -19,13 +19,13 @@ lab=GND}
 N 590 -260 590 -190 {
 lab=#net1}
 N 450 -550 580 -550 {
-lab=Vout}
+lab=#net2}
 N 580 -550 590 -550 {
-lab=Vout}
+lab=#net2}
 N 590 -550 590 -320 {
-lab=Vout}
+lab=#net2}
 N 540 -380 590 -380 {
-lab=Vout}
+lab=#net2}
 N 140 -500 140 -480 {
 lab=VDD}
 N 140 -420 140 -400 {
@@ -33,23 +33,13 @@ lab=GND}
 N 430 -500 430 -480 {
 lab=VDD}
 N 420 -220 440 -220 {
-lab=#net2}
-N 500 -220 520 -220 {
 lab=#net3}
+N 500 -220 520 -220 {
+lab=#net4}
 N 450 -180 530 -180 {
 lab=#net1}
 N 310 -180 390 -180 {
 lab=Vin}
-N 430 -480 430 -430 {
-lab=VDD}
-N 420 -430 430 -430 {
-lab=VDD}
-N 430 -330 430 -290 {
-lab=GND}
-N 420 -330 430 -330 {
-lab=GND}
-N 530 -380 540 -380 {
-lab=Vout}
 N 590 -190 590 -170 {
 lab=#net1}
 N 530 -180 590 -180 {
@@ -58,13 +48,65 @@ N 580 -220 590 -220 {
 lab=#net1}
 N 310 -220 360 -220 {
 lab=Vin}
+N 390 -440 390 -360 {
+lab=Vin}
+N 360 -380 390 -380 {
+lab=Vin}
+N 430 -410 430 -390 {
+lab=#net2}
+N 430 -400 540 -400 {
+lab=#net2}
+N 540 -400 540 -380 {
+lab=#net2}
+N 430 -330 430 -290 {
+lab=GND}
+N 430 -480 430 -470 {
+lab=VDD}
+N 430 -360 460 -360 {
+lab=GND}
+N 460 -360 460 -300 {
+lab=GND}
+N 430 -300 460 -300 {
+lab=GND}
+N 430 -440 460 -440 {
+lab=VDD}
+N 460 -490 460 -440 {
+lab=VDD}
+N 430 -490 460 -490 {
+lab=VDD}
+N 660 -280 660 -260 {
+lab=GND}
+N 660 -490 660 -470 {
+lab=VDD}
+N 620 -430 620 -350 {
+lab=#net2}
+N 660 -400 660 -380 {
+lab=out}
+N 660 -320 660 -280 {
+lab=GND}
+N 660 -470 660 -460 {
+lab=VDD}
+N 660 -350 690 -350 {
+lab=GND}
+N 690 -350 690 -290 {
+lab=GND}
+N 660 -290 690 -290 {
+lab=GND}
+N 660 -430 690 -430 {
+lab=VDD}
+N 690 -480 690 -430 {
+lab=VDD}
+N 660 -480 690 -480 {
+lab=VDD}
+N 590 -380 620 -380 {
+lab=#net2}
 C {devices/res.sym} 590 -290 0 0 {name=R1
-value=600
+value=400
 footprint=1206
 device=resistor
 m=1}
 C {devices/res.sym} 420 -550 1 0 {name=R2
-value=2500k
+value=10000
 footprint=1206
 device=resistor
 m=1}
@@ -95,14 +137,16 @@ value="
 "
 spice_ignore=false}
 C {devices/code_shown.sym} 910 -480 0 0 {name=s1 only_toplevel=false value=".OP
+.tran 2n 2u uic
 .IC V(Vout) = 0
-.tran 2n 50u"
-}
-C {devices/lab_wire.sym} 590 -400 0 0 {name=l7 sig_type=std_logic lab=Vout
+.IC V(Vin) = 0
+.plot tran v(Vout)
+"
 }
 C {devices/ind.sym} 550 -220 1 0 {name=L1
 m=1
 value=9m
+ic = 1m
 footprint=1206
 device=inductor}
 C {devices/res.sym} 470 -220 1 0 {name=R3
@@ -120,5 +164,35 @@ m=1
 value=5p
 footprint=1206
 device="ceramic capacitor"}
-C {Inv.sym} 380 -380 0 0 {name=x1}
 C {devices/lab_wire.sym} 310 -400 0 0 {name=l8 sig_type=std_logic lab=Vin}
+C {sky130_fd_pr/pfet_01v8.sym} 410 -440 0 0 {name=M11
+L=0.15
+W=15
+nf=1 mult=1
+model=pfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet_01v8.sym} 410 -360 0 0 {name=M2
+L=0.15
+W=13  
+nf=1 mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {devices/gnd.sym} 660 -260 0 0 {name=l9 lab=GND}
+C {devices/vdd.sym} 660 -490 0 0 {name=l10 lab=VDD}
+C {sky130_fd_pr/pfet_01v8.sym} 640 -430 0 0 {name=M1
+L=0.15
+W=1
+nf=1 mult=1
+model=pfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet_01v8.sym} 640 -350 0 0 {name=M3
+L=0.15
+W=1 
+nf=1 mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {devices/lab_wire.sym} 660 -390 0 0 {name=l7 sig_type=std_logic lab=out}

@@ -23,3 +23,10 @@ Next table shows the output frequency at specific corners. Log files are attache
 | temp=-40   |      1.00000e+07|   6.66667e+06 |      1.00000e+07|
 |    temp=125|     1.00000e+07 |    7.27272e+06|      1.00000e+07|
 |     temp=27|   1.00000e+07   |   7.25076e+06 |  1.00000e+07    |
+
+noise analysis has been simulated on the divider and it satisfies the specs.
+
+ - Corner frequency = 1.5 MHZ
+ - Noise at 1 MHz offset = -178 dbc/Hz 
+ - Noise floor = -190 dc/hz 
+

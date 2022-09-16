@@ -1,0 +1,17 @@
+Design Name: DSM
+Run Directory: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40
+----------------------------------------
+
+Magic DRC Summary:
+Source: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40/logs/signoff/38-DSM.lvs.lef.log
+LVS reports no net, device, pin, or property mismatches.
+Total errors = 0
+----------------------------------------
+
+Antenna Summary:
+No antenna report found.

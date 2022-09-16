@@ -1,0 +1,70 @@
+
+===========================================================================
+report_checks -unconstrained
+============================================================================
+Startpoint: In_Data[1] (input port clocked by clk)
+Endpoint: Out_Data[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          5.00    5.00 v input external delay
+                  0.03    0.02    5.02 v In_Data[1] (in)
+     2    0.01                           In_Data[1] (net)
+                  0.03    0.00    5.02 v _192_/B (sky130_fd_sc_hd__xor2_2)
+                  0.08    0.17    5.18 v _192_/X (sky130_fd_sc_hd__xor2_2)
+     2    0.01                           _029_ (net)
+                  0.08    0.00    5.18 v _195_/A3 (sky130_fd_sc_hd__a31oi_2)
+                  0.32    0.35    5.54 ^ _195_/Y (sky130_fd_sc_hd__a31oi_2)
+     2    0.02                           _031_ (net)
+                  0.32    0.00    5.54 ^ _203_/A1 (sky130_fd_sc_hd__o21ai_2)
+                  0.09    0.15    5.69 v _203_/Y (sky130_fd_sc_hd__o21ai_2)
+     2    0.01                           _038_ (net)
+                  0.09    0.00    5.69 v _208_/A2 (sky130_fd_sc_hd__a21boi_2)
+                  0.20    0.24    5.94 ^ _208_/Y (sky130_fd_sc_hd__a21boi_2)
+     2    0.01                           _042_ (net)
+                  0.20    0.00    5.94 ^ _213_/A2 (sky130_fd_sc_hd__o21ai_2)
+                  0.07    0.11    6.05 v _213_/Y (sky130_fd_sc_hd__o21ai_2)
+     2    0.01                           _046_ (net)
+                  0.07    0.00    6.05 v _218_/B1 (sky130_fd_sc_hd__a21o_2)
+                  0.05    0.22    6.27 v _218_/X (sky130_fd_sc_hd__a21o_2)
+     2    0.01                           _050_ (net)
+                  0.05    0.00    6.27 v _224_/A3 (sky130_fd_sc_hd__a31oi_2)
+                  0.16    0.21    6.48 ^ _224_/Y (sky130_fd_sc_hd__a31oi_2)
+     1    0.01                           _054_ (net)
+                  0.16    0.00    6.48 ^ _225_/A (sky130_fd_sc_hd__inv_2)
+                  0.05    0.07    6.55 v _225_/Y (sky130_fd_sc_hd__inv_2)
+     3    0.01                           _055_ (net)
+                  0.05    0.00    6.55 v _245_/A (sky130_fd_sc_hd__or2_2)
+                  0.05    0.30    6.85 v _245_/X (sky130_fd_sc_hd__or2_2)
+     1    0.00                           _071_ (net)
+                  0.05    0.00    6.85 v _246_/B (sky130_fd_sc_hd__and2_2)
+                  0.04    0.19    7.04 v _246_/X (sky130_fd_sc_hd__and2_2)
+     1    0.00                           _072_ (net)
+                  0.04    0.00    7.04 v _247_/A (sky130_fd_sc_hd__buf_1)
+                  0.20    0.23    7.27 v _247_/X (sky130_fd_sc_hd__buf_1)
+     1    0.03                           Out_Data[0] (net)
+                  0.20    0.00    7.27 v Out_Data[0] (out)
+                                  7.27   data arrival time
+
+                  0.00   25.00   25.00   clock clk (rise edge)
+                          0.00   25.00   clock network delay (ideal)
+                         -0.25   24.75   clock uncertainty
+                          0.00   24.75   clock reconvergence pessimism
+                         -5.00   19.75   output external delay
+                                 19.75   data required time
+-----------------------------------------------------------------------------
+                                 19.75   data required time
+                                 -7.27   data arrival time
+-----------------------------------------------------------------------------
+                                 12.48   slack (MET)
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+No paths found.

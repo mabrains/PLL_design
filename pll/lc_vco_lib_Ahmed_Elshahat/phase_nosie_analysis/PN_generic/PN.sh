@@ -4,13 +4,11 @@ out_expression=$2
 tran_step=$3
 tran_stop=$4
 
-cd csv_files
-rm *.csv
-cd ../spice_files
-rm tb1.spice tb2.spice
-cd ../pkl_files
-rm *.pkl
-cd ..
+mkdir -p  csv_files pkl_files
+rm -rf csv_files/*.csv
+rm -rf spice_files/tb1.spice spice_files/tb2.spice
+rm -rf pkl_files/*.pkl
+
 python3 scripts/run1.py ${file_name} ${out_expression} ${tran_step} ${tran_stop}
 ngspice spice_files/tb1.spice
 python3 scripts/run2.py ${out_expression} ${tran_step} ${tran_stop}

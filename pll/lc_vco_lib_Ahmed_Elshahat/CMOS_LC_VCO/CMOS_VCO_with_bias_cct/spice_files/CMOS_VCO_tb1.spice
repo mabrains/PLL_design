@@ -53,6 +53,8 @@ XM8 V_ctrl vp V_ctrl V_ctrl sky130_fd_pr__nfet_01v8_lvt L=len W=width nf=1 ad='i
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=mul
 
+
+
 *sources
 VDD VDD GND V_supply
 *I0 VDD net2 dc=ISS $ideal current source

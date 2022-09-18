@@ -59,18 +59,9 @@ C {devices/code_shown.sym} 230 -60 0 0 {name=spice1 only_toplevel=false value=".
 C {devices/vsource.sym} 160 90 0 0 {name=V1 value=0.9}
 C {devices/lab_pin.sym} 170 270 0 0 {name=l6 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} 280 270 2 0 {name=l9 sig_type=std_logic lab=UPb}
-C {../../CP/xschem/inverter.sym} -2840 720 0 0 {name=X3}
+C {../../inverter/xschem/inverter.sym} -2840 720 0 0 {name=X3}
 C {devices/lab_pin.sym} -50 -30 0 0 {name=l7 sig_type=std_logic lab=UPb}
 C {devices/vdd.sym} 210 230 0 0 {name=l12 lab=VDD}
 C {devices/gnd.sym} 210 300 0 0 {name=l11 lab=GND}
 C {devices/gnd.sym} -480 200 0 0 {name=l3 lab=GND}
-C {../../CP_init/xschem/CP_init.sym} -30 -20 0 0 {name=X1}
-C {devices/code.sym} 350 -270 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-
-"
-spice_ignore=false}
+C {../../CP/xschem/CP.sym} -30 -20 0 0 {name=X1}

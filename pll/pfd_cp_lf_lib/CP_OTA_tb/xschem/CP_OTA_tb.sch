@@ -48,16 +48,7 @@ value=0.9
 }
 C {devices/gnd.sym} 3380 -575 0 0 {name=l39 lab=GND}
 C {devices/lab_pin.sym} 3380 -680 1 0 {name=l40 sig_type=std_logic lab=U}
-C {devices/code.sym} 3960 -950 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-
-"
-spice_ignore=false}
-C {/design/pll/pfd_cp_lf_lib/CP_OTA/xschem/CP_OTA.sym} 3780 -810 0 0 {name=X1}
+C {../../CP_OTA/xschem/CP_OTA.sym} 3780 -810 0 0 {name=X1}
 C {devices/lab_pin.sym} 3790 -810 0 0 {name=l29 sig_type=std_logic lab=DN}
 C {devices/lab_pin.sym} 3810 -730 3 0 {name=l32 sig_type=std_logic lab=UB}
 C {devices/gnd.sym} 3860 -720 0 0 {name=l26 lab=GND}

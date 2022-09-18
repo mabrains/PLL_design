@@ -178,6 +178,8 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 
 ### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Crystal Oscillator
 ----------------------
+- Crystal Schematic
+![Cry_Sch](images/schematics/Crystal.png)
 
 ### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Phase/Frequency Detector (PFD) 
 ----------------------------------
@@ -236,6 +238,7 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 
 ### Crystal Oscillator
 ----------------------
+![Cry_sim](images/Simulations/Cry_sim.png)
 
 ### Phase/Frequency Detector (PFD) 
 ----------------------------------

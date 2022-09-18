@@ -94,19 +94,19 @@ N 820 -370 860 -370 {
 lab=#net5}
 N 840 -370 840 -310 {
 lab=#net5}
-C {inv.sym} 340 -250 0 0 {name=x3}
+C {../../inv/xschem/inv.sym} 340 -250 0 0 {name=x3}
 C {devices/ipin.sym} 150 -370 0 0 {name=p1 lab=D}
 C {devices/ipin.sym} 190 -260 0 0 {name=p2 lab=clk}
-C {TG.sym} 140 -220 0 0 {name=x1}
-C {TG.sym} 490 -130 3 0 {name=x2}
+C {../../TG/xschem/TG.sym} 140 -220 0 0 {name=x1}
+C {../../TG/xschem/TG.sym} 490 -130 3 0 {name=x2}
 C {devices/ipin.sym} 230 -450 0 0 {name=p3 lab=clkb}
 C {devices/ipin.sym} 260 -470 0 0 {name=p4 lab=vdd}
 C {devices/ipin.sym} 260 -310 3 0 {name=p6 lab=gnd}
-C {inv.sym} 550 -50 0 1 {name=x4}
-C {inv.sym} 840 -250 0 0 {name=x5}
-C {TG.sym} 640 -220 0 0 {name=x6}
-C {TG.sym} 990 -130 3 0 {name=x7}
-C {inv.sym} 1050 -50 0 1 {name=x8}
+C {../../inv/xschem/inv.sym} 550 -50 0 1 {name=x4}
+C {../../inv/xschem/inv.sym} 840 -250 0 0 {name=x5}
+C {../../TG/xschem/TG.sym} 640 -220 0 0 {name=x6}
+C {../../TG/xschem/TG.sym} 990 -130 3 0 {name=x7}
+C {../../inv/xschem/inv.sym} 1050 -50 0 1 {name=x8}
 C {devices/opin.sym} 1080 -310 0 0 {name=p5 lab=out}
 C {devices/lab_pin.sym} 270 -250 0 0 {name=l1 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 420 -220 2 0 {name=l2 sig_type=std_logic lab=clkb}

@@ -40,10 +40,10 @@ N 1130 -590 1220 -590 {
 lab=#net3}
 N 980 -590 1020 -590 {
 lab=MODO}
-C {and.sym} 1350 -470 0 1 {name=x2}
-C {nand.sym} 1100 -580 0 0 {name=x3}
-C {nand_3in.sym} 820 -570 0 0 {name=x4}
-C {inv.sym} 1400 -590 0 0 {name=x5}
+C {../../and/xschem/and.sym} 1350 -470 0 1 {name=x2}
+C {../../nand/xschem/nand.sym} 1100 -580 0 0 {name=x3}
+C {../../nand_3in/xschem/nand_3in.sym} 820 -570 0 0 {name=x4}
+C {../../inv/xschem/inv.sym} 1400 -590 0 0 {name=x5}
 C {devices/iopin.sym} 770 -730 2 0 {name=p1 lab=FI}
 C {devices/iopin.sym} 740 -710 2 0 {name=p2 lab=P}
 C {devices/iopin.sym} 770 -690 2 0 {name=p3 lab=MODO}
@@ -56,8 +56,8 @@ C {devices/lab_pin.sym} 970 -780 0 0 {name=l4 sig_type=std_logic lab=FIB}
 C {devices/opin.sym} 1320 -780 0 0 {name=p6 lab=FO}
 C {devices/lab_pin.sym} 920 -800 0 0 {name=l5 sig_type=std_logic lab=FO}
 C {devices/lab_pin.sym} 1030 -850 1 0 {name=l6 sig_type=std_logic lab=vdd}
-C {DFF.sym} 1050 -730 0 0 {name=x1}
-C {DFF.sym} 1050 -520 0 1 {name=x6}
+C {../../DFF/xschem/DFF.sym} 1050 -730 0 0 {name=x1}
+C {../../DFF/xschem/DFF.sym} 1050 -520 0 1 {name=x6}
 C {devices/lab_pin.sym} 1030 -750 3 0 {name=l7 sig_type=std_logic lab=gnd}
 C {devices/lab_pin.sym} 1190 -860 1 0 {name=l8 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 1190 -700 3 0 {name=l9 sig_type=std_logic lab=gnd}

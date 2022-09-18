@@ -49,15 +49,15 @@ lab=p7}
 N 1010 -130 1050 -130 {
 lab=vdd}
 N -0 -130 50 -130 {
-lab=MODO}
-C {cell.sym} 50 -10 0 0 {name=x1}
-C {cell.sym} 170 -10 0 0 {name=x2}
-C {cell.sym} 290 -10 0 0 {name=x3}
-C {cell.sym} 410 -10 0 0 {name=x4}
-C {cell.sym} 530 -10 0 0 {name=x5}
-C {cell.sym} 650 -10 0 0 {name=x6}
-C {cell.sym} 770 -10 0 0 {name=x7}
-C {cell.sym} 890 -10 0 0 {name=x8}
+lab=float}
+C {../../divider_cell/xschem/divider_cell.sym} 50 -10 0 0 {name=x1}
+C {../../divider_cell/xschem/divider_cell.sym} 170 -10 0 0 {name=x2}
+C {../../divider_cell/xschem/divider_cell.sym} 290 -10 0 0 {name=x3}
+C {../../divider_cell/xschem/divider_cell.sym} 410 -10 0 0 {name=x4}
+C {../../divider_cell/xschem/divider_cell.sym} 530 -10 0 0 {name=x5}
+C {../../divider_cell/xschem/divider_cell.sym} 650 -10 0 0 {name=x6}
+C {../../divider_cell/xschem/divider_cell.sym} 770 -10 0 0 {name=x7}
+C {../../divider_cell/xschem/divider_cell.sym} 890 -10 0 0 {name=x8}
 C {devices/ipin.sym} 80 -220 0 0 {name=p1 lab=vdd}
 C {devices/ipin.sym} 30 -150 0 0 {name=p2 lab=fin}
 C {devices/ipin.sym} 90 -70 0 0 {name=p3 lab=gnd}

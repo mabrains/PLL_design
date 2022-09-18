@@ -16,8 +16,8 @@ N 160 -50 160 -20 {
 lab=gnd}
 N 160 -230 160 -210 {
 lab=vdd}
-C {nand.sym} 70 70 0 0 {name=x1}
-C {inv.sym} 270 -10 0 0 {name=x2}
+C {../../nand/xschem/nand.sym} 70 70 0 0 {name=x1}
+C {../../inv/xschem/inv.sym} 270 -10 0 0 {name=x2}
 C {devices/ipin.sym} 80 -150 0 0 {name=p1 lab=A}
 C {devices/ipin.sym} 80 -110 0 0 {name=p2 lab=B}
 C {devices/ipin.sym} 160 -20 0 0 {name=p3 lab=gnd}

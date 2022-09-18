@@ -55,15 +55,15 @@ C_load vp vn 0.6p m=1
 **** begin user architecture code
 .param mc_mm_switch=0
 .param mc_pr_switch=0
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
 
 * corners parameters
 .temp 27
 .options tnom=27
 .param V_supply = 1.8
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
 **** end user architecture code
 **.ends

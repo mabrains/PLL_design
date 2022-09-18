@@ -100,6 +100,7 @@ N 660 -480 690 -480 {
 lab=VDD}
 N 590 -380 620 -380 {
 lab=#net2}
+N 660 -390 750 -390 {}
 C {devices/res.sym} 590 -290 0 0 {name=R1
 value=400
 footprint=1206
@@ -127,21 +128,6 @@ C {devices/vsource.sym} 140 -450 0 0 {name=V1 value=1.8}
 C {devices/gnd.sym} 140 -400 0 0 {name=l4 lab=GND}
 C {devices/vdd.sym} 140 -500 0 0 {name=l5 lab=VDD}
 C {devices/vdd.sym} 430 -500 0 0 {name=l6 lab=VDD}
-C {devices/code.sym} 690 -300 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-
-"
-spice_ignore=false}
-C {devices/code_shown.sym} 910 -480 0 0 {name=s1 only_toplevel=false value=".OP
-.tran 2n 2u uic
-.IC V(net2) = 0
-.IC V(Vin) = 0
-"
-}
 C {devices/ind.sym} 550 -220 1 0 {name=L1
 m=1
 value=9m
@@ -195,3 +181,4 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {devices/lab_wire.sym} 660 -390 0 0 {name=l7 sig_type=std_logic lab=out}
+C {devices/iopin.sym} 740 -390 0 0 {name=p1 lab=out}

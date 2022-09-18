@@ -138,9 +138,8 @@ value="
 spice_ignore=false}
 C {devices/code_shown.sym} 910 -480 0 0 {name=s1 only_toplevel=false value=".OP
 .tran 2n 2u uic
-.IC V(Vout) = 0
+.IC V(net2) = 0
 .IC V(Vin) = 0
-.plot tran v(Vout)
 "
 }
 C {devices/ind.sym} 550 -220 1 0 {name=L1

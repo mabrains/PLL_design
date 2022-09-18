@@ -1,0 +1,17 @@
+
+Input: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40/results/routing/DSM.def
+Output: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40/results/signoff/DSM.klayout.gds
+Design: DSM
+Technology File: /home/farag/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/klayout/tech/sky130A.lyt
+GDS File List: ['/home/farag/open_design_environment/foundry/pdks/skywaters/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds']
+LEF File: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40/tmp/merged.nom.lef
+
+[INFO] Clearing cells...
+[INFO] Merging GDS files...
+	/home/farag/open_design_environment/foundry/pdks/skywaters/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds
+[INFO] Copying toplevel cell 'DSM'
+WARNING: no fill config file specified
+[INFO] Checking for missing GDS...
+[INFO] All LEF cells have matching GDS cells
+[INFO] Writing out GDS '/home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.09.14_15.30.40/results/signoff/DSM.klayout.gds'
+[INFO] Done.

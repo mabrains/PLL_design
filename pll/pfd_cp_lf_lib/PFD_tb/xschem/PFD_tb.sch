@@ -39,12 +39,3 @@ C {devices/code_shown.sym} 2380 -910 0 0 {name=spice1 only_toplevel=false value=
 .control
 plot UP DN
 .endc"}
-C {devices/code.sym} 2480 -1120 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-
-"
-spice_ignore=false}

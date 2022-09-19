@@ -45,7 +45,7 @@ freq_array = freq_array[freqCenter_idx:freqStop_idx+1]
 mag_array  = mag_array [freqCenter_idx:freqStop_idx+1]
 mag_array = 10*np.log10(mag_array)
 
-pts_num = 3
+pts_num = 5
 window_size = (pts_num-1)*freqResulution
 phaseNoise = moving_average(mag_array,pts_num) - 10*np.log10(window_size) - mag_array[0]
 offset = np.arange(0,phaseNoise.shape[0])*freqResulution +(window_size/2)

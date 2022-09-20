@@ -3,12 +3,12 @@
 
 
 c1 vp vn 0.5p
-XC1 vctrl vp gnd sky130_fd_pr__cap_var_lvt W=500 L=100 VM=1 m=10
-XC2 vctrl vn gnd sky130_fd_pr__cap_var_lvt W=500 L=100 VM=1 m=10
+XC1 vctrl vp gnd sky130_fd_pr__cap_var_lvt W=150 L=5 VM=1 m=10
+XC2 vctrl vn gnd sky130_fd_pr__cap_var_lvt W=150 L=5 VM=1 m=10
 
 L1 vp vn 4n
 
-VTuner vctrl gnd dc=1.8
+VTuner vctrl gnd dc=1.5
 Iin vp vn dc 0 ac 1
 
 .param mc_mm_switch=0
@@ -28,7 +28,7 @@ ac dec 100 1e9 10e9
 let vdiff = v(vp)-v(vn)
 let vabs = magnitude(vdiff)
 *plot ac1.vabs
-wrdata csv_files/ac_mag_18.csv ac1.vabs 
+wrdata csv_files/ac_mag_15.csv ac1.vabs 
 
 quit
 .endc

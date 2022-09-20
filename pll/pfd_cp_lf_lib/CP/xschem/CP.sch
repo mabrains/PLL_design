@@ -365,8 +365,8 @@ C {devices/lab_pin.sym} 30 0 0 0 {name=l17 sig_type=std_logic lab=DN}
 C {devices/lab_pin.sym} 250 0 3 0 {name=l18 sig_type=std_logic lab=DNB}
 C {devices/lab_pin.sym} 90 160 0 0 {name=l22 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} 200 160 2 0 {name=l23 sig_type=std_logic lab=UBP}
-C {inverter.sym} -2920 610 0 0 {name=X1}
-C {inverter.sym} -2930 450 0 0 {name=X2}
+C {../../inverter/xschem/inverter.sym} -2920 610 0 0 {name=X1}
+C {../../inverter/xschem/inverter.sym} -2930 450 0 0 {name=X2}
 C {devices/lab_pin.sym} 130 190 3 0 {name=l19 sig_type=std_logic lab=GND
 }
 C {devices/lab_pin.sym} 120 30 3 0 {name=l21 sig_type=std_logic lab=GND

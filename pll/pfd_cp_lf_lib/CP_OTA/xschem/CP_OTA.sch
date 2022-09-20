@@ -364,9 +364,9 @@ C {devices/lab_pin.sym} 4500 -320 3 0 {name=l18 sig_type=std_logic lab=DNB}
 C {devices/lab_pin.sym} 4340 -160 0 0 {name=l22 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} 4450 -160 2 0 {name=l23 sig_type=std_logic lab=UBP}
 C {devices/lab_pin.sym} 4030 -560 3 0 {name=l25 sig_type=std_logic lab=VON}
-C {inverter.sym} 1330 290 0 0 {name=X1}
-C {inverter.sym} 1320 130 0 0 {name=X2}
-C {OTA.sym} 4180 -830 0 0 {name=X3}
+C {../../inverter/xschem/inverter.sym} 1330 290 0 0 {name=X1}
+C {../../inverter/xschem/inverter.sym} 1320 130 0 0 {name=X2}
+C {../../OTA/xschem/OTA.sym} 4180 -830 0 0 {name=X3}
 C {devices/lab_pin.sym} 4230 -800 0 0 {name=l33 sig_type=std_logic lab=VON}
 C {devices/lab_pin.sym} 4230 -830 0 0 {name=l34 sig_type=std_logic lab=VOP}
 C {devices/lab_pin.sym} 4330 -820 2 0 {name=l35 sig_type=std_logic lab=VON}

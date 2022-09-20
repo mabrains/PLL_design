@@ -49,13 +49,4 @@ C {devices/lab_pin.sym} 3770 20 0 0 {name=l6 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} 3880 20 2 0 {name=l9 sig_type=std_logic lab=UPb}
 C {devices/vdd.sym} 3810 -20 0 0 {name=l12 lab=VDD}
 C {devices/gnd.sym} 3810 50 0 0 {name=l11 lab=GND}
-C {../../CP/xschem/inverter.sym} 760 470 0 0 {name=X4}
-C {devices/code.sym} 3920 -370 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval( @value )"
-value="
-** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
-
-"
-spice_ignore=false}
+C {../../inverter/xschem/inverter.sym} 760 470 0 0 {name=X4}

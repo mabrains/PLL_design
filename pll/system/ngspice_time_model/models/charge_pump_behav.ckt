@@ -1,0 +1,17 @@
+* Circuit Model for Charge Pump
+
+.PARAM vsupply=1.8
+
+.subckt charge_pump_behav up dn out vdd gnd 
++ vt_up={vsupply / 2.0} vh_up={vsupply / 15} ion_up=100u ioff_up=1p 
++ vt_dn={vsupply / 2.0} vh_dn={vsupply / 15} ion_dn=100u ioff_dn=1p 
+
+    .model up_sw sw vt=vt_up vh=vh_up ron=0.1 roff={vsupply/ioff_up}
+    .model dn_sw sw vt=vt_dn vh=vh_dn ron=0.1 roff={vsupply/ioff_dn}
+    
+    Rup vdd up_mid {vsupply / ion_up}
+    sup up_mid out up gnd up_sw OFF
+
+    Rnd dn_mid gnd {vsupply / ion_dn}
+    sdn out dn_mid dn gnd dn_sw OFF
+.ends

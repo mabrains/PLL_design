@@ -9,12 +9,12 @@ def moving_average(a, n=3) :
     ret[n:] = ret[n:] - ret[:-n]
     return ret[n - 1:]
     
-freq_file = pd.read_csv ("../csv_files/vdiff_fft_after_noise.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
+freq_file = pd.read_csv ("csv_files/vdiff_fft_after_noise.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
 freq_array = freq_file.to_numpy()
 freq_array = freq_array.ravel()
 freq_array = np.array(freq_array)
 
-mag_file = pd.read_csv ("../csv_files/vdiff_fft_after_noise.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
+mag_file = pd.read_csv ("csv_files/vdiff_fft_after_noise.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
 mag_array = mag_file.to_numpy()
 mag_array = mag_array.ravel()
 mag_array = np.array(mag_array)
@@ -45,7 +45,7 @@ freq_array = freq_array[freqCenter_idx:freqStop_idx+1]
 mag_array  = mag_array [freqCenter_idx:freqStop_idx+1]
 mag_array = 10*np.log10(mag_array)
 
-pts_num = 3
+pts_num = 5
 window_size = (pts_num-1)*freqResulution
 phaseNoise = moving_average(mag_array,pts_num) - 10*np.log10(window_size) - mag_array[0]
 offset = np.arange(0,phaseNoise.shape[0])*freqResulution +(window_size/2)

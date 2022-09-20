@@ -123,7 +123,7 @@ for i in range (0,len(MOS_list)):
 
 # start writing the part of simulatin the circuit
 f2.write("\n.save all\n")
-f2.write(f".tran {tran_step}s {tran_stop}s\n")
+f2.write(f".tran 0.01ns 500ns\n")
 f2.write(".control\n")
 f2.write("op\n")
 

@@ -27,13 +27,28 @@ C1 vp vn 5f m=10
 C3 vp GND 5f m=5
 C2 vn GND 5f m=5
 VTuner net5 GND 1.5
-C13 vp vn 10f m=34
-XM6 net5 vn net5 GND sky130_fd_pr__nfet_01v8_lvt L=1.8 W=12 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+C13 vp vn 10f m=15
+
+* Varactor 
+*******************old******************
+XM6 net5 vn net5 gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=5 m=5
-XM3 net5 vp net5 GND sky130_fd_pr__nfet_01v8_lvt L=1.8 W=12 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ sa=0 sb=0 sd=0 mult=10 m=20
+XM3 net5 vp net5 gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=5 m=5
++ sa=0 sb=0 sd=0 mult=10 m=20
+
+
+*********************new******************
+*XM6 net5 vn net5 net5 sky130_fd_pr__nfet_01v8_lvt L=2.7 W=49.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+*+ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
+*+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+*
+*XM3 net5 vp net5 net5 sky130_fd_pr__nfet_01v8_lvt L=2.7 W=49.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+*+ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
+*+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+
+*********************************************
 XM4 net3 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=50 m=50
@@ -55,7 +70,8 @@ XM5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) 
 .save all
 .nodeset v(vout)=0
 .control
-compose  vctrl_vector   start=0         stop=1.6          step=0.05
+op
+compose  vctrl_vector   start=0         stop=1          step=0.05
 let vctrl_counter = 0
 let f_osc = vector(length(vctrl_vector))
 let curr_value = vctrl_vector[0]
@@ -76,7 +92,6 @@ while vctrl_counter < length(vctrl_vector)
 end
 
 let kvco = vecd(f_osc)
-write output.txt f_osc
 print f_osc
 plot f_osc vs vctrl_vector
 *plot kvco vs vctrl_vector xlimit 0.5 1.6

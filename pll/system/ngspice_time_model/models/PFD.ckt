@@ -1,0 +1,55 @@
+.PARAM CLKDelay = 1.0e-10
+
+.PARAM SetDelay = 1.0e-10
+
+.PARAM ResetDelay = 1.0e-10
+
+.PARAM Out_initial_state = 1.0e-10
+
+.PARAM TR = 1.0e-10
+
+.PARAM TF = 1.0e-10
+
+
+
+.subckt PFD REF FB UP_Signal UP_Signal_bar DW_Signal d_D_
+
+
+
+*Define the and gate
+
+a_andGate [UP_Signal DW_Signal] RESET and1
+
+.model and1 d_and(rise_delay = 100p fall_delay = 100p
+
++ input_load = 1p)
+
+
+
+*Define the flip flops
+
+a_ff1 d_d1 REF d_d0 RESET UP_Signal UP_Signal_bar flop1
+
+a_ff2 d_d1 FB d_d0 RESET DW_Signal DWN_Signal_bar flop1
+
+* .model flop1 d_dff(clk_delay = 1.0e-10 set_delay = 1.0e-10
+
+* + reset_delay = 1.0e-10 ic = 2 rise_delay = 1.0e-10
+
+* + fall_delay = 1e-10)
+
+
+
+.model flop1 d_dff(clk_delay = {CLKDelay} set_delay = {SetDelay}
+
+
+
++ reset_delay = {ResetDelay} ic = {Out_initial_state} rise_delay = {TR}
+
+
+
++ fall_delay = {TF})
+
+
+
+.ends PFD

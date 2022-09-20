@@ -3,7 +3,7 @@
 mkdir -p  csv_files
 rm -rf csv_files/*.csv
 
-arr=($(seq 0 0.05 1.8))
+arr=($(seq 0 0.1 1.8))
 i=0
 len=${#arr[@]}
 while [ $i -lt $len ];

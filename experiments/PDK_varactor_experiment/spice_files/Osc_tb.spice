@@ -8,7 +8,7 @@ XC2 vctrl vn gnd sky130_fd_pr__cap_var_lvt W=100 L=10 VM=1 m=10
 
 L1 vp vn 4n
 
-VTuner vctrl gnd dc=1.80
+VTuner vctrl gnd dc=1.8
 Iin vp vn dc 0 ac 1
 
 .param mc_mm_switch=0
@@ -27,8 +27,8 @@ Iin vp vn dc 0 ac 1
 ac dec 100 1e9 10e9 
 let vdiff = v(vp)-v(vn)
 let vabs = magnitude(vdiff)
-plot ac1.vabs
-wrdata csv_files/ac_mag_36.csv ac1.vabs 
+*plot ac1.vabs
+wrdata csv_files/ac_mag_18.csv ac1.vabs 
 
 quit
 .endc

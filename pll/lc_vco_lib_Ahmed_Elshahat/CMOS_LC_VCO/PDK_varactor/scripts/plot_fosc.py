@@ -39,12 +39,12 @@ for i in range (0,int(counter)):
         mag_arr = get_mag_arr(file_name)
 
     max_value_idx = mag_arr.argmax(axis=0)
-    print(max_value_idx)
-    print (freq_arr[max_value_idx])
+    #print(max_value_idx)
+    #print (freq_arr[max_value_idx])
     fosc_arr[i] = freq_arr[max_value_idx]
-    print (fosc_arr[i])
+    #print (fosc_arr[i])
 
-print(fosc_arr)
+#print(fosc_arr)
 
 plt.plot(vctrl_arr,fosc_arr,linewidth = 2.5)
 plt.show()    

@@ -8,7 +8,7 @@ XC2 vctrl vn gnd sky130_fd_pr__cap_var_lvt W=500 L=0.5 VM=1 m=30
 
 L1 vp vn 1n
 
-VTuner vctrl gnd dc=0
+VTuner vctrl gnd dc=1.80
 Iin vp vn dc 10 ac 1
 
 .param mc_mm_switch=0
@@ -28,9 +28,8 @@ ac dec 100 1e9 10e9
 let vdiff = v(vp)-v(vn)
 let vabs = magnitude(vdiff)
 plot ac1.vabs
-let vmax = vecmax(vabs)
-meas ac fosc when vabs=vmax
+wrdata csv_files/ac_mag_36.csv ac1.vabs 
 
-
+quit
 .endc
 .end

@@ -24,4 +24,4 @@ len=${#arr[@]}
 #done
 
 
-python3 scripts/plot_fosc.py csv_files/ac_mag_ ${len}
+python3 scripts/plot_fosc.py csv_files/ac_mag_ ${len} 

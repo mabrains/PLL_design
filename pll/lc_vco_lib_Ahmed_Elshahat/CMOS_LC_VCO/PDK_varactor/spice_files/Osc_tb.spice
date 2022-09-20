@@ -6,10 +6,10 @@ c1 vp vn 1p
 XC1 vctrl vp gnd sky130_fd_pr__cap_var_lvt W=500 L=0.5 VM=1 m=30
 XC2 vctrl vn gnd sky130_fd_pr__cap_var_lvt W=500 L=0.5 VM=1 m=30
 
-L1 vp vn 1n
+L1 vp vn 4n
 
 VTuner vctrl gnd dc=1.80
-Iin vp vn dc 10 ac 1
+Iin vp vn dc 0 ac 1
 
 .param mc_mm_switch=0
 .param mc_pr_switch=0

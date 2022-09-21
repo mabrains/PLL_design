@@ -62,11 +62,11 @@ Isource net1 GND 450u
 .include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
 
 *corners setup
-.temp 27
-.options tnom=27
-.param V_supply = 1.8
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+.temp 125
+.options tnom=125
+.param V_supply = 1.62
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/sf.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/sf/specialized_cells.spice
 
 
 .save all
@@ -84,56 +84,4 @@ while vctrl_counter < length(vctrl_vector)
     op
     save  @m.xm4.msky130_fd_pr__pfet_01v8[id]
 
-    save  @m.xm1.msky130_fd_pr__pfet_01v8[id]
-    save  @m.xm11.msky130_fd_pr__pfet_01v8[id]
-
-    save  @m.xm7.msky130_fd_pr__nfet_01v8[id]
-    save  @m.xm2.msky130_fd_pr__nfet_01v8[id]
-
-    save  vp
-    save  vn
-
-    wrdata csv_files/I_tail_tttt.csv   @m.xm4.msky130_fd_pr__pfet_01v8[id]
-    wrdata csv_files/Ip_left_tttt.csv  @m.xm1.msky130_fd_pr__pfet_01v8[id]
-    wrdata csv_files/Ip_right_tttt.csv @m.xm11.msky130_fd_pr__pfet_01v8[id]
-    wrdata csv_files/In_left_tttt.csv  @m.xm7.msky130_fd_pr__nfet_01v8[id]
-    wrdata csv_files/In_right_tttt.csv @m.xm2.msky130_fd_pr__nfet_01v8[id]
-    wrdata csv_files/vp_tttt.csv vp
-    wrdata csv_files/vn_tttt.csv vn
-
-    tran 0.01ns 100ns
-    let vdiff = v(vp)-v(vn)
-    let vdiff_max =  vecmax(vp-vn)
-    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
-    let freq = 1/tperiod
-    setplot op
-    let f_osc[vctrl_counter] = tran.freq
-
-    wrdata csv_files/fosc_vs_vctrl_tttt.csv f_osc[vctrl_counter]
-    wrdata csv_files/max_swing_tttt.csv tran.vdiff_max
-    wrdata csv_files/time_swing_tttt.csv tran.vdiff
-
-    reset
-    let vctrl_counter = vctrl_counter + 1
-    let curr_value = vctrl_vector[vctrl_counter]
-end
-
-let kvco = vecd(f_osc)
-print f_osc
-*plot f_osc vs vctrl_vector
-*plot kvco vs vctrl_vector xlimit 0.5 1.6
-*print kvco
-quit
-.endc
-
-
-**** end user architecture code
-**.ends
-
-* expanding   symbol:  BGR_Banba.sym # of pins=3
-** sym_path: /home/ahmed/Mabrains_internship/VCO_Try3/BGR_Banba.sym
-** sch_path: /home/ahmed/Mabrains_internship/VCO_Try3/BGR_Banba.sch
-
-.GLOBAL GND
-.GLOBAL VDD
-.end
+    save  @m.xm1.msky130_fd_pr_

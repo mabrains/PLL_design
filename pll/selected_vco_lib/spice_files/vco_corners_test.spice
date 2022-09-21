@@ -68,8 +68,6 @@ Isource net1 GND 450u
 .include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
 .include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
-*save  @m.xm1.msky130_fd_pr__nfet_01v8_lvt[gm]
-*wrdata csv_files/gm_xm1.csv tran1.@m.xm1.msky130_fd_pr__nfet_01v8_lvt[gm]
 
 .save all
 .nodeset v(vout)=0
@@ -82,6 +80,28 @@ let curr_value = vctrl_vector[0]
 set appendwrite
 while vctrl_counter < length(vctrl_vector)
     op
+    save  @m.xm4.msky130_fd_pr__pfet_01v8_lvt[id]
+
+    save  @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id]
+    save  @m.xm11.msky130_fd_pr__pfet_01v8_lvt[id]
+
+    save  @m.xm7.msky130_fd_pr__nfet_01v8_lvt[id]
+    save  @m.xm2.msky130_fd_pr__nfet_01v8_lvt[id]
+
+    save  vp
+    save  vn
+
+    wrdata csv_files/I_tail.csv @m.xm4.msky130_fd_pr__pfet_01v8_lvt[id]
+
+    wrdata csv_files/Ip_left.csv  @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id]
+    wrdata csv_files/Ip_right.csv @m.xm11.msky130_fd_pr__pfet_01v8_lvt[id]
+
+    wrdata csv_files/In_left.csv  @m.xm7.msky130_fd_pr__nfet_01v8_lvt[id]
+    wrdata csv_files/In_right.csv @m.xm2.msky130_fd_pr__nfet_01v8_lvt[id]
+
+    wrdata csv_files/vp.csv vp
+    wrdata csv_files/vn.csv vn
+
     print curr_value
     alter VTuner  $&curr_value
     tran 0.01ns 100ns

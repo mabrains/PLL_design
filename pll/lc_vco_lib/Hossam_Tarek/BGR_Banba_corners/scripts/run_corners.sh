@@ -1,7 +1,7 @@
 #!/bin/bash
 # Read a string with spaces using for loop
 
-cornerArr=("tttt" "ssss" "sssf" "ssfs" "ssff" "sfss" "sfsf" "sffs" "sfff" "fsss" "fssf" "fsfs" "fsff" "ffss" "ffsf" "fffs" "ffff")
+cornerArr=("ssss" "sssf" "ssfs" "ssff" "sstt" "sfss" "sfsf" "sffs" "sfff" "sftt" "stss" "stsf" "stfs" "stff" "sttt" "fsss" "fssf" "fsfs" "fsff" "fstt" "ffss" "ffsf" "fffs" "ffff" "fftt" "ftss" "ftsf" "ftfs" "ftff" "fttt" "tsss" "tssf" "tsfs" "tsff" "tstt" "tfss" "tfsf" "tffs" "tfff" "tftt" "ttss" "ttsf" "ttfs" "ttff" "tttt")
 #cornerArr=("tttt")
 
 i=0
@@ -42,12 +42,12 @@ do
     newLine6="    wrdata csv_files\/Iref_tran_${corner}.csv i(v1) "
 
 
-    lineNo1=32
-    lineNo2=33
-    lineNo3=34
-    lineNo4=35
-    lineNo5=36
-    lineNo6=16 
+    lineNo1=37
+    lineNo2=38
+    lineNo3=39
+    lineNo4=40
+    lineNo5=41
+    lineNo6=20
 
 
     sed -i "${lineNo1}s/.*/$newLine1/" spice_files/BGR_tb.spice

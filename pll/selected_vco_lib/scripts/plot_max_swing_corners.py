@@ -75,11 +75,11 @@ max_swing_ttfs=get_arr("csv_files/max_swing_ttfs.csv")
 max_swing_ttff=get_arr("csv_files/max_swing_ttff.csv")
 max_swing_tttt=get_arr("csv_files/max_swing_tttt.csv")
 #######################################################################################
-fig, ax = plt.subplots(figsize=(5, 5))
-plt.subplots_adjust(right=0.955)
-plt.subplots_adjust(left=0.04)
-plt.subplots_adjust(top=0.975)
-plt.subplots_adjust(bottom=0.06)
+fig, ax = plt.subplots(figsize=(4, 4))
+plt.subplots_adjust(right=0.9)
+plt.subplots_adjust(left=0.125)
+plt.subplots_adjust(top=0.88)
+plt.subplots_adjust(bottom=0.11)
 
 
 ssss, = ax.plot(vctrl, np.unique(max_swing_ssss), linewidth=2.5, label='ssss')
@@ -137,7 +137,7 @@ tttt, = ax.plot(vctrl, np.unique(max_swing_tttt), linewidth=2.5, label='tttt')
 
 
 ###################################################################################
-legend = plt.legend(bbox_to_anchor=(1.05, 1.03),loc='upper right')
+legend = plt.legend(bbox_to_anchor=(1.08, 1.13),loc='upper right', labelspacing=0.15)
 
 #ffff_legend, fffs_legend, ffsf_legend, ffss_legend, fsff_legend, fsfs_legend, fssf_legend, fsss_legend, sfff_legend, sffs_legend, sfsf_legend, sfss_legend, ssff_legend, ssfs_legend, sssf_legend, ssss_legend, tttt_legend = legend.get_lines()
 
@@ -301,6 +301,6 @@ plt.ylabel("Oscillation Frequency (HZ)",fontsize=14)
 plt.title("Oscillation Frequency Vs Control Voltage",fontsize=14)
 plt.grid()
 plt.tight_layout()
-#plt.xlim([0, 1.9])
+plt.xlim([0, 1])
 plt.show()
 

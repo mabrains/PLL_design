@@ -137,11 +137,11 @@ ttfs_xprime, ttfs_yprime = D(vctrl, f_osc_ttfs)
 ttff_xprime, ttff_yprime = D(vctrl, f_osc_ttff)
 tttt_xprime, tttt_yprime = D(vctrl, f_osc_tttt)
 ################################################################
-fig, ax = plt.subplots(figsize=(5, 5))
-plt.subplots_adjust(right=0.955)
-plt.subplots_adjust(left=0.04)
-plt.subplots_adjust(top=0.975)
-plt.subplots_adjust(bottom=0.06)
+fig, ax = plt.subplots(figsize=(4, 4))
+plt.subplots_adjust(right=0.9)
+plt.subplots_adjust(left=0.125)
+plt.subplots_adjust(top=0.88)
+plt.subplots_adjust(bottom=0.11)
 
 ssss, = ax.plot(ssss_xprime, ssss_yprime*1e-6, linewidth=2.5, label='ssss')
 sssf, = ax.plot(sssf_xprime, sssf_yprime*1e-6, linewidth=2.5, label='sssf')
@@ -192,7 +192,7 @@ ttff, = ax.plot(ttff_xprime, ttff_yprime*1e-6, linewidth=2.5, label='ttff')
 tttt, = ax.plot(tttt_xprime, tttt_yprime*1e-6, linewidth=2.5, label='tttt')
 
 #####################################################################################
-legend = plt.legend(bbox_to_anchor=(1.05, 1.03),loc='upper right')
+legend = plt.legend(bbox_to_anchor=(1.08, 1.13),loc='upper right', labelspacing=0.15)
 
 ssss_legend, sssf_legend, ssfs_legend, ssff_legend, sstt_legend, sfss_legend, sfsf_legend, sffs_legend, sfff_legend, sftt_legend, stss_legend, stsf_legend, stfs_legend, stff_legend, sttt_legend, fsss_legend, fssf_legend, fsfs_legend, fsff_legend, fstt_legend, ffss_legend, ffsf_legend, fffs_legend, ffff_legend, fftt_legend, ftss_legend, ftsf_legend, ftfs_legend, ftff_legend, fttt_legend, tsss_legend, tssf_legend, tsfs_legend, tsff_legend, tstt_legend, tfss_legend, tfsf_legend, tffs_legend, tfff_legend, tftt_legend, ttss_legend, ttsf_legend, ttfs_legend, ttff_legend, tttt_legend = legend.get_lines()
 #####################################################################################
@@ -351,4 +351,5 @@ plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("KVCO (MHZ/V)",fontsize=14)
 plt.title("Gain  Vs Control Voltage",fontsize=14)
 plt.grid()
+plt.xlim([0, 1])
 plt.show()

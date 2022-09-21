@@ -9,7 +9,7 @@ import glob
 import subprocess
 import jinja2
 import itertools
-import subprocess
+import concurrent
 
 main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path("..", "run_test")
@@ -48,46 +48,32 @@ def run_corner(all_corner_data):
                                         temp=tc, 
                                         vsup=sc, 
                                         vctrl=vc)
+
     full_spice = template.render(corner_setup=new_corners_str)
-    text_file = open(os.path.join(run_dir, "{}_{}_{}_{}.spi".format()), "w")
-    text_file.write('Python Tutorial by TutorialKart.')
+
+    spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}.spi".format(pc, tc, sc, vc))
+    text_file = open(spice_file_path, "w")
+    text_file.write(full_spice)
     text_file.close()
 
+    #subprocess.run(["ngspice", "-b", spice_file_path])
 
-    with urllib.request.urlopen(url, timeout=timeout) as conn:
-        return conn.read()
+    return {"test": "test"}
 
 if __name__ == "__main__":
     
-    
     all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, vctrl_corners))
+    os.copy_file_range(os.path.join("..", "spice_files", ".spiceinit"), os.path.join(run_dir, ".spiceinit"))
     
+    # We can use a with statement to ensure threads are cleaned up promptly
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        # Start the load operations and mark each future with its URL
+        futures = [executor.submit(run_corner, comp) for comp in all_comb[:5]]
+        for future in concurrent.futures.as_completed(futures):
+            try:
+                data = future.result()
+            except Exception as exc:
+                print('%r generated an exception: %s' % (url, exc))
+            else:
+                print('%r page is %d bytes' % (url, len(data)))
     
-
-# We can use a with statement to ensure threads are cleaned up promptly
-with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-    # Start the load operations and mark each future with its URL
-    future_to_url = {executor.submit(load_url, url, 60): url for url in URLS}
-    for future in concurrent.futures.as_completed(future_to_url):
-        url = future_to_url[future]
-        try:
-            data = future.result()
-        except Exception as exc:
-            print('%r generated an exception: %s' % (url, exc))
-        else:
-            print('%r page is %d bytes' % (url, len(data)))
-    
-    
-
-    ## Generate folder structure
-
-    ## Generate simulation netlist
-    
-
-
-
-
-
-    ## Run simulation
-
-    ## Read measurements

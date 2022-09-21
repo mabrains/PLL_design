@@ -1,6 +1,9 @@
 ** sch_path: /home/ahmed/Mabrains_internship/VCO_Try3/VCO_Full_2.sch
 **.subckt VCO_Full_2
-VDD VDD GND 1.8
+*VDD VDD GND 1.8 
+VDD VDD GND V_supply
+
+
 X1 net2 GND VDD BGR_Banba
 XM8 net2 net2 GND GND sky130_fd_pr__nfet_01v8 L=1 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
@@ -61,9 +64,13 @@ XM5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) 
 .param mc_pr_switch=0
 .include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
 .include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
+*corners setup
+.temp 125
+.options tnom=125
+.param V_supply = 1.8
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/sf.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/sf/specialized_cells.spice
 
 
 
@@ -81,11 +88,16 @@ while vctrl_counter < length(vctrl_vector)
     alter VTuner  $&curr_value
     tran 0.01ns 100ns
     let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
     meas tran tperiod TRIG vdiff VAL=0.5 RISE=30 TARG vdiff VAL=0.5 RISE=31
     let freq = 1/tperiod
     setplot op1
     let f_osc[vctrl_counter] = tran.freq
-    *wrdata fosc_vs_vctrl.csv f_osc[vctrl_counter]
+
+    wrdata csv_files/fosc_vs_vctrl_tssf.csv f_osc[vctrl_counter]
+    wrdata csv_files/max_swing_tssf.csv tran.vdiff_max
+    wrdata csv_files/time_swing_tssf.csv tran.vdiff
+
     reset
     let vctrl_counter = vctrl_counter + 1
     let curr_value = vctrl_vector[vctrl_counter]

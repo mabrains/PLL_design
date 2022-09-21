@@ -9,10 +9,11 @@ import glob
 import subprocess
 import jinja2
 import itertools
-import concurrent
+import concurrent.futures
+import shutil
 
 main_tb_path = os.path.join("..", "spice_files")
-run_dir = os.path("..", "run_test")
+run_dir = os.path.join("..", "run_test")
 
 TEMPLATE_FILE = "test_vco_char.spice"
 
@@ -56,24 +57,33 @@ def run_corner(all_corner_data):
     text_file.write(full_spice)
     text_file.close()
 
-    #subprocess.run(["ngspice", "-b", spice_file_path])
+    spice_run_log = os.path.join(run_dir, "{}_{}_{}_{}.log".format(pc, tc, sc, vc))
+    log_file = open(spice_run_log, "w")
+    subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
+    log_file.close()
 
     return {"test": "test"}
 
 if __name__ == "__main__":
     
     all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, vctrl_corners))
-    os.copy_file_range(os.path.join("..", "spice_files", ".spiceinit"), os.path.join(run_dir, ".spiceinit"))
+
+    if not os.path.isdir(run_dir):
+        os.makedirs(run_dir)
+    
+    shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(run_dir, ".spiceinit"))
     
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         # Start the load operations and mark each future with its URL
-        futures = [executor.submit(run_corner, comp) for comp in all_comb[:5]]
-        for future in concurrent.futures.as_completed(futures):
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
+        
+        for future in concurrent.futures.as_completed(future_to_comb):
+            comb = future_to_comb[future]
             try:
                 data = future.result()
             except Exception as exc:
-                print('%r generated an exception: %s' % (url, exc))
+                print('generated an exception: %s' % (exc))
             else:
-                print('%r page is %d bytes' % (url, len(data)))
+                print('%s corner completed' % (str(comb)))
     

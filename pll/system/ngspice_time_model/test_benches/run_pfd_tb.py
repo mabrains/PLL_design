@@ -20,13 +20,13 @@ delaydwn = 5.0*100e-9
 text = "*Test Line exchange"
 
 for i in range (0,3):
-	delayup  = 5.1*100e-9 if i == 1 else 5.0*100e-9	
-	delaydwn = 5.1*100e-9 if i == 2 else 5.0*100e-9
-	with open(netlist_tmp) as f:
-	    tmpl = Template(f.read())
-	    file = f"test_pfd_mod_{i}.sp" 
-	    with open(file, "w") as netlist:
-		    netlist.write(tmpl.render(delayup = delayup, delaydwn = delaydwn, line = text )) 
+    delayup  = 5.1*100e-9 if i == 1 else 5.0*100e-9	
+    delaydwn = 5.1*100e-9 if i == 2 else 5.0*100e-9
+    with open(netlist_tmp) as f:
+        tmpl = Template(f.read())
+        file = f"test_pfd_mod_{i}.sp" 
+        with open(file, "w") as netlist:
+            netlist.write(tmpl.render(delayup = delayup, delaydwn = delaydwn, line = text )) 
 
 # # Running ngspice for each netlist 
 # with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:

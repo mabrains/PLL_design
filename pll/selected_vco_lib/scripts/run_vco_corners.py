@@ -62,7 +62,22 @@ def run_corner(all_corner_data):
     subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
     log_file.close()
 
-    return {"test": "test"}
+    ## read the data from log
+    log_file = open(spice_run_log, "r")
+    results_dict = {}
+
+    for line in log_file.readlines():
+        s = line.split()
+        if len(s) > 2:
+            if s[0] == "vp":
+                results_dict["vp"] = s[2]
+            elif s[0] == "vn":
+                results_dict["vn"] = s[2]
+
+    log_file.close()
+
+
+    return results_dict
 
 if __name__ == "__main__":
     
@@ -73,6 +88,8 @@ if __name__ == "__main__":
     
     shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(run_dir, ".spiceinit"))
     
+    my_results = []
+
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         # Start the load operations and mark each future with its URL
@@ -82,8 +99,19 @@ if __name__ == "__main__":
             comb = future_to_comb[future]
             try:
                 data = future.result()
+                data["process"] = comb[0]
+                data["temp"] = comb[1]
+                data["supply"] = comb[2]
+                data["control"] = comb[3]
+                my_results.append(data)
+
             except Exception as exc:
                 print('generated an exception: %s' % (exc))
             else:
                 print('%s corner completed' % (str(comb)))
+
+
+    if len(my_results) > 0:
+        df = pd.DataFrame(my_results)
+        df.to_csv("all_measurements.csv", index=False)
     

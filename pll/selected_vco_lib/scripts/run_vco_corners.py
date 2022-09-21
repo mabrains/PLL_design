@@ -16,6 +16,7 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")
 
 TEMPLATE_FILE = "test_vco_char.spice"
+NUM_WORKERS = 5
 
 process_corners = ["ss", "sf", "fs", "ff", "tt"]
 temp_corners = [-40, 27, 125]
@@ -91,7 +92,7 @@ if __name__ == "__main__":
     my_results = []
 
     # We can use a with statement to ensure threads are cleaned up promptly
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
         future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
         

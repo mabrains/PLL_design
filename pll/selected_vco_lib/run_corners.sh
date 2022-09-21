@@ -1,7 +1,7 @@
 #!/bin/bash
 # Read a string with spaces using for loop
 
-cornerArr=("tssf")
+cornerArr=("tttt")
 #cornerArr=("tttt")
 #cornerArr=("tttt" "ssss" "sssf" "ssfs" "ssff" "sfss" "sfsf" "sffs" "sfff" "fsss" "fssf" "fsfs" "fsff" "ffss" "ffsf" "fffs" "ffff")
 #cornerArr=("ssss" "sssf" "ssfs" "ssff" "sstt" "sfss" "sfsf" "sffs" "sfff" "sftt" "stss" "stsf" "stfs" "stff" "sttt" "fsss" "fssf" "fsfs" "fsff" "fstt" "ffss" "ffsf" "fffs" "ffff" "fftt" "ftss" "ftsf" "ftfs" "ftff" "fttt" "tsss" "tssf" "tsfs" "tsff" "tstt" "tfss" "tfsf" "tffs" "tfff" "tftt" "ttss" "ttsf" "ttfs" "ttff" "tttt")
@@ -52,26 +52,26 @@ do
     newLine7="    wrdata csv_files\/max_swing_${corner}.csv tran.vdiff_max"
     newLine8="    wrdata csv_files\/time_swing_${corner}.csv tran.vdiff"
 
-    lineNo1=69
-    lineNo2=70
-    lineNo3=71
-    lineNo4=72
-    lineNo5=73
-    lineNo6=97
-    lineNo7=98
-    lineNo8=99
+    lineNo1=65
+    lineNo2=66
+    lineNo3=76
+    lineNo4=68
+    lineNo5=69
+    lineNo6=93
+    lineNo7=94
+    lineNo8=95
 
 
-    sed -i "${lineNo1}s/.*/$newLine1/" spice_files/VCO_Final.spice
-    sed -i "${lineNo2}s/.*/$newLine2/" spice_files/VCO_Final.spice
-    sed -i "${lineNo3}s/.*/$newLine3/" spice_files/VCO_Final.spice
-    sed -i "${lineNo4}s/.*/$newLine4/" spice_files/VCO_Final.spice
-    sed -i "${lineNo5}s/.*/$newLine5/" spice_files/VCO_Final.spice
-    sed -i "${lineNo6}s/.*/$newLine6/" spice_files/VCO_Final.spice
-    sed -i "${lineNo7}s/.*/$newLine7/" spice_files/VCO_Final.spice
-    sed -i "${lineNo8}s/.*/$newLine8/" spice_files/VCO_Final.spice
+    sed -i "${lineNo1}s/.*/$newLine1/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo2}s/.*/$newLine2/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo3}s/.*/$newLine3/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo4}s/.*/$newLine4/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo5}s/.*/$newLine5/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo6}s/.*/$newLine6/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo7}s/.*/$newLine7/" spice_files/vco_corners_test.spice
+    sed -i "${lineNo8}s/.*/$newLine8/" spice_files/vco_corners_test.spice
 
-    ngspice spice_files/VCO_Final.spice
+    ngspice spice_files/vco_corners_test.spice
     
     let i++
 done

@@ -61,7 +61,7 @@ if __name__ == "__main__":
             print("## Simulation didn't complete.")
             exit()
     
-        fields = ['time','v(FBS)','v(REFS)','v(up)','v(dn)','v(Xcp.up_mid)','v(Xcp.dn_mid)','v(out)']
+        fields = ['time','v(FBS)','v(REFS)','v(up)','v(dn)','i(Vdump2)','i(Vdump2)','v(out)']
         subplotnumber=len(fields)-1
         subplotindex=1
         
@@ -71,8 +71,8 @@ if __name__ == "__main__":
         FB      = data_df['v(FBS)'] 
         UPS      = data_df['v(UP)']    
         DWNS     = data_df['v(DWN)']  
-        Xcp_up      = data_df['v(Xcp.up_mid)']
-        Xcp_dn     = data_df['v(Xcp.dn_mid)']    
+        Xcp_up      = data_df['i(Vdump1)']
+        Xcp_dn     = data_df['i(Vdump2)']    
         outv     = data_df['v(out)']    
 
         plt.figure(i+1)
@@ -116,19 +116,19 @@ if __name__ == "__main__":
         plt.savefig(savefig)
         
         plt.subplot(7,1,5)
-        plt.plot(timearr , Xcp_up ,color='r', label='Xcp_up')
+        plt.plot(timearr , Xcp_up ,color='r', label='i_up')
         plt.xlabel('time (sec)') 
         plt.ylabel('Amplitude (V)')
-        plt.title('Xcp_up')
+        plt.title('i_up')
         plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
         plt.legend()
 
         plt.subplot(7,1,6)
-        plt.plot(timearr , Xcp_dn , color='c', label='Xcp_dn')
+        plt.plot(timearr , Xcp_dn , color='c', label='i_dn')
         plt.xlabel('time (sec)') 
         plt.ylabel('Amplitude (V)')
-        plt.title('Xcp_dn')
+        plt.title('i_dn')
         plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
         plt.legend()

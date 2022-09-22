@@ -24,7 +24,7 @@ NUM_WORKERS = 3 # maximum number of processor threds to operate on
 process_corners = ["ss", "sf", "fs", "ff", "tt"]
 temp_corners = [-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90,100,110,120]
 supply_corners = [0.9, 1.0, 1.1]
-vctrl_corners = [0.9]
+vout = [0.9]
 
 supply_value = 1.8
 
@@ -102,7 +102,7 @@ def run_corner(all_corner_data):
 
 if __name__ == "__main__":
     # create a list has all the combinations of corner cases
-    all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, vctrl_corners))
+    all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, vout))
 
     # if the run folder is not found, create a new folder with the givven path which is 
     # created at the beginning of the script

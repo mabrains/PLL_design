@@ -1,4 +1,4 @@
-process,temp,supply,control,iref
+process,temp,supply,Vout,iref
 ss,-40,1.1,0.9,8.353252e+01
 ff,-20,1.1,0.9,8.278178e+01
 ff,-10,0.9,0.9,7.655161e+01

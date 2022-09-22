@@ -1,4 +1,4 @@
-# Wifi/Bluetooth PLL Design on Skywaters 130nm technology
+# Bluetooth PLL Design on Skywaters 130nm technology
 
 [![License](https://img.shields.io/github/license/mabrains/PLL_design)](LICENSE) 
 

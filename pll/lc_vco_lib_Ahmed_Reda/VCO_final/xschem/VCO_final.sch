@@ -289,7 +289,7 @@ C {devices/vsource.sym} 3250 -3510 0 0 {name=VDD value=1.8}
 C {devices/gnd.sym} 3250 -3460 0 0 {name=l6 lab=GND}
 C {devices/vdd.sym} 3250 -3540 0 0 {name=l7 lab=VDD}
 C {devices/vdd.sym} 2660 -3560 0 0 {name=l11 lab=VDD}
-C {BGR_Banba.sym} 2390 -3630 0 0 {name=X1}
+C {../../BGR_Banba/xschem/BGR_Banba.sym} 2390 -3630 0 0 {name=X1}
 C {devices/gnd.sym} 2450 -3110 0 0 {name=l14 lab=GND}
 C {sky130_fd_pr/nfet_01v8.sym} 2470 -3170 0 1 {name=M8
 L=1

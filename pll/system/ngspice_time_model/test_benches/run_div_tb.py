@@ -104,15 +104,16 @@ if __name__ == "__main__":
         plt.plot(timearr , F_Before_divider, color='b', label='DIV_IN')
         plt.xlabel('time (sec)') 
         plt.ylabel('Amplitude (V)')
-        plt.title('Divider input =%d',divin,'MHz')
+        plt.title('Divider input =%0.1f GHz'% divin)
         #plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
-
+        plt.legend()
+        
         plt.subplot(2,1,2)
         plt.plot(timearr , F_After_divider, color='g', label='DIV_OUT')
         plt.xlabel('time (sec)') 
         plt.ylabel('Amplitude (V)')
-        plt.title(f"Divider Out=%0.1f" % divout ,'GHz')
+        plt.title('Divider Out=%d MHz'% divout)
         #plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
 

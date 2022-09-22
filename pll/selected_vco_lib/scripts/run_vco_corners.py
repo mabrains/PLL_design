@@ -21,8 +21,8 @@ run_dir = os.path.join("..", "run_test")
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
 NUM_WORKERS = 5 # maximum number of processor threds to operate on 
 
-process_corners = ["ss", "sf", "fs", "ff", "ss"]
-temp_corners = [-40, -40, 125]
+process_corners = ["ss", "sf", "fs", "ff", "tt"]
+temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
@@ -88,6 +88,7 @@ def run_corner(all_corner_data):
     #iterate on the log file and extract the values of the intended measurments
     for line in log_file.readlines():
         s = line.split()
+        #print (s)
         if len(s) > 2:
             if s[0] == "vp":
                 results_dict["vp"] = s[2]
@@ -100,6 +101,36 @@ def run_corner(all_corner_data):
                 else:
                     results_dict["Oscillation Status"] = "False"
                     results_dict["freq (GHZ)"] = "-"
+
+            elif s[0].lower() =="error:" and 'measure' in s and 'tperiod' in s:
+                results_dict["Oscillation Status"] = "False"
+                results_dict["freq (GHZ)"] = "-"
+
+            elif s[0] == "id_tail":
+                results_dict["id_tail (uA)"] = s[2] 
+            elif s[0] == "id_right":
+                results_dict["id_right (uA)"] = s[2] 
+            elif s[0] == "id_left":
+                results_dict["id_left (uA)"] = s[2] 
+
+            elif s[0] == "tail_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["tail_sat_check "] = "True"
+                else:
+                    results_dict["tail_sat_check "] = "False"
+
+            elif s[0] == "nmos_sat_check": 
+                if (float (s[2]) > 0):
+                    results_dict["nmos_sat_check "] = "True"
+                else:
+                    results_dict["nmos_sat_check "] = "False"
+            
+            elif s[0] == "pmos_sat_check": 
+                if (float (s[2]) > 0):
+                    results_dict["pmos_sat_check "] = "True"
+                else:
+                    results_dict["pmos_sat_check "] = "False"
+
 
     log_file.close() # close the log file
 
@@ -126,7 +157,7 @@ if __name__ == "__main__":
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:2]}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]

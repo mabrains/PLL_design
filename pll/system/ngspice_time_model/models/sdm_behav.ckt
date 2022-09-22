@@ -188,8 +188,14 @@ X7Bit_Register S0 S1 S2 S3 S4 S5 S6 CLK d_d0 RESET B0 B1 B2 B3 B4 B5 B6 7Bit_Reg
     X5Bit_Register1 9 d_d0 d_d0 d_d0 d_d0 CLK_D d_d0 d_d0 OUT1 OUT2 OUT3 OUT4 OUT5 5Bit_Register
     XSUMMER1 8 d_d0 d_d0 d_d0 d_d0 9 d_d0 d_d0 d_d0 d_d0 OUT1 OUT2 OUT3 OUT4 OUT5 O0 O1 O2 O3 O4 SUMMER
     X5Bit_Register2 O0 O1 O2 O3 O4 CLK_D d_d0 d_d0 K0 K1 K2 K3 K4 5Bit_Register
-    XSUMMER2 7 d_d0 d_d0 d_d0 d_d0 O0 O1 O2 O3 O4 K0 K1 K2 K3 K4 DIV0 DIV1 DIV2 DIV3 DIV4 SUMMER
-    
+    XSUMMER2 7 d_d0 d_d0 d_d0 d_d0 O0 O1 O2 O3 O4 K0 K1 K2 K3 K4 D0 D1 D2 D3 D4 SUMMER
+
+	* Digital to Analog nodes Models
+	abridge-w1 [D0 D1 D2 D3 D4][DIV0 DIV1 DIV2 DIV3 DIV4]  dac1 
+
+	.model dac1 dac_bridge(out_low = 0 out_high = 1.8 out_undef = 0.9
+	+ input_load = 1e-15 t_rise = 1e-15
+	+ t_fall = 1e-15)
 .ends SDM
 
 *****************************************--SDM--*****************************************

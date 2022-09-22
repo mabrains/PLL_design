@@ -30,13 +30,14 @@ VDD vdd gnd 1.8V
 
 Vref REF gnd DC 0 PULSE ( 0 1.8 {{delayup}} trise tfall tpw cycle 0 )
 Vfb  FB gnd DC 0 PULSE ( 0 1.8 {{delaydwn}} trise tfall tpw cycle 0 )
-
+Vdump1 iup gnd DC 0
+Vdump2 idwn gnd DC 0
 * frequency phase detector
 
 XPFD REF FB UP DWN FBS REFS PFD
 *XPFD FB REF UP DWN FBS REFS PFD
 
-Xcp up dn out vdd gnd charge_pump_behav
+Xcp UP DWN out vdd gnd iup idwn charge_pump_behav 
 
 C1 out gnd 10p ic=0
 
@@ -47,5 +48,5 @@ set wr_vecnames
 option numdgt = 3
 tran 0.1n $&simtime 
 *rusage
-wrdata pfd_cp_behav.csv v(FBS) v(REFS) v(UP) v(DWN) v(out) v(Xcp.up_mid) v(Xcp.dn_mid)
+wrdata pfd_cp_behav.csv v(FBS) v(REFS) v(UP) v(DWN) v(out) i(Vdump1) i(Vdump2)
 .endc

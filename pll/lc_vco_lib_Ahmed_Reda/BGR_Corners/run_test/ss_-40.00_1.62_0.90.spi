@@ -1,0 +1,37 @@
+** Test bench for BGR
+
+.include ../spice_files/BGR_cir.ckt
+
+
+.lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+*.temp 27
+*.options tnom=27
+
+VDD VDD GND 1.8
+VTuner out GND 0.90
+
+
+xbgr out GND VDD BGR_Banba
+
+**** begin user architecture code
+
+.control
+
+    set wr_singlescale
+    set wr_vecnames
+    set appendwrite
+    
+    op
+    show
+    let Iref = i(VTuner)
+    print Iref
+    print i(VTuner)
+    *print all
+
+   
+    
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

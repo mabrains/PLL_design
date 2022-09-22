@@ -1,0 +1,28 @@
+** Test bench for BGR
+
+.include ../spice_files/BGR_cir.ckt
+
+{{ corner_setup }}
+
+xvco out GND VDD BGR_Banba
+
+**** begin user architecture code
+
+.control
+    set wr_singlescale
+    set wr_vecnames
+    set appendwrite
+
+    op
+    let Iref = i(VTuner)
+    print Iref
+    print i(VTuner)
+    *print all
+
+   
+    
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

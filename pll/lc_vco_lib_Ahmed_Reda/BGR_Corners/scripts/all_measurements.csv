@@ -1,0 +1,3 @@
+process,temp,supply,control,iref
+ss,-40,0.9,0.8,0.000000e+00
+ss,-40,0.9,0.9,0.000000e+00

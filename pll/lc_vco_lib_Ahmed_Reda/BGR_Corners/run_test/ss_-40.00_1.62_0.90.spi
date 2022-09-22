@@ -1,9 +1,16 @@
 ** Test bench for BGR
 
+
+
 .include ../spice_files/BGR_cir.ckt
 
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
-.lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 *.temp 27
 *.options tnom=27
 
@@ -27,8 +34,6 @@ xbgr out GND VDD BGR_Banba
     print Iref
     print i(VTuner)
     *print all
-
-   
     
 .endc
 

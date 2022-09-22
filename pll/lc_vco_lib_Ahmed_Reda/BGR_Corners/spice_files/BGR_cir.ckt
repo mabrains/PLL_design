@@ -1,4 +1,7 @@
-.subckt BGR_Banba  out GND VDD
+*******************
+
+
+.subckt BGR_Banba Iref GND VDD
 *.iopin VDD
 *.iopin GND
 *.opin Iref

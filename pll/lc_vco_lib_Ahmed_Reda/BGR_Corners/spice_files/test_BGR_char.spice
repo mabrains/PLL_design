@@ -16,8 +16,7 @@ xvco out GND VDD BGR_Banba
     op
     let Iref = i(VTuner)
     print Iref
-    print i(VTuner)
-    *print all
+    print all
 
    
     

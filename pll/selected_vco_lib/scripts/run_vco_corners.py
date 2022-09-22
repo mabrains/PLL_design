@@ -16,13 +16,13 @@ import shutil
 main_tb_path = os.path.join("..", "spice_files") 
 
 # get the directory of the run folder which contain the log and tb files for each corner
-run_dir = os.path.join("..", "run_test")
+run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
 NUM_WORKERS = 5 # maximum number of processor threds to operate on 
 
-process_corners = ["ss", "sf", "fs", "ff", "tt"]
-temp_corners = [-40, 27, 125]
+process_corners = ["ss", "sf", "fs", "ff", "ss"]
+temp_corners = [-40, -40, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
@@ -41,7 +41,7 @@ Isource VDD ibias 90u"""
 ## .nodeset v(vout)=0
 
 def run_corner(all_corner_data):
-    # This function gets a list crries al the corner cases and returns a list of 
+    # This function gets a corner case and returns a list of 
     # values of all the intended measurments
 
     templateLoader = jinja2.FileSystemLoader(searchpath=main_tb_path)
@@ -93,6 +93,13 @@ def run_corner(all_corner_data):
                 results_dict["vp"] = s[2]
             elif s[0] == "vn":
                 results_dict["vn"] = s[2]
+            elif s[0] == "freq":
+                if (float (s[2]) > 0):
+                    results_dict["Oscillation Status"] = "True"
+                    results_dict["freq (GHZ)"] = s[2]
+                else:
+                    results_dict["Oscillation Status"] = "False"
+                    results_dict["freq (GHZ)"] = "-"
 
     log_file.close() # close the log file
 
@@ -111,7 +118,7 @@ if __name__ == "__main__":
         os.makedirs(run_dir)
     
     # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
-    shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(run_dir, ".spiceinit"))
+    shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     
     # create an empty list to carry all the measurements for all the corners
     my_results = []

@@ -14,7 +14,7 @@ xvco out GND VDD BGR_Banba
     set appendwrite
 
     op
-    let Iref = i(VTuner)
+    let Iref = i(VTuner)*1000000
     print Iref
     print all
 

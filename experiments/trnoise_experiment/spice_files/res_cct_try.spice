@@ -1,0 +1,28 @@
+**.subckt res_cct
+
+*sources
+VDD VDD GND 1.8 ac 1 0
+
+
+*voltage divider
+R1 VDD inter_node 100000 m=1
+R2 inter_node GND 100000 m=1
+
+.temp 27
+.options tnom=27
+
+.GLOBAL GND
+.GLOBAL VDD
+
+.control
+op
+run
+noise V(inter_node) VDD dec 100 1 10G
+setplot noise1
+plot v(onoise_spectrum)
+setplot noise2
+print v(onoise_total)
+
+.endc
+.end
+

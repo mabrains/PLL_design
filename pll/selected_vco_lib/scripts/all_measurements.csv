@@ -809,10 +809,3 @@ ss,125,0.9,1.8,1.002200e+00,1.002200e+00,2.004396e+00,True,True,False,7.428741e-
 ff,-40,1.1,1.8,1.187289e+00,1.187289e+00,2.374579e+00,True,True,True,8.000122e-01,8.000122e-01,1.704402e+00,True,2.693328e+00
 ff,-40,1.0,1.8,1.055924e+00,1.055924e+00,2.111848e+00,True,True,True,7.945246e-01,7.945246e-01,1.643850e+00,True,2.712214e+00
 ss,125,1.1,1.8,1.240173e+00,1.240173e+00,2.480338e+00,True,True,True,7.603875e-01,7.603875e-01,1.581434e+00,True,2.597754e+00
-=======
-process,temp,supply,control,id_left (uA),id_right (uA),id_tail (uA),nmos_sat_check ,pmos_sat_check ,tail_sat_check ,vn,vp,Oscillation Status,freq (GHZ)
-ss,-40,0.9,0.0,7.554612e+01,7.554612e+01,1.510923e+02,True,True,False,7.120383e-01,7.120383e-01,False,-
-ss,-40,0.9,0.1,7.554612e+01,7.554612e+01,1.510923e+02,True,True,False,7.120383e-01,7.120383e-01,False,-
-=======
-process,temp,supply,control,I_left (mA),I_right (mA),I_tail (mA),nmos_sat_check,pmos_sat_check,tail_sat_check,vn,vp,Oscillation Status,freq (GHZ)
-tt,27,1,0.0,1.122495e+00,1.122495e+00,2.244987e+00,True,True,True,7.756851e-01,7.756851e-01,True,2.187695e+00

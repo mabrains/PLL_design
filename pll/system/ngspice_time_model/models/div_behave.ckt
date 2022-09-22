@@ -1,4 +1,4 @@
-* Circuit Model for 2to1 DIVIDER
+* Circuit Model for DIVIDER
 
 *########################### 1/2 DIV behave ###############################
 .subckt 1_2div VDD gnd MODO MODI FIn FOUT P

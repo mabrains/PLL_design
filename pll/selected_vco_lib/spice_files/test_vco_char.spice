@@ -16,12 +16,14 @@ xvco vp vn vctrl ibias VDD GND vco
     op
     print all
 
-    ** tran 0.01ns 100ns
-    ** let vdiff = v(vp)-v(vn)
-    ** let vdiff_max =  vecmax(vp-vn)
-    ** meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
-    ** let freq = 1/tperiod
-    ** print(freq)
+    tran 0.01ns 100ns
+    plot vp
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq = 1/tperiod
+    print(freq)
+    
 .endc
 
 .GLOBAL GND

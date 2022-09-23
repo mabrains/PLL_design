@@ -2,10 +2,9 @@
 
 
 .subckt PFD REF FB UP DWN FBS REFS
-
 + CLKDelay=1.0e-10 SetDelay=1.0e-10 ResetDelay=1.0e-10 
-
 + Out_initial_state=2 TR=1.0e-10 TF=1.0e-10 + Cand=1e-12
+
 	* Analog to Digital nodes Models
 	.model adc_buff adc_bridge(in_low = 0.9 in_high = 0.9)
 

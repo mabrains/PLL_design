@@ -2,6 +2,15 @@
 ## Mabrains LLC
 ##########################################################################
 
+## server:
+## .spiceinit path in server:   "/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit"
+## corner file in server:      .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+
+## VM: 
+##  "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit"
+## .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+
+
 from calendar import c
 import pandas as pd
 import os
@@ -19,10 +28,10 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
-NUM_WORKERS = 5 # maximum number of processor threds to operate on 
+NUM_WORKERS = 4 # maximum number of processor threds to operate on 
 
-process_corners = ["ss", "sf", "fs", "ff", "ss"]
-temp_corners = [-40, -40, 125]
+process_corners = ["tt", "sf", "fs", "ff", "ss"]
+temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
@@ -88,6 +97,7 @@ def run_corner(all_corner_data):
     #iterate on the log file and extract the values of the intended measurments
     for line in log_file.readlines():
         s = line.split()
+        #print (s)
         if len(s) > 2:
             if s[0] == "vp":
                 results_dict["vp"] = s[2]
@@ -100,6 +110,38 @@ def run_corner(all_corner_data):
                 else:
                     results_dict["Oscillation Status"] = "False"
                     results_dict["freq (GHZ)"] = "-"
+
+            elif s[0].lower() == 'error:' and 'measure' in s and 'tperiod' in s:
+                results_dict["Oscillation Status"] = "False"
+                results_dict["freq (GHZ)"] = "-"
+
+            elif s[0].lower() == "i_tail":
+                results_dict["I_tail (mA)"] = s[2]
+            elif s[0].lower() == "i_left":
+                results_dict["I_left (mA)"] = s[2]
+            elif s[0].lower() == "i_right":
+                results_dict["I_right (mA)"] = s[2]
+            
+            elif s[0].lower() == "tail_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["tail_sat_check"] = "True"
+                else:
+                    results_dict["tail_sat_check"] = "False"
+
+            elif s[0].lower() == "nmos_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["nmos_sat_check"] = "True"
+                else:
+                    results_dict["nmos_sat_check"] = "False"
+
+            elif s[0].lower() == "pmos_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["pmos_sat_check"] = "True"
+                else:
+                    results_dict["pmos_sat_check"] = "False"
+            elif s[0] == "vdiff_max":
+                results_dict["vdiff_max"] = s[2]
+
 
     log_file.close() # close the log file
 
@@ -126,7 +168,7 @@ if __name__ == "__main__":
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
@@ -148,9 +190,22 @@ if __name__ == "__main__":
             else:
                 print('%s corner completed' % (str(comb)))
 
-
+    # loop on the csv file to plot and sort the measurement
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
         df.sort_values(by="control", inplace=True)
         df.to_csv("all_measurements.csv", index=False)
     
+    failed_corners = []
+    for ind in df.index:
+        if df['Oscillation Status'][ind] == False:
+            corner = {}
+            corner["failed_corners"] = df['process'][ind]+'_'+str(df['temp'][ind])+'_'+str(df['supply'][ind])
+            if (corner not in failed_corners ):
+             failed_corners.append(corner)
+
+
+
+    if len(failed_corners) > 0:
+        df = pd.DataFrame(failed_corners)
+        df.to_csv("failed_corners.csv", index=False)

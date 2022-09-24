@@ -2,6 +2,15 @@
 ## Mabrains LLC
 ##########################################################################
 
+## server:
+## .spiceinit path in server:   "/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit"
+## corner file in server:      .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+
+## VM: 
+##  "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit"
+## .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+
+
 from calendar import c
 import pandas as pd
 import os
@@ -21,7 +30,11 @@ run_dir = os.path.join("..", "run_test")
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
 NUM_WORKERS = 5 # maximum number of processor threds to operate on 
 
+<<<<<<< HEAD
 process_corners = ["ss", "sf", "fs", "ff", "tt"]
+=======
+process_corners = ["ss", "sf", "fs", "ff", "ss"]
+>>>>>>> 585603bd16b30bc2d62e3dac4cd464cb36fd0dbe
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
@@ -102,6 +115,7 @@ def run_corner(all_corner_data):
                     results_dict["Oscillation Status"] = "False"
                     results_dict["freq (GHZ)"] = "-"
 
+<<<<<<< HEAD
             elif s[0].lower() =="error:" and 'measure' in s and 'tperiod' in s:
                 results_dict["Oscillation Status"] = "False"
                 results_dict["freq (GHZ)"] = "-"
@@ -130,6 +144,38 @@ def run_corner(all_corner_data):
                     results_dict["pmos_sat_check "] = "True"
                 else:
                     results_dict["pmos_sat_check "] = "False"
+=======
+            elif s[0].lower() == 'error:' and 'measure' in s and 'tperiod' in s:
+                results_dict["Oscillation Status"] = "False"
+                results_dict["freq (GHZ)"] = "-"
+
+            elif s[0].lower() == "i_tail":
+                results_dict["I_tail (mA)"] = s[2]
+            elif s[0].lower() == "i_left":
+                results_dict["I_left (mA)"] = s[2]
+            elif s[0].lower() == "i_right":
+                results_dict["I_right (mA)"] = s[2]
+            
+            elif s[0].lower() == "tail_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["tail_sat_check"] = "True"
+                else:
+                    results_dict["tail_sat_check"] = "False"
+
+            elif s[0].lower() == "nmos_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["nmos_sat_check"] = "True"
+                else:
+                    results_dict["nmos_sat_check"] = "False"
+
+            elif s[0].lower() == "pmos_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["pmos_sat_check"] = "True"
+                else:
+                    results_dict["pmos_sat_check"] = "False"
+            elif s[0] == "vdiff_max":
+                results_dict["vdiff_max"] = s[2]
+>>>>>>> 585603bd16b30bc2d62e3dac4cd464cb36fd0dbe
 
 
     log_file.close() # close the log file
@@ -153,6 +199,7 @@ if __name__ == "__main__":
     
     # create an empty list to carry all the measurements for all the corners
     my_results = []
+    failed_corners = []
 
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
@@ -171,6 +218,11 @@ if __name__ == "__main__":
                 new_data = future.result()
 
                 data.update(new_data)
+                if data['Oscillation Status'] == 'False':
+                    fetched_corner = data['process']+','+str(data['temp'])+','+str(data['supply']*supply_value)
+                    if (fetched_corner not in failed_corners ):
+                        failed_corners.append(fetched_corner)
+                        data["failed corners"] = fetched_corner
                 
                 my_results.append(data)
 
@@ -179,9 +231,9 @@ if __name__ == "__main__":
             else:
                 print('%s corner completed' % (str(comb)))
 
-
+    # loop on the csv file to plot and sort the measurement
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
-        df.sort_values(by="control", inplace=True)
+        df.sort_values(by=["control" ,"failed corners"] , inplace=True)
         df.to_csv("all_measurements.csv", index=False)
     

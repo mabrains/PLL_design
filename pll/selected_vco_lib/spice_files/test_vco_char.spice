@@ -14,30 +14,32 @@ xvco vp vn vctrl ibias VDD GND vco
     set appendwrite
 
     op
-    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8
-    save @m.xvco.xm11.msky130_fd_pr__pfet_01v8
-    save @m.xvco.xm1.msky130_fd_pr__pfet_01v8
-    save @m.xvco.xm2.msky130_fd_pr__nfet_01v8
-
-    let Id_tail = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000000
-    let Id_right = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000000
-    let Id_left = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000000
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm11.msky130_fd_pr__pfet_01v8 
+    save @m.xvco.xm1.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm2.msky130_fd_pr__nfet_01v8  
+    save all
+    
+    let I_tail  = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_left  = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_right = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
 
     let tail_sat_check = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vth]
     let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]
-    let pmos_sat_check = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm11.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm11.msky130_fd_pr__pfet_01v8[vth]
+    let pmos_sat_check = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vth]
 
-
+    
     print all
 
     tran 0.01ns 100ns
     *plot vp
     let vdiff = v(vp)-v(vn)
     let vdiff_max =  vecmax(vp-vn)
-    
+    print vdiff_max
     meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
     let freq = 1/(tperiod*1000000000)
     print freq
+    
 
 .endc
 

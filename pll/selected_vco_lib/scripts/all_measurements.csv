@@ -1,6 +1,3 @@
-process,temp,supply,control,vn,vp
-ss,-40,0.9,0.0,7.120383e-01,7.120383e-01
-ss,-40,0.9,0.1,7.120383e-01,7.120383e-01
-ss,-40,0.9,0.2,7.120383e-01,7.120383e-01
-ss,-40,0.9,0.3,7.120383e-01,7.120383e-01
-ss,-40,0.9,0.4,7.120383e-01,7.120383e-01
+process,temp,supply,control,id_left (uA),id_right (uA),id_tail (uA),nmos_sat_check ,pmos_sat_check ,tail_sat_check ,vn,vp,Oscillation Status,freq (GHZ)
+ss,-40,0.9,0.0,7.554612e+01,7.554612e+01,1.510923e+02,True,True,False,7.120383e-01,7.120383e-01,False,-
+ss,-40,0.9,0.1,7.554612e+01,7.554612e+01,1.510923e+02,True,True,False,7.120383e-01,7.120383e-01,False,-

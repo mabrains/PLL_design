@@ -30,11 +30,7 @@ run_dir = os.path.join("..", "run_test")
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
 NUM_WORKERS = 5 # maximum number of processor threds to operate on 
 
-<<<<<<< HEAD
-process_corners = ["ss", "sf", "fs", "ff", "tt"]
-=======
 process_corners = ["ss", "sf", "fs", "ff", "ss"]
->>>>>>> 585603bd16b30bc2d62e3dac4cd464cb36fd0dbe
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
@@ -115,36 +111,6 @@ def run_corner(all_corner_data):
                     results_dict["Oscillation Status"] = "False"
                     results_dict["freq (GHZ)"] = "-"
 
-<<<<<<< HEAD
-            elif s[0].lower() =="error:" and 'measure' in s and 'tperiod' in s:
-                results_dict["Oscillation Status"] = "False"
-                results_dict["freq (GHZ)"] = "-"
-
-            elif s[0] == "id_tail":
-                results_dict["id_tail (uA)"] = s[2] 
-            elif s[0] == "id_right":
-                results_dict["id_right (uA)"] = s[2] 
-            elif s[0] == "id_left":
-                results_dict["id_left (uA)"] = s[2] 
-
-            elif s[0] == "tail_sat_check":
-                if (float (s[2]) > 0):
-                    results_dict["tail_sat_check "] = "True"
-                else:
-                    results_dict["tail_sat_check "] = "False"
-
-            elif s[0] == "nmos_sat_check": 
-                if (float (s[2]) > 0):
-                    results_dict["nmos_sat_check "] = "True"
-                else:
-                    results_dict["nmos_sat_check "] = "False"
-            
-            elif s[0] == "pmos_sat_check": 
-                if (float (s[2]) > 0):
-                    results_dict["pmos_sat_check "] = "True"
-                else:
-                    results_dict["pmos_sat_check "] = "False"
-=======
             elif s[0].lower() == 'error:' and 'measure' in s and 'tperiod' in s:
                 results_dict["Oscillation Status"] = "False"
                 results_dict["freq (GHZ)"] = "-"
@@ -156,6 +122,11 @@ def run_corner(all_corner_data):
             elif s[0].lower() == "i_right":
                 results_dict["I_right (mA)"] = s[2]
             
+            elif s[0].lower() == "gmn":
+                results_dict["gmn (mS)"] = s[2]
+            elif s[0].lower() == "gmp":
+                results_dict["gmp (mS)"] = s[2]
+
             elif s[0].lower() == "tail_sat_check":
                 if (float (s[2]) > 0):
                     results_dict["tail_sat_check"] = "True"
@@ -174,8 +145,7 @@ def run_corner(all_corner_data):
                 else:
                     results_dict["pmos_sat_check"] = "False"
             elif s[0] == "vdiff_max":
-                results_dict["vdiff_max"] = s[2]
->>>>>>> 585603bd16b30bc2d62e3dac4cd464cb36fd0dbe
+                results_dict["differential swing"] = float(s[2])*2
 
 
     log_file.close() # close the log file
@@ -204,7 +174,7 @@ if __name__ == "__main__":
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:2]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]

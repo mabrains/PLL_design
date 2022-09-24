@@ -23,6 +23,8 @@ xvco vp vn vctrl ibias VDD GND vco
     let I_tail  = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
     let I_left  = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
     let I_right = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
+    let gmn = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[gm]*1000
+    let gmp = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[gm]*1000
 
     let tail_sat_check = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vth]
     let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]

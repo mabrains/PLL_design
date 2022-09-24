@@ -20,6 +20,7 @@ import jinja2
 import itertools
 import concurrent.futures
 import shutil
+import matplotlib.pyplot as plt
 
 # get he path of the folder which contain the tb 
 main_tb_path = os.path.join("..", "spice_files") 
@@ -30,7 +31,7 @@ run_dir = os.path.join("..", "run_test")
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
 NUM_WORKERS = 5 # maximum number of processor threds to operate on 
 
-process_corners = ["ss", "sf", "fs", "ff", "ss"]
+process_corners = ["tt", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
@@ -106,7 +107,8 @@ def run_corner(all_corner_data):
             elif s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
-                    results_dict["freq (GHZ)"] = s[2]
+                    results_dict["freq (GHZ)"] = round(float (s[2]),2)
+                    #results_dict["freq (GHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"
                     results_dict["freq (GHZ)"] = "-"
@@ -174,7 +176,7 @@ if __name__ == "__main__":
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:20]}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
@@ -184,6 +186,7 @@ if __name__ == "__main__":
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
+                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
                 
                 new_data = future.result()
 
@@ -204,6 +207,16 @@ if __name__ == "__main__":
     # loop on the csv file to plot and sort the measurement
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
-        df.sort_values(by=["control" ,"failed corners"] , inplace=True)
+        df.sort_values(by=["corner name","control"] , inplace=True)
+        all_corners = len(df["corner name"])/len(vctrl_corners)
+        failed_corners = len(df["failed corners"])
+        passed_corners = all_corners - failed_corners
+
+        print ()
+        for ind in df.index :
+
+        plt.plot (df["control"][0:17] , df["freq (GHZ)"][0:17], linewidth=2.5, label=df["corner name"][0])
+        plt.legend()
+        plt.show()
         df.to_csv("all_measurements.csv", index=False)
     

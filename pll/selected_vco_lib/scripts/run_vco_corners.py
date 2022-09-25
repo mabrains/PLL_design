@@ -31,11 +31,16 @@ run_dir = os.path.join("..", "run_test")
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
 NUM_WORKERS = 5 # maximum number of processor threds to operate on 
-
-process_corners = ["tt", "sf", "fs", "ff", "ss"]
+'''
+process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
+'''
+process_corners = ["ss", "sf","tt"]
+temp_corners = [-40]
+supply_corners = [0.9]
+vctrl_corners = [0.0,]
 
 supply_value = 1.8
 
@@ -177,7 +182,7 @@ if __name__ == "__main__":
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:19]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
@@ -209,19 +214,22 @@ if __name__ == "__main__":
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
         df.sort_values(by=["corner name","control"] , inplace=True)
-
+        df.to_csv("all_measurements.csv", index=False)
+'''
     # plotting the passed corners
         for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
             control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
             freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
             oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
             if ('False' in oscilation_state):
+                print (df["corner name"][itr])
                 continue
-            plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
-            
+            else :
+                plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
+
         plt.legend()
         plt.show()
 
-    
-        df.to_csv("all_measurements.csv", index=False)
+'''
+        
     

@@ -81,19 +81,19 @@ XM7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W
 **************************************
 ****area minimixing iteration*********
 **************************************
-XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=5 m=5
-XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=5 m=5
++ sa=0 sb=0 sd=0 mult=1 m=1
 
 **************************************
 ** ********constant capacitor*********
 **************************************
 *C13 vp vn 10f m=5      $ ASTIC
 ** C13 vp vn 10f m=15   $original
-XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=10 MF=1 m=1  $mim cap
+XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
 
 
 ** inductor model cct

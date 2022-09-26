@@ -1,0 +1,27 @@
+*** biasing Circuit implementation 
+
+.subckt ind_model ind1 ind2
+**************************************
+*************ASTIC-hexa***************
+**************************************
+R0 ind1 net1 2.4 m=1
+L1 net1 net2 4.077n m=1
+R1 net2 ind2 2.4 m=1
+
+C3 ind1 net3 11.8f m=10
+R2 net3 GND 4.65 m=1
+
+C2 ind2 net4 11.8f m=10
+R3 net4 GND 4.65 m=1
+
+**************************************
+*************Original*****************
+**************************************
+** L1 vp net4 4n m=1
+** R1 vp vn 1182 m=1
+** R2 net4 vn 3 m=1
+** C1 vp vn 5f m=10
+** C3 vp GND 5f m=5
+** C2 vn GND 5f m=5
+
+.ends

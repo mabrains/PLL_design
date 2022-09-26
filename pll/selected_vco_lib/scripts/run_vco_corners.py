@@ -40,7 +40,7 @@ vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2,
 process_corners = ["tt"]
 temp_corners = [27]
 supply_corners =  [1]
-vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
+vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
 
@@ -51,8 +51,7 @@ corner_str = """
 .options tnom={temp}
 
 VDD VDD GND {vsup}
-VTuner vctrl GND {vctrl}
-xbgr ibias GND VDD BGR_Banba"""
+VTuner vctrl GND {vctrl}"""
 
 ## Isource VDD ibias 90u          $ original
 ## xbgr ibias GND VDD BGR_Banba   $ BGR
@@ -119,11 +118,11 @@ def run_corner(all_corner_data):
                     #results_dict["freq (GHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"
-                    results_dict["freq (GHZ)"] = "-"
+                    results_dict["freq (GHZ)"] = "0"
 
             elif s[0].lower() == 'error:' and 'measure' in s and 'tperiod' in s:
                 results_dict["Oscillation Status"] = "False"
-                results_dict["freq (GHZ)"] = "-"
+                results_dict["freq (GHZ)"] = "0"
 
             elif s[0].lower() == "i_tail":
                 results_dict["I_tail (mA)"] = s[2]

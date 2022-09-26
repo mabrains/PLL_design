@@ -2,11 +2,13 @@
 
 .include ../spice_files/vco_cir.ckt
 .include ../spice_files/biasing_cct.ckt 
+.include ../spice_files/inductor_model_cct.ckt
 
 {{ corner_setup }}
 
 xvco vp vn vctrl ibias VDD GND vco
-
+xind1 vp vn ind_model
+xbgr ibias GND VDD BGR_Banba
 **** begin user architecture code
 
 .control

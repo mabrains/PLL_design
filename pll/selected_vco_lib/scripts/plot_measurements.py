@@ -17,9 +17,9 @@ df = pd.read_csv('all_measurements.csv')
 
 fig, ax = plt.subplots(figsize=(4, 4))
 plt.subplots_adjust(right=0.9)
-plt.subplots_adjust(left=0.125)
+plt.subplots_adjust(left=0.079)
 plt.subplots_adjust(top=0.88)
-plt.subplots_adjust(bottom=0.07)
+plt.subplots_adjust(bottom=0.086)
 
 for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
@@ -44,9 +44,9 @@ plt.show()
 
 fig, ax = plt.subplots(figsize=(4, 4))
 plt.subplots_adjust(right=0.9)
-plt.subplots_adjust(left=0.125)
+plt.subplots_adjust(left=0.079)
 plt.subplots_adjust(top=0.88)
-plt.subplots_adjust(bottom=0.07)
+plt.subplots_adjust(bottom=0.086)
 
 for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()

@@ -1,11 +1,13 @@
 ** sch_path: /home/ahmed/PLL_design/pll/lc_vco_lib_Hossam_Tarek/BGR_Banba_tb/xschem/BGR_Banba_tb.sch
 **.subckt BGR_Banba_tb
-Vsup VDD GND 1.8
+*Vsup VDD GND 1.8
+
+Vsup  VDD GND pwl(500us 0 500us 1.8)
 V1 net1 GND 0.9
 X1 net1 GND VDD BGR_Banba
 **** begin user architecture code
-*.temp 12
-.options temp= 20
+.temp -16
+.options tnom = -16
 ************************************************
 *Source initialization
 ************************************************
@@ -50,11 +52,11 @@ X1 net1 GND VDD BGR_Banba
 ************************************************
 .control
 *alter @Vsup[pwl] = [ 0 0 100u 0 200u 3 500u 3 ]
-tran 1u 500u
-meas tran iref find i(v1) AT = 450u
+tran 5u 25m
+meas tran iref find i(v1) AT = 25m
 print iref
 plot i(v1)
-
+plot v(VDD)
 .endc
 ************************************************
 .end

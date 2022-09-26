@@ -1,6 +1,7 @@
 ** Test bench for VCO
 
 .include ../spice_files/vco_cir.ckt
+.include ../spice_files/biasing_cct.ckt 
 
 {{ corner_setup }}
 
@@ -33,7 +34,7 @@ xvco vp vn vctrl ibias VDD GND vco
     
     print all
 
-    tran 0.01ns 100ns
+    tran 0.01ns 200ns
     *plot vp
     let vdiff = v(vp)-v(vn)
     let vdiff_max =  vecmax(vp-vn)

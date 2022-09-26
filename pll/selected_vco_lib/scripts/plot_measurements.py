@@ -13,7 +13,7 @@ def D(xlist,ylist):
 
 
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
-df = pd.read_csv('all_measurements_original.csv')
+df = pd.read_csv('all_measurements.csv')
 
 fig, ax = plt.subplots(figsize=(4, 4))
 plt.subplots_adjust(right=0.9)
@@ -52,9 +52,14 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
     freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
     control_list_prime, kvco = D(control_list, freq_list)
+    '''
+    freq_arr = np.array(freq_list)
+    control_arr = np.array(control_list)
+    kvco2 = np.diff(freq_arr,n=1)/np.diff(control_arr,n=1)
+    '''
     oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
     if (False not in oscilation_state) :
-        plt.plot(control_list_prime , kvco*1e+3,linewidth = 2.5,label=df["corner name"][itr])
+        plt.plot(control_list_prime, kvco*1e+3,linewidth = 2.5,label=df["corner name"][itr])
 
 
 plt.legend(bbox_to_anchor=(1.12, 1.13),loc='upper right', labelspacing=0.15)

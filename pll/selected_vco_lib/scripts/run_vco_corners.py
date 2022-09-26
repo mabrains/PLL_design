@@ -37,9 +37,9 @@ temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 '''
-process_corners = ["tt", "sf", "fs", "ff", "ss"]
-temp_corners = [-40, 27, 125]
-supply_corners =  [0.9, 1.0, 1.1]
+process_corners = ["tt"]
+temp_corners = [27]
+supply_corners =  [1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
@@ -52,8 +52,10 @@ corner_str = """
 
 VDD VDD GND {vsup}
 VTuner vctrl GND {vctrl}
-Isource VDD ibias 90u"""
+xbgr ibias GND VDD BGR_Banba"""
 
+## Isource VDD ibias 90u          $ original
+## xbgr ibias GND VDD BGR_Banba   $ BGR
 ## .nodeset v(vout)=0
 
 def run_corner(all_corner_data):
@@ -113,7 +115,7 @@ def run_corner(all_corner_data):
             elif s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
-                    results_dict["freq (GHZ)"] = round(float (s[2]),2)
+                    results_dict["freq (GHZ)"] = round(float (s[2]),6)
                     #results_dict["freq (GHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"

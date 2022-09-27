@@ -26,7 +26,10 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
     oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
     if (False not in oscilation_state) :
-        plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
+        if (df["corner name"][itr] == 'tt,27,1.0'):
+            plt.plot(control_list , freq_list,linewidth = 3, color = 'black',linestyle='dashed',label=df["corner name"][itr])
+        else:
+            plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
 
 
 plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
@@ -59,7 +62,10 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     '''
     oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
     if (False not in oscilation_state) :
-        plt.plot(control_list_prime, kvco*1e+3,linewidth = 2.5,label=df["corner name"][itr])
+        if (df["corner name"][itr] == 'tt,27,1.0'):
+            plt.plot(control_list_prime, kvco*1e+3,linewidth = 3, color = 'black',linestyle='dashed',label=df["corner name"][itr])
+        else:
+            plt.plot(control_list_prime, kvco*1e+3,linewidth = 2.5,label=df["corner name"][itr])
 
 
 plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)

@@ -10,6 +10,7 @@ XM9 net1 ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=25 nf=1 ad='int((nf+1)/2) *
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=10 m=10
 
+
 XM4 net3 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=50 m=50
@@ -18,37 +19,114 @@ XM5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) 
 + sa=0 sb=0 sd=0 mult=10 m=10
 
 ** cross coupled cct
+**************************************
+***** after modification *************
+**************************************
+
+** XM11 vp vn net3 net3 sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=20 m=20
+** XM1 vn vp net3 net3 sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=20 m=20
+** 
+** XM2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=20 m=20
+** XM7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=20 m=20
+
+**************************************
+*************Original*****************
+**************************************
+
 XM11 vp vn net3 net3 sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=5 m=5
 XM1 vn vp net3 net3 sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=5 m=5
+
 XM2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=5 m=5
-
 XM7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=5 m=5
 
-** Varactor cct
-XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=20 m=20
-XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=20 m=20
 
-C13 vp vn 10f m=15
+* Varactor cct
+**************************************
+***** after modification *************
+**************************************
+** XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=5 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=10 m=10
+** XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=5 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=10 m=10
+
+
+**************************************
+*************Original*****************
+**************************************
+** XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=20 m=20
+** XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+** + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
+** + sa=0 sb=0 sd=0 mult=20 m=20
+
+**************************************
+****area minimixing iteration*********
+**************************************
+XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+**************************************
+** ********constant capacitor*********
+**************************************
+*C13 vp vn 10f m=5      $ ASTIC
+** C13 vp vn 10f m=15   $original
+XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
 
 
 ** inductor model cct
-L1 vp net4 4n m=1
-R1 vp vn 1182 m=1
-R2 net4 vn 3 m=1
-C1 vp vn 5f m=10
-C3 vp GND 5f m=5
-C2 vn GND 5f m=5
+**************************************
+***** after modification *************
+**************************************
+** L1 vp net4 2.2n m=1
+** R1 vp vn 678 m=1
+** R2 net4 vn 1.7 m=1
+** *C1 vp vn 5f m=10
+** C3 vp GND 5f m=5
+** C2 vn GND 5f m=5
+
+**************************************
+*************ASTIC********************
+**************************************
+** L1 vp net4 4.077n m=1
+** R2 net4 vn 4.8 m=1
+** 
+** C3 vp netc3 11.8f m=10
+** RC3 netc3 GND 4.65 m=1
+** 
+** C2 vn netc2 11.8f m=10
+** RC2 netc2 GND 4.65 m=1
+
+**************************************
+*************Original*****************
+**************************************
+** L1 vp net4 4n m=1
+** R1 vp vn 1182 m=1
+** R2 net4 vn 3 m=1
+** C1 vp vn 5f m=10
+** C3 vp GND 5f m=5
+** C2 vn GND 5f m=5
 
 .ends

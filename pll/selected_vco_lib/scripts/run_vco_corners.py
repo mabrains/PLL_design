@@ -12,6 +12,7 @@
 
 
 from calendar import c
+from operator import index
 import pandas as pd
 import os
 import glob
@@ -20,6 +21,7 @@ import jinja2
 import itertools
 import concurrent.futures
 import shutil
+import matplotlib.pyplot as plt
 
 # get he path of the folder which contain the tb 
 main_tb_path = os.path.join("..", "spice_files") 
@@ -28,12 +30,17 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
-NUM_WORKERS = 4 # maximum number of processor threds to operate on 
-
-process_corners = ["tt", "sf", "fs", "ff", "ss"]
+NUM_WORKERS = 6 # maximum number of processor threds to operate on 
+'''
+process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
-vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
+vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
+'''
+process_corners = ["tt", "sf", "fs", "ff", "ss"]
+temp_corners = [-40, 27, 125]
+supply_corners =  [0.9, 1.0, 1.1]
+vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
 
@@ -44,9 +51,10 @@ corner_str = """
 .options tnom={temp}
 
 VDD VDD GND {vsup}
-VTuner vctrl GND {vctrl}
-Isource VDD ibias 90u"""
+VTuner vctrl GND {vctrl}"""
 
+## Isource VDD ibias 90u          $ original
+## xbgr ibias GND VDD BGR_Banba   $ BGR
 ## .nodeset v(vout)=0
 
 def run_corner(all_corner_data):
@@ -106,14 +114,15 @@ def run_corner(all_corner_data):
             elif s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
-                    results_dict["freq (GHZ)"] = s[2]
+                    results_dict["freq (GHZ)"] = round(float (s[2]),6)
+                    #results_dict["freq (GHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"
-                    results_dict["freq (GHZ)"] = "-"
+                    results_dict["freq (GHZ)"] = "0"
 
             elif s[0].lower() == 'error:' and 'measure' in s and 'tperiod' in s:
                 results_dict["Oscillation Status"] = "False"
-                results_dict["freq (GHZ)"] = "-"
+                results_dict["freq (GHZ)"] = "0"
 
             elif s[0].lower() == "i_tail":
                 results_dict["I_tail (mA)"] = s[2]
@@ -122,6 +131,11 @@ def run_corner(all_corner_data):
             elif s[0].lower() == "i_right":
                 results_dict["I_right (mA)"] = s[2]
             
+            elif s[0].lower() == "gmn":
+                results_dict["gmn (mS)"] = s[2]
+            elif s[0].lower() == "gmp":
+                results_dict["gmp (mS)"] = s[2]
+
             elif s[0].lower() == "tail_sat_check":
                 if (float (s[2]) > 0):
                     results_dict["tail_sat_check"] = "True"
@@ -140,7 +154,7 @@ def run_corner(all_corner_data):
                 else:
                     results_dict["pmos_sat_check"] = "False"
             elif s[0] == "vdiff_max":
-                results_dict["vdiff_max"] = s[2]
+                results_dict["differential swing"] = float(s[2])*2
 
 
     log_file.close() # close the log file
@@ -164,6 +178,7 @@ if __name__ == "__main__":
     
     # create an empty list to carry all the measurements for all the corners
     my_results = []
+    failed_corners = []
 
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
@@ -178,10 +193,16 @@ if __name__ == "__main__":
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
+                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
                 
                 new_data = future.result()
 
                 data.update(new_data)
+                if data['Oscillation Status'] == 'False':
+                    fetched_corner = data['process']+','+str(data['temp'])+','+str(data['supply']*supply_value)
+                    if (fetched_corner not in failed_corners ):
+                        failed_corners.append(fetched_corner)
+                        data["failed corners"] = fetched_corner
                 
                 my_results.append(data)
 
@@ -193,19 +214,21 @@ if __name__ == "__main__":
     # loop on the csv file to plot and sort the measurement
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
-        df.sort_values(by="control", inplace=True)
+        df.sort_values(by=["corner name","control"] , inplace=True)
         df.to_csv("all_measurements.csv", index=False)
+
+    # plotting the passed corners
+        for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
+            control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
+            freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
+            oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
+            plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
+
+        plt.legend()
+        plt.show()
     
-    failed_corners = []
-    for ind in df.index:
-        if df['Oscillation Status'][ind] == False:
-            corner = {}
-            corner["failed_corners"] = df['process'][ind]+'_'+str(df['temp'][ind])+'_'+str(df['supply'][ind])
-            if (corner not in failed_corners ):
-             failed_corners.append(corner)
 
+        
 
-
-    if len(failed_corners) > 0:
-        df = pd.DataFrame(failed_corners)
-        df.to_csv("failed_corners.csv", index=False)
+        
+    

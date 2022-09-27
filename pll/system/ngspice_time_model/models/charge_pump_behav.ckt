@@ -14,4 +14,7 @@
 
     Rnd dn_mid gnd {vsupply / ion_dn}
     sdn out dn_mid dn gnd dn_sw OFF
+
+    .ic v(out)=0
 .ends
+

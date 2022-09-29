@@ -116,10 +116,6 @@ N 3580 -450 3620 -450 {
 lab=VBN}
 N 3620 -450 3620 -320 {
 lab=VBN}
-N 4240 -770 4280 -770 {
-lab=GND}
-N 4300 -940 4300 -880 {
-lab=U}
 N 4450 -550 4490 -550 {
 lab=VOP}
 N 4330 -500 4370 -500 {
@@ -128,6 +124,8 @@ N 4370 -500 4370 -480 {
 lab=DN}
 N 3830 -650 3830 -610 {
 lab=UP}
+N 4130 -570 4220 -570 {
+lab=VOP}
 C {sky130_fd_pr/nfet3_01v8.sym} 3690 -200 0 0 {name=M1
 L=0.6
 W=2
@@ -366,11 +364,6 @@ C {devices/lab_pin.sym} 4450 -160 2 0 {name=l23 sig_type=std_logic lab=UBP}
 C {devices/lab_pin.sym} 4030 -560 3 0 {name=l25 sig_type=std_logic lab=VON}
 C {../../inverter/xschem/inverter.sym} 1330 290 0 0 {name=X1}
 C {../../inverter/xschem/inverter.sym} 1320 130 0 0 {name=X2}
-C {../../OTA/xschem/OTA.sym} 4180 -830 0 0 {name=X3}
-C {devices/lab_pin.sym} 4230 -800 0 0 {name=l33 sig_type=std_logic lab=VON}
-C {devices/lab_pin.sym} 4230 -830 0 0 {name=l34 sig_type=std_logic lab=VOP}
-C {devices/lab_pin.sym} 4330 -820 2 0 {name=l35 sig_type=std_logic lab=VON}
-C {devices/lab_pin.sym} 4300 -770 3 0 {name=l41 sig_type=std_logic lab=U}
 C {devices/iopin.sym} 4010 -1010 3 0 {name=p4 lab=VDD}
 C {devices/iopin.sym} 4060 90 1 0 {name=p5 lab=GND}
 C {devices/lab_pin.sym} 4380 -130 3 0 {name=l19 sig_type=std_logic lab=GND
@@ -389,11 +382,12 @@ C {devices/lab_pin.sym} 3630 -750 1 0 {name=l7 sig_type=std_logic lab=VDD
 }
 C {devices/lab_pin.sym} 3630 -110 3 0 {name=l5 sig_type=std_logic lab=GND
 }
-C {devices/lab_pin.sym} 4240 -770 3 0 {name=l31 sig_type=std_logic lab=GND
-}
-C {devices/lab_pin.sym} 4270 -880 1 0 {name=l20 sig_type=std_logic lab=VDD
-}
 C {devices/opin.sym} 4480 -550 0 0 {name=p1 lab=VOP}
 C {devices/ipin.sym} 4370 -490 3 0 {name=p2 lab=DN}
 C {devices/ipin.sym} 3830 -640 1 0 {name=p3 lab=UP}
-C {devices/ipin.sym} 4300 -930 1 0 {name=p6 lab=U}
+C {/home/ahmedelbadry/PLL_design/pll/pfd_cp_lf_lib/OTA/xschem/5TOTA.sym} 4230 -600 0 1 {name=X3}
+C {devices/lab_pin.sym} 4090 -610 1 0 {name=l13 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} 4090 -520 3 0 {name=l15 sig_type=std_logic lab=GND
+}
+C {devices/lab_pin.sym} 4130 -540 3 0 {name=l20 sig_type=std_logic lab=VON}

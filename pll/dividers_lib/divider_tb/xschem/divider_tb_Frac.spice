@@ -1,16 +1,24 @@
 ** sch_path: /home/ahmed_reda/PLL_design/pll/dividers_lib/divider_tb/xschem/divider_tb.sch
 **.subckt divider_tb
 VDD VDD GND 1.8
-VDD1 p2 GND 1.80
-VDD2 p4 GND 0.0
-VDD3 p1 GND 1.80
-VDD4 p3 GND 1.80
-VDD5 p5 GND 0
-VDD6 p6 GND 0
-VDD7 p0 GND 1.8
-VDD8 p7 GND 0
+
+V0 p0 GND DC 0 PULSE (0 1.8 0.001u 1n 1n 0.01u 0.1u 0 )
+*V0 p0 GND 1.8
+V1 p1 GND 0
+V2 p2 GND 0
+V3 p3 GND 0
+V4 p4 GND 1.8
+V5 p5 GND 0
+V6 p6 GND 0
+V7 p7 GND 0
+
+
+
+
 x1 VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin opennet divider
-V1 fin GND SIN (0.9 0.9 2.41G 0 0 0)
+Vin fin GND SIN (0.9 0.9 2.5G 0 0 0)
+
+
 C1 fout GND 25f m=1
 I0 opennet GND 0
 **** begin user architecture code
@@ -24,12 +32,12 @@ I0 opennet GND 0
 .op
 .save all @m.x1.x8.x3.xm2.msky130_fd_pr__nfet_01v8[id] @C1[i]
 .control
-tran 0.01n 0.6u
+tran 0.01n 5u
 plot @m.x1.x8.x3.xm2.msky130_fd_pr__nfet_01v8[id]
 plot fout
 .endc
 .measure tran iout AVG @m.x1.x8.x3.xm2.msky130_fd_pr__nfet_01v8[id] from=0 to=1u
-.measure tran tdiff TRIG v(fout) VAL=0.9 RISE=2 TARG v(fout) VAL=0.9 RISE=3
+.measure tran tdiff TRIG v(fout) VAL=0.9 RISE=39 TARG v(fout) VAL=0.9 RISE=40
 .measure tran frequency param = {1/tdiff}
 .temp 27
 .options tnom= 27

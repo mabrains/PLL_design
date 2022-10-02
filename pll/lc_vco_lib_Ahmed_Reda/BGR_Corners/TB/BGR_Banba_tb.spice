@@ -2,12 +2,12 @@
 **.subckt BGR_Banba_tb
 *Vsup VDD GND 1.8
 
-Vsup  VDD GND pwl(500us 0 500us 1.8)
+Vsup  VDD GND pwl(500us 0 500us 1.62)
 V1 net1 GND 0.9
 X1 net1 GND VDD BGR_Banba
 **** begin user architecture code
-.temp -16
-.options tnom = -16
+.temp 97.9
+.options tnom = 97.9
 ************************************************
 *Source initialization
 ************************************************
@@ -65,10 +65,10 @@ plot v(VDD)
 
 .param mc_mm_switch=0
 .param mc_pr_switch=0
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
-.include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/fs.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/fs/specialized_cells.spice
 **** end user architecture code
 **.ends
 
@@ -79,6 +79,13 @@ plot v(VDD)
 *.iopin VDD
 *.iopin GND
 *.opin Iref
+.NODESET v(net1) = 0
+.NODESET v(net2) = 0
+.NODESET v(net3) = 0
+.NODESET v(net4) = 0
+.NODESET v(net5) = 0
+.NODESET v(net6) = 0
+.NODESET v(net7) = 0
 XM13 net3 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=4 m=4

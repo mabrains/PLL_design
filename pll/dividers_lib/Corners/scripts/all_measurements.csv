@@ -1,0 +1,3 @@
+process,temp,supply,P0,P1,P2,P3,P4,frequency
+tt,27,1.0,0,0,0,0,1,1.00000e+07
+tt,27,1.0,0,0,0,0,0,1.00000e+07

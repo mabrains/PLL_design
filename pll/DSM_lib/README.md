@@ -15,6 +15,12 @@ Sigma-Delta Modulator
 
 ![DSM Block](./images/DSM_Block.png "DSM Block")
 
+• The internal structure of the DSM is as follows:
+    - DSM Core: Where the main function of the DSM is occurred and the random sequence with a functional average is generated.
+    - Control Unit: Responsible for mapping the input number of channel to the required input for the DSM to generate the required fraction, also it gets the integer part       of this input channel and adds it to the fraction part to construct the required fractional division. For example if the input channel requires us to divide by 243.7,       then the control unit will give the DSM core the input which gives an average output of 0.7 and also this control unit will output a constant value of 13 which if           passed to the divider will divide by a division ratio of 243 and then these 2 values the 2nd output of the control unit and the output of the DSM core will be added and     then passed to the divider as an input to get the desired 243.7 division ratio
+    
+![DSM Internal Structure](./images/DSM_internal_Arch.png "DSM Internal Structure")
+
 
 _____
 <br/><br/>

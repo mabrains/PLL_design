@@ -3,7 +3,7 @@ Sigma-Delta Modulator
 
 # Sigma-Delta Modulator Architecture
 
-• The implemented Sigma-Delta Modulator is a MASH (Multi Stage Noise Shaping) architecture of 5th order as in MASH architectures the order of the modulator is determined by the number of the output bits.
+• The implemented Sigma-Delta Modulator is a MASH (Multi Stage Noise Shaping) architecture of 3rd order.
 
 • The implemented Sigma-Delta Modulator has the following inputs and outputs:
 

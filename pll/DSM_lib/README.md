@@ -25,7 +25,7 @@ Sigma-Delta Modulator
 _____
 <br/><br/>
 
-# Digital Implementation
+# Digital Implementation of the DSM Core
 
 • The typical implementation of a MASH architecture is composed of a number of accumulators, adders, and regiesters arranged as illustrated:
 
@@ -34,7 +34,7 @@ _____
 ____
 <br/><br/>
 
-# DSM Blocks
+# DSM Core Blocks
 The designed Delta-Sgima Modulator (DSM) is implemented using Verilog HDL and is composed into 3 modules as follows:
 ## 1. Accumulator
 • The accumulator in this design has 3 inputs (In_Data, CLK, Reset) and 2 outputs (Out_Data, Cout) as shown: 

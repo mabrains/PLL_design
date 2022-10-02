@@ -23,7 +23,7 @@ _____
 
 • The typical implementation of a MASH architecture is composed of a number of accumulators, adders, and regiesters arranged as illustrated:
 
-![DSM Diagram](images/DSM_Diagram.png "DSM Diagram")
+![DSM Diagram](images/DSM_Diagram_Modified.png "DSM Diagram")
 
 ____
 <br/><br/>

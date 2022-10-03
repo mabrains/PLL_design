@@ -8,7 +8,7 @@
 .options tnom=125.00
 VDD VDD GND 1.98
 
-xring Vin Vout VDD GND ring
+xring Vin out VDD GND ring
 
 **** begin user architecture code
 
@@ -19,10 +19,10 @@ xring Vin Vout VDD GND ring
         
     print all
 
-    tran 2ns 4us uic
-    plot Vout
-    meas tran tperiod TRIG Vout VAL=0.4 RISE=15 TARG Vout VAL=0.4 RISE=16
-    let freq = 1/(tperiod*1000000000)
+    tran 2ns 5us uic
+    plot out
+    meas tran tperiod TRIG out VAL=0.4 RISE=15 TARG out VAL=0.4 RISE=16
+    let freq = 1/(tperiod*1000000)
     print freq
     
 .endc

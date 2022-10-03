@@ -15,32 +15,37 @@ l.xring.l1#branch = 0.000000e+00
 m.xring.xm1.msky130_fd_pr__pfet_01v8#body = 1.980000e+00
 m.xring.xm1.msky130_fd_pr__pfet_01v8#dbody = 1.980000e+00
 m.xring.xm1.msky130_fd_pr__pfet_01v8#sbody = 1.980000e+00
-m.xring.xm2.msky130_fd_pr__nfet_01v8#body = 3.799822e-11
-m.xring.xm2.msky130_fd_pr__nfet_01v8#dbody = 3.924051e-11
-m.xring.xm2.msky130_fd_pr__nfet_01v8#sbody = 1.899940e-11
-m.xring.xm3.msky130_fd_pr__nfet_01v8#body = 6.248585e-12
-m.xring.xm3.msky130_fd_pr__nfet_01v8#dbody = 1.562126e-11
-m.xring.xm3.msky130_fd_pr__nfet_01v8#sbody = 3.124489e-12
+m.xring.xm2.msky130_fd_pr__nfet_01v8#body = 8.689609e-11
+m.xring.xm2.msky130_fd_pr__nfet_01v8#dbody = 6.428060e-11
+m.xring.xm2.msky130_fd_pr__nfet_01v8#sbody = 4.344835e-11
+m.xring.xm3.msky130_fd_pr__nfet_01v8#body = 3.265715e-11
+m.xring.xm3.msky130_fd_pr__nfet_01v8#dbody = 3.762393e-11
+m.xring.xm3.msky130_fd_pr__nfet_01v8#sbody = 1.632893e-11
+m.xring.xm4.msky130_fd_pr__pfet_01v8#body = 1.980000e+00
+m.xring.xm4.msky130_fd_pr__pfet_01v8#dbody = 1.980000e+00
+m.xring.xm4.msky130_fd_pr__pfet_01v8#sbody = 1.980000e+00
+m.xring.xm5.msky130_fd_pr__nfet_01v8#body = 5.858637e-12
+m.xring.xm5.msky130_fd_pr__nfet_01v8#dbody = 1.464619e-11
+m.xring.xm5.msky130_fd_pr__nfet_01v8#sbody = 2.929713e-12
 m.xring.xm11.msky130_fd_pr__pfet_01v8#body = 1.980000e+00
 m.xring.xm11.msky130_fd_pr__pfet_01v8#dbody = 1.980000e+00
 m.xring.xm11.msky130_fd_pr__pfet_01v8#sbody = 1.980000e+00
+out = 4.607453e-01
 vdd = 1.980000e+00
-vdd#branch = -4.09327e-04
-vin = 7.968923e-01
-vout = 4.987066e-01
-xring.net1 = 7.968923e-01
-xring.net2 = 7.968923e-01
-xring.net3 = 7.968923e-01
-xring.net4 = 7.968923e-01
-xring.xr1.ra = 7.968923e-01
-xring.xr16.xsky130_fd_pr__res_xhigh_po_2p85.ra = 7.968923e-01
+vdd#branch = -1.09987e-03
+vin = 8.137754e-01
+xring.net1 = 8.137754e-01
+xring.net2 = 8.137754e-01
+xring.net3 = 8.137754e-01
+xring.net4 = 8.467825e-01
+xring.xr6.ra = 8.137754e-01
 Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
 
 Using transient initial conditions
- Reference value :  1.98741e-06 Reference value :  3.78341e-06ERROR: (internal)  This operation is not defined for display type PrinterOnly.
+ Reference value :  1.65358e-06 Reference value :  3.34301e-06ERROR: (internal)  This operation is not defined for display type PrinterOnly.
 Can't open viewport for graphics.
 
-No. of Data Rows : 2017
+No. of Data Rows : 2539
 Note: No ".plot", ".print", or ".fourier" lines; no simulations run
-tperiod             =  9.951111e-08 targ=  1.696832e-06 trig=  1.597321e-06
-freq = 1.004913e-02
+tperiod             =  1.002408e-07 targ=  2.062583e-06 trig=  1.962343e-06
+freq = 9.975978e+00

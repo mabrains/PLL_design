@@ -1,39 +1,6 @@
-** sch_path: /home/ahmedelbadry/D_FF/moaataz.sch
-**.subckt moaataz
-X1 REF UP FB VDD GND DN conventional_pfd
-Vdd VDD GND 1.8
-V4 REF GND pulse(0 1.8 10ns 10p 10p 50ns 100ns)
-V5 FB GND pulse(0 1.8 0 10p 10p 50ns 100ns)
-**** begin user architecture code
+** sch_path: /home/badry/PLL_design/pll/pfd_cp_lf_lib/coventional_pfd/xschem/conventional_pfd.sch
+.subckt conventional_pfd REF RST VDD GND FB up up_b dn_b dn
 
-.param mc_mm_switch=0
-.param mc_pr_switch=0
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
-
-
-.control
-tran 0.1ns 400ns
-save all
-
-.endc
-
-
-**** end user architecture code
-**.ends
-
-* expanding   symbol:  conventional_pfd.sym # of pins=6
-** sym_path: /home/ahmedelbadry/D_FF/conventional_pfd.sym
-** sch_path: /home/ahmedelbadry/D_FF/conventional_pfd.sch
-.subckt conventional_pfd  REF up FB VDD GND dn
-*.ipin REF
-*.iopin VDD
-*.iopin GND
-*.ipin FB
-*.opin up
-*.opin dn
 XM1 net1 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
@@ -46,16 +13,17 @@ XM3 net2 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) *
 XM10 net4 FB net5 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM4 dn_b1 FB net6 GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+X1 up_b dn_b VDD GND RST Nor_gate
+XM4 dn_b FB net6 GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM6 up_b1 REF net3 GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM6 up_b REF net3 GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 XM5 net3 net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM14 up_b1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM14 up_b net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 XM9 net4 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
@@ -67,32 +35,26 @@ XM11 net5 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) 
 XM12 net6 net4 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM13 dn_b1 net4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM13 dn_b net4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM15 dn1 dn_b1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM15 dn dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM16 dn1 dn_b1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM16 dn dn_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM7 up1 up_b1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM7 up up_b GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM8 up1 up_b1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM8 up up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-X1 up_b1 dn_b1 VDD GND RST Nor_gate
-X2 up1 net7 VDD GND inverter
-X3 net7 up VDD GND inverter
-X4 dn1 net8 VDD GND inverter
-X5 net8 dn VDD GND inverter
 .ends
 
-
 * expanding   symbol:  Nor_gate.sym # of pins=5
-** sym_path: /home/ahmedelbadry/D_FF/Nor_gate.sym
-** sch_path: /home/ahmedelbadry/D_FF/Nor_gate.sch
+** sym_path: /home/badry/PLL_design/pll/pfd_cp_lf_lib/coventional_pfd/xschem/Nor_gate.sym
+** sch_path: /home/badry/PLL_design/pll/pfd_cp_lf_lib/coventional_pfd/xschem/Nor_gate.sch
 .subckt Nor_gate  A B VDD GND OUT
 *.ipin A
 *.ipin B
@@ -114,22 +76,4 @@ XM14 OUT B net1 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 nf=1 ad='int((nf+1)/2) * W
 .ends
 
 
-* expanding   symbol:  /home/ahmedelbadry/CP/inverter.sym # of pins=4
-** sym_path: /home/ahmedelbadry/CP/inverter.sym
-** sch_path: /home/ahmedelbadry/CP/inverter.sch
-.subckt inverter  Vin vout VDD GND
-*.ipin Vin
-*.iopin VDD
-*.iopin GND
-*.opin vout
-XM2 vout Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XM1 vout Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-.ends
 
-.GLOBAL GND
-.GLOBAL VDD
-.end

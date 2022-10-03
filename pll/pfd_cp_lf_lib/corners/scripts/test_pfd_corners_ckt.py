@@ -2,6 +2,15 @@
 ## Mabrains LLC
 ##########################################################################
 
+
+## server:
+## .spiceinit path in server:   "/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit"
+## corner file in server:      .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+
+## VM: 
+##  "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit"
+## .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+
 from calendar import c
 import pandas as pd
 import os
@@ -15,15 +24,16 @@ import shutil
 main_tb_path = os.path.join("..", "spice_files")
 # get the directory of the run folder which contain the log and tb files for each corner
 run_dir = os.path.join("..", "run_test")
+csv_dir = os.path.join("..", "csv_files")
 TEMPLATE_FILE = "test_pfd.spice" #name of the tb
-NUM_WORKERS = 1 # maximum number of processor threds to operate on
+NUM_WORKERS = 25 # maximum number of processor threds to operate on
 process_corners = ["tt", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 supply_value = 1.8
 # create a string to carry all the lines related to the corners
 corner_str = """
-.lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
 VDD VDD GND {vsup}
@@ -46,7 +56,7 @@ def run_corner(all_corner_data):
                                         temp=tc,
                                         vsup=sc)
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(corner_setup=new_corners_str, delay_ref="10n",
+    full_spice = template.render(corner_setup=new_corners_str , corner_string="_{}_{}_{}".format(pc, tc, sc))
     # create a new tb for the intended corner and update it and then close it
     spice_file_path = os.path.join(run_dir, "{}_{}_{}.spi".format(pc, tc, sc))
     text_file = open(spice_file_path, "w")
@@ -69,28 +79,50 @@ def run_corner(all_corner_data):
     for line in log_file.readlines():
         s = line.split()
         if len(s) > 2:
-            if s[0] == "up":
-                results_dict["up"] = s[2]
-            elif s[0] == "dn":
-                results_dict["dn"] = s[2]
+            if s[0] == "t_up_1":
+                results_dict["t_up_1"] = s[2]
+            elif s[0] == "t_up_2":
+                results_dict["t_up_2"] = s[2]
+            elif s[0] == "t_up_3":
+                results_dict["t_up_3"] = s[2]
+
+            elif s[0] == "t_dn_1":
+                results_dict["t_dn_1"] = s[2]
+            elif s[0] == "t_dn_2":
+                results_dict["t_dn_2"] = s[2] 
+            elif s[0] == "t_dn_3":
+                results_dict["t_dn_3"] = s[2]
+
+            elif s[0] == "t_fb_1":
+                results_dict["t_fb_1"] = s[2]
+            elif s[0] == "t_fb_2":
+                results_dict["t_fb_2"] = s[2] 
+            elif s[0] == "t_fb_3":
+                results_dict["t_fb_3"] = s[2]
+
+            elif s[0] == "t_ref_1":
+                results_dict["t_ref_1"] = s[2]
+            elif s[0] == "t_ref_2":
+                results_dict["t_ref_2"] = s[2] 
+            elif s[0] == "t_ref_3":
+                results_dict["t_ref_3"] = s[2]
+
     log_file.close() # close the log file
     # return the list carrying the measurments
     return results_dict
 if __name__ == "__main__":
-    # create a list has all the combinations of corner cases
     all_comb = list(itertools.product(process_corners, temp_corners, supply_corners))
-    # if the run folder is not found, create a new folder with the givven path which is
-    # created at the beginning of the script
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
-    # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
-    shutil.copyfile("/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
-    # create an empty list to carry all the measurements for all the corners
+    
+    if not os.path.isdir(csv_dir):
+        os.makedirs(csv_dir)
+
+    shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     my_results = []
-    # We can use a with statement to ensure threads are cleaned up promptly
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
-        # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
             try:

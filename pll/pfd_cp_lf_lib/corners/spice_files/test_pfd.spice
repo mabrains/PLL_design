@@ -1,0 +1,23 @@
+** Test bench for PFD
+
+.include PFD.ckt
+
+{{ corner_setup }}
+
+
+Vfb  FB gnd PULSE ( 0 1.8 {{ delay_fb }} 50p 50p 50n 100n 0 )
+Vref REF gnd PULSE ( 0 1.8 {{ delay_ref }} 50p 50p 50n 100n 0 )
+xPFD  VDD GND REF FB up dn PFD
+
+**** begin user architecture code
+
+.control
+set wr_singlescale
+set wr_vecnames
+option numdgt = 3
+
+tran 0.01ns 400ns 
+wrdata {{ run_path }}/pfd_ckt{{ corner_string }}.csv v(up) v(dn) v(FB) v(REF)
+.endc
+.GLOBAL VDD
+.end

@@ -1,0 +1,35 @@
+*** Ring Circuit implementation 
+
+.subckt ring Vin Vout VDD GND
+
+
+
+C1 net1 GND 40p m=1
+C3 Vin GND 40p m=1
+L1 net1 net4 9m m=1 ic = 1m
+R3 net4 net3 100 m=1
+C4 net3 Vin 28f m=1
+C5 net1 Vin 5p m=1
+
+XM11 net2 Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=15 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XM2 net2 Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=13 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XM1 Vout net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XM3 Vout net2 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XR1 net1 net2 GND sky130_fd_pr__res_high_po_2p85 L=2.85 mult=1 m=1
+XR16 net2 Vin GND sky130_fd_pr__res_xhigh_po_2p85 L=11.4 mult=1 m=1
+
+**** begin user architecture code
+.ends
+

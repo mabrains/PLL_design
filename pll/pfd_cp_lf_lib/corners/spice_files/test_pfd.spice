@@ -13,6 +13,8 @@ V5 FB GND pulse(0 1.8 0 10p 10p 50ns 100ns)
 set wr_singlescale
 set wr_vecnames
 option numdgt = 3
+save all 
+print all
 
 tran 0.01ns 400ns 
 wrdata ../csv_files/pfd_ckt{{ corner_string }}.csv v(up) v(dn) v(FB) v(REF)

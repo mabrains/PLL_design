@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-csv_file_name = '../csv_files/pfd_ckt_tt_-40.00_1.80.csv'
+csv_file_name = '../csv_files/pfd_ckt_tt_27.00_1.80.csv'
 df = pd.read_csv (csv_file_name,index_col=False,usecols=[0 ,1 ,2, 3,4],header=0, delimiter=r"\s+")
 df.to_csv('../csv_files/temp.csv', index = False)
 

@@ -5,8 +5,8 @@
 
 Xconventional_pfd  REF up FB VDD GND dn conventional_pfd
 
-V4 REF GND pulse(0 1.8 {{d_ref}}s 10p 10p 50ns 100ns)
-V5 FB GND pulse(0 1.8 {{d_fb}}s 10p 10p 50ns 100ns)
+V4 REF GND pulse(0 {{supply}} {{d_ref}}s 10p 10p 50ns 100ns)
+V5 FB GND pulse(0 {{supply}} {{d_fb}}s 10p 10p 50ns 100ns)
 
 
 .control

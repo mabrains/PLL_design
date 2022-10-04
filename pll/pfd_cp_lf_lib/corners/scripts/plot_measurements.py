@@ -30,9 +30,9 @@ for file_dir in files_dir:
 
     if (corner_name == 'tt_27.00_1.80'):
         print("tt")
-        plt.plot(time_list , up_list,linewidth = 3, color = 'black',linestyle='dashed',label=corner_name)
+        plt.plot(time_list , up_list,linewidth = 5, color = 'black',linestyle='dashed',label=corner_name)
     else:
-        plt.plot(time_list , up_list,linewidth = 2.5,label=corner_name)
+        plt.plot(time_list , up_list,linewidth = 1,label=corner_name)
             
 plt.legend(bbox_to_anchor=(1.12, 1.1),loc='upper right', labelspacing=0.15)
 plt.xlabel("Time (sec)",fontsize=14)
@@ -41,6 +41,35 @@ plt.title("UP signal Vs Time",fontsize=14)
 plt.grid()
 plt.tight_layout()
 plt.show()
+
+
+for file_dir in files_dir:
+    csv_file_dir = file_dir
+    file_name = os.path.basename(file_dir)
+    corner_name = file_name[8:len(file_name)-10]
+
+    df = pd.read_csv (csv_file_dir,index_col=False,usecols=[0 ,1 ,2, 3,4],header=0, delimiter=r"\s+")
+    df.to_csv('../csv_files/temp.csv', index = False)
+
+    time_list = df["time"]
+    down_list = df["v(dn)"]
+
+    if (corner_name == 'tt_27.00_1.80'):
+        print("tt")
+        plt.plot(time_list , down_list,linewidth = 5, color = 'black',linestyle='dashed',label=corner_name)
+    else:
+        plt.plot(time_list , down_list,linewidth = 1,label=corner_name)
+            
+plt.legend(bbox_to_anchor=(1.12, 1.1),loc='upper right', labelspacing=0.15)
+plt.xlabel("Time (sec)",fontsize=14)
+plt.ylabel("Amplitude (V)",fontsize=14)
+plt.title("Down signal Vs Time",fontsize=14)
+plt.grid()
+plt.tight_layout()
+plt.show()
+
+
+
 '''
 csv_file_name = '../csv_files/pfd_ckt_tt_-40.00_1.80_10n_0.csv'
 df = pd.read_csv (csv_file_name,index_col=False,usecols=[0 ,1 ,2, 3,4],header=0, delimiter=r"\s+")

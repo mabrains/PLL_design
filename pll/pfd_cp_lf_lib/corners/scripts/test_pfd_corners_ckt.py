@@ -60,7 +60,7 @@ def run_corner(all_corner_data):
                                         temp=tc,
                                         vsup=sc)
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(corner_setup=new_corners_str , corner_string="_{}_{}_{}_{}_{}".format(pc, tc, sc, ref, fb), d_ref=ref, d_fb=fb)
+    full_spice = template.render(corner_setup=new_corners_str , corner_string="_{}_{}_{}_{}_{}".format(pc, tc, sc, ref, fb), d_ref=ref, d_fb=fb,supply=sc)
     # create a new tb for the intended corner and update it and then close it
     spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}_{}.spi".format(pc, tc, sc, ref, fb))
     text_file = open(spice_file_path, "w")

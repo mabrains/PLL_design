@@ -1,6 +1,6 @@
 process,temp,supply
-tt,27,0.9
 tt,-40,0.9
+tt,27,0.9
 tt,-40,1.0
 tt,27,1.0
 tt,-40,1.1

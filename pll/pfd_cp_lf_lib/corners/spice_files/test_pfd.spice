@@ -18,7 +18,7 @@ print all
 
 tran 0.01ns 400ns 
 
-meas tran tup_check FIND v(up) AT=50n
+meas tran tup_check FIND v(up) AT=25n
 
 
 wrdata ../csv_files/pfd_ckt{{ corner_string }}.csv v(up) v(dn) v(FB) v(REF)

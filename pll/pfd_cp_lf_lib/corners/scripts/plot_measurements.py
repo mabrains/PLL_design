@@ -7,7 +7,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import glob
 import os
-delay_str = "10n_1n"
+delay_str = "1.4n_1n"
+failed_corners = ['sf_125.00_1.62', 'sf_27.00_1.62', 'sf_27.00_1.80', 'sf_125.00_1.80', 'sf_27.00_1.98', 'sf_125.00_1.98']
+#failed_corners = []
+
 files_dir = glob.glob('../csv_files/pfd_ckt_**_'+delay_str+'.csv', recursive = True)
 
 fig, ax = plt.subplots(figsize=(8, 10))
@@ -27,9 +30,9 @@ for file_dir in files_dir:
     time_list = df["time"]
     up_list = df["v(up)"]
     if (corner_name == 'tt_27.00_1.80'):
-        plt.plot(time_list , up_list,linewidth = 5, color = 'black',linestyle='dashed',label=corner_name)
-    else:
-        plt.plot(time_list , up_list,linewidth = 1,label=corner_name)
+        plt.plot(time_list , up_list,linewidth = 3.5, color = 'black',linestyle='dashed',label=corner_name)
+    elif(corner_name not in failed_corners):
+        plt.plot(time_list , up_list,linewidth = 1.5,label=corner_name)
             
 plt.legend(bbox_to_anchor=(1.12, 1.1),loc='upper right', labelspacing=0.15)
 plt.xlabel("Time (sec)",fontsize=14)
@@ -58,9 +61,9 @@ for file_dir in files_dir:
     down_list = df["v(dn)"]
 
     if (corner_name == 'tt_27.00_1.80'):
-        plt.plot(time_list , down_list,linewidth = 5, color = 'black',linestyle='dashed',label=corner_name)
-    else:
-        plt.plot(time_list , down_list,linewidth = 1,label=corner_name)
+        plt.plot(time_list , down_list,linewidth = 3.5, color = 'black',linestyle='dashed',label=corner_name)
+    elif(corner_name not in failed_corners):
+        plt.plot(time_list , down_list,linewidth = 1.5,label=corner_name)
             
 plt.legend(bbox_to_anchor=(1.12, 1.1),loc='upper right', labelspacing=0.15)
 plt.xlabel("Time (sec)",fontsize=14)

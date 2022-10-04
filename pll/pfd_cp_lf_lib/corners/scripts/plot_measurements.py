@@ -7,9 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import glob
 import os
-
-files_dir = glob.glob('../csv_files/pfd_ckt_**_10n_0.csv', recursive = True)
-
+delay_str = "10n_1n"
+files_dir = glob.glob('../csv_files/pfd_ckt_**_'+delay_str+'.csv', recursive = True)
 
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
@@ -20,16 +19,14 @@ plt.subplots_adjust(bottom=0.086)
 for file_dir in files_dir:
     csv_file_dir = file_dir
     file_name = os.path.basename(file_dir)
-    corner_name = file_name[8:len(file_name)-10]
+    corner_name = file_name[8:len(file_name)-len(delay_str)-5]
 
     df = pd.read_csv (csv_file_dir,index_col=False,usecols=[0 ,1 ,2, 3,4],header=0, delimiter=r"\s+")
     df.to_csv('../csv_files/temp.csv', index = False)
 
     time_list = df["time"]
     up_list = df["v(up)"]
-
     if (corner_name == 'tt_27.00_1.80'):
-        print("tt")
         plt.plot(time_list , up_list,linewidth = 5, color = 'black',linestyle='dashed',label=corner_name)
     else:
         plt.plot(time_list , up_list,linewidth = 1,label=corner_name)
@@ -43,10 +40,16 @@ plt.tight_layout()
 plt.show()
 
 
+fig, ax = plt.subplots(figsize=(8, 10))
+plt.subplots_adjust(right=0.9)
+plt.subplots_adjust(left=0.079)
+plt.subplots_adjust(top=0.88)
+plt.subplots_adjust(bottom=0.086)
+
 for file_dir in files_dir:
     csv_file_dir = file_dir
     file_name = os.path.basename(file_dir)
-    corner_name = file_name[8:len(file_name)-10]
+    corner_name = file_name[8:len(file_name)-len(delay_str)-5]
 
     df = pd.read_csv (csv_file_dir,index_col=False,usecols=[0 ,1 ,2, 3,4],header=0, delimiter=r"\s+")
     df.to_csv('../csv_files/temp.csv', index = False)
@@ -55,7 +58,6 @@ for file_dir in files_dir:
     down_list = df["v(dn)"]
 
     if (corner_name == 'tt_27.00_1.80'):
-        print("tt")
         plt.plot(time_list , down_list,linewidth = 5, color = 'black',linestyle='dashed',label=corner_name)
     else:
         plt.plot(time_list , down_list,linewidth = 1,label=corner_name)

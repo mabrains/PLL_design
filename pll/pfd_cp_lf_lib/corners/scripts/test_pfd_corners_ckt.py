@@ -26,9 +26,10 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")
 csv_dir = os.path.join("..", "csv_files")
 TEMPLATE_FILE = "test_pfd.spice" #name of the tb
-NUM_WORKERS = 25 # maximum number of processor threds to operate on
+NUM_WORKERS = 27 # maximum number of processor threds to operate on
 process_corners = ["tt", "sf", "fs", "ff", "ss"]
-delay_values = [["10n", "0"], ["0", "10n"], ["1n", "1n"], ["1n", "1.1n"]]
+delay_values = [["10n", "1n"]]
+## delay_values = [["10n", "1n"], ["1n", "10n"], ["1n", "1n"], ["1n", "1.4n"]]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 supply_value = 1.8
@@ -111,6 +112,16 @@ def run_corner(all_corner_data):
             elif s[0] == "t_ref_3":
                 results_dict["t_ref_3"] = s[2]
 
+
+            elif s[0] == "tup_check":
+                results_dict["tup_check"] = s[2]
+                if (float (s[2]) < 0.01):
+                    results_dict["Corner Status"] = "True"
+                else:
+                    results_dict["Corner Status"] = "False"
+
+                
+
     log_file.close() # close the log file
     # return the list carrying the measurments
     return results_dict
@@ -134,6 +145,9 @@ if __name__ == "__main__":
                 data["process"] = comb[0]
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
+                data["REF delay"] = comb[3][0]
+                data["FB delay"] = comb[3][1]
+
                 new_data = future.result()
                 data.update(new_data)
                 my_results.append(data)

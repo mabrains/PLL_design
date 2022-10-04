@@ -3,10 +3,10 @@
 .include ../spice_files/CONV_PFD.ckt
 {{ corner_setup }}
 
-Xconventional_pfd  REF up FB VDD GND dn conventional_pfd
+Xconventional_pfd  REF VDD GND FB up dn conventional_pfd
 
-V4 REF GND pulse(0 {{supply}} {{d_ref}}s 10p 10p 50ns 100ns)
-V5 FB GND pulse(0 {{supply}} {{d_fb}}s 10p 10p 50ns 100ns)
+V4 REF GND pulse(0 {{supply}} {{d_ref}}s 1n 1n 50ns 100ns)
+V5 FB GND pulse(0 {{supply}} {{d_fb}}s 1n 1n 50ns 100ns)
 
 
 .control
@@ -17,6 +17,10 @@ save all
 print all
 
 tran 0.01ns 400ns 
+
+meas tran tup_check FIND v(up) AT=50n
+
+
 wrdata ../csv_files/pfd_ckt{{ corner_string }}.csv v(up) v(dn) v(FB) v(REF)
 .endc
 

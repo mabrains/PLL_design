@@ -1,0 +1,28 @@
+** conventional pfd test bench
+
+.include ../spice_files/CONV_PFD.ckt
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp -40.00
+.options tnom=-40.00
+VDD VDD GND 1.98
+
+
+Xconventional_pfd  REF up FB VDD GND dn conventional_pfd
+
+V4 REF GND pulse(0 1.8 10ns 10p 10p 50ns 100ns)
+V5 FB GND pulse(0 1.8 0 10p 10p 50ns 100ns)
+
+
+.control
+set wr_singlescale
+set wr_vecnames
+option numdgt = 3
+
+tran 0.01ns 400ns 
+wrdata ../csv_files/pfd_ckt_tt_-40.00_1.98.csv v(up) v(dn) v(FB) v(REF)
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

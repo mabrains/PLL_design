@@ -28,6 +28,7 @@ csv_dir = os.path.join("..", "csv_files")
 TEMPLATE_FILE = "test_pfd.spice" #name of the tb
 NUM_WORKERS = 25 # maximum number of processor threds to operate on
 process_corners = ["tt", "sf", "fs", "ff", "ss"]
+delay_values = [["10n", "0"], ["0", "10n"], ["1n", "1n"], ["1n", "1.1n"]]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 supply_value = 1.8
@@ -51,20 +52,23 @@ def run_corner(all_corner_data):
     pc = all_corner_data[0]
     tc = "{:.2f}".format(all_corner_data[1])
     sc = "{:.2f}".format(all_corner_data[2] * supply_value)
+    ref = all_corner_data[3][0]
+    fb = all_corner_data[3][1]
+
     # updatet the corner lines with the values of the intended corner
     new_corners_str = corner_str.format(corner=pc,
                                         temp=tc,
                                         vsup=sc)
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(corner_setup=new_corners_str , corner_string="_{}_{}_{}".format(pc, tc, sc))
+    full_spice = template.render(corner_setup=new_corners_str , corner_string="_{}_{}_{}_{}_{}".format(pc, tc, sc, ref, fb), d_ref=ref, d_fb=fb)
     # create a new tb for the intended corner and update it and then close it
-    spice_file_path = os.path.join(run_dir, "{}_{}_{}.spi".format(pc, tc, sc))
+    spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}_{}.spi".format(pc, tc, sc, ref, fb))
     text_file = open(spice_file_path, "w")
     text_file.write(full_spice)
     text_file.close()
     # create a log file for the intended corner and
     # then run the tb
-    spice_run_log = os.path.join(run_dir, "{}_{}_{}.log".format(pc, tc, sc))
+    spice_run_log = os.path.join(run_dir, "{}_{}_{}_{}_{}.log".format(pc, tc, sc, ref, fb))
     log_file = open(spice_run_log, "w")
     subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
     log_file.close()
@@ -111,7 +115,7 @@ def run_corner(all_corner_data):
     # return the list carrying the measurments
     return results_dict
 if __name__ == "__main__":
-    all_comb = list(itertools.product(process_corners, temp_corners, supply_corners))
+    all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, delay_values))
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
     

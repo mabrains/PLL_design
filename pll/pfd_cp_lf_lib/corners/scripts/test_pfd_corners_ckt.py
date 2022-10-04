@@ -126,7 +126,7 @@ if __name__ == "__main__":
     my_results = []
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:5]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
             try:

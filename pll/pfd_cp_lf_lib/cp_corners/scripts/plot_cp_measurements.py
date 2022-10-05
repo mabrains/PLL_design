@@ -4,7 +4,7 @@ import numpy as np
 
 
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
-failed_corners = ['sf,27,0.9', 'sf,-40,0.9', 'sf,125,0.9', 'ss,-40,0.9', 'ss,27,0.9']
+failed_corners = ['sf,27,0.9', 'sf,-40,0.9', 'sf,125,0.9', 'ss,-40,0.9', 'ss,27,0.9', 'tt,-40,0.9']
 df = pd.read_csv('all_measurements.csv')
 df.sort_values(by=["corner name","control", "UP", "Down"] , inplace=True)
 
@@ -81,7 +81,7 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
 plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
 plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("Output Current (uA)",fontsize=14)
-plt.title("Charge Pump Output Current Vs Control Voltage @ UP=0,Down=1.8",fontsize=14)
+plt.title("Charge Pump Output Current Vs Control Voltage @ UP=1.8,Down=0",fontsize=14)
 plt.grid()
 plt.tight_layout()
 plt.show()
@@ -111,7 +111,7 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
 plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
 plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("Output Current (uA)",fontsize=14)
-plt.title("Charge Pump Output Current Vs Control Voltage @ UP=1.8,Down=0",fontsize=14)
+plt.title("Charge Pump Output Current Vs Control Voltage @ UP=0,Down=1.8",fontsize=14)
 plt.grid()
 plt.tight_layout()
 plt.show()

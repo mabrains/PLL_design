@@ -37,9 +37,9 @@ temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 '''
-process_corners = ["tt"]
-temp_corners = [-27]
-supply_corners = [1]
+process_corners = ["tt", "sf", "fs", "ff", "ss"]
+temp_corners = [-40, 27, 125]
+supply_corners = [0.9, 1.0, 1.1]
 up_values = [0, 1.8]
 dn_values = [0,1.8]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb[:10]}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]

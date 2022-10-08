@@ -204,6 +204,13 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 ### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Phase/Frequency Detector (PFD) 
 ----------------------------------
 
+* PFD operation 
+
+![image](https://user-images.githubusercontent.com/110326591/194724205-38e69cbe-569f-446f-89b1-5a87e106e28e.png)
+
+* the signal passes less gate for a high speed; on the other hand, the NOR gate can provide some delay to reduce the dead-zone. The operations of this PFD are very simple: when the input signal (REF) and the reset signal (RESET) are both low, node A is charged up to VDD though MP1 and MP2. At the rising edge of the signal, node B is connected to ground though MN2 and MN3, yielding the output signal (UP) to be HIGH due to the inversion. Then after that, node B is not affected by the input signal since charges at node A turn off MP3 and prevent node B from pulled up. Therefore, the output is always high after the rising edge of the input signal. When RESET is applied, node A is discharged to ground through MN1 and node B is pulled up though MP3, causing output UP signal to reset. The RESET signal is asserted when the second DFF input signal (FB) experiences a rising edge. When the PFD collects two rising edges the REF and FB, the NOR gate will assert the RESET signal and reset the output signals. The PFD is a 4-state PFD Since it has a state when the outputs are both high. The width of the reset pulse is determined by the delay in the NOR gate. The effect of this delay on the maximum operating frequency is discussed in the following subsection. In the design, the NOR gate has a delay of 150 ps.
+
+
 * Conventional PFD
 
 ![PFD_Sym](images/Diagrams/PFD/Conv%20PFD.jpg)
@@ -223,12 +230,6 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 * NOR-Gate
 
 ![PFD](images/Diagrams/PFD/Nor%20gate.jpg)
-
-* PFD operation 
-
-![image](https://user-images.githubusercontent.com/110326591/194724205-38e69cbe-569f-446f-89b1-5a87e106e28e.png)
-
-* the signal passes less gate for a high speed; on the other hand, the NOR gate can provide some delay to reduce the dead-zone. The operations of this PFD are very simple: when the input signal (REF) and the reset signal (RESET) are both low, node A is charged up to VDD though MP1 and MP2. At the rising edge of the signal, node B is connected to ground though MN2 and MN3, yielding the output signal (UP) to be HIGH due to the inversion. Then after that, node B is not affected by the input signal since charges at node A turn off MP3 and prevent node B from pulled up. Therefore, the output is always high after the rising edge of the input signal. When RESET is applied, node A is discharged to ground through MN1 and node B is pulled up though MP3, causing output UP signal to reset. The RESET signal is asserted when the second DFF input signal (FB) experiences a rising edge. When the PFD collects two rising edges the REF and FB, the NOR gate will assert the RESET signal and reset the output signals. The PFD is a 4-state PFD Since it has a state when the outputs are both high. The width of the reset pulse is determined by the delay in the NOR gate. The effect of this delay on the maximum operating frequency is discussed in the following subsection. In the design, the NOR gate has a delay of 150 ps.
 
 ## Simulation Results
 * REF lags from FB  by 1ns 

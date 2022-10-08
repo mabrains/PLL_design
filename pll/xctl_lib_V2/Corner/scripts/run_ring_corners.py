@@ -28,11 +28,12 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_ring_char.spice" #name of the tb 
-NUM_WORKERS = 1 # maximum number of processor threds to operate on 
+NUM_WORKERS = 3 # maximum number of processor threds to operate on 
 
 process_corners = ["ss", "sf", "fs", "ff"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
+
 
 supply_value = 1.8
 
@@ -41,8 +42,8 @@ corner_str = """
 .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
-VDD VDD GND {vsup}"""
-
+VDD VDD GND PWL(0 0 1u {vsup} 1m {vsup})"""
+##PWL(0 0 1u 1.8 0.5m 1.8)
 ## .nodeset v(vout)=0
 
 def run_corner(all_corner_data):
@@ -54,13 +55,13 @@ def run_corner(all_corner_data):
     templateLoader = jinja2.FileSystemLoader(searchpath=main_tb_path)
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(TEMPLATE_FILE)
-    # print(template)
+    print(template)
     # extract the (process,temp,supply) values
     # from the input list to update
     pc = all_corner_data[0]
     tc = "{:.2f}".format(all_corner_data[1])
     sc = "{:.2f}".format(all_corner_data[2] * supply_value)
-    # print(sc)
+    print(sc)
     # updatet the corner lines with the values of the intended corner
     new_corners_str = corner_str.format(corner=pc, 
                                         temp=tc, 
@@ -97,10 +98,10 @@ def run_corner(all_corner_data):
             if s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
-                    results_dict["freq (MHZ)"] = s[2]
+                    results_dict["freq (GHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"
-                    results_dict["freq (MHZ)"] = "-"
+                    results_dict["freq (GHZ)"] = "-"
 
     log_file.close() # close the log file
     # print(results_dict)

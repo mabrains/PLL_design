@@ -204,7 +204,7 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 ### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Phase/Frequency Detector (PFD) 
 ----------------------------------
 
-* PFD Conv 
+* Conventional PFD
 
 ![PFD_Sym](images/Diagrams/PFD/Conv%20PFD.jpg)
 
@@ -223,6 +223,60 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 * NOR-Gate
 
 ![PFD](images/Diagrams/PFD/Nor%20gate.jpg)
+
+* PFD operation 
+
+![image](https://user-images.githubusercontent.com/110326591/194724205-38e69cbe-569f-446f-89b1-5a87e106e28e.png)
+
+* the signal passes less gate for a high speed; on the other hand, the NOR gate can provide some delay to reduce the dead-zone. The operations of this PFD are very simple: when the input signal (REF) and the reset signal (RESET) are both low, node A is charged up to VDD though MP1 and MP2. At the rising edge of the signal, node B is connected to ground though MN2 and MN3, yielding the output signal (UP) to be HIGH due to the inversion. Then after that, node B is not affected by the input signal since charges at node A turn off MP3 and prevent node B from pulled up. Therefore, the output is always high after the rising edge of the input signal. When RESET is applied, node A is discharged to ground through MN1 and node B is pulled up though MP3, causing output UP signal to reset. The RESET signal is asserted when the second DFF input signal (FB) experiences a rising edge. When the PFD collects two rising edges the REF and FB, the NOR gate will assert the RESET signal and reset the output signals. The PFD is a 4-state PFD Since it has a state when the outputs are both high. The width of the reset pulse is determined by the delay in the NOR gate. The effect of this delay on the maximum operating frequency is discussed in the following subsection. In the design, the NOR gate has a delay of 150 ps.
+
+## Simulation Results
+* REF lags from FB  by 1ns 
+
+![image](https://user-images.githubusercontent.com/110326591/194724464-074750bb-52a1-4c21-a408-66a5d73765ee.png)
+
+*  Another case when delay between Ref and Fb equals 0 (locking case)
+
+![image](https://user-images.githubusercontent.com/110326591/194724486-b90f0df3-5ca5-4505-91cc-d78929764f5c.png)
+
+* When  fB lags from REF  by 95ns
+
+![image](https://user-images.githubusercontent.com/110326591/194724517-37bcbe93-e369-4cf0-b69b-90a5cc9ff02c.png)
+
+* When  fB lags by 50ps (small phase error)
+
+![image](https://user-images.githubusercontent.com/110326591/194724541-8b023b7a-5bfe-4bba-bed1-8c2b9ed66535.png)
+
+* Reason for dead zone
+
+![image](https://user-images.githubusercontent.com/110326591/194724556-ce090f51-5c64-4ec5-b75a-0907f018593e.png)
+
+the small phase error cannot be detected properly explains the reason for dead-zone: if the phase difference is small, the output pulses may not be able to activate the CP completely, yielding a zero PD gain and loop gain, and the loop is basically open and the PLL noise is the same as a free running VCO noise. Delay can be added at the reset path to avoid this issue.
+
+## simulation Results across corrners:
+	1.  0.9VDD:VDD:1.1VDD (supply variations across corners)
+	2. -40:27:125  (temparture variations across corners) 
+	3. ss,ff,sf,fs,tt (process variations across corners)
+	4. Ref_delay and FB_delay different cases {10n,0},{0,10n},{1n,1.1n}
+	  
+
+* Fb lags from Ref across corners
+
+![image](https://user-images.githubusercontent.com/110326591/194724625-96a725e7-83e3-4464-a40c-c88f19b46662.png)
+
+* REF lags from FB across corners
+
+![image](https://user-images.githubusercontent.com/110326591/194724641-d0ff7e98-df73-436b-a519-2cab8bf7f855.png)
+
+* When phase error is very small to  ensure that pulse width is sufficient for  Cp switching.  
+
+![image](https://user-images.githubusercontent.com/110326591/194724652-1740c6ff-92e8-4f67-852c-5a4c3bb240f4.png)
+
+
+
+
+
+
 
 ### Charge Pump (CP)
 --------------------

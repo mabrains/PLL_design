@@ -126,6 +126,8 @@ N 4130 -570 4220 -570 {
 lab=VOP}
 N 4260 -610 4330 -610 {
 lab=UBP}
+N 3480 -480 3520 -480 {
+lab=VDD}
 C {sky130_fd_pr/nfet3_01v8.sym} 3690 -200 0 0 {name=M1
 L=0.6
 W=2
@@ -186,16 +188,6 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/res.sym} 3540 -480 0 0 {name=R1
-value=25k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 3710 -470 0 0 {name=R2
-value=12.5k
-footprint=1206
-device=resistor
-m=1}
 C {sky130_fd_pr/pfet3_01v8.sym} 3690 -580 0 0 {name=M5
 L=0.6
 W=6.66
@@ -391,3 +383,21 @@ C {devices/lab_pin.sym} 4090 -520 3 0 {name=l15 sig_type=std_logic lab=GND
 }
 C {devices/lab_pin.sym} 4130 -540 3 0 {name=l20 sig_type=std_logic lab=VON}
 C {/home/ahmedelbadry/PLL_design/pll/pfd_cp_lf_lib/OTA/xschem/OTA.sym} 4180 -570 0 1 {name=X3}
+C {sky130_fd_pr/res_iso_pw.sym} 3540 -480 0 0 {name=R1
+rho=3050
+W=2.65
+L=20
+model=res_iso_pw
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_iso_pw.sym} 3710 -470 0 0 {name=R2
+rho=3050
+W=2.65
+L=10
+model=res_iso_pw
+spiceprefix=X
+mult=1}
+C {devices/lab_pin.sym} 3480 -480 0 0 {name=l26 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} 3690 -470 0 0 {name=l27 sig_type=std_logic lab=VDD
+}

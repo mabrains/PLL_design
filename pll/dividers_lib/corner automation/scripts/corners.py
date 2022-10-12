@@ -30,7 +30,7 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "divider_tb.spice" #name of the tb 
-NUM_WORKERS = 2 # maximum number of processor threds to operate on 
+NUM_WORKERS = 30 # maximum number of processor threds to operate on 
 '''
 process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
@@ -43,7 +43,7 @@ supply_corners =  [0.9, 1, 1.1]
 supply_value = 1.8
 # create a string to carry all the lines related to the corners
 corner_str = """
-.lib /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
 
@@ -93,21 +93,24 @@ def run_corner(all_corner_data):
     pc = all_corner_data[0]
     tc = "{:.2f}".format(all_corner_data[1])
     sc = "{:.2f}".format(all_corner_data[2] * supply_value)
-    results_dict = {} 
-
 
 
     N_start = 220  # input to the code (strat N)
-    N_end= 256    # input to the code (end N)
+    N_end= 256   # input to the code (end N)
 
-    # for loop for simulation automation
     p=[] # p's at specific divide ratio
-    netlist_tmp = f"divider_tb.spice"
-    my_results= []
-    results_dict = {} 
+
+    results_dict = {'Process': [], 'Temp': [], 'Supply': [],'F_input': [], 'F_out': [], 'N': []}
     k=1
     for N in range (N_start,N_end):
-        d = 256- N
+
+        # append the corners to the dictionary
+        results_dict["Process"].append(pc)
+        results_dict["Temp"].append(tc)
+        results_dict["Supply"].append(sc)
+
+
+        d = 256 - N
         p= dec_2_bin(d)
         f_in = N/100
         p0= int (p[0])* 1.8
@@ -137,64 +140,51 @@ def run_corner(all_corner_data):
         full_spice = template.render(corner_setup=new_corners_str)
 
         # create a new tb for the intended corner and update it and then close it
-        spice_file_path = os.path.join(run_dir, "{}_{}_{}.spi".format(pc, tc, sc))
+        spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}.spi".format(pc, tc, sc, N))
         text_file = open(spice_file_path, "w")
         text_file.write(full_spice)
         text_file.close()
 
         # create a log file for the intended corner and 
         # then run the tb 
-        spice_run_log = os.path.join(run_dir, "{}_{}_{}.log".format(pc, tc, sc))
+        spice_run_log = os.path.join(run_dir, "{}_{}_{}_{}.log".format(pc, tc, sc, N))
         log_file = open(spice_run_log, "w")
         subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
         log_file.close()
 
+
         ## read the data from log
-        log_file = open(spice_run_log, "r")
+        current_file = open(spice_run_log, "r")
 
-    
-        #iterate on the log file and extract the values of the intended measurments
-        #for loop for creating csv file from log files
-        y=1
-        # entering log files to get fout, n values 
-        for N in range (N_start, N_end):
-            f_in = str (N/100) + "GHz"
-            results_dict_temp = {} 
-            results_dict["f_input"]=  f_in
-            current_file= open (log_file, "r")
-            for line in current_file.readlines():
-                s = line.split()
-                #print (s)
-                if len(s) > 2:
-                    if s[0] == "f_out":
-                        results_dict_temp["f_out"] = s[2]
-                        results_dict.update(results_dict_temp)
-                    elif s[0] == "n":
-                        results_dict_temp["n"] = s[2]
-                        results_dict.update(results_dict_temp)
-        
-        log_file.close() # close the log file
+        f_in = str (N/100) + "GHz"
+        results_dict["F_input"].append(f_in)
+        for line in current_file.readlines():
+            s = line.split()
+            if len(s) > 2:
+                if s[0] == "f_out":
+                    results_dict["F_out"].append(s[2])
+                elif s[0] == "n":
+                    results_dict["N"].append(s[2])
 
-        # return the list carrying the measurments
-        return results_dict
+        current_file.close() # close the log file
+
+
+    # return the list carrying the measurments
+    return results_dict
 
 
 
 if __name__ == "__main__":
     # create a list has all the combinations of corner cases
     all_comb = list(itertools.product(process_corners, temp_corners, supply_corners))
-
     # if the run folder is not found, create a new folder with the givven path which is 
     # created at the beginning of the script
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
     
-    # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
-    #shutil.copyfile("/env/foundry/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
-    
     # create an empty list to carry all the measurements for all the corners
     my_results = []
-    failed_corners = []
+    data = {'Process': [], 'Temp': [], 'Supply': [],'F_input': [], 'F_out': [], 'N': []}
 
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
@@ -205,29 +195,25 @@ if __name__ == "__main__":
             comb = future_to_comb[future]
             
             try:
-               #data = {}
-               #data["process"] = comb[0]
-               #data["temp"] = comb[1]
-               #data["supply"] = comb[2]
-               #data["control"] = comb[3]
-               #data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
+                my_results = future.result()
                 
-                new_data = future.result()
+                data["Process"].extend(my_results["Process"])
+                data["Temp"].extend(my_results["Temp"])
+                data["Supply"].extend(my_results["Supply"])
+                data["F_input"].extend(my_results["F_input"])
+                data["F_out"].extend(my_results["F_out"])
+                data["N"].extend(my_results["N"])
                 
-                my_results.append(data)
 
             except Exception as exc:
                 print('generated an exception: %s' % (exc))
             else:
                 print('%s corner completed' % (str(comb)))
-            new_data = future.result()
-
-            my_results.append(new_data)
+            
 
     # loop on the csv file to plot and sort the measurement
-    if len(my_results) > 0:
-        df = pd.DataFrame(my_results)
-        df.sort_values(by=["corner name","control"] , inplace=True)
+    if len(data) > 0:
+        df = pd.DataFrame.from_dict(data)
         df.to_csv("all_measurements.csv", index=False)
 
    

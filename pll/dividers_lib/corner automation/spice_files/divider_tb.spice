@@ -1,14 +1,8 @@
 ** sch_path: /home/mohamed/Simulations/divider_tb.sch
 **.subckt divider_tb
-.param f_input = {{f_in}}G
-.param p0_val = {{p0}}
-.param p1_val=  {{p1}}
-.param p2_val=  {{p2}}
-.param p3_val=  {{p3}}
-.param p4_val=  {{p4}}
-.param p5_val=  {{p5}}
-.param p6_val=  {{p6}}
-.param p7_val=  {{p7}}
+
+{{ corner_setup }}
+
 
 VDD1 p2 GND {p2_val}
 VDD2 p4 GND {p4_val}
@@ -18,9 +12,6 @@ VDD5 p5 GND {p5_val}
 VDD6 p6 GND {p6_val}
 VDD7 p0 GND {p0_val}
 VDD8 p7 GND {p7_val}
-
-
-{{ corner_setup }}
 
 
 x1 VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin opennet divider

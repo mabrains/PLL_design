@@ -267,10 +267,6 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 
 ![Divider DFF](images/Diagrams/Divider/Static%20FF.jpg)
 
-#### Transmission gate (TG) design
-
-![Divider TG](images/Diagrams/Divider/TG.jpg)
-
 #### NAND gate design
 
 ![Divider nand](images/Diagrams/Divider/3%20NAND.jpg)

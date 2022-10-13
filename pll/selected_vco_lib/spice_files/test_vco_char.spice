@@ -65,6 +65,18 @@ xbgr ibias GND VDD BGR_Banba
     let bgr_tran_23_sat_check = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vth]
     let bgr_tran_24_sat_check = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vth]
     
+    let I13 = @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I14 = @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I15 = @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I18 = @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I17 = @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I16 = @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I19 = @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[id]*1000000
+    let I22 = @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I23 = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[id]*1000000
+    let I24 = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I2 =  @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    
     print all
 
     tran 0.01ns 200ns

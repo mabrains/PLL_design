@@ -2,7 +2,7 @@
 <report-database>
  <description>SKY130 DRC runset</description>
  <original-file/>
- <generator>drc: script='/home/ahmed/.klayout/macros/Run-DRC.lydrc'</generator>
+ <generator>drc: script='/home/shahat/.klayout/macros/Run-DRC.lydrc'</generator>
  <top-cell>TOP</top-cell>
  <tags>
  </tags>

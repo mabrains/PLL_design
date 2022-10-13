@@ -1,10 +1,12 @@
 ** Test bench for BGR
 
 .include ../spice_files/BGR_cir.ckt
+.include ../spice_files/BGR_PEX.ext
 
 {{ corner_setup }}
 
-xvco out GND VDD BGR_Banba
+** xvco out GND VDD BGR_Banba
+xbgr_pex out GND VDD BGR_PEX
 
 **** begin user architecture code
 

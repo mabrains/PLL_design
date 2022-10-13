@@ -19,8 +19,16 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_BGR_char.spice" #name of the tb 
-NUM_WORKERS = 3 # maximum number of processor threds to operate on 
+NUM_WORKERS = 29 # maximum number of processor threds to operate on 
 
+###
+## process_corners = ["ss", "sf", "fs", "ff", "tt"]
+## temp_corners = [-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90,100,110,120]
+## supply_corners = [0.9, 1.0, 1.1]
+## vout = [0.9]
+## 
+## supply_value = 1.8
+##
 process_corners = ["ss", "sf", "fs", "ff", "tt"]
 temp_corners = [-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90,100,110,120]
 supply_corners = [0.9, 1.0, 1.1]
@@ -128,6 +136,7 @@ if __name__ == "__main__":
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
+                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
                 
                 new_data = future.result()
 

@@ -3,7 +3,7 @@
  <description>SKY130 DRC runset</description>
  <original-file/>
  <generator>drc: script='/home/ahmed/.klayout/macros/Run-DRC.lydrc'</generator>
- <top-cell>(UNNAMED)</top-cell>
+ <top-cell>BGR</top-cell>
  <tags>
  </tags>
  <categories>
@@ -790,33 +790,12 @@
  </categories>
  <cells>
   <cell>
-   <name>(UNNAMED)</name>
+   <name>BGR</name>
    <variant/>
    <references>
-   </references>
-  </cell>
-  <cell>
-   <name>sky130_fd_pr__nfet_01v8_67KBGX</name>
-   <variant/>
-   <references>
-    <ref>
-     <parent>(UNNAMED)</parent>
-     <trans>r0 *1 0.365,1.535</trans>
-    </ref>
    </references>
   </cell>
  </cells>
  <items>
-  <item>
-   <tags/>
-   <category>'m1.6'</category>
-   <cell>sky130_fd_pr__nfet_01v8_67KBGX</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <image/>
-   <values>
-    <value>polygon: (-0.145,1.255;-0.145,1.485;0.145,1.485;0.145,1.255)</value>
-   </values>
-  </item>
  </items>
 </report-database>

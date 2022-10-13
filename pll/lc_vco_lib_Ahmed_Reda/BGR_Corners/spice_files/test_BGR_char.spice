@@ -5,8 +5,8 @@
 
 {{ corner_setup }}
 
-** xvco out GND VDD BGR_Banba
-xbgr_pex out GND VDD BGR_PEX
+xvco out GND VDD BGR_Banba
+**xbgr_pex out GND VDD BGR_PEX
 
 **** begin user architecture code
 

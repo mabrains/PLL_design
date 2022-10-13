@@ -1,0 +1,40 @@
+* Extracted by KLayout with SKY130 LVS runset on : 13/10/2022 15:11
+
+.SUBCKT BGR net3 VBE net2 net6 net4 VDD Iref net1 net7 net5 GND
+M$1 VDD net1 Iref VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=200U AS=30.74P
++ AD=30.74P PS=273.48U PD=273.48U
+M$57 VDD net1 net1 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=44U AS=6.38P
++ AD=6.38P PS=56.76U PD=56.76U
+M$73 net7 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1U W=40U AS=8.7P AD=8.7P
++ PS=60.87U PD=60.87U
+M$75 VBE net7 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1U W=40U AS=8.7P AD=8.7P
++ PS=60.87U PD=60.87U
+M$77 net6 net3 net5 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=90U AS=15.225P
++ AD=15.225P PS=107.03U PD=107.03U
+M$78 net5 VBE net4 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=90U AS=13.05P
++ AD=13.05P PS=91.74U PD=91.74U
+M$99 VDD net1 net3 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=20U AS=2.9P
++ AD=2.9P PS=25.8U PD=25.8U
+M$101 VDD net1 VBE VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=20U AS=2.9P
++ AD=2.9P PS=25.8U PD=25.8U
+M$153 VDD net1 net5 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=4U AS=0.58P
++ AD=0.58P PS=5.16U PD=5.16U
+M$305 GND net6 net1 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5U W=4.2U AS=1.218P
++ AD=1.218P PS=14.2U PD=14.2U
+M$306 net6 net4 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5U W=1.68U AS=0.3654P
++ AD=0.3654P PS=4.26U PD=4.26U
+M$307 GND net4 net4 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5U W=1.68U AS=0.3654P
++ AD=0.3654P PS=4.26U PD=4.26U
+M$314 net7 net1 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=20U W=0.42U AS=0.1218P
++ AD=0.1218P PS=1.42U PD=1.42U
+Q$324 GND GND net2 GND sky130_fd_pr__pnp_05v5_W0p68L0p68 AE=3.6992P PE=21.76U
++ AB=4.3681P PB=8.36U AC=4.3681P PC=8.36U NE=8
+Q$332 GND GND VBE GND sky130_fd_pr__pnp_05v5_W0p68L0p68 AE=0.4624P PE=2.72U
++ AB=4.3681P PB=8.36U AC=4.3681P PC=8.36U NE=1
+R$333 GND GND GND 3588.65248227 sky130_fd_pr__res_xhigh_po_1p41 L=10.12U W=5.64U
+R$343 net3 net2 GND 28709.2198582 sky130_fd_pr__res_xhigh_po_1p41 L=20.24U
++ W=1.41U
+R$347 GND net3 GND 100482.269504 sky130_fd_pr__res_xhigh_po_1p41 L=70.84U
++ W=1.41U
+R$349 GND VBE GND 100482.269504 sky130_fd_pr__res_xhigh_po_1p41 L=70.84U W=1.41U
+.ENDS BGR

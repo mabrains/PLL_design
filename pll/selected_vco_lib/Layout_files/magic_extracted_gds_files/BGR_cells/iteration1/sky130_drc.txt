@@ -2,8 +2,13 @@
 <report-database>
  <description>SKY130 DRC runset</description>
  <original-file/>
+<<<<<<< HEAD
  <generator>drc: script='/home/shahat/.klayout/macros/Run-DRC.lydrc'</generator>
  <top-cell>TOP</top-cell>
+=======
+ <generator>drc: script='/home/ahmed/.klayout/macros/Run-DRC.lydrc'</generator>
+ <top-cell>BGR</top-cell>
+>>>>>>> 1194387e99720892352bca593f7112d7c00addf8
  <tags>
  </tags>
  <categories>
@@ -790,7 +795,7 @@
  </categories>
  <cells>
   <cell>
-   <name>TOP</name>
+   <name>BGR</name>
    <variant/>
    <references>
    </references>

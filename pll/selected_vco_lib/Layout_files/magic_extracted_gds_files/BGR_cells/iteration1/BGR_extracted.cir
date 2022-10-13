@@ -1,4 +1,4 @@
-* Extracted by KLayout with SKY130 LVS runset on : 13/10/2022 12:59
+* Extracted by KLayout with SKY130 LVS runset on : 13/10/2022 14:04
 
 .SUBCKT BGR net3 VBE net2 net6 net4 VDD Iref net1 net7 net5 GND
 M$1 VDD net1 Iref VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5U W=200U AS=30.74P

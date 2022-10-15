@@ -23,7 +23,7 @@ pex_variant_load_path = '../csv_sheets/variant_load/all_measurements_PEX.csv'
 #schematic###########
 #####################
 
-df_sch = pd.read_csv(schematic_variant_load_path)
+df_sch = pd.read_csv(schematic_const_load_path)
 
 # fetching the failed corners
 for index, row in df_sch.iterrows():
@@ -42,6 +42,7 @@ plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.055)
 plt.subplots_adjust(top=0.88)
 plt.subplots_adjust(bottom=0.086)
+plt.legend(loc='upper right')
 
 plt.scatter(df_sch["corner name"], df_sch['iref'], s = 30)
 plt.scatter(df_sch["corner name"][tt_location_sch], df_sch['iref'][tt_location_sch], s = 100,label=tt_str)
@@ -59,7 +60,7 @@ plt.show()
 #####################
 #after pex###########
 #####################
-df_pex = pd.read_csv(pex_variant_load_path)
+df_pex = pd.read_csv(pex_const_load_path)
 
 # fetching the failed corners
 for index, row in df_pex.iterrows():
@@ -77,6 +78,7 @@ plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.055)
 plt.subplots_adjust(top=0.88)
 plt.subplots_adjust(bottom=0.086)
+plt.legend(loc='upper right')
 
 plt.scatter(df_pex["corner name"], df_pex['iref'], s = 30)
 plt.scatter(df_pex["corner name"][tt_location_pex], df_pex['iref'][tt_location_pex], s = 100,label=tt_str)
@@ -86,6 +88,7 @@ plt.xlabel("Corners",fontsize=14)
 plt.ylabel("Refrence Current (uA)",fontsize=14)
 plt.title("BGR Current After PEX",fontsize=14)
 plt.grid()
+plt.legend()
 plt.tight_layout()
 plt.plot(df_pex["corner name"] , [current_min]*len(df_pex["corner name"]),linewidth=2.5 ,color='blue')
 plt.show()
@@ -99,6 +102,7 @@ plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.055)
 plt.subplots_adjust(top=0.88)
 plt.subplots_adjust(bottom=0.086)
+plt.legend(loc='upper right')
 
 plt.scatter(df_sch["corner name"], df_sch['iref'], s = 30,label='Schematic')
 plt.scatter(df_pex["corner name"], df_pex['iref'], s = 30,label='PEX')

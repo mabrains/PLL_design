@@ -43,7 +43,7 @@ corner_str = """
 .options tnom={temp}
 
 VDD VDD GND {vsup}
-*VTuner out GND {vctrl}
+VTuner out GND {vctrl}
 """
 
 ## .nodeset v(vout)=0

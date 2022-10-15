@@ -12,11 +12,11 @@ failed_corner =[]
 tt_location_sch = -1
 tt_location_pex = -1
 tt_str = "tt,30,1.0"
-schematic_const_load_path = '../csv_sheets/constant_load/all_measurements_schematic.csv'
-pex_const_load_path = '../csv_sheets/constant_load/all_measurements_PEX.csv'
+schematic_const_load_path = '../csv_sheets/nf/constant_load/all_measurements_sch_const.csv'
+pex_const_load_path = '../csv_sheets/nf/constant_load/all_measurements_pex_const.csv'
 
-schematic_variant_load_path = '../csv_sheets/variant_load/all_measurements_schematic.csv'
-pex_variant_load_path = '../csv_sheets/variant_load/all_measurements_PEX.csv'
+schematic_variant_load_path = '../csv_sheets/nf/variant_load/all_measurements_sch_var.csv'
+pex_variant_load_path = '../csv_sheets/nf/variant_load/all_measurements_pex_var.csv'
 
 
 #####################
@@ -34,7 +34,7 @@ for index, row in df_sch.iterrows():
 
 # saving the failed corners in a separate list
 df_sch_failed = pd.DataFrame(failed_corner)
-#df_sch_failed.to_csv("../csv_sheets/variant_load/all_measurements_failed_corners_schematic.csv", index=False)
+#df_sch_failed.to_csv("../csv_sheets/nf/constant_load/all_measurements_failed_corners_sch_const.csv", index=False)
 
 
 fig, ax = plt.subplots(figsize=(8, 10))
@@ -70,7 +70,7 @@ for index, row in df_pex.iterrows():
         tt_location_pex = index
 # saving the failed corners in a separate list
 df_pex_failed = pd.DataFrame(failed_corner)
-#df_pex_failed.to_csv("../csv_sheets/variant_load/all_measurements_failed_corners_PEX.csv", index=False)
+#df_pex_failed.to_csv("../csv_sheets/nf/constant_load/all_measurements_failed_corners_pex_const.csv", index=False)
 
 
 fig, ax = plt.subplots(figsize=(8, 10))

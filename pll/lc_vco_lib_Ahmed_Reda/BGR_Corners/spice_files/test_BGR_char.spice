@@ -1,12 +1,32 @@
 ** Test bench for BGR
 
 .include ../spice_files/BGR_cir.ckt
+.include ../spice_files/BGR_PEX.ext
 
 {{ corner_setup }}
 
-xvco out GND VDD BGR_Banba
+**xbgr_schematic out GND VDD BGR_Banba
+xbgr_pex out GND VDD BGR_PEX
 
 **** begin user architecture code
+
+***************
+*load effect***
+***************
+XM8 out out GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=5 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM9 net1 out GND GND sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XM5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=200 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+***************
+***************
+***************
+
 
 .control
     set wr_singlescale
@@ -14,7 +34,10 @@ xvco out GND VDD BGR_Banba
     set appendwrite
 
     op
+    **const load**
     let Iref = i(VTuner)*1000000
+    **variant load**
+    let Iref  = @m.xm8.msky130_fd_pr__nfet_01v8[id]*1000000
     print Iref
     print all
 

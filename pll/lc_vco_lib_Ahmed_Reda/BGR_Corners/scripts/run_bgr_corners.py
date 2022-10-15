@@ -17,7 +17,7 @@ main_tb_path = os.path.join("..", "spice_files")
 
 # get the directory of the run folder which contain the log and tb files for each corner
 run_dir = os.path.join("..", "run_test")  
-
+csv_dir = os.path.join("..", "csv_sheets")
 TEMPLATE_FILE = "test_BGR_char.spice" #name of the tb 
 NUM_WORKERS = 29 # maximum number of processor threds to operate on 
 
@@ -43,7 +43,7 @@ corner_str = """
 .options tnom={temp}
 
 VDD VDD GND {vsup}
-VTuner out GND {vctrl}
+*VTuner out GND {vctrl}
 """
 
 ## .nodeset v(vout)=0
@@ -116,7 +116,9 @@ if __name__ == "__main__":
     # created at the beginning of the script
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
-    
+
+    if not os.path.isdir(csv_dir):
+        os.makedirs(csv_dir)
     # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
     shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     
@@ -137,7 +139,7 @@ if __name__ == "__main__":
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
                 data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
-                
+
                 new_data = future.result()
 
                 data.update(new_data)
@@ -153,5 +155,5 @@ if __name__ == "__main__":
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
         df.sort_values(by="control", inplace=True)
-        df.to_csv("all_measurements.csv", index=False)
+        df.to_csv("../csv_sheets/all_measurements.csv", index=False)
     

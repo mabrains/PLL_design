@@ -1,0 +1,4 @@
+Equate pins:  cell BGR_sch.cdl and/or BGR.spice has no elements.
+Cells have no pins;  pin matching not needed.
+Device classes BGR_sch.cdl and BGR.spice are equivalent.
+Verify:  cell BGR.spice has no elements and/or nodes.  Not checked.

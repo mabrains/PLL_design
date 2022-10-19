@@ -3,25 +3,25 @@
 .subckt vco vp vn vctrl ibias VDD GND net1 net2
 
 ** current mirrror cct**
-XM8 ibias ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=2 m=1
-XM9 net1 ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10  m=1
+M8 ibias ibias GND GND sky130_fd_pr__nfet_01v8 L=1u W=50u nf=2 m=1
+M9 net1 ibias GND GND sky130_fd_pr__nfet_01v8 L=1u W=250u nf=10  m=1
 
-XM4 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=1000 nf=50 m=1
-XM5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=200 nf=10 m=1
+M4 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5u W=1000u nf=50 m=1
+M5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5u W=200u nf=10 m=1
 
 ** cross coupled cct**
-XM11 vp vn net2 net2 sky130_fd_pr__pfet_01v8 L=0.15 W=250 nf=5 m=1
-XM1 vn vp net2 net2 sky130_fd_pr__pfet_01v8 L=0.15 W=250 nf=5 m=1
+M11 vp vn net2 net2 sky130_fd_pr__pfet_01v8 L=0.15u W=250u nf=5 m=1
+M1 vn vp net2 net2 sky130_fd_pr__pfet_01v8 L=0.15u W=250u nf=5 m=1
 
-XM2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=100 nf=5 m=1
-XM7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=100 nf=5 m=1
+M2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=100u nf=5 m=1
+M7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=100u nf=5 m=1
 
 ** Varactor cct**
-XM6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8 W=17 nf=1 m=1
-XM3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8 W=17 nf=1 m=1
+M6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8u W=17u nf=1 m=1
+M3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8u W=17u nf=1 m=1
 
 ** mim cap**
-XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=14 L=13 MF=1 m=1 
+C_load vp vn sky130_fd_pr__model__cap_mim W=14u L=13u MF=1 m=1 A=182p P=54u
 
-L1 vp vn 4.022n m=1
+*L1 vp vn 4.022n m=1
 .ends

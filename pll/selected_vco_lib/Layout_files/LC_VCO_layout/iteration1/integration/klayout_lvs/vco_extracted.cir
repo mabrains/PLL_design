@@ -1,4 +1,4 @@
-* Extracted by KLayout with SKY130 LVS runset on : 19/10/2022 16:05
+* Extracted by KLayout with SKY130 LVS runset on : 19/10/2022 16:24
 
 .SUBCKT vco VDD vp net1 vn ibias vctrl net2 GND
 C$1 vn vp 3.64e-13 sky130_fd_pr__model__cap_mim A=182P P=54U

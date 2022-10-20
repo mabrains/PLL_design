@@ -1,6 +1,6 @@
 *** VCO Circuit implementation 
 
-.subckt vco vp vn vctrl ibias VDD GND
+.subckt vco_sch vp vn vctrl ibias VDD GND
 
 ** current mirrror cct*************************************************************************************************************************
 **************************************

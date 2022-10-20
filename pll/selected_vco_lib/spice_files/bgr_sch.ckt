@@ -3,7 +3,7 @@
 *****************************************
 ******************using nf*************
 *****************************************
-.subckt BGR_Banba  Iref GND VDD
+.subckt bgr_sch  Iref GND VDD
 *.iopin VDD
 *.iopin GND
 *.opin Iref

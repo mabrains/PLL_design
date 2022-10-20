@@ -1,0 +1,35 @@
+*cct
+*r1 vp gnd 1
+
+
+c1 vp vn 1p
+XC1 vctrl vp gnd sky130_fd_pr__cap_var_lvt W=100 L=10 VM=1 m=10
+XC2 vctrl vn gnd sky130_fd_pr__cap_var_lvt W=100 L=10 VM=1 m=10
+
+L1 vp vn 4n
+
+VTuner vctrl gnd dc=1.8
+Iin vp vn dc 0 ac 1
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+
+.GLOBAL GND
+.GLOBAL VDD
+
+
+.control
+ac dec 100 1e9 10e9 
+let vdiff = v(vp)-v(vn)
+let vabs = magnitude(vdiff)
+*plot ac1.vabs
+wrdata csv_files/ac_mag_18.csv ac1.vabs 
+
+quit
+.endc
+.end

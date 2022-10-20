@@ -74,5 +74,5 @@ C {devices/lab_pin.sym} 380 390 0 0 {name=l1 sig_type=std_logic lab=0}
 C {devices/lab_pin.sym} 380 120 0 0 {name=l2 sig_type=std_logic lab=VDD}
 C {devices/vsource.sym} 620 460 0 0 {name=V1 value=0.9}
 C {devices/lab_pin.sym} 620 490 0 0 {name=l6 sig_type=std_logic lab=0}
-C {My_BGRs/BGR.sym} 510 -50 0 0 {}
+C {../../BGR_Banba/xschem/BGR_Banba.sym} 510 -50 0 0 {}
 C {sky130_fd_pr/corner.sym} 520 30 0 0 {name=CORNER only_toplevel=false corner=tt}

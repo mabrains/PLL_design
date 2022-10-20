@@ -133,3 +133,8 @@ f1.write(".endc\n")
 f1.write(".end\n")
 
 f1.close()
+
+freqResulution = 0
+moving_sum = 1
+mag_array = 4
+

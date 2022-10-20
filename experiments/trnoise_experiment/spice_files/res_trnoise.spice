@@ -1,0 +1,33 @@
+**.subckt res_cct
+
+*sources
+VDD VDD GND 1.8 ac 1 0 
+* psd_voltage = 4.07e-8
+*voltage divider
+R1 VDD inter_node 100000 m=1
+Ir1_noise VDD inter_node DC 0 trnoise (4.07e-13 0.1n 0 0)
+
+R2 inter_node GND 100000 m=1
+Ir2_noise inter_node GND DC 0 trnoise (4.07e-13 0.1n 0 0)
+
+.temp 27
+.options tnom=27
+
+.GLOBAL GND
+.GLOBAL VDD
+
+.control
+tran 0.1n 1000ns 0 0.1n
+
+
+save inter_node
+plot inter_node
+linearize inter_node
+fft inter_node
+plot mag(sp2.inter_node)
+wrdata ../csv_files/temp2.csv sp2.inter_node
+
+
+.endc
+.end
+

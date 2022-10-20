@@ -51,7 +51,7 @@ C {devices/lab_pin.sym} -80 20 2 0 {name=l10 sig_type=std_logic lab=Vo
 }
 C {devices/lab_pin.sym} -250 280 0 0 {name=l6 sig_type=std_logic lab=UP}
 C {devices/lab_pin.sym} -140 280 2 0 {name=l9 sig_type=std_logic lab=UPb}
-C {../../CP/xschem/inverter.sym} -3260 730 0 0 {name=X4}
+C {../../inverter/xschem/inverter.sym} -3260 730 0 0 {name=X4}
 C {devices/lab_pin.sym} 140 -50 0 0 {name=l1 sig_type=std_logic lab=Vo
 }
 C {devices/iopin.sym} -880 -30 0 0 {name=p4 lab=VDD}

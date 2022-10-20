@@ -30,7 +30,7 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
-NUM_WORKERS = 30 # maximum number of processor threds to operate on 
+NUM_WORKERS = 3 # maximum number of processor threds to operate on 
 '''
 process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
@@ -46,7 +46,7 @@ supply_value = 1.8
 
 # create a string to carry all the lines related to the corners
 corner_str = """
-.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+.lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
 
@@ -298,7 +298,7 @@ if __name__ == "__main__":
         os.makedirs(run_dir)
     
     # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
-    shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
+    shutil.copyfile("/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     
     # create an empty list to carry all the measurements for all the corners
     my_results = []

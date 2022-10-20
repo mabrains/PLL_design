@@ -30,17 +30,17 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
-NUM_WORKERS = 6 # maximum number of processor threds to operate on 
+NUM_WORKERS = 30 # maximum number of processor threds to operate on 
 '''
 process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 '''
-process_corners = ["tt", "sf", "fs", "ff", "ss"]
-temp_corners = [-40, 27, 125]
-supply_corners =  [0.9, 1.0, 1.1]
-vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
+process_corners = ["tt"]
+temp_corners = [-27]
+supply_corners = [1]
+vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
 
@@ -111,6 +111,7 @@ def run_corner(all_corner_data):
                 results_dict["vp"] = s[2]
             elif s[0] == "vn":
                 results_dict["vn"] = s[2]
+
             elif s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
@@ -153,8 +154,91 @@ def run_corner(all_corner_data):
                     results_dict["pmos_sat_check"] = "True"
                 else:
                     results_dict["pmos_sat_check"] = "False"
+
+            ## biasing cct
+            elif s[0].lower() == "bgr_tran_02_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_02_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_02_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_13_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_13_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_13_sat_check"] = "False"
+            
+            elif s[0].lower() == "bgr_tran_14_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_14_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_14_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_15_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_15_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_15_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_16_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_16_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_16_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_17_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_17_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_17_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_18_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_18_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_18_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_19_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_19_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_19_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_20_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_20_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_20_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_21_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_21_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_21_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_22_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_22_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_22_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_23_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_23_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_23_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_24_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_24_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_24_sat_check"] = "False"
+                    
             elif s[0] == "vdiff_max":
                 results_dict["differential swing"] = float(s[2])*2
+
+            elif s[0] == "vdd#branch":
+                results_dict["Power (mW)"] = -round(float (s[2]),6)*supply_value*1000
 
 
     log_file.close() # close the log file
@@ -216,7 +300,7 @@ if __name__ == "__main__":
         df = pd.DataFrame(my_results)
         df.sort_values(by=["corner name","control"] , inplace=True)
         df.to_csv("all_measurements.csv", index=False)
-
+'''
     # plotting the passed corners
         for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
             control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
@@ -225,7 +309,7 @@ if __name__ == "__main__":
             plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
 
         plt.legend()
-        plt.show()
+        plt.show()'''
     
 
         

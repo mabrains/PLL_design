@@ -30,7 +30,7 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_vco_char.spice" #name of the tb 
-NUM_WORKERS = 3 # maximum number of processor threds to operate on 
+NUM_WORKERS = 30 # maximum number of processor threds to operate on 
 '''
 process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]

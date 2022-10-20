@@ -3,7 +3,7 @@
 .include ../spice_files/vco_sch.ckt
 .include ../spice_files/vco_pex.ext
 .include ../spice_files/bgr_sch.ckt 
-.include ../spice_files/bgr_pex.ckt
+.include ../spice_files/bgr_pex.ext
 .include ../spice_files/inductor_model_cct.ckt
 
 {{ corner_setup }}
@@ -11,8 +11,8 @@
 xvco vp vn vctrl ibias VDD GND vco_sch
 *xvco vp vn vctrl ibias VDD GND vco_pex
 
-*xbgr ibias GND VDD bgr_sch
-xbgr ibias GND VDD bgr_pex
+xbgr ibias GND VDD bgr_sch
+*xbgr ibias GND VDD bgr_pex
 *Isource VDD ibias 90u
 
 xind1 vp vn ind_model

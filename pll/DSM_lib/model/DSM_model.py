@@ -3,15 +3,15 @@ import numpy as np
 from numpy.fft import fft, ifft
 from matplotlib import pyplot as plt
 
-NumberofSamples = 2**16
+NumberofSamples = 2**20
 Bus_Size = 7                            # Bits
 Accumulator_Bits = 7                    # Bits
 Accumulator_Size = 2**Accumulator_Bits  
 
 
-# Fraction = 0.5501                          # From 0 to 1
-# Fraction_Internal = (2**Bus_Size)*Fraction
-Fraction_Internal = 5                      # Choosing channel aka choosing the fraction to divide by
+Fraction = 0.2                             # From 0 to 1
+Fraction_Internal = (2**Bus_Size)*Fraction
+#Fraction_Internal = 5                      # Choosing channel aka choosing the fraction to divide by
 
 C1 = [0] * NumberofSamples                 # Carry out of the 1st accumulator
 C2 = [0] * NumberofSamples                 # Carry out of the 2nd accumulator
@@ -70,8 +70,8 @@ Period2 = [i for i in range(2,Yout2_len//2+1) if Yout2_mod[:i]*(Yout2_len//i)==Y
 Period3 = [i for i in range(2,Yout3_len//2+1) if Yout3_mod[:i]*(Yout3_len//i)==Yout3_mod[:Yout3_len - Yout3_len % i]]
 
 print("Yout1 Period = ",Period1[0])
-print("Yout1 Period = ",Period2[0])
-print("Yout1 Period = ",Period3[0])
+print("Yout2 Period = ",Period2[0])
+print("Yout3 Period = ",Period3[0])
 
 
 ##### Getting the PSD of the output of each order ####

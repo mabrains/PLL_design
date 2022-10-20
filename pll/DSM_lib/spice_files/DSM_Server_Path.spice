@@ -2195,10 +2195,10 @@ XTAP_122 VGND VPWR sky130_fd_sc_hd__tapvpwrvgnd_1
 *Models
 .param mc_mm_switch=0
 .param mc_pr_switch=0
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
-.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+.include /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
 
 
 

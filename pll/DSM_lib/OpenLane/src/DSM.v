@@ -1,13 +1,13 @@
-// Full implementation of the Sigma-Delta Modulator
+// Full implementation of the Sigma-Delta Modulator Core
 
 module DSM(In_Data, Clk, reset, Out_Data);
 
-	input [6:0] In_Data;
+	input [23:0] In_Data;
 	input Clk, reset;
 	output wire [4:0] Out_Data;
 
 
-	wire [6:0] Sum1, Sum2, Sum3;
+	wire [23:0] Sum1, Sum2, Sum3;
 	wire [4:0] Cout1, Cout2, Cout3, Cout32;
 	reg [4:0] DCout32, DCout3;	// Delayed Cout2 and Cout3
 
@@ -15,9 +15,9 @@ module DSM(In_Data, Clk, reset, Out_Data);
 	assign Cout2[4:1] = 4'b0000;
 	assign Cout3[4:1] = 4'b0000;
 
-	accum u1 (.In_Data(In_Data), .Clk(Clk), .reset(reset), .Out_Data(Sum1), .Cout(Cout1[0]));
-	accum u2 (.In_Data(Sum1), .Clk(Clk), .reset(reset), .Out_Data(Sum2), .Cout(Cout2[0]));
-	accum u3 (.In_Data(Sum2), .Clk(Clk), .reset(reset), .Out_Data(Sum3), .Cout(Cout3[0]));
+	accum d1 (.In_Data(In_Data), .Clk(Clk), .reset(reset), .Out_Data(Sum1), .Cout(Cout1[0]));
+	accum d2 (.In_Data(Sum1), .Clk(Clk), .reset(reset), .Out_Data(Sum2), .Cout(Cout2[0]));
+	accum d3 (.In_Data(Sum2), .Clk(Clk), .reset(reset), .Out_Data(Sum3), .Cout(Cout3[0]));
 
 	always @(posedge Clk or negedge reset)
 	begin

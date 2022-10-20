@@ -1,0 +1,87 @@
+** sch_path: /home/ahmed/Mabrains_internship/VCO_Try3/VCO_Full_2.sch
+**.subckt VCO_Full_2
+*VDD VDD GND 1.8 
+VDD VDD GND V_supply
+
+
+
+XM11 vp vn net3 net3 sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=5 m=5
+XM1 vn vp net3 net3 sky130_fd_pr__pfet_01v8 L=0.15 W=50 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=5 m=5
+XM2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=5 m=5
+L1 vp net4 4n m=1
+R1 vp vn 1182 m=1
+R2 net4 vn 3 m=1
+XM7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=5 m=5
+C1 vp vn 5f m=10
+C3 vp GND 5f m=5
+C2 vn GND 5f m=5
+VTuner net5 GND 1.5
+C13 vp vn 10f m=15
+
+* Varactor 
+*******************old******************
+XM6 net5 vn net5 gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=20 m=20
+XM3 net5 vp net5 gnd sky130_fd_pr__nfet_01v8_lvt L=0.6 W=17 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=20 m=20
+
+
+*********************new******************
+*XM6 net5 vn net5 net5 sky130_fd_pr__nfet_01v8_lvt L=2.7 W=49.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+*+ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
+*+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+*
+*XM3 net5 vp net5 net5 sky130_fd_pr__nfet_01v8_lvt L=2.7 W=49.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+*+ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
+*+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+
+*********************************************
+XM4 net3 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=50 m=50
+XM5 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=10 m=10
+
+Isource net1 GND 450u
+**** begin user architecture code
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+
+*corners setup
+.temp 125
+.options tnom=125
+.param V_supply = 1.62
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/sf.spice
+.include /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/corners/sf/specialized_cells.spice
+
+
+.save all
+.nodeset v(vout)=0
+.control
+
+compose  vctrl_vector   start=0         stop=1.8          step=0.1
+let vctrl_counter = 0
+let f_osc = vector(length(vctrl_vector))
+let curr_value = vctrl_vector[0]
+set appendwrite
+while vctrl_counter < length(vctrl_vector)
+    print curr_value
+    alter VTuner  $&curr_value
+    op
+    save  @m.xm4.msky130_fd_pr__pfet_01v8[id]
+
+    save  @m.xm1.msky130_fd_pr_

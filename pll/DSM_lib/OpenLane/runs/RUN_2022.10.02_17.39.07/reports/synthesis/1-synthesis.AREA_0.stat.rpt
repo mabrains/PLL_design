@@ -1,0 +1,41 @@
+
+28. Printing statistics.
+
+=== DSM ===
+
+   Number of wires:                163
+   Number of wire bits:            190
+   Number of public wires:          54
+   Number of public wire bits:      81
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                164
+     sky130_fd_sc_hd__a211oi_2       3
+     sky130_fd_sc_hd__a21boi_2       1
+     sky130_fd_sc_hd__a21o_2         1
+     sky130_fd_sc_hd__a21oi_2        3
+     sky130_fd_sc_hd__a31oi_2        3
+     sky130_fd_sc_hd__and2_2        14
+     sky130_fd_sc_hd__and2b_2        3
+     sky130_fd_sc_hd__and3_2         1
+     sky130_fd_sc_hd__buf_1          4
+     sky130_fd_sc_hd__dfrtp_2       25
+     sky130_fd_sc_hd__inv_2          5
+     sky130_fd_sc_hd__nand2_2       23
+     sky130_fd_sc_hd__nand3_2        1
+     sky130_fd_sc_hd__nor2_2        25
+     sky130_fd_sc_hd__o211a_2        3
+     sky130_fd_sc_hd__o211ai_2       1
+     sky130_fd_sc_hd__o21ai_2        2
+     sky130_fd_sc_hd__o21bai_2       2
+     sky130_fd_sc_hd__o311a_2        2
+     sky130_fd_sc_hd__o31a_2         4
+     sky130_fd_sc_hd__or2_2         11
+     sky130_fd_sc_hd__or2b_2         1
+     sky130_fd_sc_hd__or3_2          1
+     sky130_fd_sc_hd__xnor2_2       20
+     sky130_fd_sc_hd__xor2_2         5
+
+   Chip area for module '\DSM': 1898.070400
+

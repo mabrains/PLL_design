@@ -1,0 +1,46 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+ Reference value :  0.00000e+00
+Note: Compatibility modes selected: hs a
+
+
+Circuit: ** test bench for ring
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+l.xring.l1#branch = 0.000000e+00
+m.xring.xm1.msky130_fd_pr__pfet_01v8#body = 1.800000e+00
+m.xring.xm1.msky130_fd_pr__pfet_01v8#dbody = 1.800000e+00
+m.xring.xm1.msky130_fd_pr__pfet_01v8#sbody = 1.800000e+00
+m.xring.xm2.msky130_fd_pr__nfet_01v8#body = 6.926588e-11
+m.xring.xm2.msky130_fd_pr__nfet_01v8#dbody = 5.550696e-11
+m.xring.xm2.msky130_fd_pr__nfet_01v8#sbody = 3.463329e-11
+m.xring.xm3.msky130_fd_pr__nfet_01v8#body = 2.584370e-11
+m.xring.xm3.msky130_fd_pr__nfet_01v8#dbody = 3.505384e-11
+m.xring.xm3.msky130_fd_pr__nfet_01v8#sbody = 1.292213e-11
+m.xring.xm11.msky130_fd_pr__pfet_01v8#body = 1.800000e+00
+m.xring.xm11.msky130_fd_pr__pfet_01v8#dbody = 1.800000e+00
+m.xring.xm11.msky130_fd_pr__pfet_01v8#sbody = 1.800000e+00
+vdd = 1.800000e+00
+vdd#branch = -4.99190e-04
+vin = 8.221910e-01
+vout = 8.841023e-01
+xring.net1 = 8.221910e-01
+xring.net2 = 8.221910e-01
+xring.net3 = 8.221910e-01
+xring.net4 = 8.221910e-01
+xring.xr1.ra = 8.221910e-01
+xring.xr16.xsky130_fd_pr__res_xhigh_po_2p85.ra = 8.221910e-01
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using transient initial conditions
+ Reference value :  2.07850e-06 Reference value :  3.66650e-06ERROR: (internal)  This operation is not defined for display type PrinterOnly.
+Can't open viewport for graphics.
+
+No. of Data Rows : 2016
+Note: No ".plot", ".print", or ".fourier" lines; no simulations run
+tperiod             =  9.958565e-08 targ=  1.695868e-06 trig=  1.596282e-06
+freq = 1.004161e-02

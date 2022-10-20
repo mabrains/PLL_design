@@ -1,0 +1,190 @@
+** sch_path: /home/ahmed/PLL_design/pll/lc_vco_lib_Ahmed_Reda/BGR_Banba/xschem/Div_cell.sch
+**.subckt Div_cell
+x1 net2 fout net3 p0 opennet GND net1 divider_cell
+VDD2 net2 GND 1.8
+
+VDD7 p0 GND 0
+** VDD1 net1 GND DC 0  PULSE (0 1.8 0 20p 20p 400p 800p)
+Vmodi net1 GND DC 0
+
+
+
+I0 opennet GND 0
+V1 net3 GND PULSE (0 1.8 0 20p 20p 200p 400p)
+
+** V1 net3 GND SIN (0.9 0.9 2.5G 0 0 0)
+C1 fout GND 25f m=1
+
+**** begin user architecture code
+
+ .option savecurrents
+.op
+.control
+tran 1p 8n 
+plot v(net3)
+plot v(net1)
+plot v(opennet)
+plot fout
+.endc
+.measure tran iout AVG @m.x1.x8.x3.xm2.msky130_fd_pr__nfet_01v8[id] from=0 to=1u
+.measure tran tdiff TRIG v(fout) VAL=0.9 RISE=2 TARG v(fout) VAL=0.9 RISE=3
+.measure tran frequency param = {1/tdiff}
+.temp 27
+.options tnom= 27
+
+
+** opencircuitdesign pdks install
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/ahmed/PLL_design/pll/dividers_lib/divider_cell/xschem/divider_cell.sym
+*+ # of pins=7
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/divider_cell/xschem/divider_cell.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/divider_cell/xschem/divider_cell.sch
+.subckt divider_cell  vdd FO FI P MODO gnd MODI
+*.iopin FI
+*.iopin P
+*.iopin MODO
+*.ipin vdd
+*.ipin gnd
+*.opin FO
+*.iopin MODI
+x2 vdd FO net3 MODI gnd and
+x3 vdd FO net1 net2 gnd nand
+x4 vdd net2 FI P MODO gnd nand_3in
+x5 vdd FI FIB gnd inv
+x1 vdd FIB FO net1 gnd FI DFF
+x6 vdd FIB net3 MODO gnd FI DFF
+.ends
+
+
+* expanding   symbol:  ../../and/xschem/and.sym # of pins=5
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/and/xschem/and.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/and/xschem/and.sch
+.subckt and  vdd A out B gnd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.ipin vdd
+*.opin out
+x1 vdd net1 A B gnd nand
+x2 vdd net1 out gnd inv
+.ends
+
+
+* expanding   symbol:  ../../nand/xschem/nand.sym # of pins=5
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/nand/xschem/nand.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/nand/xschem/nand.sch
+.subckt nand  vdd out A B gnd
+*.ipin vdd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.opin out
+XM11 out A vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM1 out B vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out A net1 gnd sky130_fd_pr__nfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net1 B gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  ../../nand_3in/xschem/nand_3in.sym # of pins=6
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/nand_3in/xschem/nand_3in.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/nand_3in/xschem/nand_3in.sch
+.subckt nand_3in  vdd out A B C gnd
+*.ipin vdd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.opin out
+*.ipin C
+XM1 out A vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out B vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 out A net1 gnd sky130_fd_pr__nfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net1 B net2 gnd sky130_fd_pr__nfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 out C vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net2 C gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  ../../inv/xschem/inv.sym # of pins=4
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/inv/xschem/inv.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/inv/xschem/inv.sch
+.subckt inv  vdd in out gnd
+*.ipin vdd
+*.ipin in
+*.ipin gnd
+*.opin out
+XM11 out in vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=7 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out in gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=7 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  ../../DFF/xschem/DFF.sym # of pins=6
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/DFF/xschem/DFF.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/DFF/xschem/DFF.sch
+.subckt DFF  vdd clkb D out gnd clk
+*.ipin D
+*.ipin clk
+*.ipin clkb
+*.ipin vdd
+*.ipin gnd
+*.opin out
+x3 vdd net4 net2 gnd inv
+x1 clk vdd D net4 gnd clkb TG
+x2 clkb vdd net1 net4 gnd clk TG
+x4 vdd net2 net1 gnd inv
+x5 vdd net5 out gnd inv
+x6 clkb vdd net2 net5 gnd clk TG
+x7 clk vdd net3 net5 gnd clkb TG
+x8 vdd out net3 gnd inv
+.ends
+
+
+* expanding   symbol:  ../../TG/xschem/TG.sym # of pins=6
+** sym_path: /home/ahmed/PLL_design/pll/dividers_lib/TG/xschem/TG.sym
+** sch_path: /home/ahmed/PLL_design/pll/dividers_lib/TG/xschem/TG.sch
+.subckt TG  clk vdd in out gnd clkb
+*.ipin vdd
+*.ipin in
+*.ipin gnd
+*.ipin clkb
+*.ipin clk
+*.iopin out
+XM11 out clkb in vdd sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out clk in gnd sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.end

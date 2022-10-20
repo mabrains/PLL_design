@@ -1,0 +1,6 @@
+Tp=1.0667e-7s
+
+Tpreap=1.000e-7s
+
+tdiff               =  1.000001e-07 targ=  1.010092e-07 trig=  1.009140e-09
+model

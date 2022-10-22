@@ -18,21 +18,21 @@ df = pd.read_csv('all_measurements.csv')
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.079)
-plt.subplots_adjust(top=0.88)
-plt.subplots_adjust(bottom=0.086)
+plt.subplots_adjust(top=0.92)
+plt.subplots_adjust(bottom=0.088)
 
 for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
     freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
     oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
-    if (False not in oscilation_state) :
+    if (False not in oscilation_state or 1) :
         if (df["corner name"][itr] == 'tt,27,1.0'):
             plt.plot(control_list , freq_list,linewidth = 3, color = 'black',linestyle='dashed',label=df["corner name"][itr])
         else:
             plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
 
 
-plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
+plt.legend(bbox_to_anchor=(1.12, 1.12),loc='upper right', labelspacing=0.015)
 plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("Oscillation Frequency (HZ)",fontsize=14)
 plt.title("Oscillation Frequency Vs Control Voltage",fontsize=14)
@@ -46,22 +46,21 @@ plt.xlim([0, 1.25])
 #plt.ylim([2.3 , 2.6])
 plt.show()
 
-
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.079)
-plt.subplots_adjust(top=0.88)
-plt.subplots_adjust(bottom=0.086)
+plt.subplots_adjust(top=0.92)
+plt.subplots_adjust(bottom=0.088)
 
 for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
     freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
     control_list_prime, kvco = D(control_list, freq_list)
-    '''
-    freq_arr = np.array(freq_list)
-    control_arr = np.array(control_list)
-    kvco2 = np.diff(freq_arr,n=1)/np.diff(control_arr,n=1)
-    '''
+
+    ## freq_arr = np.array(freq_list)
+    ## control_arr = np.array(control_list)
+    ## kvco2 = np.diff(freq_arr,n=1)/np.diff(control_arr,n=1)
+
     oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
     if (False not in oscilation_state) :
         if (df["corner name"][itr] == 'tt,27,1.0'):
@@ -70,7 +69,7 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
             plt.plot(control_list_prime, kvco*1e+3,linewidth = 2.5,label=df["corner name"][itr])
 
 
-plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
+plt.legend(bbox_to_anchor=(1.12, 1.12),loc='upper right', labelspacing=0.015)
 plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("KVCO (MHZ/V)",fontsize=14)
 plt.title("Gain  Vs Control Voltage",fontsize=14)
@@ -85,8 +84,8 @@ plt.show()
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.079)
-plt.subplots_adjust(top=0.88)
-plt.subplots_adjust(bottom=0.086)
+plt.subplots_adjust(top=0.92)
+plt.subplots_adjust(bottom=0.088)
 
 for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
@@ -100,7 +99,7 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
             plt.plot(control_list , swing_list,linewidth = 2.5,label=df["corner name"][itr])
 
 
-plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
+plt.legend(bbox_to_anchor=(1.12, 1.12),loc='upper right', labelspacing=0.015)
 plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("Differential Swing (V)",fontsize=14)
 plt.title("Differntial Swing Vs Control Voltage",fontsize=14)
@@ -116,8 +115,8 @@ plt.show()
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
 plt.subplots_adjust(left=0.079)
-plt.subplots_adjust(top=0.88)
-plt.subplots_adjust(bottom=0.086)
+plt.subplots_adjust(top=0.92)
+plt.subplots_adjust(bottom=0.088)
 
 for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
     control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
@@ -131,7 +130,7 @@ for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
             plt.plot(control_list , power_list,linewidth = 2.5,label=df["corner name"][itr])
 
 
-plt.legend(bbox_to_anchor=(1.12, 0.95),loc='upper right', labelspacing=0.15)
+plt.legend(bbox_to_anchor=(1.12, 1.12),loc='upper right', labelspacing=0.015)
 plt.xlabel("Control Voltage (V)",fontsize=14)
 plt.ylabel("Power (mW)",fontsize=14)
 plt.title("VCO Power Vs Control Voltage",fontsize=14)

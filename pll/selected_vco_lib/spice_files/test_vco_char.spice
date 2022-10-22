@@ -16,7 +16,7 @@ xvco vp vn vctrl ibias VDD GND vco_pex
 Isource VDD ibias 90u
 
 xind1 vp vn ind_model
-X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=8 w=8
+X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=10 w=10
 ** X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=1.4e+01 w=1.3e+01
 **** begin user architecture code
 

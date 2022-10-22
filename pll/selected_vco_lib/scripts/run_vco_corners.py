@@ -40,8 +40,6 @@ vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2,
 process_corners = ["tt", "sf", "fs", "ff", "ss"]
 temp_corners = [27]
 supply_corners = [1]
-l_corners = [1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10]
-w_corners = [1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
@@ -73,8 +71,6 @@ def run_corner(all_corner_data):
     tc = "{:.2f}".format(all_corner_data[1])
     sc = "{:.2f}".format(all_corner_data[2] * supply_value)
     vc = "{:.2f}".format(all_corner_data[3])
-    lc = "{:.2f}".format(all_corner_data[4])
-    wc = "{:.2f}".format(all_corner_data[5])
 
     # updatet the corner lines with the values of the intended corner
     new_corners_str = corner_str.format(corner=pc, 
@@ -83,17 +79,17 @@ def run_corner(all_corner_data):
                                         vctrl=vc)
 
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(corner_setup=new_corners_str,w_var=wc,l_var=lc)
+    full_spice = template.render(corner_setup=new_corners_str)
 
     # create a new tb for the intended corner and update it and then close it
-    spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}_{}_{}.spi".format(pc, tc, sc, vc,lc,wc))
+    spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}.spi".format(pc, tc, sc, vc))
     text_file = open(spice_file_path, "w")
     text_file.write(full_spice)
     text_file.close()
 
     # create a log file for the intended corner and 
     # then run the tb 
-    spice_run_log = os.path.join(run_dir, "{}_{}_{}_{}_{}_{}.log".format(pc, tc, sc, vc,lc,wc))
+    spice_run_log = os.path.join(run_dir, "{}_{}_{}_{}.log".format(pc, tc, sc, vc))
     log_file = open(spice_run_log, "w")
     subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
     log_file.close()
@@ -294,7 +290,7 @@ def run_corner(all_corner_data):
 
 if __name__ == "__main__":
     # create a list has all the combinations of corner cases
-    all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, vctrl_corners,l_corners,w_corners))
+    all_comb = list(itertools.product(process_corners, temp_corners, supply_corners, vctrl_corners))
 
     # if the run folder is not found, create a new folder with the givven path which is 
     # created at the beginning of the script
@@ -321,9 +317,7 @@ if __name__ == "__main__":
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
-                data["l_var"] = comb[4]
-                data["w_var"] = comb[5]
-                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])+str(comb[4])+str(comb[5])
+                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
                 
                 new_data = future.result()
 

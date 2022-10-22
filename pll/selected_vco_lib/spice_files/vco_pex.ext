@@ -19,7 +19,7 @@ X14 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01  l
 X15 VDD net1 net2 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01  l=0.5
 X16 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01  l=0.5
 X17 GND vn vp GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01 l=0.15
-X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=1.4e+01 w=1.3e+01
+
 X19 vp vn GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01 l=0.15
 X20 VDD net1 net2 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01  l=0.5
 X21 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+01  l=0.5

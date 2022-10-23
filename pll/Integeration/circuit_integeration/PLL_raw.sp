@@ -56,44 +56,50 @@ xdivider VDD FB GND p2 p7 p1 p6 p5 p4 p3 p0 vp opennet divider
 * C1 fout GND 25f m=1
 I0 opennet GND 0
 
-.control
-ic v(vctrl)=0
-set wr_singlescale
-set wr_vecnames
-option numdgt = 3
-op 
-PROBE alli
-save all
-rusage
-print all
+.ic v(vctrl)=0
+.op
+.tran 2p 30u uic
+.save all
+
+
+* .control
+* ic v(vctrl)=0
+* set wr_singlescale
+* set wr_vecnames
+* option numdgt = 3
+* op 
+* PROBE alli
+* save all
+* rusage
+* print all
 
 
 
-meas tran VCTRL_C FIND v(vctrl) AT=25u
+* meas tran VCTRL_C FIND v(vctrl) AT=25u
 
-meas tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
-meas tran f_input param = {1/tdiffin}
+* meas tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
+* meas tran f_input param = {1/tdiffin}
 
 
-meas tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
-meas tran f_out param = {1/tdiffout}
+* meas tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
+* meas tran f_out param = {1/tdiffout}
 
-meas tran n param = {f_input/f_out}
+* meas tran n param = {f_input/f_out}
 
-print f_out
-print f_input
-print n
+* print f_out
+* print f_input
+* print n
 
-meas tran avg v(vctrl) from=20u to=30u
+* meas tran avg v(vctrl) from=20u to=30u
 
-meas tran Locking_time TRIG AT=0 TARG v(vctrl) VAL=avg CROSS 1
+* meas tran Locking_time TRIG AT=0 TARG v(vctrl) VAL=avg CROSS 1
 
-print Locking_time
+* print Locking_time
 
-tran 2p 30u 
-plot v(FB) v(REF) v(UP) v(DWN) 
-* wrdata ../csv_files/{{ corner_string }}.csv
-.endc
+* tran 2p 30u 
+* plot v(FB) v(REF) v(UP) v(DWN) 
+* * wrdata ../csv_files/{{ corner_string }}.csv
+* .endc
 
 .GLOBAL GND
 .GLOBAL VDD

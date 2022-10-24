@@ -166,6 +166,12 @@ N -70 -370 -30 -370 {
 lab=VBN}
 N -30 -370 -30 -240 {
 lab=VBN}
+N -150 -400 -130 -400 {
+lab=VDD}
+N 40 -390 110 -390 {
+lab=VDD}
+N 110 -400 110 -390 {
+lab=VDD}
 C {sky130_fd_pr/nfet3_01v8.sym} 510 -270 0 0 {name=M13
 L=0.6
 W=2
@@ -457,16 +463,6 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/res.sym} -110 -400 0 0 {name=R1
-value=25k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 60 -390 0 0 {name=R2
-value=12.5k
-footprint=1206
-device=resistor
-m=1}
 C {sky130_fd_pr/pfet3_01v8.sym} 40 -500 0 0 {name=M19
 L=0.6
 W=6.66
@@ -517,3 +513,21 @@ C {devices/ipin.sym} 230 -750 0 0 {name=p7 lab=V-
 C {devices/opin.sym} 190 -650 0 0 {name=p8 lab=VO
 }
 C {devices/iopin.sym} 190 -700 0 0 {name=p9 lab=GND}
+C {sky130_fd_pr/res_iso_pw.sym} -110 -400 0 0 {name=R1
+rho=3050
+W=2.65
+L=20
+model=res_iso_pw
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_iso_pw.sym} 60 -390 0 0 {name=R2
+rho=3050
+W=2.65
+L=10
+model=res_iso_pw
+spiceprefix=X
+mult=1}
+C {devices/lab_pin.sym} -150 -400 1 0 {name=l19 sig_type=std_logic lab=VDD
+}
+C {devices/lab_pin.sym} 110 -400 1 0 {name=l21 sig_type=std_logic lab=VDD
+}

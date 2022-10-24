@@ -126,6 +126,8 @@ N 4130 -570 4220 -570 {
 lab=VOP}
 N 4260 -610 4330 -610 {
 lab=UBP}
+N 3480 -480 3520 -480 {
+lab=VDD}
 C {sky130_fd_pr/nfet3_01v8.sym} 3690 -200 0 0 {name=M1
 L=0.6
 W=2
@@ -186,16 +188,6 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/res.sym} 3540 -480 0 0 {name=R1
-value=25k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 3710 -470 0 0 {name=R2
-value=12.5k
-footprint=1206
-device=resistor
-m=1}
 C {sky130_fd_pr/pfet3_01v8.sym} 3690 -580 0 0 {name=M5
 L=0.6
 W=6.66

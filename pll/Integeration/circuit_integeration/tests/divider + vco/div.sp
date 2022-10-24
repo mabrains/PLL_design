@@ -1,91 +1,113 @@
-** PLL Test bench
-.include subckts/ring_cir.ckt
-.include subckts/CONV_PFD.ckt
-.include subckts/cp_cct.ckt
-.include subckts/loop_filter.ckt
-.include subckts/vco_cir.ckt
-.include subckts/inductor_model_cct.ckt
-.include subckts/biasing_cct.ckt
-.include subckts/divider_cct.ckt
+** Test bench for VCO
 
-.param p0_val = {0}
-.param p1_val=  {0}
-.param p2_val=  {0}
-.param p3_val=  {0}
-.param p4_val=  {1}
-.param p5_val=  {0}
-.param p6_val=  {0}
-.param p7_val=  {0}
+.include ../subckts/vco_cir.ckt
+.include ../subckts/biasing_cct.ckt 
+.include ../subckts/inductor_model_cct.ckt
+.include ../subckts/divider_cct.ckt
 
-VP1 p2 GND {p2_val}
-VP2 p4 GND {p4_val}
-VP3 p1 GND {p1_val}
-VP4 p3 GND {p3_val}
-VP5 p5 GND {p5_val}
-VP6 p6 GND {p6_val}
-VP7 p0 GND {p0_val}
-VP8 p7 GND {p7_val}
+.param p0_val = 0
+.param p1_val=  0
+.param p2_val=  0
+.param p3_val=  0
+.param p4_val=  1
+.param p5_val=  0
+.param p6_val=  0
+.param p7_val=  0
 
-VDD VDD GND DC 1.8
+VDD1 p2 GND {p2_val}
+VDD2 p4 GND {p4_val}
+VDD3 p1 GND {p1_val}
+VDD4 p3 GND {p3_val}
+VDD5 p5 GND {p5_val}
+VDD6 p6 GND {p6_val}
+VDD7 p0 GND {p0_val}
+VDD8 p7 GND {p7_val}
 
- .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-* .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice "tt"
-* .Include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
-*.lib /home/atork/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice "tt"
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
 .temp 27
 .options tnom=27
-
-.PARAM main_freq = 10.0Meg
-.PARAM cycle = {1.0/main_freq}
-
-.PARAM tpw = {cycle / 2}
-.PARAM trise = {cycle / 50}
-.PARAM tfall = {cycle / 50}
-
-
-* Xring Vin REF VDD GND ring
-
-Vpulse REF GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
-
-Xconventional_pfd  REF VDD GND FB UP DN conventional_pfd
-
-
-Xcp  UP VOP DN VDD GND CP_with_buffer 
-
-Vtest VOP ilf DC 0
-
-Xloop_filter_3rd_order ilf vctrl GND loop_filter_3rd_order 
-
+VDD VDD GND DC 1.8
+Vctrl vctrl GND DC 0.7
 xvco vp vn vctrl ibias VDD GND vco
 xind1 vp vn ind_model
 xbgr ibias GND VDD BGR_Banba
+xdiv VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp opennet1 divider
+xdivdumyy VDD fdummy GND p2 p7 p1 p6 p5 p4 p3 p0 vn opennet divider
+**** begin user architecture code
 
-xdivider VDD FB GND p2 p7 p1 p6 p5 p4 p3 p0 vp opennet divider
-* C1 fout GND 25f m=1
-I0 opennet GND 0
+.control
+    set wr_singlescale
+    set wr_vecnames
+    set appendwrite
 
+    op
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm11.msky130_fd_pr__pfet_01v8 
+    save @m.xvco.xm1.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm2.msky130_fd_pr__nfet_01v8  
 
-.ic v(vctrl)=0
-.op
-.tran 20p 30u uic
-.save v(vctrl) v(UP) v(DN) v(REF) v(FB) v(vp) i(Vtest)
+    ** biasing cct **
+    save @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5
 
+    
+    save all
+    
+    let I_tail  = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_left  = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_right = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
+    let gmn = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[gm]*1000
+    let gmp = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[gm]*1000
 
-.measure tran VCTRL_C FIND v(vctrl) AT=25u
-.measure tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
-.measure tran f_input param = {1/tdiffin}
+    let tail_sat_check = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vth]
+    let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]
+    let pmos_sat_check = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vth]
 
+    ** biasing cct **
+    let bgr_tran_02_sat_check  = @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vgs] +@m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_13_sat_check = @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_14_sat_check = @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_15_sat_check = @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_16_sat_check = @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_17_sat_check = @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_18_sat_check = @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_19_sat_check = @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_20_sat_check = @m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_21_sat_check = @m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_22_sat_check = @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_23_sat_check = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_24_sat_check = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    
+    print all
 
-.measure tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
-.measure tran f_out param = {1/tdiffout}
+    tran 100ps 500ns
+    *plot vp
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    print vdiff_max
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq = 1/(tperiod)
+    meas tran tperiodf TRIG fout VAL=0.4 RISE=2 TARG fout VAL=0.4 RISE=3
+    let freq_FB = 1/(tperiodf)
+    print freq
 
-.measure tran n param = {f_input/f_out}
+    plot vp
+    plot vdiff
+    
 
-.print f_out
-.print f_input
-.print n
-
+.endc
 
 .GLOBAL GND
 .GLOBAL VDD

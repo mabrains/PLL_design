@@ -28,78 +28,64 @@ VP8 p7 GND {p7_val}
 
 VDD VDD GND DC 1.8
 
-* .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+ .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 * .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice "tt"
 * .Include /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
-.lib /home/atork/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice "tt"
+*.lib /home/atork/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice "tt"
 
 .temp 27
 .options tnom=27
 
+.PARAM main_freq = 10.0Meg
+.PARAM cycle = {1.0/main_freq}
+
+.PARAM tpw = {cycle / 2}
+.PARAM trise = {cycle / 50}
+.PARAM tfall = {cycle / 50}
 
 
-Xring Vin REF VDD GND ring
+* Xring Vin REF VDD GND ring
+
+Vpulse REF GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
 
 Xconventional_pfd  REF VDD GND FB UP DN conventional_pfd
 
+
 Xcp  UP VOP DN VDD GND CP_with_buffer 
 
-Xloop_filter_3rd_order VOP vctrl GND loop_filter_3rd_order 
+Vtest VOP ilf DC 0
+
+Xloop_filter_3rd_order ilf vctrl GND loop_filter_3rd_order 
 
 xvco vp vn vctrl ibias VDD GND vco
 xind1 vp vn ind_model
 xbgr ibias GND VDD BGR_Banba
 
-
-
 xdivider VDD FB GND p2 p7 p1 p6 p5 p4 p3 p0 vp opennet divider
 * C1 fout GND 25f m=1
 I0 opennet GND 0
 
+
 .ic v(vctrl)=0
 .op
-.tran 2p 30u uic
-.save all
+.tran 20p 30u uic
+.save v(vctrl) v(UP) v(DN) v(REF) v(FB) v(vp) i(Vtest)
 
 
-* .control
-* ic v(vctrl)=0
-* set wr_singlescale
-* set wr_vecnames
-* option numdgt = 3
-* op 
-* PROBE alli
-* save all
-* rusage
-* print all
+.measure tran VCTRL_C FIND v(vctrl) AT=25u
+.measure tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
+.measure tran f_input param = {1/tdiffin}
 
 
+.measure tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
+.measure tran f_out param = {1/tdiffout}
 
-* meas tran VCTRL_C FIND v(vctrl) AT=25u
+.measure tran n param = {f_input/f_out}
 
-* meas tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
-* meas tran f_input param = {1/tdiffin}
+.print f_out
+.print f_input
+.print n
 
-
-* meas tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
-* meas tran f_out param = {1/tdiffout}
-
-* meas tran n param = {f_input/f_out}
-
-* print f_out
-* print f_input
-* print n
-
-* meas tran avg v(vctrl) from=20u to=30u
-
-* meas tran Locking_time TRIG AT=0 TARG v(vctrl) VAL=avg CROSS 1
-
-* print Locking_time
-
-* tran 2p 30u 
-* plot v(FB) v(REF) v(UP) v(DWN) 
-* * wrdata ../csv_files/{{ corner_string }}.csv
-* .endc
 
 .GLOBAL GND
 .GLOBAL VDD

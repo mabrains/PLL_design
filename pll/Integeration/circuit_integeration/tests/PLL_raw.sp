@@ -58,17 +58,18 @@ Vtest VOP ilf DC 0
 Xloop_filter_3rd_order ilf vctrl GND loop_filter_3rd_order 
 
 xvco vp vn vctrl ibias VDD GND vco
+* xinv_vco1 vdd vp vp2 gnd
+* xinv_vco2 vdd vn vn2 gnd
 xind1 vp vn ind_model
-xbgr ibias GND VDD BGR_Banba
-
-xdivider VDD FB GND p2 p7 p1 p6 p5 p4 p3 p0 vp opennet divider
-* C1 fout GND 25f m=1
-I0 opennet GND 0
+** xbgr ibias GND VDD BGR_Banba
+Isource VDD ibias 90u          $ original
+xdiv VDD FB GND p2 p7 p1 p6 p5 p4 p3 p0 vp opennet1 divider
+xdivdumyy VDD fdummy GND p2 p7 p1 p6 p5 p4 p3 p0 vn opennet divider
 
 
 .ic v(vctrl)=0
 .op
-.tran 20p 30u uic
+.tran 1p 30u uic
 .save v(vctrl) v(UP) v(DN) v(REF) v(FB) v(vp) i(Vtest)
 
 

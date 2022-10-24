@@ -1,0 +1,78 @@
+* Circuit Model for  DIVIDER
+* first of all, define all subcircuits, models used in the divider
+
+*********************************AND gate********************************
+.model and d_and(rise_delay = 1e-15 fall_delay = 1e-15 input_load = 1e-15)
+
+*********************************NAND gate********************************
+.model nand d_nand(rise_delay = 1e-15 fall_delay = 1e-15 input_load = 1e-15)
+
+*********************************inverter********************************
+.model inv d_inverter(rise_delay =1e-15 fall_delay =1e-15 input_load = 1e-15)
+
+*********************************ADC********************************
+.model ADC adc_bridge(in_low = 0.9 in_high = 0.9)
+
+*********************************DAC********************************
+.model DAC dac_bridge(out_low = 0 out_high = 1.8 out_undef = 0.9
++	                  input_load = 0 t_rise = 1e-15
++	                  t_fall = 1e-15)
+
+*********************************FF********************************
+.model FF d_dff(clk_delay = 1e-15
++                set_delay = 1e-15
++                reset_delay = 1e-15 
++                rise_delay = 1e-15 fall_delay = 1e-15)
+ 
+ 
+*********************************Latch********************************
+.model latch d_dlatch(data_delay = 1e-15 enable_delay = 1e-15
++                     set_delay = 1e-15
++                     reset_delay = 1e-15 
++                     rise_delay = 1e-15 fall_delay = 1e-15)
+
+
+*********************************DFF********************************
+.subckt DFF D CLK OUT2_bar
+
+  a_inverter1 CLK CLK_bar inv
+  *a_L1 D CLK_bar set1 reset1 OUT1 OUT1_bar latch
+  *a_L2 OUT1_bar CLK set2 reset2 OUT2 OUT2_bar latch
+  a_ff D CLK_bar set reset OUT2 OUT2_bar FF
+.ends DFF
+
+*********************************2/1 cell********************************
+
+.subckt 2_1cell FIN MODO P FO MODI
+
+ *converting inputs (FIN, MODI, P) from analog to digital
+ a_a2d [FIN MODI P] [FIN_d MODI_d P_d] ADC
+
+ a_nand_3in [FIN_d P_d MODO_d] 1 nand
+ a_nand_2in [1 3] FO_d nand
+ a_and_2in [FO_d MODI_d] 2 and
+ XDFF1 FO_d FIN_d 3 DFF
+ XDFF2 2 FIN_d MODO_d DFF
+
+ *converting outputs (FO, MODO) from digital to Analog
+ a_d2a [FO_d MODO_d] [FO MODO] DAC
+
+.ends 2_1cell
+
+
+*********************************Entire divider (8 cells)********************************
+
+.subckt divider F_input P0 P1 P2 P3 P4 P5 P6 P7 F_ouput MODI8
+ 
+ Xcell1 F_input float P0 FO1 MODI1 2_1cell
+ Xcell2 FO1 MODI1 P1 FO2 MODI2 2_1cell
+ Xcell3 FO2 MODI2 P2 FO3 MODI3 2_1cell
+ Xcell4 FO3 MODI3 P3 FO4 MODI4 2_1cell
+ Xcell5 FO4 MODI4 P4 FO5 MODI5 2_1cell
+ Xcell6 FO5 MODI5 P5 FO6 MODI6 2_1cell
+ Xcell7 FO6 MODI6 P6 FO7 MODI7 2_1cell
+ Xcell8 FO7 MODI7 P7 F_ouput MODI8 2_1cell
+
+.ends divider
+
+

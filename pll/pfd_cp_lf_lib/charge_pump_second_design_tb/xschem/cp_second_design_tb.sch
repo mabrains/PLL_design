@@ -46,4 +46,4 @@ C {devices/vdd.sym} 3860 -840 0 0 {name=l27 lab=VDD}
 C {devices/lab_pin.sym} 3960 -780 2 0 {name=l29 sig_type=std_logic lab=VOP}
 C {devices/vsource.sym} 3960 -740 0 0 {name=VOP value=0.9}
 C {devices/gnd.sym} 3960 -710 0 0 {name=l36 lab=GND}
-C {/home/ahmedelbadry/PLL_design/pll/pfd_cp_lf_lib/charge_pump_second_design/xschem/CP_with_buffer.sym} 3780 -810 0 0 {name=X1}
+C {../../charge_pump_second_design/xschem/CP_with_buffer.sym} 3780 -810 0 0 {name=X1}

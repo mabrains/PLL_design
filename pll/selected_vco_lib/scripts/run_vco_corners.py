@@ -37,9 +37,9 @@ temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 '''
-process_corners = ["tt"]
-temp_corners = [-27]
-supply_corners = [1]
+process_corners = ["tt", "sf", "fs", "ff", "ss"]
+temp_corners = [-40, 27, 125]
+supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
@@ -132,6 +132,46 @@ def run_corner(all_corner_data):
             elif s[0].lower() == "i_right":
                 results_dict["I_right (mA)"] = s[2]
             
+
+
+
+            elif s[0].lower() == "i13":
+                results_dict["i13 (uA)"] = s[2]
+
+            elif s[0].lower() == "i14":
+                results_dict["i14 (uA)"] = s[2]
+
+            elif s[0].lower() == "i15":
+                results_dict["i15 (uA)"] = s[2]
+
+            elif s[0].lower() == "i18":
+                results_dict["i18 (uA)"] = s[2]
+
+            elif s[0].lower() == "i17":
+                results_dict["i17 (uA)"] = s[2]
+
+            elif s[0].lower() == "i16":
+                results_dict["i16 (uA)"] = s[2]
+
+            elif s[0].lower() == "i19":
+                results_dict["i19 (uA)"] = s[2]
+
+            elif s[0].lower() == "i22":
+                results_dict["i22 (uA)"] = s[2]
+
+            elif s[0].lower() == "i23":
+                results_dict["i23 (uA)"] = s[2]
+
+            elif s[0].lower() == "i24":
+                results_dict["i24 (uA)"] = s[2]
+
+            elif s[0].lower() == "i2":
+                results_dict["i2 (uA)"] = s[2]
+
+
+
+
+
             elif s[0].lower() == "gmn":
                 results_dict["gmn (mS)"] = s[2]
             elif s[0].lower() == "gmp":

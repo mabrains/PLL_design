@@ -1,14 +1,23 @@
 ** Test bench for VCO
 
-.include ../spice_files/vco_cir.ckt
-.include ../spice_files/biasing_cct.ckt 
+.include ../spice_files/vco_sch.ckt
+.include ../spice_files/vco_pex.ext
+.include ../spice_files/bgr_sch.ckt 
+.include ../spice_files/bgr_pex.ext
 .include ../spice_files/inductor_model_cct.ckt
 
 {{ corner_setup }}
 
-xvco vp vn vctrl ibias VDD GND vco
+*xvco vp vn vctrl ibias VDD GND vco_sch
+xvco vp vn vctrl ibias VDD GND vco_pex
+
+*xbgr ibias GND VDD bgr_sch
+*xbgr ibias GND VDD bgr_pex
+Isource VDD ibias 90u
+
 xind1 vp vn ind_model
-xbgr ibias GND VDD BGR_Banba
+X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=11 w=11
+** X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=1.4e+01 w=1.3e+01
 **** begin user architecture code
 
 .control
@@ -50,7 +59,7 @@ xbgr ibias GND VDD BGR_Banba
     let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]
     let pmos_sat_check = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vth]
 
-    ** biasing cct **
+    biasing cct **
     let bgr_tran_02_sat_check  = @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vgs] +@m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vth]
     let bgr_tran_13_sat_check = @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vth]
     let bgr_tran_14_sat_check = @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vth]
@@ -64,6 +73,18 @@ xbgr ibias GND VDD BGR_Banba
     let bgr_tran_22_sat_check = @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vth]
     let bgr_tran_23_sat_check = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vth]
     let bgr_tran_24_sat_check = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    
+    let I13 = @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I14 = @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I15 = @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I18 = @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I17 = @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I16 = @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I19 = @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[id]*1000000
+    let I22 = @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I23 = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[id]*1000000
+    let I24 = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I2 =  @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
     
     print all
 

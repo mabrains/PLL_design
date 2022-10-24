@@ -382,22 +382,4 @@ C {devices/lab_pin.sym} 4090 -610 1 0 {name=l13 sig_type=std_logic lab=VDD
 C {devices/lab_pin.sym} 4090 -520 3 0 {name=l15 sig_type=std_logic lab=GND
 }
 C {devices/lab_pin.sym} 4130 -540 3 0 {name=l20 sig_type=std_logic lab=VON}
-C {/home/ahmedelbadry/PLL_design/pll/pfd_cp_lf_lib/OTA/xschem/OTA.sym} 4180 -570 0 1 {name=X3}
-C {sky130_fd_pr/res_iso_pw.sym} 3540 -480 0 0 {name=R1
-rho=3050
-W=2.65
-L=20
-model=res_iso_pw
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/res_iso_pw.sym} 3710 -470 0 0 {name=R2
-rho=3050
-W=2.65
-L=10
-model=res_iso_pw
-spiceprefix=X
-mult=1}
-C {devices/lab_pin.sym} 3480 -480 0 0 {name=l26 sig_type=std_logic lab=VDD
-}
-C {devices/lab_pin.sym} 3690 -470 0 0 {name=l27 sig_type=std_logic lab=VDD
-}
+C {../../OTA/xschem/OTA.sym} 4180 -570 0 1 {name=Xx3"}

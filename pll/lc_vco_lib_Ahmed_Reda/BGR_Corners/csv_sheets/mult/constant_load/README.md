@@ -1,0 +1,1 @@
+**This file contains the results of the BGR circuit of the schematic view and after paracitic exraction but by **fixing** the voltage value of the output node at **VDD/2** at the typical corner.**

@@ -1,0 +1,21 @@
+** charge pump test bench
+
+.include ../subckts/cp_cct.ckt
+{{ corner_setup }}
+
+
+
+Xcp  UP VOP DN VDD GND CP_with_buffer 
+Vin_up UP GND {{up_value}}
+Vin_dn DN GND {{dn_value}}
+
+.control
+op
+save all 
+print all
+print i(vout)*1000000
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

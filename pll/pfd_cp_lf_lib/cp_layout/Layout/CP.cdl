@@ -1,0 +1,53 @@
+** cp circuit 
+
+.subckt CP UP VOP DN VDD GND VBN
+
+*M D G S B
+M1 net1 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
+M2 net2 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=1
+
+M3 VBp VBN net1 GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
+M4 Nbais VBN net2 GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=1
+
+R1 VBN Nbais VDD sky130_fd_pr__res_iso_pw r=25k m=1
+R2 p_bais VBp VDD sky130_fd_pr__res_iso_pw r=12.5k m=1 
+
+M5 p_bais VBp net3 VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=2
+M6 net3 p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=2
+
+M7 net4 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=10
+M8 net5 VBN net4 GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=10
+M9 VON DNB net5 GND sky130_fd_pr__nfet_01v8 L=0.15U W=4U nf=1 m=1
+M10 VOP DN net5 GND sky130_fd_pr__nfet_01v8 L=0.15U W=4U nf=1 m=1
+M11 VOP UBP net6 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=10U nf=1 m=1
+M12 VON UP net6 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=10U nf=1 m=1
+M13 net6 VBp net7 VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=10
+M14 net7 p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=10
+
+M15 UBP UP GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M16 UBP UP VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M17 DNB DN GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M18 DNB DN VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M19 net2_ota Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
+M20 net1_ota p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=4U nf=1 m=2
+M21 net3_ota p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=4U nf=1 m=2
+M22 net3_ota VON net2_ota GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M23 net1_ota VOP net2_ota GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M24 net5_ota net4_ota GND GND sky130_fd_pr__nfet_01v8 L=1U W=1.3U nf=1 m=1
+M25 GND net4_ota GND GND sky130_fd_pr__nfet_01v8 L=1U W=1.3U nf=1 m=1
+M26 net4_ota VBN net5_ota GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M27 VON VBN GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M28 VON VBp net3_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=1U nf=1 m=1
+M29 net4_ota VBp net1_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=1U nf=1 m=1
+M30 net6_ota p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=1
+M32 GND VON net6_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M33 net5_ota VOP net6_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+
+.ends
+
+
+
+

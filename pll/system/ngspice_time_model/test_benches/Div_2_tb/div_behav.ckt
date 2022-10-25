@@ -1,0 +1,86 @@
+* Circuit Model for  DIVIDER
+
+*########################### 1/2 DIV behave ###############################
+.subckt 1_2div VDD gnd MODOa MODIa FIn FOUT Pa
+
++ TR=10e-15 TF=10e-15
+
+	* Analog to Digital nodes Models
+	.model adc_buff adc_bridge(in_low = 0.9 in_high = 0.9)
+
+	* Digital INPUT
+	aref [FIn Pa MODIa] [FI P MODI] adc_buff
+
+	*Define the and gate
+	a_andGate [MODI FO] 2 and1
+	.model and1 d_and(rise_delay = TR fall_delay = TF
+	+ input_load = 0 )
+
+	*Define the NAND 
+	a_nandGate3 [FI P MODO] 1 nand1
+	a_nandGate2 [3 1] FO nand1
+	.model nand1 d_nand(rise_delay = TR fall_delay = TF
+	+ input_load = 0 )
+
+	*Define the flip flops
+	aF1 FO FI d_d0 d_d0 3 3_ flop1
+	aF2 2 FI d_d0 d_d0 MODO MOD0_ flop1
+	.model flop1 d_dff(clk_delay = 0 set_delay = 0
+	+ reset_delay = 0 ic = 0 rise_delay = TR
+	+ fall_delay = TF )
+	
+	* Digital to Analog nodes Models
+	abridge-w1 [FO MODO] [FOUT MODOa] dac1 
+	.model dac1 dac_bridge(out_low = 0 out_high = 1.8 out_undef = 0.9
+	+ input_load = 0 t_rise = 1e-15
+	+ t_fall = 1e-15)
+
+.ends 1_2DIV
+
+*########################### 1/2 DIV behave ###############################
+
+*########################### 240 DIV ideal ###############################
+.param div=240
+
+.subckt 240DIV_lib FIn FOUT
+
+	* Analog to Digital nodes Models
+	.model adc_buff adc_bridge(in_low = 0.9 in_high = 0.9)
+
+	* Digital INPUT
+	aref [FIn] [FI] adc_buff
+
+	adivtest FI FO divider
+	.model divider d_fdiv(div_factor = 'div' high_cycles = 'div/2'
+	+ i_count = 0 rise_delay = 8.5e-12
+	+ fall_delay = 8.5e-12)
+
+
+	* Digital to Analog nodes Models
+	* Digital to Analog nodes Models
+	abrigediev1 [FO] [FOUT] dac1 
+
+	.model dac1 dac_bridge(out_low = 0 out_high = 1.8 out_undef = 0.9
+	+ input_load = 1e-15 t_rise = 1e-15
+	+ t_fall = 1e-15)
+
+.ends  240div_lib
+*########################### 240 DIV ideal ###############################
+
+
+*########################### 8 (2to1) DIVIDER ###################################
+
+.subckt divider VDD gnd modo modi Fin Fout P0 P1 P2 P3 P4 P5 P6 P7
+
+	X1_2div1 VDD gnd MODO m1 Fin F1 P0 1_2div
+	X1_2div2 VDD gnd m1 m2 F1 F2 P1 1_2div
+	X1_2div3 VDD gnd m2 m3 F2 F3 P2 1_2div
+	X1_2div4 VDD gnd m3 m4 F3 F4 P3 1_2div
+	X1_2div5 VDD gnd m4 m5 F4 F5 P4 1_2div
+	X1_2div6 VDD gnd m5 m6 F5 F6 P5 1_2div
+	X1_2div7 VDD gnd m6 m7 F6 F7 P6 1_2div
+	X1_2div8 VDD gnd m7 modi F7 Fout P7 1_2div
+
+.ends divider
+
+*########################### 8 (2to1) DIVIDER ###################################

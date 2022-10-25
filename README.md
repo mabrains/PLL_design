@@ -32,7 +32,7 @@ A fully integrated Sigma-Delta Fractional-N PLL for Wifi/Bluetooth applications 
 Fractional-N PLL architecture uses a Fractional Clock Divider with DSM block as the frequency divider in a PLL system. In order to make the frequency of the VCO output signal equivalent to the frequency of a PFD reference signal, the frequency divider divides the frequency by a fractional value using the delta sigma modulation technique.
 
 
-!["pll model"](images/Latex/System.png)\
+!["pll model"](images/Latex/System.png)
 
 
 **Advantages:**
@@ -181,58 +181,297 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 - Crystal Schematic
 ![Cry_Sch](images/schematics/Crystal.png)
 
-### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Phase/Frequency Detector (PFD) 
+### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Band Gap Refrence (BGR) 
 ----------------------------------
 
-- PFD Symbol
-![PFD_Sym](images/schematics/pfd.png)
+* Proposed BGR circuit (Banba) :
 
-- PFD Schematic 
-![PFD](images/schematics/pfd.png)
+![BGR](images/Diagrams/BGR/Banba%20BGR.jpg)
+
+* Core Circuit :
+
+![Core](images/Diagrams/BGR/Core%20.jpg)
+
+* OTA :
+
+![OTA](images/Diagrams/BGR/OTA.jpg)
+
+* Start-Up Circuit :
+
+![](images/Diagrams/BGR/Start-up%20Circuit.jpg)
+
+
+### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Phase/Frequency Detector (PFD) 
+----------------------------------
+## Introduction 
+
+First simple PLL employs a phase detector PD which fundamentally measures the phase error only and fails to generate a meaningful dc value when the frequency difference between output and input is large. A wide acquisition range is needed so that a PLL that locks regardless of the initial value of the output frequency can be developed. The simple PLL can’t achieve this. And simple phase detector can be as simple as an (XOR) gate or an (XNOR) gate.
+
+* simple phase detector 
+
+![image](https://user-images.githubusercontent.com/110326591/194726489-5bacad90-0453-42b2-8d83-d677471ecaad.png)
+
+A phase detector produces an output signal proportional to the phase difference of the signals applied to its inputs. But Normal phase detectors faced many problems. For example, the nominal lock point with an XOR phase detector is at the 90° static phase shift point and the phase detector range is only 𝜋 Also, if there is a frequency difference between the input reference and PLL feedback signals the phase detector can jump between regions of different gain which cause cycle slipping phenomenon as the PLL is no longer acting as a linear system and if the frequency difference is too large the PLL may not lock
+ 
+* Phase frequency detector
+
+For these problems of simple phase detector. Phase frequency detector is used to overcome these problems and have wide acquisition range. Phase frequency detector is a block that detects the phase and frequency differences between two signals which are reference signal and feedback signal from the divider in our case. Phase frequency detector has potential over normal phase detectors as it can detect both phase and frequency differences and herefor it allows wide locking range for the PLL
+
+![image](https://user-images.githubusercontent.com/110326591/194726521-99ab7a9f-97da-4830-9702-63e090210ad7.png)
+
+![image](https://user-images.githubusercontent.com/110326591/194726535-6c2e9cf7-e199-4129-8a70-84e6785d300e.png)
+
+This PFD generates an Up and a Down signal that switches the current of the charge pump. The DFFs are triggered by the inputs to the PFD. Initially, both outputs are low. When one of the PFD inputs rises, the corresponding output becomes high. The state of the finite-state machine (FSM) moves from an initial state to an Up or Down state. The state is held until the second input goes high, which in turn resets the circuit and returns the FSM to the initial state and illustrates a common linear PFD architecture using resettable DFFs.
+
+* PFD design issues
+
+1. Dead zone
+
+	Dead zone is defined as the maximum difference in phase between the two inputs that can’t be detecte by a PFD. When the phase difference is very narrow, this 		requires narrow pulses by the PFD, but due to the propagation delay of the internal devices these narrow pulses will not be generated. This can be avoided by 		some structures that remove the reset path, but these generated narrow pulses cannot activate the charge pump. So, the average output current will not 		follow the phase error and hence the transfer characteristics of the PFD and charge pump will exhibit a region of small or zero gain near the phase lock. 		Dead zone causes low loop gain and increases jitter and phase noise, so no dead zone is very important for better performance of the PLL. So, the     solution is to insert a delay in the reset path.
+
+2. Skew between UP and DOWN signals and mismatch between their pulse widths
+
+	These two arise from random propagation delay mismatches and can be minimized through the use of large transistors and layout symmetry. But these two effects 		negligibly affect the performance.
+
+3.  Blind zone
+
+	due to the delay of the reset path, the linear range is less than 4π, which results in an insensitivity to some transitions in the input signal. This is called 	the blind zone, at which the PFD generates wrong polarity pulses leading to wrong behavior in the loop which increases the acquisition time. This effect 	appears when phase difference is larger than 2π − ∆ where ∆ = 2π ∗ treset/Tref . So, to eliminate the blind zone we have to eliminate the reset path which is 		not a choice in our case as stated in the dead zone section.
+
+
+* PFD operation 
+
+![image](https://user-images.githubusercontent.com/110326591/194724205-38e69cbe-569f-446f-89b1-5a87e106e28e.png)
+
+* the signal passes less gate for a high speed; on the other hand, the NOR gate can provide some delay to reduce the dead-zone. The operations of this PFD are very simple: when the input signal (REF) and the reset signal (RESET) are both low, node A is charged up to VDD though MP1 and MP2. At the rising edge of the signal, node B is connected to ground though MN2 and MN3, yielding the output signal (UP) to be HIGH due to the inversion. Then after that, node B is not affected by the input signal since charges at node A turn off MP3 and prevent node B from pulled up. Therefore, the output is always high after the rising edge of the input signal. When RESET is applied, node A is discharged to ground through MN1 and node B is pulled up though MP3, causing output UP signal to reset. The RESET signal is asserted when the second DFF input signal (FB) experiences a rising edge. When the PFD collects two rising edges the REF and FB, the NOR gate will assert the RESET signal and reset the output signals. The PFD is a 4-state PFD Since it has a state when the outputs are both high. The width of the reset pulse is determined by the delay in the NOR gate. The effect of this delay on the maximum operating frequency is discussed in the following subsection. In the design, the NOR gate has a delay of 150 ps.
+
+
+* Conventional PFD
+
+![PFD_Sym](images/Diagrams/PFD/Conv%20PFD.jpg)
+
+* PFD Implemented
+
+![PFD](images/Diagrams/PFD/Implemented%20PFD.jpg)
+
+* UP flip-flop 
+
+![PFD](images/Diagrams/PFD/up%20ff.jpg)
+
+* DOWN flip-flop
+
+![PFD](images/Diagrams/PFD/dwn%20ff.jpg)
+
+* NOR-Gate
+
+![PFD](images/Diagrams/PFD/Nor%20gate.jpg)
+
+## Simulation Results
+* REF lags from FB  by 1ns 
+
+![image](https://user-images.githubusercontent.com/110326591/194724464-074750bb-52a1-4c21-a408-66a5d73765ee.png)
+
+*  Another case when delay between Ref and Fb equals 0 (locking case)
+
+![image](https://user-images.githubusercontent.com/110326591/194724486-b90f0df3-5ca5-4505-91cc-d78929764f5c.png)
+
+* When  fB lags from REF  by 95ns
+
+![image](https://user-images.githubusercontent.com/110326591/194724517-37bcbe93-e369-4cf0-b69b-90a5cc9ff02c.png)
+
+* When  fB lags by 50ps (small phase error)
+
+![image](https://user-images.githubusercontent.com/110326591/194724541-8b023b7a-5bfe-4bba-bed1-8c2b9ed66535.png)
+
+* Reason for dead zone
+
+![image](https://user-images.githubusercontent.com/110326591/194724556-ce090f51-5c64-4ec5-b75a-0907f018593e.png)
+
+the small phase error cannot be detected properly explains the reason for dead-zone: if the phase difference is small, the output pulses may not be able to activate the CP completely, yielding a zero PD gain and loop gain, and the loop is basically open and the PLL noise is the same as a free running VCO noise. Delay can be added at the reset path to avoid this issue.
+
+## simulation Results across corrners:
+	1.  0.9VDD:VDD:1.1VDD (supply variations across corners)
+	2. -40:27:125  (temparture variations across corners) 
+	3. ss,ff,sf,fs,tt (process variations across corners)
+	4. Ref_delay and FB_delay different cases {10n,0},{0,10n},{1n,1.1n}
+	  
+
+* Fb lags from Ref across corners
+
+![image](https://user-images.githubusercontent.com/110326591/194724625-96a725e7-83e3-4464-a40c-c88f19b46662.png)
+
+* REF lags from FB across corners
+
+![image](https://user-images.githubusercontent.com/110326591/194724641-d0ff7e98-df73-436b-a519-2cab8bf7f855.png)
+
+* When phase error is very small to  ensure that pulse width is sufficient for  Cp switching.  
+
+![image](https://user-images.githubusercontent.com/110326591/194724652-1740c6ff-92e8-4f67-852c-5a4c3bb240f4.png)
+
+
+
+
+
+
 
 ### Charge Pump (CP)
 --------------------
 
-- CP Symbol
-![CP_Sym](images/symbols/cp.png)
+## Introduction 
 
-- CP Schematic 
-![CP_Sch](images/schematics/cp.png)
+type-I loop suffers from the trade-offs between the static phase error, loop bandwidth and stability. So, to solve this issue the charge pump is introduced. A charge pump is the first analog component of a PLL that will be considered. It is located between the PFD and the Loop Filter and responsible for placing charge into or taking charge out of the loop filter based on the output of the PFD, as it converts the up and down pulses into current pulses and these current pulses change voltage drop on the loop filter impedance which is the VCO control voltage. Charge pump must be very carefully designed to minimize reference feedthrough or phase noise since the noise generated by it affects the VCO noise.
 
-- Inverter Schematic 
-![CP_Inv](images/schematics/cp_inv.png)
+## CP operation 
+ When the rising edge of the reference input REF leads that of the VCO feedback input FB, the PFD output UP is high and the CP delivers charges to the capacitors in the loop filter. Thus, the loop filter output voltage increases and so does the VCO output frequency. Therefore, the CP together with the PFD transfer phase difference into current.A good charge pump should feature equal charge and discharge currents, minimum switching errors such as charge injection, charge sharing, and clock feedthrough, and minimum output current mismatches. It utilizes a mismatch-cancellation circuit to reduce current mismatch. On the other hand, the mismatch-cancellation circuit senses any mismatch between charging and discharging current. Then according to this mismatch, the biasing of Idn is automatically adjusted so that discharging current Idn follows any change in the charging current Iup. At steady state, there is a very low mismatch between the charging and discharging currents.
 
-### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Loop Filter
----------------
+## CP design issues 
+1. Current Mismatch
+Current mismatch means that the up and down currents are not equal. Since the switches are basically PMOS transistor for the up switch and NMOS transistor for the down switch, there is a variation between up and down currents due to the different mobility of the P and the N Moses. This phenomenon leads to different Vcontrol for the same value of “up” and “dn”. So, if the current values Iup and Idn are not exactly same, or there is some delay between the controlled signals UP and DN, then there will be a natural phase error between reference frequency and output frequency of the VCO even if the PLL is in locked state.
+
+![image](https://user-images.githubusercontent.com/110326591/194726159-4828360c-100f-4503-a42b-878e26924d79.png)
+
+To reduce current mismatch in the Charge pump there are several approaches that can be made. The output resistance of the charge pump can be increased by either using a cascode or a gain – boosting topology
+2.  UP and DOWN skew
+The arriving of UP and DOWN pulses should be guaranteed in order to open and close UP and DOWN currents simultaneously, if there is a skew between them his leads to ripples in Vctrl. But this problem is alleviated using the timing circuit as will be discussed. To solve this problem, we should normalize the delay of the up and down signals until they reach the charge pump so we can add a delay element to the down signal path such that it takes the same time to reach the NMOS switch.
+3.  Voltage Compliance and Channel-Length Modulation.
+The major challenge in the design of the charge pump is the channel length modulation. The VCO is controlled by the voltage generated by the charge pump and the loop filter. In order to have a wide tuning range for the VCO the voltage compliance of the charge pump should be maximized. But this gives rise to the problem of channel length modulation in the current sources. When the output voltage of the CP is high, Vds of the UP current source is low and Vds of the DOWN current source is high. Due to channel-length modulation, this makes the UP current smaller than the down current. And vice versa when the output voltage is low. This increases the current mismatch between the two currents.
+* CP with unity gain buffer
+
+![image](https://user-images.githubusercontent.com/110326591/194725676-dae60c84-215a-4b4f-a8f0-81c38867fd3f.png)
+
+We settled on the modified current steering charge pump with unity gain active amplifier because it’s very fast over the conventional single ended charge pump. We used a wide swing cascodes for up and down currents to minimize current mismatch and current variation with the control voltage. This unity gain amplifier buffers the voltage at the output node forcing the drain voltage of the current sources IDN and IUP to be the same when M1 and M2 are on or when they are off. This reduces the charge sharing effect, when the switch is turned on. This architecture ensures fast transient response through current steering, reduces the effect of any parasitic capacitance, at the expense of extra current.
+
+* Charge Pump block diagram
+
+![CP](images/Diagrams/Charge%20pump/Charge%20pump.jpg)
+
+* Charge pump circuit 
+
+![CP](images/Diagrams/Charge%20pump/Full%20Charge%20pump.jpg)
+
+* OTA
+
+![CP](images/Diagrams/Charge%20pump/CP%20OTA.jpg)
+
+
+
+## simulation results
+
+* Dn signal =VDD up signal =0
+
+![image](https://user-images.githubusercontent.com/110326591/194725719-9c0d2ed3-681c-44da-aad8-f2aa14b86c96.png)
+
+* DN=0 , UP=VDD
+
+![image](https://user-images.githubusercontent.com/110326591/194725729-687ea307-63a3-49c7-9743-e813735cd2a4.png)
+
+* DN=VDD , UP=VDD
+
+![image](https://user-images.githubusercontent.com/110326591/194725742-24522382-fe56-4013-bbb0-c310b3033cec.png)
+
+## simulation Results across corners 
+	
+	1.  0.9VDD:VDD:1.1VDD (supply variations across corners)
+	2. -40:27:125  (temparture variations across corners) 
+	3. ss,ff,sf,fs,tt (process variations across corners)
+	
+*  Dn signal =VDD up signal =0
+
+![image](https://user-images.githubusercontent.com/110326591/194725977-cc65b5cf-0cb6-454a-ad4a-7095f5686f73.png)
+
+* DN=0 , UP=VDD across corners
+
+![image](https://user-images.githubusercontent.com/110326591/194725999-35f2073a-062d-4b45-ae7e-2af9fee551c7.png)
+
+* DN=VDD , UP=VDD
+
+![image](https://user-images.githubusercontent.com/110326591/194726015-bb972110-bb5a-4678-8182-0e6b8ac057ba.png)
+
+* Current variations less than +5% or -5% across corners. 
+
+
 
 ### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Voltage Controlled Oscillator 
 ---------------------------------
+* LC VCO
+
+![LCVCO](images/Diagrams/LC%20VCO/LC%20VCO.jpg)
 
 ### ![#1589F0](https://via.placeholder.com/15/1589F0/1589F0.png) Fractional Divider
 ----------------------
 #### Full Divider design
-![Divider](images/schematics/divider.png)
+
+![Divider](images/Diagrams/Divider/Divider.jpg)
 
 #### Divider Cell 
-![Divider Cell](images/schematics/divider_cell.png)
+
+![Divider Cell](images/Diagrams/Divider/1_2%20DIV%20Symbol.jpg)
+
+![Div Cell](images/Diagrams/Divider/1_2%20Div%20Cell.jpg)
 
 #### D-Flipflop design
-![Divider DFF](images/schematics/divider_dff.png)
 
-#### Transmission gate (TG) design
-![Divider TG](images/schematics/divider_tg.png)
-
-#### AND gate design
-![Divider and](images/schematics/divider_and.png)
+![Divider DFF](images/Diagrams/Divider/Static%20FF.jpg)
 
 #### NAND gate design
-![Divider nand](images/schematics/divider_nand.png)
+
+![Divider nand](images/Diagrams/Divider/3%20NAND.jpg)
 
 #### Inverter design
-![Divider inv](images/schematics/divider_inv.png)
+
+![Divider inv](images/Diagrams/Divider/Inverter.jpg)
+
+#### AND gate design
+
+![Divider and](images/Diagrams/Divider/And.jpg)
+
 
 ### Delta Sigma Modulator
 -------------------------
+
+
+• The implemented Sigma-Delta Modulator is a MASH (Multi Stage Noise Shaping) architecture of 3rd order.
+
+• The implemented Sigma-Delta Modulator has the following inputs and outputs:
+
+    - Inputs:   → Input channel bits (7 bits): Used to select a certain channel.
+                → Clock (1 bit): Used for the registers in the design.
+                → Reset (1 bit): Used to reset the registers in the design.
+    -----------------------------------------------------------------------------
+    - Output:   → Output passed to the divider (5 bits).
+
+![DSM Block](images/Diagrams/DSM/DSM%20BLOCK.jpg)
+
+• The internal structure of the DSM is as follows:
+    - DSM Core: Where the main function of the DSM is occurred and the random sequence with a functional average is generated.
+    - Control Unit: Responsible for mapping the input number of channel to the required input for the DSM to generate the required fraction, also it gets the integer part       of this input channel and adds it to the fraction part to construct the required fractional division. For example if the input channel requires us to divide by 243.7,       then the control unit will give the DSM core the input which gives an average output of 0.7 and also this control unit will output a constant value of 13 which if           passed to the divider will divide by a division ratio of 243 and then these 2 values the 2nd output of the control unit and the output of the DSM core will be added and     then passed to the divider as an input to get the desired 243.7 division ratio
+    
+![DSM Internal Structure](images/Diagrams/DSM/DSM%20BLOCK%20CORE.jpg)
+
+
+_____
+<br/><br/>
+#### Digital Implementation of the DSM Core
+
+• The typical implementation of a MASH architecture is composed of a number of accumulators, adders, and regiesters arranged as illustrated:
+
+![DSM Diagram](images/Diagrams/DSM/3MASH%20order%20DSM.jpg)
+
+____
+<br/><br/>
+
+##### DSM Core Blocks
+The designed Delta-Sgima Modulator (DSM) is implemented using Verilog HDL and is composed into 3 modules as follows:
+###### 1. Accumulator
+• The accumulator in this design has 3 inputs (In_Data, CLK, Reset) and 2 outputs (Out_Data, Cout) as shown:
+
+![DSM Accumulator](images/Diagrams/DSM/Acumlator.jpg)
+
+• The size of the accumulators is of 24 bits to increase the resolution to obtain a precise fraction.
+
+###### 2. Special Adder
+• This adder adds 2 numbers then subtracts a third number from them, it has 3 inputs and 1 output:
+
+![DSM Special Adder](images/Diagrams/DSM/Special%20adder.jpg)
 
 # Circuit Simulation
 
@@ -259,6 +498,8 @@ During this stage, we designed the PLL using [xschem](https://github.com/StefanS
 -------------------------
 
 # Full Design
+
+![]()
 
 
 # Circuit Layout

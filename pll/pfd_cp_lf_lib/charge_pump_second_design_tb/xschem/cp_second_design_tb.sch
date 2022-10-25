@@ -13,9 +13,9 @@ lab=DN}
 N 3860 -840 3860 -820 {
 lab=VDD}
 N 3790 -810 3810 -810 {
-lab=DN}
-N 3810 -760 3810 -730 {
 lab=UB}
+N 3810 -760 3810 -730 {
+lab=DN}
 N 3910 -780 3960 -780 {
 lab=VOP}
 N 3960 -780 3960 -770 {
@@ -39,8 +39,8 @@ C {devices/lab_pin.sym} 3510 -910 1 0 {name=l29 sig_type=std_logic lab=DN}
 C {sky130_fd_pr/corner.sym} 4135 -945 0 0 {name=CORNER only_toplevel=false corner=tt}
 C {devices/code_shown.sym} 4170 -730 0 0 {name=spice only_toplevel=false value=".dc VOP 0 1.8 0.1
 .save all"}
-C {devices/lab_pin.sym} 3790 -810 0 0 {name=l29 sig_type=std_logic lab=DN}
-C {devices/lab_pin.sym} 3810 -730 3 0 {name=l32 sig_type=std_logic lab=UB}
+C {devices/lab_pin.sym} 3810 -730 0 0 {name=l29 sig_type=std_logic lab=DN}
+C {devices/lab_pin.sym} 3790 -810 3 0 {name=l32 sig_type=std_logic lab=UB}
 C {devices/gnd.sym} 3860 -720 0 0 {name=l26 lab=GND}
 C {devices/vdd.sym} 3860 -840 0 0 {name=l27 lab=VDD}
 C {devices/lab_pin.sym} 3960 -780 2 0 {name=l29 sig_type=std_logic lab=VOP}

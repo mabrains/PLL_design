@@ -1,0 +1,37 @@
+v {xschem version=3.1.0 file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+L 4 50 -100 50 -80 {}
+L 4 90 -60 110 -60 {}
+L 4 60 0 60 20 {}
+L 4 0 -80 0 -0 {}
+L 4 0 -0 90 0 {}
+L 4 -0 -80 90 -80 {}
+L 4 90 -80 90 -0 {}
+L 7 90 -30 110 -30 {}
+L 7 30 0 30 20 {}
+L 7 -20 -60 0 -60 {}
+L 7 -20 -30 0 -30 {}
+B 5 47.5 -102.5 52.5 -97.5 {name=vdd dir=in }
+B 5 107.5 -62.5 112.5 -57.5 {name=FO dir=out }
+B 5 107.5 -32.5 112.5 -27.5 {name=MODI dir=inout }
+B 5 27.5 17.5 32.5 22.5 {name=P dir=inout }
+B 5 57.5 17.5 62.5 22.5 {name=gnd dir=in }
+B 5 -22.5 -62.5 -17.5 -57.5 {name=FI dir=inout }
+B 5 -22.5 -32.5 -17.5 -27.5 {name=MODO dir=inout }
+T {@symname} 24 -56 0 0 0.3 0.3 {}
+T {@name} 95 -12 0 0 0.2 0.2 {}
+T {vdd} 44 -105 1 0 0.2 0.2 {}
+T {FO} 105 -74 0 1 0.2 0.2 {}
+T {MODI} 115 -44 0 1 0.2 0.2 {}
+T {P} 24 15 1 1 0.2 0.2 {}
+T {gnd} 66 15 3 0 0.2 0.2 {}
+T {FI} -15 -74 0 0 0.2 0.2 {}
+T {MODO} -25 -44 0 0 0.2 0.2 {}

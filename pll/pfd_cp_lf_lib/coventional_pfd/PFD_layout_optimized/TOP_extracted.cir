@@ -1,0 +1,44 @@
+* Extracted by KLayout with SKY130 LVS runset on : 09/10/2022 03:51
+
+.SUBCKT TOP VDD net4 net1 dn up net5 dn_b up_b net2 RST net7 net6 FB REF GND
+M$1 up_b REF \$51 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$2 net6 FB dn_b VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$3 net2 REF net1 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$4 net4 FB net5 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$5 VDD dn_b dn VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45 PS=10.58
++ PD=10.58
+M$6 up_b net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.55 AD=0.825
++ PS=10.62 PD=5.33
+M$7 VDD RST net2 VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=0.825 AD=1.55
++ PS=5.33 PD=10.62
+M$8 RST dn_b net7 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=0.58 PS=8.58
++ PD=4.29
+M$9 net7 up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=0.58 AD=1.16 PS=4.29
++ PD=8.58
+M$10 up up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45
++ PS=10.58 PD=10.58
+M$11 net5 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.55 AD=0.825
++ PS=10.62 PD=5.33
+M$12 VDD net4 dn_b VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=0.825 AD=1.55
++ PS=5.33 PD=10.62
+M$13 up up_b GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$14 GND dn_b dn GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$15 \$51 net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.775 AD=0.4125
++ PS=5.62 PD=2.83
+M$16 GND RST net1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.4125 AD=0.775
++ PS=2.83 PD=5.62
+M$17 net4 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.775 AD=0.4125
++ PS=5.62 PD=2.83
+M$18 GND net4 net6 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.4125 AD=0.775
++ PS=2.83 PD=5.62
+M$19 RST dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 AS=0.58 AD=0.29 PS=4.58
++ PD=2.29
+M$20 GND up_b RST GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 AS=0.29 AD=0.58 PS=2.29
++ PD=4.58
+.ENDS TOP

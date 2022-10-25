@@ -1,0 +1,272 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/mohamed/simulations/divider_tb.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: v1: no DC value, transient time 0 value used
+Note: Starting dynamic gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Warning: Further gmin increment
+Trying gmin =   5.6234E-06 Warning: Further gmin increment
+Trying gmin =   8.6596E-06 Warning: Further gmin increment
+Trying gmin =   9.6466E-06 Warning: Further gmin increment
+Trying gmin =   9.9105E-06 Note: One successful gmin step
+Trying gmin =   9.7776E-06 Note: One successful gmin step
+Trying gmin =   9.5818E-06 Warning: Further gmin increment
+Trying gmin =   9.7283E-06 Note: One successful gmin step
+Trying gmin =   9.6548E-06 Warning: Further gmin increment
+Trying gmin =   9.7099E-06 Note: One successful gmin step
+Trying gmin =   9.6823E-06 Note: One successful gmin step
+Trying gmin =   9.6410E-06 Warning: Further gmin increment
+Trying gmin =   9.6719E-06 Note: One successful gmin step
+Trying gmin =   9.6565E-06 Warning: Further gmin increment
+Trying gmin =   9.6681E-06 Note: One successful gmin step
+Trying gmin =   9.6623E-06 Note: One successful gmin step
+Trying gmin =   9.6536E-06 Warning: Further gmin increment
+Trying gmin =   9.6601E-06 Warning: Further gmin increment
+Trying gmin =   9.6617E-06 Note: One successful gmin step
+Trying gmin =   9.6609E-06 Note: One successful gmin step
+Trying gmin =   9.6597E-06 Warning: Further gmin increment
+Trying gmin =   9.6606E-06 Warning: Last gmin step failed
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Warning: Further gmin increment
+Trying gmin =   5.6234E-05 Note: One successful gmin step
+Trying gmin =   4.2170E-05 Note: One successful gmin step
+Trying gmin =   3.6517E-05 Note: One successful gmin step
+Trying gmin =   2.9427E-05 Note: One successful gmin step
+Trying gmin =   2.1288E-05 Note: One successful gmin step
+Trying gmin =   1.3097E-05 Note: One successful gmin step
+Trying gmin =   6.3209E-06 Note: One successful gmin step
+Trying gmin =   2.1192E-06 Note: One successful gmin step
+Trying gmin =   4.1139E-07 Note: One successful gmin step
+Trying gmin =   4.1139E-08 Note: One successful gmin step
+Trying gmin =   4.1139E-09 Note: One successful gmin step
+Trying gmin =   4.1139E-10 Note: One successful gmin step
+Trying gmin =   4.1139E-11 Note: One successful gmin step
+Trying gmin =   4.1139E-12 Warning: Further gmin increment
+Trying gmin =   2.3134E-11 Note: One successful gmin step
+Trying gmin =   9.7557E-12 Warning: Further gmin increment
+Trying gmin =   1.8643E-11 Note: One successful gmin step
+Trying gmin =   1.5023E-11 Note: One successful gmin step
+Trying gmin =   1.3486E-11 Warning: Further gmin increment
+Trying gmin =   1.4623E-11 Warning: Further gmin increment
+Trying gmin =   1.4922E-11 Warning: Further gmin increment
+Trying gmin =   1.4998E-11 Warning: Further gmin increment
+Trying gmin =   1.5017E-11 Warning: Further gmin increment
+Trying gmin =   1.5021E-11 Note: One successful gmin step
+Trying gmin =   1.5021E-11 Warning: Further gmin increment
+Trying gmin =   1.5021E-11 Warning: Last gmin step failed
+Note: True gmin stepping completed
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+p2                                         1.8
+p4                                           0
+p1                                           0
+p3                                         1.8
+p5                                           0
+p6                                           0
+p0                                         1.8
+p7                                           0
+x1.x5.x2.net1                              1.8
+x1.net1                            7.43355e-06
+x1.net4                             6.0041e-06
+x1.x5.x2.x1.net1                     0.0726886
+x1.x5.net2                          1.4458e-07
+x1.x5.net3                             1.56643
+x1.x5.net1                                 1.8
+x1.x5.x3.net1                      3.41601e-06
+x1.net2                                    1.8
+x1.x5.x4.net1                           1.4864
+x1.x5.x4.net2                      1.04463e-10
+x1.net3                                1.56616
+x1.x5.fib                           1.4458e-07
+x1.x5.x1.net1                              1.8
+x1.x5.x1.net3                              1.8
+x1.x5.x1.net2                          1.45515
+x1.x5.x1.net4                           1.7726
+x1.x5.x1.net5                      1.25942e-10
+x1.x5.x6.net1                              1.8
+x1.x5.x6.net3                              1.8
+x1.x5.x6.net2                          1.45515
+x1.x5.x6.net4                          1.77253
+x1.x5.x6.net5                      1.25909e-10
+x1.x6.x2.net1                       7.4658e-06
+x1.net5                                    1.8
+x1.net6                                1.56612
+x1.x6.x2.x1.net1                   4.03543e-06
+x1.x6.net2                                 1.8
+x1.x6.net3                         6.01322e-06
+x1.x6.net1                                 1.8
+x1.x6.x3.net1                      5.96357e-10
+x1.x6.x4.net1                        0.0535646
+x1.x6.x4.net2                        0.0107137
+x1.x6.fib                                  1.8
+x1.x6.x1.net1                          1.77258
+x1.x6.x1.net3                          1.56632
+x1.x6.x1.net2                      1.25954e-10
+x1.x6.x1.net4                         0.529044
+x1.x6.x1.net5                      3.26698e-06
+x1.x6.x6.net1                          1.77257
+x1.x6.x6.net3                          1.56642
+x1.x6.x6.net2                      1.25965e-10
+x1.x6.x6.net4                         0.528978
+x1.x6.x6.net5                      3.26187e-06
+x1.x7.x2.net1                              1.8
+x1.net7                             7.3782e-06
+x1.net8                            5.99422e-06
+x1.x7.x2.x1.net1                      0.072692
+x1.x7.net2                          1.4458e-07
+x1.x7.net3                             1.56694
+x1.x7.net1                                 1.8
+x1.x7.x3.net1                      3.39141e-06
+x1.x7.x4.net1                          1.48638
+x1.x7.x4.net2                      1.04463e-10
+x1.x7.fib                           1.4458e-07
+x1.x7.x1.net1                              1.8
+x1.x7.x1.net3                              1.8
+x1.x7.x1.net2                          1.45515
+x1.x7.x1.net4                          1.77263
+x1.x7.x1.net5                      1.26004e-10
+x1.x7.x6.net1                              1.8
+x1.x7.x6.net3                              1.8
+x1.x7.x6.net2                          1.45514
+x1.x7.x6.net4                          1.77254
+x1.x7.x6.net5                      1.25906e-10
+x1.x8.x2.net1                      2.87876e-07
+fout                                       1.8
+x1.x8.x2.x1.net1                   1.43938e-07
+x1.x8.net2                                 1.8
+x1.x8.net3                         6.02333e-06
+x1.x8.net1                                 1.8
+x1.x8.x3.net1                      5.96357e-10
+x1.x8.x4.net1                        0.0535541
+x1.x8.x4.net2                        0.0107132
+x1.x8.fib                                  1.8
+x1.x8.x1.net1                          1.77255
+x1.x8.x1.net3                           1.5662
+x1.x8.x1.net2                      1.25939e-10
+x1.x8.x1.net4                         0.529127
+x1.x8.x1.net5                      3.27264e-06
+x1.x8.x6.net1                          1.77258
+x1.x8.x6.net3                          1.56655
+x1.x8.x6.net2                       1.2598e-10
+x1.x8.x6.net4                         0.528889
+x1.x8.x6.net5                      3.25636e-06
+x1.x1.x2.net1                      7.46274e-06
+x1.x1.x2.x1.net1                   4.03374e-06
+x1.x1.net2                                 1.8
+x1.x1.net3                             1.76792
+x1.x1.net1                         5.59728e-07
+x1.x1.x3.net1                          1.44904
+x1.net9                                    1.8
+x1.x1.x4.net1                      3.74112e-07
+x1.x1.x4.net2                      1.88495e-07
+x1.net10                               1.76783
+x1.x1.fib                           1.4458e-07
+x1.x1.x1.net1                         0.352135
+x1.x1.x1.net3                      1.21141e-07
+x1.x1.x1.net2                      6.05707e-08
+x1.x1.x1.net4                              1.8
+x1.x1.x1.net5                        0.0418064
+x1.x1.x6.net1                         0.352135
+x1.x1.x6.net3                      1.21141e-07
+x1.x1.x6.net2                      6.05706e-08
+x1.x1.x6.net4                              1.8
+x1.x1.x6.net5                        0.0418076
+x1.x2.x2.net1                      4.18464e-07
+x1.x2.x2.x1.net1                   2.11143e-07
+x1.x2.net2                                 1.8
+x1.x2.net3                         5.99869e-06
+x1.x2.net1                                 1.8
+x1.x2.x3.net1                      5.96357e-10
+x1.net11                            7.4642e-06
+x1.x2.x4.net1                        0.0414182
+x1.x2.x4.net2                        0.0414182
+x1.net12                           5.98627e-06
+x1.x2.fib                                  1.8
+x1.x2.x1.net1                          1.77258
+x1.x2.x1.net3                          1.56649
+x1.x2.x1.net2                      1.25974e-10
+x1.x2.x1.net4                         0.528927
+x1.x2.x1.net5                      3.25885e-06
+x1.x2.x6.net1                           1.7726
+x1.x2.x6.net3                          1.56664
+x1.x2.x6.net2                      1.25992e-10
+x1.x2.x6.net4                         0.528826
+x1.x2.x6.net5                      3.25191e-06
+x1.x3.x2.net1                              1.8
+x1.x3.x2.x1.net1                     0.0726915
+x1.x3.net2                          1.4458e-07
+x1.x3.net3                             1.56614
+x1.x3.net1                                 1.8
+x1.x3.x3.net1                      3.42964e-06
+x1.net13                                   1.8
+x1.x3.x4.net1                           1.4864
+x1.x3.x4.net2                      1.04405e-10
+x1.net14                               1.56686
+x1.x3.fib                           1.4458e-07
+x1.x3.x1.net1                              1.8
+x1.x3.x1.net3                              1.8
+x1.x3.x1.net2                          1.45514
+x1.x3.x1.net4                          1.77255
+x1.x3.x1.net5                      1.25908e-10
+x1.x3.x6.net1                              1.8
+x1.x3.x6.net3                              1.8
+x1.x3.x6.net2                          1.45514
+x1.x3.x6.net4                          1.77261
+x1.x3.x6.net5                      1.25994e-10
+x1.x4.x2.net1                       7.3873e-06
+x1.x4.x2.x1.net1                   3.99184e-06
+x1.x4.net2                                 1.8
+x1.x4.net3                                 1.8
+x1.x4.net1                           0.0614494
+x1.x4.x3.net1                          1.44764
+fin                                        0.9
+x1.x4.x4.net1                        0.0152704
+x1.x4.x4.net2                       0.00761542
+opennet                                    1.8
+x1.x4.fib                             0.342053
+x1.x4.x1.net1                         0.607838
+x1.x4.x1.net3                      1.98963e-07
+x1.x4.x1.net2                      3.07278e-08
+x1.x4.x1.net4                              1.8
+x1.x4.x1.net5                          0.26737
+x1.x4.x6.net1                         0.607838
+x1.x4.x6.net3                      1.98963e-07
+x1.x4.x6.net2                      3.07278e-08
+x1.x4.x6.net4                              1.8
+x1.x4.x6.net5                         0.267375
+v1#branch                                    0
+vdd8#branch                                  0
+vdd7#branch                                  0
+vdd6#branch                                  0
+vdd5#branch                                  0
+vdd4#branch                                  0
+vdd3#branch                                  0
+vdd2#branch                                  0
+vdd1#branch                                  0
+vdd#branch                        -0.000131607
+
+
+No. of Data Rows : 50008
+
+  Measurements for Transient Analysis
+
+tdiff               =  1.000000e-07 targ=  3.744953e-07 trig=  2.744953e-07
+f_out               =  1.00000e+07
+n                   =  2.43000e+02
+
+ngspice-37 done

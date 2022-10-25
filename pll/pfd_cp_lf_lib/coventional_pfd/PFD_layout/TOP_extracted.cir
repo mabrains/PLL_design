@@ -1,0 +1,45 @@
+* Extracted by KLayout with SKY130 LVS runset on : 08/10/2022 01:23
+
+.SUBCKT TOP VDD net5 dn_b dn up up_b net2 RST net4 net6 net7 net3 net1 FB REF
++ GND
+M$1 RST dn_b net7 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=0.58 PS=8.58
++ PD=4.29
+M$2 net7 up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=0.58 AD=1.16 PS=4.29
++ PD=8.58
+M$3 net1 REF net2 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$4 up_b REF net3 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$5 net6 FB dn_b VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$6 net5 FB net4 VDD sky130_fd_pr__pfet_01v8 L=0.2 W=4 AS=1.16 AD=1.16 PS=8.58
++ PD=8.58
+M$7 VDD RST net5 VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45
++ PS=10.58 PD=10.58
+M$8 VDD net4 dn_b VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45
++ PS=10.58 PD=10.58
+M$9 VDD dn_b dn VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45 PS=10.58
++ PD=10.58
+M$10 net2 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45
++ PS=10.58 PD=10.58
+M$11 up up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45
++ PS=10.58 PD=10.58
+M$12 up_b net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=5 AS=1.45 AD=1.45
++ PS=10.58 PD=10.58
+M$13 net1 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$14 RST dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 AS=0.58 AD=0.29 PS=4.58
++ PD=2.29
+M$15 GND up_b RST GND sky130_fd_pr__nfet_01v8 L=0.2 W=2 AS=0.29 AD=0.58 PS=2.29
++ PD=4.58
+M$16 net6 net4 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$17 GND net1 net3 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$18 up up_b GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$19 GND RST net4 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+M$20 GND dn_b dn GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 AS=0.725 AD=0.725
++ PS=5.58 PD=5.58
+.ENDS TOP

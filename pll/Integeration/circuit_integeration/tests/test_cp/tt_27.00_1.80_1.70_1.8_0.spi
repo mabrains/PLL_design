@@ -1,0 +1,27 @@
+** charge pump test bench
+
+.include ../subckts/cp_cct.ckt
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27.00
+.options tnom=27.00
+
+VDD VDD GND 1.80
+Vout VOP GND 1.70
+
+
+
+Xcp  UP VOP DN VDD GND CP_with_buffer 
+Vin_up UP GND 1.8
+Vin_dn DN GND 0
+
+.control
+op
+save all 
+print all
+print i(vout)*1000000
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

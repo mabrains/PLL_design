@@ -12,6 +12,13 @@ MDATA_LIST = [b'title', b'date', b'plotname', b'flags', b'no. variables',
               b'no. points', b'dimensions', b'command', b'option']
 ######################################################################################
 ######################################################################################
+#####################################################################################              
+def moving_average(a, n=3) :
+    ret = np.cumsum(a, dtype=float)
+    ret[n:] = ret[n:] - ret[:-n]
+    return ret[n - 1:]/n
+######################################################################################
+######################################################################################
 #####################################################################################
 def t_meas(x_axis, y_axis, thresh, occur_num, edge_type):
 
@@ -147,18 +154,28 @@ if __name__ == '__main__':
     time_arr = arrs[1]['time']
     vp_arr = arrs[1]['v(vp)']
 
-check1, t_rise1 = t_meas(time_arr, vp_arr, 1, 70, 'rise')
-check2, t_rise2 = t_meas(time_arr, vp_arr, 1, 71, 'rise')
-if (check1 and check2):
-    freq = 1/(t_rise2 - t_rise1)
-    print('frequency in GHz:',freq/1e9)
+    check1, t_rise1 = t_meas(time_arr, vp_arr, 1, 70, 'rise')
+    check2, t_rise2 = t_meas(time_arr, vp_arr, 1, 71, 'rise')
+    if (check1 and check2):
+        freq = 1/(t_rise2 - t_rise1)
+        #print('frequency in GHz:',freq/1e9)
 
-print (get_yval(time_arr, vp_arr, 43e-9))
-#print (get_yval(time_arr, vp_arr, t_rise2))
+    #print (get_yval(time_arr, vp_arr, 43e-9))
+    #print (get_yval(time_arr, vp_arr, t_rise2))
 
-#print (vp_arr)
-plt.plot(time_arr, vp_arr)
-tmpy = np.arange(-180,180,0.5,dtype=int)
-tmpx = 43e-9*np.ones(len(tmpy))
-plt.plot(tmpx, tmpy/180)
-plt.show()
+    #print (vp_arr)
+    #plt.plot(time_arr, vp_arr)
+    #tmpy = np.arange(-180,180,0.5,dtype=int)
+    #tmpx = 43e-9*np.ones(len(tmpy))
+    #plt.plot(tmpx, tmpy/180)
+    #plt.show()
+
+    point_num = 100
+    lock_thresh = 0
+    y_avg = moving_average(vp_arr,point_num)
+    y_Avg_diff = np.diff(y_avg)
+    lock_idx = np.where(y_Avg_diff < lock_thresh)[0][2]
+    plt.plot(time_arr, vp_arr)
+    plt.plot(time_arr[:-point_num+1], y_avg)
+    plt.show()
+    print(len(vp_arr),len(y_avg))

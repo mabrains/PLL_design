@@ -1,0 +1,32 @@
+** Test bench for VCO
+
+.include vco_sch.ckt
+.include inductor_model_cct.ckt
+
+xvco vp vn vctrl ibias VDD GND vco_sch
+xind1 vp vn ind_model
+
+Isource VDD ibias 90u
+VDD VDD GND 1.8
+VTuner vctrl GND 0.5
+
+.lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+.control
+    op
+    tran 0.01ns 200ns
+    *plot vp
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    print vdiff_max
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq = 1/(tperiod*1000000000)
+    print freq
+    
+
+.endc
+.GLOBAL GND
+.GLOBAL VDD
+.end

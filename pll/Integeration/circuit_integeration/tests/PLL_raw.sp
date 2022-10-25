@@ -69,23 +69,23 @@ xdivdumyy VDD fdummy GND p2 p7 p1 p6 p5 p4 p3 p0 vn opennet divider
 
 .ic v(vctrl)=0
 .op
-.tran 1p 30u uic
+.tran 50p 30u uic
 .save v(vctrl) v(UP) v(DN) v(REF) v(FB) v(vp) i(Vtest)
 
 
-.measure tran VCTRL_C FIND v(vctrl) AT=25u
-.measure tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
-.measure tran f_input param = {1/tdiffin}
+* .measure tran VCTRL_C FIND v(vctrl) AT=25u
+* .measure tran tdiffin TRIG v(REF) VAL=0.9 RISE=66666 TARG v(REF) VAL=0.9 RISE=66667
+* .measure tran f_input param = {1/tdiffin}
 
 
-.measure tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
-.measure tran f_out param = {1/tdiffout}
+* .measure tran tdiffout TRIG v(vp) VAL=0.9 RISE=66666 TARG v(vp) VAL=0.9 RISE=66667
+* .measure tran f_out param = {1/tdiffout}
 
-.measure tran n param = {f_input/f_out}
+* .measure tran n param = {f_input/f_out}
 
-.print f_out
-.print f_input
-.print n
+* .print f_out
+* .print f_input
+* .print n
 
 
 .GLOBAL GND

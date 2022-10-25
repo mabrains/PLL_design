@@ -5,6 +5,7 @@ from __future__ import division
 from queue import Empty
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd 
 BSIZE_SP = 512 # Max size of a line of data; we don't want to read the
                # whole file to find a line, in case file does not have
                # expected structure.
@@ -170,12 +171,29 @@ if __name__ == '__main__':
     #plt.plot(tmpx, tmpy/180)
     #plt.show()
 
-    point_num = 100
+
+    ################################################################
+    #######################test locking detection###################
+    ################################################################
+    csv_file = pd.read_csv ("pll.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
+    time = csv_file.to_numpy()
+    time = time.ravel()
+    time = np.array(time)
+
+    csv_file = pd.read_csv ("pll.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
+    vctrl = csv_file.to_numpy()
+    vctrl = vctrl.ravel()
+    vctrl = np.array(vctrl)
+
+
+    point_num = 30000
     lock_thresh = 0
-    y_avg = moving_average(vp_arr,point_num)
+    y_avg = moving_average(vctrl,point_num)
     y_Avg_diff = np.diff(y_avg)
-    lock_idx = np.where(y_Avg_diff < lock_thresh)[0][2]
-    plt.plot(time_arr, vp_arr)
-    plt.plot(time_arr[:-point_num+1], y_avg)
+    lock_idx = np.where(np.abs(y_Avg_diff) == lock_thresh)[0][2]
+    plt.plot(time, vctrl)
+    plt.plot(time[:-point_num+1], y_avg)
+    plt.scatter(time[lock_idx],vctrl[lock_idx],linewidth=6,color = 'black')
     plt.show()
-    print(len(vp_arr),len(y_avg))
+    print(y_Avg_diff)
+    print(time[lock_idx])

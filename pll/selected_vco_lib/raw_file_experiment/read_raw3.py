@@ -21,6 +21,57 @@ def moving_average(a, n=3) :
 ######################################################################################
 ######################################################################################
 #####################################################################################
+def freq_meas(x_axis, y_axis, thresh, edge_type):
+
+    arr__temp = np.sign(np.subtract (y_axis, thresh*np.ones(len(y_axis))))
+    if (   ((1  not in np.sign(np.diff(y_axis)))  and  edge_type =='rise')
+        or ((-1 not in np.sign(np.diff(y_axis)))  and  edge_type =='fall')
+        or (thresh > np.max(y_axis))
+        or (thresh < np.min(y_axis))):
+
+        print('t_meas function error: NO CROSSING OF SPECIFIED TYPE HAPENS')
+        return(False,0)
+
+    if (edge_type == 'rise'):
+        arr_dn = np.delete(arr__temp,len(arr__temp)-1)
+        arr_up = np.delete(arr__temp,0)
+        rise_idx = np.where(((arr_up == 1) & (arr_dn == -1)) | ((arr_up == 1) & (arr_dn == 0)))[0]
+        rise_idx2 = np.add(rise_idx, np.ones(len(rise_idx)))
+
+        t_dn = x_axis[rise_idx]
+        t_up = x_axis[rise_idx2.astype(int)]
+
+        y_dn = y_axis[rise_idx]
+        y_up = y_axis[rise_idx2.astype(int)]
+
+    elif(edge_type == 'fall'):
+        arr_up = np.delete(arr__temp,len(arr__temp)-1)
+        arr_dn = np.delete(arr__temp,0)
+        fall_idx = np.where(((arr_up == 1) & (arr_dn == -1)) | ((arr_up == 1) & (arr_dn == 0)))[0]
+        fall_idx2 = np.add(fall_idx, np.ones(len(rise_idx)))
+
+
+        t_up = x_axis[fall_idx]
+        t_dn = x_axis[fall_idx2.astype(int)]
+
+        y_up = y_axis[fall_idx]
+        y_dn = y_axis[fall_idx2.astype(int)]
+    else:
+        print("t_meas function error: WRONG EDGE TYPE")
+        return(False,0)
+
+    slope   = np.divide(np.subtract(y_up, y_dn), np.subtract(t_up, t_dn))
+    t_cross = np.add(t_dn, np.divide(np.subtract(thresh*np.ones(len(y_dn)), y_dn), slope))
+
+
+    #slope = (y_up - y_dn)/(t_up - t_dn)
+    #t_cross = t_dn + (thresh - y_dn)/slope
+    delta_t =  np.diff(t_cross)
+    freq = np.divide(np.ones(len(delta_t)), np.diff(t_cross))
+    return(True, t_cross, delta_t, freq)
+######################################################################################
+######################################################################################
+######################################################################################
 def t_meas(x_axis, y_axis, thresh, occur_num, edge_type):
 
     arr__temp = np.sign(np.subtract (y_axis, thresh*np.ones(len(y_axis))))
@@ -151,14 +202,14 @@ def rawread(fname: str):
 
 if __name__ == '__main__':
 
-    arrs, plots = rawread('vco.raw')
-    time_arr = arrs[1]['time']
-    vp_arr = arrs[1]['v(vp)']
+    # arrs, plots = rawread('vco.raw')
+    # time_arr = arrs[1]['time']
+    # vp_arr = arrs[1]['v(vp)']
 
-    check1, t_rise1 = t_meas(time_arr, vp_arr, 1, 70, 'rise')
-    check2, t_rise2 = t_meas(time_arr, vp_arr, 1, 71, 'rise')
-    if (check1 and check2):
-        freq = 1/(t_rise2 - t_rise1)
+    # check1, t_rise1 = t_meas(time_arr, vp_arr, 1, 70, 'rise')
+    # check2, t_rise2 = t_meas(time_arr, vp_arr, 1, 71, 'rise')
+    # if (check1 and check2):
+    #     freq = 1/(t_rise2 - t_rise1)
         #print('frequency in GHz:',freq/1e9)
 
     #print (get_yval(time_arr, vp_arr, 43e-9))
@@ -175,25 +226,41 @@ if __name__ == '__main__':
     ################################################################
     #######################test locking detection###################
     ################################################################
-    csv_file = pd.read_csv ("pll.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
-    time = csv_file.to_numpy()
-    time = time.ravel()
-    time = np.array(time)
+    # csv_file = pd.read_csv ("pll.csv",index_col=False,usecols=[0],header=None, delimiter=r"\s+")
+    # time = csv_file.to_numpy()
+    # time = time.ravel()
+    # time = np.array(time)
 
-    csv_file = pd.read_csv ("pll.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
-    vctrl = csv_file.to_numpy()
-    vctrl = vctrl.ravel()
-    vctrl = np.array(vctrl)
+    # csv_file = pd.read_csv ("pll.csv",index_col=False,usecols=[1],header=None, delimiter=r"\s+")
+    # vctrl = csv_file.to_numpy()
+    # vctrl = vctrl.ravel()
+    # vctrl = np.array(vctrl)
 
 
-    point_num = 30000
-    lock_thresh = 0
-    y_avg = moving_average(vctrl,point_num)
-    y_Avg_diff = np.diff(y_avg)
-    lock_idx = np.where(np.abs(y_Avg_diff) == lock_thresh)[0][2]
-    plt.plot(time, vctrl)
-    plt.plot(time[:-point_num+1], y_avg)
-    plt.scatter(time[lock_idx],vctrl[lock_idx],linewidth=6,color = 'black')
+    # point_num = 30000
+    # lock_thresh = 0
+    # y_avg = moving_average(vctrl,point_num)
+    # y_Avg_diff = np.diff(y_avg)
+    # lock_idx = np.where(np.abs(y_Avg_diff) == lock_thresh)[0][2]
+    # plt.plot(time, vctrl)
+    # plt.plot(time[:-point_num+1], y_avg)
+    # plt.scatter(time[lock_idx],vctrl[lock_idx],linewidth=6,color = 'black')
+    # plt.show()
+    # print(y_Avg_diff)
+    # print(time[lock_idx])
+
+
+
+    ################################################################
+    #######################freq calculation#########################
+    ################################################################
+
+    arrs, plots = rawread('vco.raw')
+    time_arr = arrs[1]['time']
+    vp_arr = arrs[1]['v(vp)']
+
+    check1, time, delta_t, freq = freq_meas(time_arr, vp_arr, 0.5, 'rise')
+    plt.scatter(delta_t,freq)
     plt.show()
-    print(y_Avg_diff)
-    print(time[lock_idx])
+    print(freq)
+        

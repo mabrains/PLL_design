@@ -139,9 +139,10 @@ def get_yval(x_axis, y_axis, x_val):
             slope = (y_right - y_left)/(x_right - x_left)
             y_cross = y_left + slope*(x_val - x_left)
             return (True,y_cross)
+
 ######################################################################################
 ######################################################################################
-#####################################################################################
+######################################################################################
 def rawread(fname: str):
     """Read ngspice binary raw files. Return tuple of the data, and the
     plot metadata. The dtype of the data contains field names. This is
@@ -258,9 +259,23 @@ if __name__ == '__main__':
     arrs, plots = rawread('vco.raw')
     time_arr = arrs[1]['time']
     vp_arr = arrs[1]['v(vp)']
+    vctrl_arr = arrs[1]['v(vctrl)']
 
     check1, time, delta_t, freq = freq_meas(time_arr, vp_arr, 0.5, 'rise')
-    plt.scatter(delta_t,freq)
+    vctrl = []
+    for i in np.arange(len(time)):
+        check2, yval = get_yval(time_arr, vctrl_arr, time[i])
+        vctrl.append(yval)
+
+    vctrl_avg = (vctrl + np.roll(vctrl, -1))/2
+    vctrl_avg = vctrl_avg[:-1]
+
+    plt.plot(vctrl_avg, freq)
     plt.show()
-    print(freq)
+    
+    
+    print(len(time),len(delta_t), len(freq), len(vctrl_arr), len(vctrl), len(vctrl_avg))
+    ## plt.scatter(delta_t,freq)
+    ## plt.show()
+    ## print(freq)
         

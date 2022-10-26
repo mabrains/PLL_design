@@ -83,7 +83,7 @@ def plotvec(ax,x,y,plabel,xlabel,ylabel,title,xmin,xmax,ymin,ymax):
     # ax.set_ylim(ylimt)
 
 if __name__ == '__main__':
-    arrs, plots = rawread('PLL_testinglf.raw')
+    arrs, plots = rawread('PLL.raw')
     plt.figure(1)
     plt.plot(arrs[1]["time"], arrs[1]["v(vctrl)"])
     plt.xlabel('time (sec)') 

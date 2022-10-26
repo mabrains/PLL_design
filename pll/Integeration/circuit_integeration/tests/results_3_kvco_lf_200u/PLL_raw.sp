@@ -1,12 +1,12 @@
 ** PLL Test bench
-.include subckts/ring_cir.ckt
-.include subckts/CONV_PFD.ckt
-.include subckts/cp_cct.ckt
-.include subckts/loop_filter.ckt
-.include subckts/vco_cir.ckt
-.include subckts/inductor_model_cct.ckt
-.include subckts/biasing_cct.ckt
-.include subckts/divider_cct.ckt
+.include ../subckts/ring_cir.ckt
+.include ../subckts/CONV_PFD.ckt
+.include ../subckts/cp_cct.ckt
+.include ../subckts/loop_filter.ckt
+.include ../subckts/vco_cir.ckt
+.include ../subckts/inductor_model_cct.ckt
+.include ../subckts/biasing_cct.ckt
+.include ../subckts/divider_cct.ckt
 
 .param p0_val = {0}
 .param p1_val=  {0}
@@ -69,7 +69,7 @@ xdivdumyy VDD fdummy GND p2 p7 p1 p6 p5 p4 p3 p0 vn opennet divider
 
 .ic v(vctrl)=0
 .op
-.tran 16p 240u uic
+.tran 50p 240u uic
 .save v(vctrl) v(UP) v(DN) v(REF) v(FB) v(vp) i(Vtest)
 
 

@@ -2,7 +2,7 @@
 
 
 .include {{ current_path }}/../../../circuit/divider.ckt
-
+.param W=2
 .param f_input = {{f_in}}G
 .param p0_val = {{p0}}
 .param p1_val=  {{p1}}

@@ -2,7 +2,7 @@
 
 
 .include /home/shahat/PLL_design2/PLL_design/pll_int/Divider/testbench/scripts/analysis/../../../circuit/divider.ckt
-
+.param W=2
 .param f_input = 2.21G
 .param p0_val = 1.8
 .param p1_val=  1.8

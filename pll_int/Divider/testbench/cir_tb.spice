@@ -1,7 +1,7 @@
 * div TB
 
 .include ../circuit/divider.ckt
-
+.param W=2
 .param f_input =2.4G
 .param p0_val = 0
 .param p1_val=  0

@@ -6,14 +6,20 @@
 .include nand.ckt
 
 
-.subckt divider_cell  vdd FO FI P MODO gnd MODI
-
-x2 vdd FO net3 MODI gnd and
-x3 vdd FO net1 net2 gnd nand
-x4 vdd net2 FI P MODO gnd nand_3in
+.subckt cell vdd FO FI P MODO gnd MODI
+*.iopin FI
+*.iopin P
+*.iopin MODO
+*.ipin vdd
+*.ipin gnd
+*.opin FO
+*.iopin MODI
+x2 vdd FO net2 MODI gnd and
+x3 vdd FO net3 net1 gnd nand
+x4 vdd net1 FI P MODO gnd nand_3in
 x5 vdd FI FIB gnd inv
-x1 vdd FIB FO net1 gnd FI DFF
-x6 vdd FIB net3 MODO gnd FI DFF
+x1 vdd FIB FO net3 FI gnd CMOS_DFF
+x6 vdd FIB net2 MODO FI gnd CMOS_DFF
 .ends
 
 .GLOBAL VDD

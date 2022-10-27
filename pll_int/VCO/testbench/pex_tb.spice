@@ -14,8 +14,8 @@ VTuner vctrl GND 0.00
 xvco vp vn vctrl ibias VDD GND vco_pex
 xind1 vp vn ind_model
 X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=11 w=11  $mim cap
-xbgr ibias GND VDD bgr_pex
-** Isource VDD ibias 90u
+** xbgr ibias GND VDD bgr_pex
+Isource VDD ibias 90u
   
 .control
     set wr_singlescale

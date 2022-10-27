@@ -24,24 +24,24 @@ import shutil
 import matplotlib.pyplot as plt
 
 # get he path of the folder which contain the tb 
-main_tb_path = os.path.join("..", "../scripts") 
+main_tb_path = os.path.join("..", "../../testbench") 
+run_dir = os.path.join("..", "corners/run_test") 
+measure_dir = os.path.join("..", "corners/measurements")
+current_path = os.getcwd()
 
-# get the directory of the run folder which contain the log and tb files for each corner
-run_dir = os.path.join("..", "run_test") 
-measure_dir = os.path.join("..", "measurements")
 
 TEMPLATE_FILE = "cir_tb_corner_temp.spice" #name of the tb 
-NUM_WORKERS = 6 # maximum number of processor threds to operate on 
+NUM_WORKERS = 30 # maximum number of processor threds to operate on 
 '''
 process_corners = ["ss", "sf", "fs", "ff", "ss"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 '''
-process_corners = ["tt", "sf", "fs", "ff", "ss"]
-temp_corners = [-40, 27, 125]
-supply_corners =  [0.9, 1.0, 1.1]
-vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
+process_corners = ["tt"]
+temp_corners = [27]
+supply_corners = [1]
+vctrl_corners = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8]
 
 supply_value = 1.8
 
@@ -50,7 +50,6 @@ corner_str = """
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
-
 VDD VDD GND {vsup}
 VTuner vctrl GND {vctrl}"""
 
@@ -80,7 +79,7 @@ def run_corner(all_corner_data):
                                         vctrl=vc)
 
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(corner_setup=new_corners_str)
+    full_spice = template.render(corner_setup=new_corners_str, current_path=current_path)
 
     # create a new tb for the intended corner and update it and then close it
     spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}.spi".format(pc, tc, sc, vc))
@@ -112,6 +111,7 @@ def run_corner(all_corner_data):
                 results_dict["vp"] = s[2]
             elif s[0] == "vn":
                 results_dict["vn"] = s[2]
+
             elif s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
@@ -132,6 +132,46 @@ def run_corner(all_corner_data):
             elif s[0].lower() == "i_right":
                 results_dict["I_right (mA)"] = s[2]
             
+
+
+
+            elif s[0].lower() == "i13":
+                results_dict["i13 (uA)"] = s[2]
+
+            elif s[0].lower() == "i14":
+                results_dict["i14 (uA)"] = s[2]
+
+            elif s[0].lower() == "i15":
+                results_dict["i15 (uA)"] = s[2]
+
+            elif s[0].lower() == "i18":
+                results_dict["i18 (uA)"] = s[2]
+
+            elif s[0].lower() == "i17":
+                results_dict["i17 (uA)"] = s[2]
+
+            elif s[0].lower() == "i16":
+                results_dict["i16 (uA)"] = s[2]
+
+            elif s[0].lower() == "i19":
+                results_dict["i19 (uA)"] = s[2]
+
+            elif s[0].lower() == "i22":
+                results_dict["i22 (uA)"] = s[2]
+
+            elif s[0].lower() == "i23":
+                results_dict["i23 (uA)"] = s[2]
+
+            elif s[0].lower() == "i24":
+                results_dict["i24 (uA)"] = s[2]
+
+            elif s[0].lower() == "i2":
+                results_dict["i2 (uA)"] = s[2]
+
+
+
+
+
             elif s[0].lower() == "gmn":
                 results_dict["gmn (mS)"] = s[2]
             elif s[0].lower() == "gmp":
@@ -154,8 +194,91 @@ def run_corner(all_corner_data):
                     results_dict["pmos_sat_check"] = "True"
                 else:
                     results_dict["pmos_sat_check"] = "False"
+
+            ## biasing cct
+            elif s[0].lower() == "bgr_tran_02_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_02_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_02_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_13_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_13_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_13_sat_check"] = "False"
+            
+            elif s[0].lower() == "bgr_tran_14_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_14_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_14_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_15_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_15_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_15_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_16_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_16_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_16_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_17_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_17_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_17_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_18_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_18_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_18_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_19_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_19_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_19_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_20_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_20_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_20_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_21_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_21_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_21_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_22_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_22_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_22_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_23_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_23_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_23_sat_check"] = "False"
+
+            elif s[0].lower() == "bgr_tran_24_sat_check":
+                if (float (s[2]) > 0):
+                    results_dict["bgr_tran_24_sat_check"] = "True"
+                else:
+                    results_dict["bgr_tran_24_sat_check"] = "False"
+                    
             elif s[0] == "vdiff_max":
                 results_dict["differential swing"] = float(s[2])*2
+
+            elif s[0] == "vdd#branch":
+                results_dict["Power (mW)"] = -round(float (s[2]),6)*supply_value*1000
 
 
     log_file.close() # close the log file
@@ -173,10 +296,10 @@ if __name__ == "__main__":
     # created at the beginning of the script
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
-
+    
     if not os.path.isdir(measure_dir):
         os.makedirs(measure_dir)
-    
+
     # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
     shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     
@@ -219,20 +342,13 @@ if __name__ == "__main__":
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
         df.sort_values(by=["corner name","control"] , inplace=True)
-        df.to_csv("/measurements/all_measurements.csv", index=False)
-
+        df.to_csv("measurements/all_measurements.csv", index=False)
+'''
     # plotting the passed corners
         for itr in range(0,len(df["control"])-len(vctrl_corners)+1,len(vctrl_corners)):
             control_list = df["control"][itr:itr+len(vctrl_corners)-1].tolist()
             freq_list = df["freq (GHZ)"][itr:itr+len(vctrl_corners)-1].tolist()
             oscilation_state = df["Oscillation Status"][itr:itr+len(vctrl_corners)-1].tolist()
             plt.plot(control_list , freq_list,linewidth = 2.5,label=df["corner name"][itr])
-
         plt.legend()
-        plt.show()
-    
-
-        
-
-        
-    
+        plt.show()'''

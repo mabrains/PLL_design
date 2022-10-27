@@ -1,0 +1,9 @@
+{
+    "DESIGN_NAME": "DSM",
+    "VERILOG_FILES": "dir::src/*.v",
+    "CLOCK_TREE_SYNTH": false,
+    "CLOCK_PERIOD": 100,   
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "FP_CORE_UTIL": 15
+}

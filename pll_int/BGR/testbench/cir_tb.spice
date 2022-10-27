@@ -1,0 +1,38 @@
+** Test bench for BGR
+
+.include ../circuit/bgr_sch.ckt
+.include ../circuit/vco_load.ckt
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+VDD VDD GND 1.8
+** VTuner out GND {vctrl}
+
+xbgr_sch out GND VDD bgr_sch
+xvco_load out vco_load
+
+.control
+    set wr_singlescale
+    set wr_vecnames
+    set appendwrite
+
+    op
+    **const load**
+    *let Iref = i(VTuner)*1000000
+
+
+
+    **variant load**
+    let Iref  = @m.xvco_load.xm8.msky130_fd_pr__nfet_01v8[id]*1000000
+    print Iref
+    print all
+
+   
+    
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

@@ -12,15 +12,22 @@ import itertools
 import concurrent.futures
 import shutil
 
-# get he path of the folder which contain the tb 
-main_tb_path = os.path.join("..", "spice_files") 
+main_tb_path = os.path.join("..", "../../testbench") 
+run_dir = os.path.join("..", "corners/run_test")  
+measure_dir = os.path.join("..", "corners/measurements")
+current_path = os.getcwd()
 
-# get the directory of the run folder which contain the log and tb files for each corner
-run_dir = os.path.join("..", "run_test")  
+TEMPLATE_FILE = "cir_tb_corner_temp.spice" #name of the tb 
+NUM_WORKERS = 29 # maximum number of processor threds to operate on 
 
-TEMPLATE_FILE = "test_BGR_char.spice" #name of the tb 
-NUM_WORKERS = 3 # maximum number of processor threds to operate on 
-
+###
+## process_corners = ["ss", "sf", "fs", "ff", "tt"]
+## temp_corners = [-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90,100,110,120]
+## supply_corners = [0.9, 1.0, 1.1]
+## vout = [0.9]
+## 
+## supply_value = 1.8
+##
 process_corners = ["ss", "sf", "fs", "ff", "tt"]
 temp_corners = [-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90,100,110,120]
 supply_corners = [0.9, 1.0, 1.1]
@@ -35,7 +42,7 @@ corner_str = """
 .options tnom={temp}
 
 VDD VDD GND {vsup}
-VTuner out GND {vctrl}
+** VTuner out GND {vctrl}
 """
 
 ## .nodeset v(vout)=0
@@ -62,7 +69,7 @@ def run_corner(all_corner_data):
                                         vctrl=vc)
 
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(corner_setup=new_corners_str)
+    full_spice = template.render(corner_setup=new_corners_str, current_path=current_path)
 
     # create a new tb for the intended corner and update it and then close it
     spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}.spi".format(pc, tc, sc, vc))
@@ -108,7 +115,9 @@ if __name__ == "__main__":
     # created at the beginning of the script
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
-    
+
+    if not os.path.isdir(measure_dir):
+        os.makedirs(measure_dir)
     # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
     shutil.copyfile("/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     
@@ -128,7 +137,8 @@ if __name__ == "__main__":
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
-                
+                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
+
                 new_data = future.result()
 
                 data.update(new_data)
@@ -144,5 +154,5 @@ if __name__ == "__main__":
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
         df.sort_values(by="control", inplace=True)
-        df.to_csv("all_measurements.csv", index=False)
+        df.to_csv("measurements/all_measurements.csv", index=False)
     

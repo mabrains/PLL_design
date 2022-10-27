@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd testbench
-echo "CIRCIT TESTBENCH"
+echo "CIRCUIT TESTBENCH"
 ngspice -b cir_tb.spice
 echo "PEX TESTBENCH"
 ngspice -b pex_tb.spice

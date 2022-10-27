@@ -1,0 +1,20 @@
+
+.include and.ckt
+.include DFF.ckt
+.include inv.ckt
+.include nand_3in.ckt
+.include nand.ckt
+.include TG.ckt
+
+.subckt divider_cell  vdd FO FI P MODO gnd MODI
+
+x2 vdd FO net3 MODI gnd and
+x3 vdd FO net1 net2 gnd nand
+x4 vdd net2 FI P MODO gnd nand_3in
+x5 vdd FI FIB gnd inv
+x1 vdd FIB FO net1 gnd FI DFF
+x6 vdd FIB net3 MODO gnd FI DFF
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND

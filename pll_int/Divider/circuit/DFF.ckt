@@ -1,0 +1,14 @@
+
+.subckt DFF  vdd clkb D out gnd clk
+
+x3 vdd net4 net2 gnd inv
+x1 clk vdd D net4 gnd clkb TG
+x2 clkb vdd net1 net4 gnd clk TG
+x4 vdd net2 net1 gnd inv
+x5 vdd net5 out gnd inv
+x6 clkb vdd net2 net5 gnd clk TG
+x7 clk vdd net3 net5 gnd clkb TG
+x8 vdd out net3 gnd inv
+
+.ends.GLOBAL VDD
+.GLOBAL GND

@@ -1,0 +1,11 @@
+
+
+.subckt and  vdd A out B gnd
+
+x1 vdd net1 A B gnd nand
+x2 vdd net1 out gnd inv
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+

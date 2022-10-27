@@ -1,0 +1,73 @@
+** sch_path: /home/mohamed/designs/Divider/divider_circuit/divider_tb_fractional.sch
+**.subckt divider_tb_fractional
+.include ../circuit/divider.ckt
+ 
+VDD VDD GND 1.8
+VDD1 p2 GND PULSE(0 1.8 0 10p 10p 600n 1000n)
+VDD2 p4 GND PULSE(1.8 0 0 10p 10p 600n 1000n)
+VDD3 p1 GND PULSE(0 1.8 0 10p 10p 600n 1000n)
+VDD4 p3 GND PULSE(0 1.8 0 10p 10p 600n 1000n)
+VDD5 p5 GND 0
+VDD6 p6 GND 0
+VDD7 p0 GND PULSE(0 1.8 0 10p 10p 600n 1000n)
+VDD8 p7 GND 0
+x1 VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin opennet divider
+V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)
+C1 fout GND 25f m=1
+I0 opennet GND 0
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.op
+.param W=2
+.param f_input= 2.404G
+.control
+tran 0.01n 1.3u
+plot fout
+.endc
+.measure tran tdiff1 TRIG v(fout) VAL=0.9 RISE=1 TARG v(fout) VAL=0.9 RISE=2
+.measure tran f_out1 param = {1/tdiff1}
+.measure tran N1 param = {f_input/f_out1}
+.measure tran tdiff2 TRIG v(fout) VAL=0.9 RISE=2 TARG v(fout) VAL=0.9 RISE=3
+.measure tran f_out2 param = {1/tdiff2}
+.measure tran N2 param = {f_input/f_out2}
+.measure tran tdiff3 TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
+.measure tran f_out3 param = {1/tdiff3}
+.measure tran N3 param = {f_input/f_out3}
+.measure tran tdiff4 TRIG v(fout) VAL=0.9 RISE=4 TARG v(fout) VAL=0.9 RISE=5
+.measure tran f_out4 param = {1/tdiff4}
+.measure tran N4 param = {f_input/f_out4}
+.measure tran tdiff5 TRIG v(fout) VAL=0.9 RISE=5 TARG v(fout) VAL=0.9 RISE=6
+.measure tran f_out5 param = {1/tdiff5}
+.measure tran N5 param = {f_input/f_out5}
+.measure tran tdiff6 TRIG v(fout) VAL=0.9 RISE=6 TARG v(fout) VAL=0.9 RISE=7
+.measure tran f_out6 param = {1/tdiff6}
+.measure tran N6 param = {f_input/f_out6}
+.measure tran tdiff7 TRIG v(fout) VAL=0.9 RISE=7 TARG v(fout) VAL=0.9 RISE=8
+.measure tran f_out7 param = {1/tdiff7}
+.measure tran N7 param = {f_input/f_out7}
+.measure tran tdiff8 TRIG v(fout) VAL=0.9 RISE=8 TARG v(fout) VAL=0.9 RISE=9
+.measure tran f_out8 param = {1/tdiff8}
+.measure tran N8 param = {f_input/f_out8}
+.measure tran tdiff9 TRIG v(fout) VAL=0.9 RISE=9 TARG v(fout) VAL=0.9 RISE=10
+.measure tran f_out9 param = {1/tdiff9}
+.measure tran N9 param = {f_input/f_out9}
+.measure tran tdiff10 TRIG v(fout) VAL=0.9 RISE=10 TARG v(fout) VAL=0.9 RISE=11
+.measure tran f_out10 param = {1/tdiff10}
+.measure tran N10 param = {f_input/f_out10}
+* N is calculated over 10 cycles
+.measure tran tdiff TRIG v(fout) VAL=0.9 RISE=1 TARG v(fout) VAL=0.9 RISE=11
+.measure tran f_out param = {1/tdiff}
+.measure tran N_fractional param = {f_input/f_out}
+.print N1 N2 N3 N4 N5 N6 N7 N8 N9 N10
+.print N_fractional
+.print f_out
+.temp 27
+.options tnom= 27
+
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

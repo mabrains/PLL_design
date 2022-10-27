@@ -4,7 +4,7 @@
 .include inv.ckt
 .include nand_3in.ckt
 .include nand.ckt
-.include TG.ckt
+
 
 .subckt divider_cell  vdd FO FI P MODO gnd MODI
 

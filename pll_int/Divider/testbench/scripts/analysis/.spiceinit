@@ -3,3 +3,7 @@
 set ngbehavior=hsa
 * "nomodcheck" speeds up loading time
 set ng_nomodcheck
+
+***************
+set ngbehavior=hs
+set num_threads=10

@@ -1,7 +1,7 @@
 * Test bench for PFD
 *.INCLUDE DFF/DFF.ckt
 
-.INCLUDE ../../../behav/pfd_behave.ckt
+.INCLUDE {{subckt_path}}
 
 .csparam simtime=25u
 
@@ -42,7 +42,7 @@ set wr_singlescale
 set wr_vecnames
 option numdgt = 3
 tran 0.1n $&simtime 
-wrdata pfd_behave.csv v(FBS) v(REFS) v(UP) v(DWN)
+wrdata {{run_folder}}/csv/pfd_behave.csv v(FBS) v(REFS) v(UP) v(DWN)
 *rusage
 plot v(FBS) v(REFS) v(UP) v(DWN) xlimit 4u 4.04u
 .endc

@@ -1,0 +1,79 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+ Reference value :  0.00000e+00Note: No ".plot", ".print", or ".fourier" lines; no simulations run
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: ** test bench for bgr
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 90.000000 and TNOM = 90.000000
+
+
+No. of Data Rows : 1
+iref = 4.538130e+00
+iref = 4.538130e+00
+m.xvco.xm2.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm2.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm2.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm13.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm13.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm13.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm14.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm14.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm14.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm15.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm15.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm15.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm16.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm16.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm16.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm17.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm17.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm17.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm18.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm18.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm18.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm19.msky130_fd_pr__nfet_g5v0d10v5#body = 1.485505e-11
+m.xvco.xm19.msky130_fd_pr__nfet_g5v0d10v5#dbody = 3.713759e-11
+m.xvco.xm19.msky130_fd_pr__nfet_g5v0d10v5#sbody = 7.427563e-12
+m.xvco.xm20.msky130_fd_pr__nfet_g5v0d10v5#body = 1.306741e-11
+m.xvco.xm20.msky130_fd_pr__nfet_g5v0d10v5#dbody = 3.266853e-11
+m.xvco.xm20.msky130_fd_pr__nfet_g5v0d10v5#sbody = 6.533711e-12
+m.xvco.xm21.msky130_fd_pr__nfet_g5v0d10v5#body = 1.119728e-11
+m.xvco.xm21.msky130_fd_pr__nfet_g5v0d10v5#dbody = 2.799321e-11
+m.xvco.xm21.msky130_fd_pr__nfet_g5v0d10v5#sbody = 5.598647e-12
+m.xvco.xm22.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm22.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm22.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+m.xvco.xm23.msky130_fd_pr__nfet_g5v0d10v5#body = 1.205506e-11
+m.xvco.xm23.msky130_fd_pr__nfet_g5v0d10v5#dbody = 3.013765e-11
+m.xvco.xm23.msky130_fd_pr__nfet_g5v0d10v5#sbody = 6.027534e-12
+m.xvco.xm24.msky130_fd_pr__pfet_g5v0d10v5#body = 1.620000e+00
+m.xvco.xm24.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.620000e+00
+m.xvco.xm24.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.620000e+00
+out = 9.000000e-01
+q.xvco.xq2.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq3.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq4.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq5.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq6.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq7.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq8.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq9.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 9.989212e-12
+q.xvco.xq10.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 4.507157e-09
+vdd = 1.620000e+00
+vdd#branch = -1.25659e-05
+vtuner#branch = 4.538130e-06
+xvco.net1 = 1.046843e+00
+xvco.net2 = 6.077700e-02
+xvco.net3 = 6.077702e-02
+xvco.net4 = 7.542229e-01
+xvco.net5 = 9.052154e-01
+xvco.net6 = 9.038331e-01
+xvco.net7 = 8.228450e-01
+xvco.vbe = 2.530748e-01
+xvco.xr1.xsky130_fd_pr__res_xhigh_po_1p41.ra = 1.544572e-04
+xvco.xr3.xsky130_fd_pr__res_xhigh_po_1p41.ra = 6.461002e-04
+xvco.xr4.xsky130_fd_pr__res_xhigh_po_1p41.ra = 6.077700e-02

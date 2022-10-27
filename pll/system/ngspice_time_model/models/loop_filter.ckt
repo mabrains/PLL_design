@@ -1,8 +1,17 @@
 ** Loop filter circuit model
 
 .subckt loop_filter_1st_order_ideal vout gnd
+
     C1 vout gnd 10p ic=0
+    C2 vout 
     R1 vout gnd 10k
+.ends
+
+.subckt loop_filter_2nd_order_ideal vout gnd
+
+    C1 r1c1 gnd 10p ic=0
+    C2 vout gnd 30p ic=0
+    R1 vout r1c1 10k
 .ends
 
 .subckt loop_filter_3rd_order_ideal vout vctrl gnd

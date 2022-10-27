@@ -1,0 +1,24 @@
+
+14. Printing statistics.
+
+=== DSM ===
+
+   Number of wires:                132
+   Number of wire bits:            203
+   Number of public wires:          14
+   Number of public wire bits:      85
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                173
+     $_ANDNOT_                      44
+     $_AND_                          3
+     $_DFF_PN0_                     25
+     $_NAND_                        19
+     $_NOR_                         12
+     $_NOT_                          1
+     $_ORNOT_                        7
+     $_OR_                          10
+     $_XNOR_                        21
+     $_XOR_                         31
+

@@ -1,0 +1,27 @@
+*** XCTL behave
+
+.subckt xctl_cir Vin out VDD GND
+
+C1 net1 GND 60p m=1
+C3 Vin GND 60p m=1
+Ls net1 net3 6.23m m=1
+Rs net3 net2 26.2965 m=1
+Cs net2 Vin 40f m=1
+Cp net1 Vin 7p m=1
+XM11 net1 Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=20 nf=3 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=4
+XM2 net1 Vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=20 nf=3 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=4
+XM1 out net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=9 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 out net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XR2 Vin net1 Vin sky130_fd_pr__res_iso_pw W=2.65 L=870 m=1
+
+**** begin user architecture code
+.ends
+

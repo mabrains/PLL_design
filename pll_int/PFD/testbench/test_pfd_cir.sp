@@ -1,8 +1,6 @@
 ** PFD Test bench
 
-.include ../../../circuit/CONV_PFD.ckt
-
-
+.include {{subckt_path}}
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
@@ -42,10 +40,9 @@ let f_input = 1/tdiffin
 
 print f_input
 
-wrdata pfd_behave.csv v(FB) v(REF) v(UP) v(DN)
+wrdata {{run_folder}}/csv/pfd_cir.csv v(FB) v(REF) v(UP) v(DN)
 plot FB REF UP DN
 .endc
-
 
 
 .GLOBAL GND

@@ -1,4 +1,4 @@
-** sch_path: /home/ahmedelbadry/D_FF/conventional_pfd.sch
+** sch_path:
 
 .subckt conventional_pfd REF VDD GND FB up dn
 XM1 net1 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'

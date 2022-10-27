@@ -1,0 +1,6 @@
+* bgr behav
+
+.subckt bgr_behav VDD ibias
+Isource VDD ibias 90u        
+.ends
+

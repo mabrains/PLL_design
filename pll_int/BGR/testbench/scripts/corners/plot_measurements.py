@@ -2,8 +2,6 @@
 ## Mabrains LLC
 ##########################################################################
 
-
-
 import pandas as pd
 import matplotlib.pyplot as plt
   

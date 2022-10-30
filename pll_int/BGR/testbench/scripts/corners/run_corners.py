@@ -2,10 +2,8 @@
 ## Mabrains LLC
 ##########################################################################
 
-from calendar import c
 import pandas as pd
 import os
-import glob
 import subprocess
 import jinja2
 import itertools

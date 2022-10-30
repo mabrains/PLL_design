@@ -30,7 +30,7 @@ measure_dir = os.path.join("..", "analysis/measurements")
 current_path = os.getcwd()
 
 
-TEMPLATE_FILE = "vco_with_inv.spice" #name of the tb 
+TEMPLATE_FILE = "inv_temp.spice" #name of the tb 
 NUM_WORKERS = 30 # maximum number of processor threds to operate on 
 
 wp_values = [0.42,0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5]
@@ -43,7 +43,7 @@ def run_corner(all_corner_data):
     wp = all_corner_data
 
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(wp = wp)
+    full_spice = template.render(wp = wp, current_path=current_path)
 
     # create a new tb for the intended corner and update it and then close it
     spice_file_path = os.path.join(run_dir, "{}.spi".format(wp))

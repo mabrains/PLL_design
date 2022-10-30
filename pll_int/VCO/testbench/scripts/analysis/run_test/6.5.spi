@@ -5,16 +5,18 @@ XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 
-XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W={{wp}} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=6.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 
 .ends
 
-.include ../circuit/inv.ckt
-.include ../circuit/vco_sch.ckt
-.include ../../BGR/circuit/bgr_sch.ckt 
-.include ../circuit/inductor_model_cct.ckt
+
+.include /home/shahat/PLL_design2/PLL_design/pll_int/VCO/testbench/scripts/analysis/../../../circuit/vco_sch.ckt
+.include /home/shahat/PLL_design2/PLL_design/pll_int/VCO/testbench/scripts/analysis/../../../../BGR/circuit/bgr_sch.ckt 
+.include /home/shahat/PLL_design2/PLL_design/pll_int/VCO/testbench/scripts/analysis/../../../circuit/inductor_model_cct.ckt
+
+
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27

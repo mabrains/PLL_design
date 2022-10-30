@@ -2,32 +2,25 @@
 ## Mabrains LLC
 ################################################################################################
 
-from genericpath import isfile
-import subprocess
 import os
+import subprocess
 import pandas as pd
 import matplotlib.pyplot as plt
-
-import os
-import subprocess
 import jinja2
-import itertools
 import concurrent.futures
-import shutil
 import numpy as np
 
 plt.rcParams["figure.figsize"] = (12, 10)
 plt.rcParams["figure.autolayout"] = True
 
-NUM_WORKERS = 4 # maximum number of processor threds to operate on 
-TEMP_TB_PATH = "/home/moataz/Desktop/newest_struc/PLL_design/pll_int/VCO/testbench/test_vco_behave.sp"
+NUM_WORKERS  = 8 # maximum number of processor threds to operate on
+TEMP_TB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),"../../test_vco_behave.sp" )  
 run_dir = os.path.join("..", "run_test")
-
+ 
 
 def run_corner(vctrl):
     # This function gets a corner case and returns a list of 
     # values of all the intended measurments
-
 
     templateLoader = jinja2.FileSystemLoader(searchpath=".")
     templateEnv = jinja2.Environment(loader=templateLoader)

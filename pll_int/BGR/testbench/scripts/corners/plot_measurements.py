@@ -4,7 +4,8 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-  
+import os
+
 current_min = 70
 failed_corner =[]
 tt_location_sch = -1
@@ -20,8 +21,8 @@ tt_str = "tt,30,1.0"
 #####################
 #schematic###########
 #####################
-
-df_sch = pd.read_csv("measurements/all_measurements.csv")
+csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),"measurements/all_measurements.csv" )
+df_sch = pd.read_csv(csv_path)
 
 # fetching the failed corners
 for index, row in df_sch.iterrows():

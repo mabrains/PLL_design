@@ -23,8 +23,6 @@ xvco_load out vco_load
     let Iref  = @m.xvco_load.xm8.msky130_fd_pr__nfet_01v8[id]*1000000
     print Iref
     print all
-
-   
     
 .endc
 

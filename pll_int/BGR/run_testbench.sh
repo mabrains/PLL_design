@@ -31,7 +31,7 @@ fi
 if [ -f $CORNERS_TESTBENCH ]
 then
     echo "==== CORNERS TESTBENCH ===="
-    ngspice -b $CORNERS_TESTBENCH
+    python3 $CORNERS_TESTBENCH
 else
     echo "==== CORNERS TESTBENCH doesn't exist, please recheck ===="
 fi
@@ -39,7 +39,7 @@ fi
 if [ -f $CORNERS_TESTBENCH ]
 then
     echo "==== PLOTS ===="
-    ngspice -b $PLOTS
+    python3 $PLOTS
 else
     echo "==== MEASUREMENT PLOTS doesn't exist, please recheck ===="
 fi

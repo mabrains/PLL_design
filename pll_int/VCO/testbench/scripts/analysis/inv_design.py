@@ -46,14 +46,14 @@ def run_corner(all_corner_data):
     full_spice = template.render(wp = wp)
 
     # create a new tb for the intended corner and update it and then close it
-    spice_file_path = os.path.join(run_dir, "{}_{}_{}_{}.spi".format(wp))
+    spice_file_path = os.path.join(run_dir, "{}.spi".format(wp))
     text_file = open(spice_file_path, "w")
     text_file.write(full_spice)
     text_file.close()
 
     # create a log file for the intended corner and 
     # then run the tb 
-    spice_run_log = os.path.join(run_dir, "{}_{}_{}_{}.log".format(wp))
+    spice_run_log = os.path.join(run_dir, "{}.log".format(wp))
     log_file = open(spice_run_log, "w")
     subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
     log_file.close()

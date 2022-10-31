@@ -15,7 +15,7 @@
 .param p1_val=  0
 .param p2_val=  0
 .param p3_val=  0
-.param p4_val=  0
+.param p4_val=  1.8
 .param p5_val=  0
 .param p6_val=  0
 .param p7_val=  0
@@ -41,12 +41,13 @@ xbgr ibias GND VDD bgr_sch
 
 xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider
 xinverter vp vp2 VDD GND inverter
-C1 vp vp2
-R1 vp vp2 1k
+** C1 vp vp2 0.8p
+** R1 vp2 vp3 50
 
 xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
 xinverter2 vn vn2 VDD GND inverter
-R2 vn vn2 1k
+** C2 vn vn2 0.8p
+** R2 vn2 vn3 50
 .control
     set appendwrite 
 
@@ -95,10 +96,10 @@ R2 vn vn2 1k
     let freq = 1/(tperiod*1000000000)
 
     meas tran tperiod2 TRIG fout VAL=0.9 RISE=1 TARG fout VAL=0.9 RISE=2
-    let freq2 = 1/(tperiod2*1000000000)
+    let freq2 = 1/(tperiod2*1000000)
 
     meas tran tperiod3 TRIG fout2 VAL=0.9 RISE=1 TARG fout2 VAL=0.9 RISE=2
-    let freq3 = 1/(tperiod3*1000000000)
+    let freq3 = 1/(tperiod3*1000000)
 
     setplot op
     echo ==================================================
@@ -111,7 +112,7 @@ R2 vn vn2 1k
     echo ==================================================
     print tail_sat_check nmos_sat_check pmos_sat_check
     echo ==================================================
-    ** print tran.freq tran.freq2 tran.freq3
+    print tran.freq tran.freq2 tran.freq3
     echo ==================================================
 
 .endc

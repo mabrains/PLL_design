@@ -1,0 +1,75 @@
+** Test bench for VCO
+
+.include ../circuit/vco_sch.ckt
+.include ../circuit/inductor_model_cct.ckt
+.include ../../BGR/circuit/bgr_sch.ckt 
+.include ../../Divider/circuit/divider.ckt 
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+.param W=2
+.param p0_val = 0
+.param p1_val=  0
+.param p2_val=  0
+.param p3_val=  0
+.param p4_val=  1.8
+.param p5_val=  0
+.param p6_val=  0
+.param p7_val=  0
+
+VDD1 p2 GND {p2_val}
+VDD2 p4 GND {p4_val}
+VDD3 p1 GND {p1_val}
+VDD4 p3 GND {p3_val}
+VDD5 p5 GND {p5_val}
+VDD6 p6 GND {p6_val}
+VDD7 p0 GND {p0_val}
+VDD8 p7 GND {p7_val}
+
+
+VDD VDD GND 1.8
+VTuner vctrl GND 0.5
+
+xvco vp vn vctrl ibias VDD GND vco_sch
+xind1 vp vn ind_model
+XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
+** xbgr ibias GND VDD bgr_sch
+Isource VDD ibias 90u
+
+xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin float divider
+C1 fout GND 25f m=1
+
+.control
+    set appendwrite 
+    op
+    save all
+    print all
+    tran 0.01ns 400ns
+    plot vp 
+    plot vn
+    plot vp-vn
+    plot fout
+
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    print vdiff_max
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq_in = 1/(tperiod*1000000000)
+    print freq_in
+
+
+
+    meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=2 TARG v(fout) VAL=0.9 RISE=3
+    let freq_out = 1/tdiffout
+    print freq_out
+
+    let n = freq_in/freq_out
+    print n
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

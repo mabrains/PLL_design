@@ -44,7 +44,8 @@ xinverter vp vp2 VDD GND inverter
 ** C1 vp vp2 0.8p
 ** R1 vp2 vp3 50
 
-xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
+**xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
+xcell VDD fout2 vn2 GND MODO GND VDD cell
 xinverter2 vn vn2 VDD GND inverter
 ** C2 vn vn2 0.8p
 ** R2 vn2 vn3 50

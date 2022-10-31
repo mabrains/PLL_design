@@ -1,23 +1,21 @@
 ** Test bench for VCO
-
+*.include ../circuit/inv.ckt
 .include ../circuit/vco_sch.ckt
 .include ../circuit/inductor_model_cct.ckt
 .include ../../BGR/circuit/bgr_sch.ckt 
 .include ../../Divider/circuit/divider.ckt 
 
-.param wn_inv=0.42*1
-.param wp_inv=6*1
+.subckt inverterr vin vout VDD GND
 
-.subckt inv vin vout VDD GND
-XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W={wn_inv} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=630 nf=1000 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 
-XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W={wp_inv} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=900 nf=1000 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
+
 .ends
-
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
@@ -44,7 +42,7 @@ VDD8 p7 GND {p7_val}
 
 
 VDD VDD GND 1.8
-VTuner vctrl GND 0.5
+VTuner vctrl GND 0.3
 
 xvco vp vn vctrl ibias VDD GND vco_sch
 xind1 vp vn ind_model
@@ -53,8 +51,8 @@ xbgr ibias GND VDD bgr_sch
 ** Isource VDD ibias 90u
 
 
-xinv  vp vpout VDD GND inv
-xinv2 vn vnout VDD GND inv
+*xinv  vp vinv_p VDD GND inverterr
+*xinv2 vn vinv_n VDD GND inverterr
 ** xdivider  VDD fout  GND p2 p7 p1 p6 p5 p4 p3 p0 vp float  divider
 ** xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn float2 divider
 ** cell VDD fout2 vn p0 MODO GND VDD cell
@@ -65,18 +63,20 @@ xinv2 vn vnout VDD GND inv
 .control
     set appendwrite 
     op
+    save all
     save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
     save @m.xvco.xm11.msky130_fd_pr__pfet_01v8 
     save @m.xvco.xm1.msky130_fd_pr__pfet_01v8  
     save @m.xvco.xm2.msky130_fd_pr__nfet_01v8 
-    save vp vn fout 
-    ** save all
+
     
-    let I_tail(mA)               = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
-    let I_left(mA)               = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
-    let I_right(mA)              = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
-    let I_source(mA)             = @m.xvco.xm8.msky130_fd_pr__nfet_01v8[id]*1000
-    let I_mirror_nmos_pmos(mA)   = @m.xvco.xm5.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_tail(mA)                = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_leftp(mA)               = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_leftn(mA)               = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_rightp(mA)              = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_rightn(mA)              = @m.xvco.xm7.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_source(mA)              = @m.xvco.xm8.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_mirror_nmos_pmos(mA)    = @m.xvco.xm5.msky130_fd_pr__pfet_01v8[id]*1000
 
     let gmn(mS) = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[gm]*1000
     let gmp(mS) = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[gm]*1000
@@ -89,15 +89,21 @@ xinv2 vn vnout VDD GND inv
 
     ** save all
     ** print all
-    save I_tail(mA) I_left(mA) I_righ(mA) I_sourc(mA) I_mirror_nmos_pmos(mA) 
+    save I_tail(mA) I_leftp(mA) I_leftn(mA) I_rightp(mA) I_rightn(mA) I_sourc(mA) I_mirror_nmos_pmos(mA) 
     save gmn(mS) gmp(mS)
-    save vp vn vcommon
+    save vp vn vcommon 
+    *save vp vn vcommon $vinv_p vinv_n
 
-    tran 0.01n 50n
-    plot vp 
-    plot vn
-    plot vp-vn
-    plot fout 
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
+    tran 0.01n 200n
+    plot vp vn
+    plot vn-vp
+    **plot vinv_p vinv_n
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
+    plot @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
+    
+    
+    ** plot fout 
     * plot fout2
 
     * let vdiff = v(vp)-v(vn)
@@ -122,7 +128,14 @@ xinv2 vn vnout VDD GND inv
     * print n
     setplot op
     echo ==================================================
-    print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_left(mA) I_right(mA) vcommon vp vn gmn(mS) gmp(mS) tail_sat_check nmos_sat_check pmos_sat_check
+    print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_leftn(mA) I_leftp(mA) I_rightn(mA) I_rightp(mA)   
+    echo ==================================================
+    print vcommon vp vn 
+    *print vcommon vp vn vinv_p vinv_n
+    echo ==================================================
+    print gmn(mS) gmp(mS)
+    echo ==================================================
+    print tail_sat_check nmos_sat_check pmos_sat_check
     echo ==================================================
 
 .endc
@@ -130,3 +143,5 @@ xinv2 vn vnout VDD GND inv
 .GLOBAL GND
 .GLOBAL VDD
 .end
+
+

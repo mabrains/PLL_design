@@ -1,21 +1,10 @@
 ** Test bench for VCO
 *.include ../circuit/inv.ckt
 .include ../circuit/vco_sch.ckt
+.include ../circuit/inverter.ckt
 .include ../circuit/inductor_model_cct.ckt
 .include ../../BGR/circuit/bgr_sch.ckt 
 .include ../../Divider/circuit/divider.ckt 
-
-.subckt inverterr vin vout VDD GND
-
-XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=630 nf=1000 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-
-XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=900 nf=1000 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-
-.ends
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
@@ -26,23 +15,23 @@ XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=900 nf=1000 ad='int((nf+1)
 .param p1_val=  0
 .param p2_val=  0
 .param p3_val=  0
-.param p4_val=  1.8
+.param p4_val=  0
 .param p5_val=  0
 .param p6_val=  0
 .param p7_val=  0
 
-VDD1 p2 GND {p2_val}
-VDD2 p4 GND {p4_val}
-VDD3 p1 GND {p1_val}
-VDD4 p3 GND {p3_val}
-VDD5 p5 GND {p5_val}
-VDD6 p6 GND {p6_val}
-VDD7 p0 GND {p0_val}
-VDD8 p7 GND {p7_val}
+VDD1 p2 GND DC {p2_val}
+VDD2 p4 GND DC {p4_val}
+VDD3 p1 GND DC {p1_val}
+VDD4 p3 GND DC {p3_val}
+VDD5 p5 GND DC {p5_val}
+VDD6 p6 GND DC {p6_val}
+VDD7 p0 GND DC {p0_val}
+VDD8 p7 GND DC {p7_val}
 
 
-VDD VDD GND 1.8
-VTuner vctrl GND 0.3
+VDD VDD GND DC 1.8
+VTuner vctrl GND DC 0.5
 
 xvco vp vn vctrl ibias VDD GND vco_sch
 xind1 vp vn ind_model
@@ -50,18 +39,17 @@ XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
 xbgr ibias GND VDD bgr_sch
 ** Isource VDD ibias 90u
 
+xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider
+xinverter vp vp2 VDD GND inverter
+C1 vp vp2
+R1 vp vp2 1k
 
-*xinv  vp vinv_p VDD GND inverterr
-*xinv2 vn vinv_n VDD GND inverterr
-** xdivider  VDD fout  GND p2 p7 p1 p6 p5 p4 p3 p0 vp float  divider
-** xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn float2 divider
-** cell VDD fout2 vn p0 MODO GND VDD cell
-** I_float MODO GND 0
-** C1 fout  GND 25f m=1
-** C2 fout2 GND 25f m=1
-
+xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
+xinverter2 vn vn2 VDD GND inverter
+R2 vn vn2 1k
 .control
     set appendwrite 
+
     op
     save all
     save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
@@ -87,45 +75,31 @@ xbgr ibias GND VDD bgr_sch
 
     let vcommon = xvco.net3
 
-    ** save all
-    ** print all
     save I_tail(mA) I_leftp(mA) I_leftn(mA) I_rightp(mA) I_rightn(mA) I_sourc(mA) I_mirror_nmos_pmos(mA) 
     save gmn(mS) gmp(mS)
-    save vp vn vcommon 
-    *save vp vn vcommon $vinv_p vinv_n
+    ** save vp vn vcommon vinv_p vinv_n
 
     save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
     tran 0.01n 200n
     plot vp vn
-    plot vn-vp
-    **plot vinv_p vinv_n
+    plot fout fout2
+    ** plot vn-vp
+    ** plot vinv_p vinv_n
     save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
     plot @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
-    
-    
-    ** plot fout 
-    * plot fout2
 
-    * let vdiff = v(vp)-v(vn)
-    * let vdiff_max =  vecmax(vp-vn)
-    * print vdiff_max
-    * meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
-    * let freq_in = 1/(tperiod)
-    * print freq_in
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    print vdiff_max
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq = 1/(tperiod*1000000000)
 
+    meas tran tperiod2 TRIG fout VAL=0.9 RISE=1 TARG fout VAL=0.9 RISE=2
+    let freq2 = 1/(tperiod2*1000000000)
 
+    meas tran tperiod3 TRIG fout2 VAL=0.9 RISE=1 TARG fout2 VAL=0.9 RISE=2
+    let freq3 = 1/(tperiod3*1000000000)
 
-    * meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
-    * let freq_out = 1/tdiffout
-    * print freq_out
-
-    * meas tran tdiffout2 TRIG v(fout2) VAL=0.9 RISE=3 TARG v(fout2) VAL=0.9 RISE=4
-    * let freq_out2 = 1/tdiffout2
-    * print freq_out2
-
-    * let n = freq_in/freq_out
-    * let n = freq_in/freq_out2
-    * print n
     setplot op
     echo ==================================================
     print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_leftn(mA) I_leftp(mA) I_rightn(mA) I_rightp(mA)   
@@ -136,6 +110,8 @@ xbgr ibias GND VDD bgr_sch
     print gmn(mS) gmp(mS)
     echo ==================================================
     print tail_sat_check nmos_sat_check pmos_sat_check
+    echo ==================================================
+    ** print tran.freq tran.freq2 tran.freq3
     echo ==================================================
 
 .endc

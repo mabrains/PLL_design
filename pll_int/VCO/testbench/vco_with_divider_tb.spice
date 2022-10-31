@@ -5,6 +5,20 @@
 .include ../../BGR/circuit/bgr_sch.ckt 
 .include ../../Divider/circuit/divider.ckt 
 
+.param wn_inv=0.42*1
+.param wp_inv=6*1
+
+.subckt inv vin vout VDD GND
+XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W={wn_inv} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W={wp_inv} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
 .options tnom=27
@@ -35,38 +49,81 @@ VTuner vctrl GND 0.5
 xvco vp vn vctrl ibias VDD GND vco_sch
 xind1 vp vn ind_model
 XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
-** xbgr ibias GND VDD bgr_sch
-Isource VDD ibias 90u
+xbgr ibias GND VDD bgr_sch
+** Isource VDD ibias 90u
 
-xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin float divider
-C1 fout GND 25f m=1
+
+xinv  vp vpout VDD GND inv
+xinv2 vn vnout VDD GND inv
+** xdivider  VDD fout  GND p2 p7 p1 p6 p5 p4 p3 p0 vp float  divider
+** xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn float2 divider
+** cell VDD fout2 vn p0 MODO GND VDD cell
+** I_float MODO GND 0
+** C1 fout  GND 25f m=1
+** C2 fout2 GND 25f m=1
 
 .control
     set appendwrite 
     op
-    save all
-    print all
-    tran 0.01ns 400ns
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm11.msky130_fd_pr__pfet_01v8 
+    save @m.xvco.xm1.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm2.msky130_fd_pr__nfet_01v8 
+    save vp vn fout 
+    ** save all
+    
+    let I_tail(mA)               = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_left(mA)               = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_right(mA)              = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_source(mA)             = @m.xvco.xm8.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_mirror_nmos_pmos(mA)   = @m.xvco.xm5.msky130_fd_pr__pfet_01v8[id]*1000
+
+    let gmn(mS) = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[gm]*1000
+    let gmp(mS) = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[gm]*1000
+
+    let tail_sat_check = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vth]
+    let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]
+    let pmos_sat_check = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vth]
+
+    let vcommon = xvco.net3
+
+    ** save all
+    ** print all
+    save I_tail(mA) I_left(mA) I_righ(mA) I_sourc(mA) I_mirror_nmos_pmos(mA) 
+    save gmn(mS) gmp(mS)
+    save vp vn vcommon
+
+    tran 0.01n 50n
     plot vp 
     plot vn
     plot vp-vn
-    plot fout
+    plot fout 
+    * plot fout2
 
-    let vdiff = v(vp)-v(vn)
-    let vdiff_max =  vecmax(vp-vn)
-    print vdiff_max
-    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
-    let freq_in = 1/(tperiod*1000000000)
-    print freq_in
+    * let vdiff = v(vp)-v(vn)
+    * let vdiff_max =  vecmax(vp-vn)
+    * print vdiff_max
+    * meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    * let freq_in = 1/(tperiod)
+    * print freq_in
 
 
 
-    meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=2 TARG v(fout) VAL=0.9 RISE=3
-    let freq_out = 1/tdiffout
-    print freq_out
+    * meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
+    * let freq_out = 1/tdiffout
+    * print freq_out
 
-    let n = freq_in/freq_out
-    print n
+    * meas tran tdiffout2 TRIG v(fout2) VAL=0.9 RISE=3 TARG v(fout2) VAL=0.9 RISE=4
+    * let freq_out2 = 1/tdiffout2
+    * print freq_out2
+
+    * let n = freq_in/freq_out
+    * let n = freq_in/freq_out2
+    * print n
+    setplot op
+    echo ==================================================
+    print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_left(mA) I_right(mA) vcommon vp vn gmn(mS) gmp(mS) tail_sat_check nmos_sat_check pmos_sat_check
+    echo ==================================================
 
 .endc
 

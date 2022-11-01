@@ -260,15 +260,15 @@ if __name__ == '__main__':
 # mode: python
 # End:
 
-check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 200, 'rise')
-check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 201, 'rise')
-freq_fb = 1/(t2-t1)
+# check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 200, 'rise')
+# check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 201, 'rise')
+# freq_fb = 1/(t2-t1)
 
-check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 71000, 'rise')
-check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 71001, 'rise')
+check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 1000, 'rise')
+check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 1001, 'rise')
 freq_vco = 1/(t2-t1)
-n = freq_vco/freq_fb
+#n = freq_vco/freq_fb
 
 print("vco_freq(Ghz):",freq_vco/1e9)
-print("divider out freq (Mhz):",freq_fb/1e6)
-print("division ratio:",n)
+# print("divider out freq (Mhz):",freq_fb/1e6)
+# print("division ratio:",n)

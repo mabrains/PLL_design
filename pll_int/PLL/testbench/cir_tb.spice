@@ -1,3 +1,5 @@
+
+******************************************************************************************************
 ** Test bench for VCO
 *.include ../circuit/inv.ckt
 .include ../circuit/pll_cir.ckt
@@ -37,33 +39,11 @@ VDD6 p6 GND DC {p6_val}
 VDD7 p0 GND DC {p0_val}
 VDD8 p7 GND DC {p7_val}
 
-.control
-    set appendwrite 
-
-    op
-    tran 0.01n 200n
-    plot xpll.vp 
-    plot xpll.vn 
-    plot vco_out 
-    plot xpll.fb
-    plot xpll.vctrl
-
-
-    meas tran tperiod_pre_inv TRIG xpll.vp VAL=0.4 RISE=30 TARG xpll.vp VAL=0.4 RISE=31
-    let freq_pre_inv = 1/(tperiod_pre_inv*1G)
-
-    meas tran tperiod_post_inv TRIG vco_out VAL=0.4 RISE=30 TARG vco_out VAL=0.4 RISE=31
-    let freq_post_inv = 1/(tperiod_post_inv*1G)
-
-    meas tran tperiod_post_div TRIG xpll.fb VAL=0.9 RISE=1 TARG xpll.fb VAL=0.9 RISE=2
-    let freq_post_div = 1/(tperiod_post_div*1G)
-
-    let divission_ratio = (freq_post_inv)/(freq_post_div)
-    echo ==================================================
-    print freq_pre_inv  freq_post_inv freq_post_div divission_ratio
-    echo ==================================================
-.endc
-
+.ic v(xpll.vctrl)=0
+.op
+*.tran 200p 30u uic
+.tran 0.01n 25u
+.save v(ref) v(xpll.fb) v(xpll.up) v(xpll.dn) v(xpll.vctrl) v(xpll.vp) v(xpll.vn) v(vco_out) i(xpll.vtest)
 
 
 .GLOBAL GND
@@ -71,7 +51,7 @@ VDD8 p7 GND DC {p7_val}
 .end
 
 
-******************************************************************************************************
+***********************************************************************************************************
 * ** Test bench for VCO
 * *.include ../circuit/inv.ckt
 * .include ../circuit/pll_cir.ckt
@@ -111,14 +91,36 @@ VDD8 p7 GND DC {p7_val}
 * VDD7 p0 GND DC {p0_val}
 * VDD8 p7 GND DC {p7_val}
 
-* .ic v(xpll.vctrl)=0
-* .op
-* .tran 200p 30u uic
-* .save v(ref) v(xpll.fb) v(xpll.up) v(xpll.dn) v(xpll.vctrl) v(xpll.vp) v(xpll.vn) v(vco_out) i(xpll.vtest)
+* .control
+*     set appendwrite 
+
+*     op
+*     tran 0.01n 200n
+*     plot xpll.vp 
+*     plot xpll.vn 
+*     plot vco_out 
+*     plot xpll.fb
+*     plot xpll.vctrl
+
+
+*     meas tran tperiod_pre_inv TRIG xpll.vp VAL=0.4 RISE=30 TARG xpll.vp VAL=0.4 RISE=31
+*     let freq_pre_inv = 1/(tperiod_pre_inv*1G)
+
+*     meas tran tperiod_post_inv TRIG vco_out VAL=0.4 RISE=30 TARG vco_out VAL=0.4 RISE=31
+*     let freq_post_inv = 1/(tperiod_post_inv*1G)
+
+*     meas tran tperiod_post_div TRIG xpll.fb VAL=0.9 RISE=1 TARG xpll.fb VAL=0.9 RISE=2
+*     let freq_post_div = 1/(tperiod_post_div*1G)
+
+*     let divission_ratio = (freq_post_inv)/(freq_post_div)
+*     echo ==================================================
+*     print freq_pre_inv  freq_post_inv freq_post_div divission_ratio
+*     echo ==================================================
+* .endc
+
 
 
 * .GLOBAL GND
 * .GLOBAL VDD
 * .end
-
 

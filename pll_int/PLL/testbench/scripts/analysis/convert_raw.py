@@ -206,7 +206,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('REF')
-    plt.xlim(26e-6, 26.4e-6)
+    plt.xlim(24e-6, 24.4e-6)
     plt.grid(True)
 
     plt.subplot(4,1,2)
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('FB')
-    plt.xlim(26e-6, 26.4e-6)
+    plt.xlim(24e-6, 24.4e-6)
     plt.grid(True)
     
     plt.subplot(4,1,3)
@@ -222,7 +222,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('UP')
-    plt.xlim(26e-6, 26.4e-6)
+    plt.xlim(24e-6, 24.4e-6)
     plt.grid(True)
     
     plt.subplot(4,1,4)
@@ -230,7 +230,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('DWN')
-    plt.xlim(26e-6, 26.4e-6)
+    plt.xlim(24e-6, 24.4e-6)
     plt.grid(True)
     plt.legend()
     plt.suptitle("after lock")
@@ -260,15 +260,15 @@ if __name__ == '__main__':
 # mode: python
 # End:
 
-# check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 200, 'rise')
-# check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 201, 'rise')
-# freq_fb = 1/(t2-t1)
+check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 200, 'rise')
+check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 201, 'rise')
+freq_fb = 1/(t2-t1)
 
-check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 1000, 'rise')
-check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 1001, 'rise')
+check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 60000, 'rise')
+check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 60001, 'rise')
 freq_vco = 1/(t2-t1)
-#n = freq_vco/freq_fb
+n = freq_vco/freq_fb
 
 print("vco_freq(Ghz):",freq_vco/1e9)
-# print("divider out freq (Mhz):",freq_fb/1e6)
-# print("division ratio:",n)
+print("divider out freq (Mhz):",freq_fb/1e6)
+print("division ratio:",n)

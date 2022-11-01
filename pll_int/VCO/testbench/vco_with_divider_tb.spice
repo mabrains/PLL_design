@@ -40,11 +40,11 @@ xbgr ibias GND VDD bgr_sch
 ** Isource VDD ibias 90u
 
 xinverter vp vp2 VDD GND inverter
-xinverter2 vn vn2 VDD GND inverter
+xinverter2 vn fout2 VDD GND inverter
 
 **xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
 xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider
-xcell VDD fout2 vn2 GND MODO GND VDD cell
+*xcell VDD fout2 vn2 GND MODO GND VDD cell
 
 ** C1 vp vp2 0.8p
 ** R1 vp2 vp3 50
@@ -102,8 +102,8 @@ xcell VDD fout2 vn2 GND MODO GND VDD cell
     meas tran tperiod_n TRIG vn VAL=0.4 RISE=30 TARG vn VAL=0.4 RISE=31
     let freq_n = 1/(tperiod_n*1G)
 
-    meas tran tperiod_n2 TRIG vn2 VAL=0.4 RISE=30 TARG vn2 VAL=0.4 RISE=31
-    let freq_n2 = 1/(tperiod_n2*1G)
+    *meas tran tperiod_n2 TRIG vn2 VAL=0.4 RISE=30 TARG vn2 VAL=0.4 RISE=31
+    *let freq_n2 = 1/(tperiod_n2*1G)
 
     meas tran tperiod_out TRIG fout VAL=0.9 RISE=1 TARG fout VAL=0.9 RISE=2
     let freq_out = 1/(tperiod_out*1G)
@@ -111,7 +111,7 @@ xcell VDD fout2 vn2 GND MODO GND VDD cell
     meas tran tperiod_out2 TRIG fout2 VAL=0.9 RISE=1 TARG fout2 VAL=0.9 RISE=2
     let freq_out2 = 1/(tperiod_out2*1G)
 
-    let divission_ratio = (tran.freq_out)/(tran.freq_p2)
+    let divission_ratio = (freq_p2)/(freq_out)
     setplot op
     echo ==================================================
     print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_leftn(mA) I_leftp(mA) I_rightn(mA) I_rightp(mA)   
@@ -123,7 +123,7 @@ xcell VDD fout2 vn2 GND MODO GND VDD cell
     echo ==================================================
     print tail_sat_check nmos_sat_check pmos_sat_check
     echo ==================================================
-    print tran.freq_p tran.freq_p2 tran.freq_n tran.freq_n2 tran.freq_out tran.freq_out2 divission_ratio
+    print tran.freq_p tran.freq_p2 tran.freq_n tran.freq_out tran.freq_out2 tran.divission_ratio
     echo ==================================================
 
 .endc

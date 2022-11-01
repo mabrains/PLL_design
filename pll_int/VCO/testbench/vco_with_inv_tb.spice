@@ -1,11 +1,21 @@
 ** Test bench for VCO
 
-.include ../circuit/inv.ckt
+** .include ../circuit/inv.ckt
 .include ../circuit/vco_sch.ckt
 .include ../../BGR/circuit/bgr_sch.ckt 
 .include ../circuit/inductor_model_cct.ckt
 
+.subckt inverter vin vout VDD GND
 
+XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+.ends
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
@@ -14,11 +24,11 @@
 VDD VDD GND 1.8
 VTuner vctrl GND 0.5
 
-xinv   vp  vp2 VDD GND inv
-xinv2  vp2 vp3 VDD GND inv
+xinv   vp  vp2 VDD GND inverter
+xinv2  vp2 vp3 VDD GND inverter
 
-xinv3 vn  vn2 VDD GND inv
-xinv4 vn2 vn3 VDD GND inv
+xinv3 vn  vn2 VDD GND inverter
+xinv4 vn2 vn3 VDD GND inverter
 
 Vpulse vin GND PULSE(0 1.8 1ns 1ns 1ns 4ns 10ns)
 xvco vp vn vctrl ibias VDD GND vco_sch

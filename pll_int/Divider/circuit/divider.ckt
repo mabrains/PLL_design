@@ -15,14 +15,15 @@
 *.ipin p3
 *.ipin p2
 *.ipin p1
-x5 vdd net1 net2 p4 net3 gnd net4 cell
-x6 vdd net5 net1 p5 net4 gnd net6 cell
-x7 vdd net7 net5 p6 net6 gnd net8 cell
-x8 vdd fout net7 p7 net8 gnd vdd cell
-x1 vdd net2 net9 p3 net10 gnd net3 cell
-x2 vdd net9 net11 p2 net12 gnd net10 cell
-x3 vdd net11 net13 p1 net14 gnd net12 cell
-x4 vdd net13 fin p0 float gnd net14 cell
+
+x8 vdd fout  net7   p7  net8  gnd vdd   cell
+x7 vdd net7  net5   p6  net6  gnd net8  cell
+x6 vdd net5  net1   p5  net4  gnd net6  cell
+x5 vdd net1  net2   p4  net3  gnd net4  cell
+x1 vdd net2  net9   p3  net10 gnd net3  cell
+x2 vdd net9  net11  p2  net12 gnd net10 cell
+x3 vdd net11 net13  p1  net14 gnd net12 cell
+x4 vdd net13 fin    p0  float gnd net14 cell
 .ends
 
 .GLOBAL VDD

@@ -39,14 +39,16 @@ XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
 xbgr ibias GND VDD bgr_sch
 ** Isource VDD ibias 90u
 
-xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider
 xinverter vp vp2 VDD GND inverter
+xinverter2 vn vn2 VDD GND inverter
+
+**xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
+xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider
+xcell VDD fout2 vn2 GND MODO GND VDD cell
+
 ** C1 vp vp2 0.8p
 ** R1 vp2 vp3 50
 
-**xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
-xcell VDD fout2 vn2 GND MODO GND VDD cell
-xinverter2 vn vn2 VDD GND inverter
 ** C2 vn vn2 0.8p
 ** R2 vn2 vn3 50
 .control
@@ -84,24 +86,32 @@ xinverter2 vn vn2 VDD GND inverter
     save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
     tran 0.01n 200n
     plot vp vn
+    plot vp2 vn2
     plot fout fout2
     ** plot vn-vp
     ** plot vinv_p vinv_n
     save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
     plot @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
 
-    let vdiff = v(vp)-v(vn)
-    let vdiff_max =  vecmax(vp-vn)
-    print vdiff_max
-    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
-    let freq = 1/(tperiod*1000000000)
+    meas tran tperiod_p TRIG vp VAL=0.4 RISE=30 TARG vp VAL=0.4 RISE=31
+    let freq_p = 1/(tperiod_p*1G)
 
-    meas tran tperiod2 TRIG fout VAL=0.9 RISE=1 TARG fout VAL=0.9 RISE=2
-    let freq2 = 1/(tperiod2*1000000)
+    meas tran tperiod_p2 TRIG vp2 VAL=0.4 RISE=30 TARG vp2 VAL=0.4 RISE=31
+    let freq_p2 = 1/(tperiod_p2*1G)
 
-    meas tran tperiod3 TRIG fout2 VAL=0.9 RISE=1 TARG fout2 VAL=0.9 RISE=2
-    let freq3 = 1/(tperiod3*1000000)
+    meas tran tperiod_n TRIG vn VAL=0.4 RISE=30 TARG vn VAL=0.4 RISE=31
+    let freq_n = 1/(tperiod_n*1G)
 
+    meas tran tperiod_n2 TRIG vn2 VAL=0.4 RISE=30 TARG vn2 VAL=0.4 RISE=31
+    let freq_n2 = 1/(tperiod_n2*1G)
+
+    meas tran tperiod_out TRIG fout VAL=0.9 RISE=1 TARG fout VAL=0.9 RISE=2
+    let freq_out = 1/(tperiod_out*1G)
+
+    meas tran tperiod_out2 TRIG fout2 VAL=0.9 RISE=1 TARG fout2 VAL=0.9 RISE=2
+    let freq_out2 = 1/(tperiod_out2*1G)
+
+    let divission_ratio = (tran.freq_out)/(tran.freq_p2)
     setplot op
     echo ==================================================
     print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_leftn(mA) I_leftp(mA) I_rightn(mA) I_rightp(mA)   
@@ -113,7 +123,7 @@ xinverter2 vn vn2 VDD GND inverter
     echo ==================================================
     print tail_sat_check nmos_sat_check pmos_sat_check
     echo ==================================================
-    print tran.freq tran.freq2 tran.freq3
+    print tran.freq_p tran.freq_p2 tran.freq_n tran.freq_n2 tran.freq_out tran.freq_out2 divission_ratio
     echo ==================================================
 
 .endc

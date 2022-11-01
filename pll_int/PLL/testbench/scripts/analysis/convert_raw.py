@@ -13,6 +13,55 @@ BSIZE_SP = 512 # Max size of a line of data; we don't want to read the
 MDATA_LIST = [b'title', b'date', b'plotname', b'flags', b'no. variables',
               b'no. points', b'dimensions', b'command', b'option']
 
+def freq_meas(x_axis, y_axis, thresh, edge_type):
+
+    arr__temp = np.sign(np.subtract (y_axis, thresh*np.ones(len(y_axis))))
+    if (   ((1  not in np.sign(np.diff(y_axis)))  and  edge_type =='rise')
+        or ((-1 not in np.sign(np.diff(y_axis)))  and  edge_type =='fall')
+        or (thresh > np.max(y_axis))
+        or (thresh < np.min(y_axis))):
+
+        print('t_meas function error: NO CROSSING OF SPECIFIED TYPE HAPENS')
+        return(False,0)
+
+    if (edge_type == 'rise'):
+        arr_dn = np.delete(arr__temp,len(arr__temp)-1)
+        arr_up = np.delete(arr__temp,0)
+        rise_idx = np.where(((arr_up == 1) & (arr_dn == -1)) | ((arr_up == 1) & (arr_dn == 0)))[0]
+        rise_idx2 = np.add(rise_idx, np.ones(len(rise_idx)))
+
+        t_dn = x_axis[rise_idx]
+        t_up = x_axis[rise_idx2.astype(int)]
+
+        y_dn = y_axis[rise_idx]
+        y_up = y_axis[rise_idx2.astype(int)]
+
+    elif(edge_type == 'fall'):
+        arr_up = np.delete(arr__temp,len(arr__temp)-1)
+        arr_dn = np.delete(arr__temp,0)
+        fall_idx = np.where(((arr_up == 1) & (arr_dn == -1)) | ((arr_up == 1) & (arr_dn == 0)))[0]
+        fall_idx2 = np.add(fall_idx, np.ones(len(rise_idx)))
+
+
+        t_up = x_axis[fall_idx]
+        t_dn = x_axis[fall_idx2.astype(int)]
+
+        y_up = y_axis[fall_idx]
+        y_dn = y_axis[fall_idx2.astype(int)]
+    else:
+        print("t_meas function error: WRONG EDGE TYPE")
+        return(False,0)
+
+    slope   = np.divide(np.subtract(y_up, y_dn), np.subtract(t_up, t_dn))
+    t_cross = np.add(t_dn, np.divide(np.subtract(thresh*np.ones(len(y_dn)), y_dn), slope))
+
+
+    #slope = (y_up - y_dn)/(t_up - t_dn)
+    #t_cross = t_dn + (thresh - y_dn)/slope
+    delta_t =  np.diff(t_cross)
+    freq = np.divide(np.ones(len(delta_t)), np.diff(t_cross))
+    return(True, t_cross, delta_t, freq)
+
 def t_meas(x_axis, y_axis, thresh, occur_num, edge_type):
 
     arr__temp = np.sign(np.subtract (y_axis, thresh*np.ones(len(y_axis))))
@@ -267,8 +316,19 @@ freq_fb = 1/(t2-t1)
 check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 60000, 'rise')
 check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 60001, 'rise')
 freq_vco = 1/(t2-t1)
+
+check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.vctrl)"], 0.2, 60000, 'rise')
+check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.vctrl)"], 0.2, 60001, 'rise')
+freq_vctrl = 1/(t2-t1)
+
 n = freq_vco/freq_fb
 
 print("vco_freq(Ghz):",freq_vco/1e9)
+print("vctrl_freq(Ghz):",freq_vctrl/1e9)
 print("divider out freq (Mhz):",freq_fb/1e6)
 print("division ratio:",n)
+
+plt.figure(6)
+check1, time, delta_t, freq = freq_meas(arrs[1]["time"], arrs[1]["v(vco_out)"], 0.9, 'rise')
+plt.plot(time[:-1], freq)
+plt.savefig('../../../results/vco_freq.png')

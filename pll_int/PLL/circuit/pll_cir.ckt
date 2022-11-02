@@ -17,7 +17,7 @@ Xloop_filter_3rd_order lf_input vctrl GND loop_filter_3rd_order
 *************************VCO********************
 xvco vp vn vctrl ibias VDD GND vco_sch
 xind1 vp vn ind_model
-XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
+XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=10 MF=1 m=1  $mim cap
 xbgr ibias GND VDD bgr_sch
 ** Isource VDD ibias 90u
 xinverter vp vco_out VDD GND vco_inverter     w_p=60 w_n=4.2 l=0.15

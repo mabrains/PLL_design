@@ -152,8 +152,10 @@ def rawread(fname: str):
 
 if __name__ == '__main__':
     run_folder_dir = sys.argv[1]
-    raw_file_path = os.path.join(run_folder_dir, "pll.raw") 
-    arrs, plots = rawread(raw_file_path)  
+    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll.raw") 
+    images_path    = os.path.join(run_folder_dir, "images") 
+    csv_files_path = os.path.join(run_folder_dir, "csv_files") 
+    arrs, plots    = rawread(raw_file_path)  
     
     time_arr = arrs[1]["time"]
     vctrl_arr = arrs[1]["v(xpll.vctrl)"]
@@ -170,7 +172,7 @@ if __name__ == '__main__':
     plt.ylabel('Amplitude (V)')
     plt.title('Vcontrol')
     plt.grid(True)
-    plt.savefig(os.path.join(run_folder_dir, "vctrl.png"))
+    plt.savefig(os.path.join(images_path, "vctrl.png"))
 
 
     plt.figure(2)
@@ -178,7 +180,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('VCO Output after the inverter')
-    plt.savefig(os.path.join(run_folder_dir, "VCO_out_after_inv.png"))
+    plt.savefig(os.path.join(images_path, "VCO_out_after_inv.png"))
     plt.grid(True)
 
 
@@ -187,7 +189,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('VCO Output before the inverter')
-    plt.savefig(os.path.join(run_folder_dir, "VCO_out_before_inv.png"))
+    plt.savefig(os.path.join(images_path, "VCO_out_before_inv.png"))
     plt.grid(True)
 
     plt.figure(4)
@@ -224,7 +226,7 @@ if __name__ == '__main__':
     plt.grid(True)
     plt.legend()
     plt.suptitle("Before lock")
-    plt.savefig(os.path.join(run_folder_dir, "beforelock.png"))
+    plt.savefig(os.path.join(images_path, "beforelock.png"))
 
     plt.figure(5)
     plt.subplot(4,1,1)
@@ -260,7 +262,7 @@ if __name__ == '__main__':
     plt.grid(True)
     plt.legend()
     plt.suptitle("after lock")
-    plt.savefig(os.path.join(run_folder_dir, "aferlock.png"))
+    plt.savefig(os.path.join(images_path, "aferlock.png"))
 
     plt.figure(6)
     check1, time, delta_t, freq = freq_meas(time_arr, vco_out_arr, 0.9, 'rise')
@@ -269,20 +271,21 @@ if __name__ == '__main__':
     plt.ylabel('Freq (Hz)')
     plt.title('VCO frequency')
     plt.grid(True)
-    plt.savefig(os.path.join(run_folder_dir, "vco_freq.png"))
+    plt.savefig(os.path.join(images_path, "vco_freq.png"))
 
 
-    check1,t1 = t_meas(time_arr , fb_arr, 1, 1, 'rise')
-    check2,t2 = t_meas(time_arr , fb_arr, 1, 2, 'rise')
+    check1,t1 = t_meas(time_arr , fb_arr, 1, 200, 'rise')
+    check2,t2 = t_meas(time_arr , fb_arr, 1, 201, 'rise')
     freq_fb = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 30, 'rise')
-    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 31, 'rise')
+    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 60000, 'rise')
+    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 60001, 'rise')
     freq_vco = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vctrl_arr, 0.2, 30, 'rise')
-    check2,t2 = t_meas(time_arr , vctrl_arr, 0.2, 31, 'rise')
+    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 60000, 'rise')
+    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 60001, 'rise')
     freq_vctrl = 1/(t2-t1)
+    # freq_vctrl = 0
 
     division_ratio = freq_vco/freq_fb
 
@@ -305,7 +308,7 @@ if __name__ == '__main__':
     measurements.append(data)
 
     df = pd.DataFrame(measurements)
-    df.to_csv(os.path.join(run_folder_dir, "all_measurements.csv"), index=False)
+    df.to_csv(os.path.join(csv_files_path, "all_measurements.csv"), index=False)
     
 
    

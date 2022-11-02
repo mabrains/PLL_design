@@ -39,10 +39,12 @@ VDD6 p6 GND DC {p6_val}
 VDD7 p0 GND DC {p0_val}
 VDD8 p7 GND DC {p7_val}
 
+VTuner xpll.vctrl GND DC 0.4
+
 .ic v(xpll.vctrl)=0
 .op
 *.tran 200p 30u uic
-.tran 0.01n 50n
+.tran 0.01n 200n
 .save v(ref) v(xpll.fb) v(xpll.up) v(xpll.dn) v(xpll.vctrl) v(xpll.vp) v(xpll.vn) v(vco_out) i(xpll.vtest)
 
 

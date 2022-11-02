@@ -272,16 +272,16 @@ if __name__ == '__main__':
     plt.savefig(os.path.join(run_folder_dir, "vco_freq.png"))
 
 
-    check1,t1 = t_meas(time_arr , fb_arr, 1, 200, 'rise')
-    check2,t2 = t_meas(time_arr , fb_arr, 1, 201, 'rise')
+    check1,t1 = t_meas(time_arr , fb_arr, 1, 1, 'rise')
+    check2,t2 = t_meas(time_arr , fb_arr, 1, 2, 'rise')
     freq_fb = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 60000, 'rise')
-    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 60001, 'rise')
+    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 30, 'rise')
+    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 31, 'rise')
     freq_vco = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vctrl_arr, 0.2, 60000, 'rise')
-    check2,t2 = t_meas(time_arr , vctrl_arr, 0.2, 60001, 'rise')
+    check1,t1 = t_meas(time_arr , vctrl_arr, 0.2, 30, 'rise')
+    check2,t2 = t_meas(time_arr , vctrl_arr, 0.2, 31, 'rise')
     freq_vctrl = 1/(t2-t1)
 
     division_ratio = freq_vco/freq_fb

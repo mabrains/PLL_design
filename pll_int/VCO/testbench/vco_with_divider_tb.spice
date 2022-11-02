@@ -1,7 +1,7 @@
 ** Test bench for VCO
 *.include ../circuit/inv.ckt
 .include ../circuit/vco_sch.ckt
-.include ../circuit/inverter.ckt
+.include ../circuit/vco_inverter.ckt
 .include ../circuit/inductor_model_cct.ckt
 .include ../../BGR/circuit/bgr_sch.ckt 
 .include ../../Divider/circuit/divider.ckt 
@@ -39,8 +39,8 @@ XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=13 L=9 MF=1 m=1  $mim cap
 xbgr ibias GND VDD bgr_sch
 ** Isource VDD ibias 90u
 
-xinverter vp vp2 VDD GND inverter    w_p=60 w_n=4.2 l=0.15
-xinverter2 vn fout2 VDD GND inverter w_p=60 w_n=4.2 l=0.15
+xinverter vp vp2 VDD GND vco_inverter    w_p=60 w_n=4.2 l=0.15
+xinverter2 vn fout2 VDD GND vco_inverter w_p=60 w_n=4.2 l=0.15
 
 **xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
 xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider

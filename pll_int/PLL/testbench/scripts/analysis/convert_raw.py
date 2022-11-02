@@ -5,6 +5,9 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+import os
+import pandas as pd
 
 
 BSIZE_SP = 512 # Max size of a line of data; we don't want to read the
@@ -110,25 +113,6 @@ def t_meas(x_axis, y_axis, thresh, occur_num, edge_type):
     return(True,t_cross)
 
 def rawread(fname: str):
-    """Read ngspice binary raw files. Return tuple of the data, and the
-    plot metadata. The dtype of the data contains field names. This is
-    not very robust yet, and only supports ngspice.
-    >>> darr, mdata = rawread('test.py')
-    >>> darr.dtype.names
-    >>> plot(np.real(darr['frequency']), np.abs(darr['v(out)']))
-    """
-    # Example header of raw file
-    # Title: rc band pass example circuit
-    # Date: Sun Feb 21 11:29:14  2016
-    # Plotname: AC Analysis
-    # Flags: complex
-    # No. Variables: 3
-    # No. Points: 41
-    # Variables:
-    #         0       frequency       frequency       grid=3
-    #         1       v(out)  voltage
-    #         2       v(in)   voltage
-    # Binary:
     fp = open(fname, 'rb')
     plot = {}
     count = 0
@@ -166,56 +150,49 @@ def rawread(fname: str):
             break
     return (arrs, plots)
 
-def plotvec(ax,x,y,plabel,xlabel,ylabel,title,xmin,xmax,ymin,ymax):
-    ax.plot(x,y , label=plabel)
-    ax.grid(True)
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
-    ax.set_title(title)
-    ax.legend()
-    plt.xlim(xmin,xmax)
-    plt.ylim(ymin,ymax)
-    # ax.set_xlim(xlimt)
-    # ax.set_ylim(ylimt)
-
 if __name__ == '__main__':
-    arrs, plots = rawread('../../pll.raw')
+    run_folder_dir = sys.argv[1]
+    raw_file_path = os.path.join(run_folder_dir, "pll.raw") 
+    arrs, plots = rawread(raw_file_path)  
+    
+    time_arr = arrs[1]["time"]
+    vctrl_arr = arrs[1]["v(xpll.vctrl)"]
+    vco_out_arr = arrs[1]["v(vco_out)"]
+    vp_arr = arrs[1]["v(xpll.vp)"]
+    ref_arr = arrs[1]["v(ref)"] 
+    fb_arr = arrs[1]["v(xpll.fb)"]
+    up_arr = arrs[1]["v(xpll.up)"]
+    dn_arr = arrs[1]["v(xpll.dn)"]
+
     plt.figure(1)
-    plt.plot(arrs[1]["time"], arrs[1]["v(xpll.vctrl)"])
+    plt.plot(time_arr, vctrl_arr)
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('Vcontrol')
     plt.grid(True)
-    plt.savefig('../../../results/vctrl.png')
+    plt.savefig(os.path.join(run_folder_dir, "vctrl.png"))
 
 
     plt.figure(2)
-    plt.plot(arrs[1]["time"], arrs[1]["v(vco_out)"])
+    plt.plot(time_arr, vco_out_arr)
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('VCO Output after the inverter')
-    plt.savefig('../../../results/VCO_out_after_inv.png')
+    plt.savefig(os.path.join(run_folder_dir, "VCO_out_after_inv.png"))
     plt.grid(True)
 
-    # plt.figure(2)
-    # plt.plot(arrs[1]["time"], arrs[1]["i(xpll.vtest)"])
-    # plt.xlabel('time (sec)') 
-    # plt.ylabel('Current (A)')
-    # plt.title('Charge pump current')
-    # plt.savefig('../../../results/Icp.png')
-    # plt.grid(True)
 
     plt.figure(3)
-    plt.plot(arrs[1]["time"], arrs[1]["v(xpll.vp)"])
+    plt.plot(time_arr, vp_arr)
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('VCO Output before the inverter')
-    plt.savefig('../../../results/VCO_out_before_inv.png')
+    plt.savefig(os.path.join(run_folder_dir, "VCO_out_before_inv.png"))
     plt.grid(True)
 
     plt.figure(4)
     plt.subplot(4,1,1)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(ref)"] , color='b', label='REF')
+    plt.plot(time_arr , ref_arr , color='b', label='REF')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('REF')
@@ -223,7 +200,7 @@ if __name__ == '__main__':
     plt.grid(True)
 
     plt.subplot(4,1,2)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], color='g', label='FB')
+    plt.plot(time_arr , fb_arr, color='g', label='FB')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('FB')
@@ -231,7 +208,7 @@ if __name__ == '__main__':
     plt.grid(True)
     
     plt.subplot(4,1,3)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(xpll.up)"] ,color='r', label='UP')
+    plt.plot(time_arr , up_arr ,color='r', label='UP')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('UP')
@@ -239,7 +216,7 @@ if __name__ == '__main__':
     plt.grid(True)
     
     plt.subplot(4,1,4)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(xpll.dn)"] , color='c', label='DWN')
+    plt.plot(time_arr , dn_arr , color='c', label='DWN')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('DWN')
@@ -247,11 +224,11 @@ if __name__ == '__main__':
     plt.grid(True)
     plt.legend()
     plt.suptitle("Before lock")
-    plt.savefig('../../../results/beforelock.png')
+    plt.savefig(os.path.join(run_folder_dir, "beforelock.png"))
 
     plt.figure(5)
     plt.subplot(4,1,1)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(ref)"] , color='b', label='REF')
+    plt.plot(time_arr , ref_arr , color='b', label='REF')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('REF')
@@ -259,7 +236,7 @@ if __name__ == '__main__':
     plt.grid(True)
 
     plt.subplot(4,1,2)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], color='g', label='FB')
+    plt.plot(time_arr , fb_arr, color='g', label='FB')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('FB')
@@ -267,7 +244,7 @@ if __name__ == '__main__':
     plt.grid(True)
     
     plt.subplot(4,1,3)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(xpll.up)"] ,color='r', label='UP')
+    plt.plot(time_arr , up_arr ,color='r', label='UP')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('UP')
@@ -275,7 +252,7 @@ if __name__ == '__main__':
     plt.grid(True)
     
     plt.subplot(4,1,4)
-    plt.plot(arrs[1]["time"] , arrs[1]["v(xpll.dn)"] , color='c', label='DWN')
+    plt.plot(time_arr , dn_arr , color='c', label='DWN')
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('DWN')
@@ -283,52 +260,52 @@ if __name__ == '__main__':
     plt.grid(True)
     plt.legend()
     plt.suptitle("after lock")
-    plt.savefig('../../../results/aferlock.png')
+    plt.savefig(os.path.join(run_folder_dir, "aferlock.png"))
 
-  
+    plt.figure(6)
+    check1, time, delta_t, freq = freq_meas(time_arr, vco_out_arr, 0.9, 'rise')
+    plt.plot(time[:-1], freq)
+    plt.xlabel('time (sec)') 
+    plt.ylabel('Freq (Hz)')
+    plt.title('VCO frequency')
+    plt.grid(True)
+    plt.savefig(os.path.join(run_folder_dir, "vco_freq.png"))
+
+
+    check1,t1 = t_meas(time_arr , fb_arr, 1, 200, 'rise')
+    check2,t2 = t_meas(time_arr , fb_arr, 1, 201, 'rise')
+    freq_fb = 1/(t2-t1)
+
+    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 60000, 'rise')
+    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 60001, 'rise')
+    freq_vco = 1/(t2-t1)
+
+    check1,t1 = t_meas(time_arr , vctrl_arr, 0.2, 60000, 'rise')
+    check2,t2 = t_meas(time_arr , vctrl_arr, 0.2, 60001, 'rise')
+    freq_vctrl = 1/(t2-t1)
+
+    division_ratio = freq_vco/freq_fb
+
+    print("vco_freq(Ghz):",freq_vco/1e9)
+    print("vctrl_freq(Ghz):",freq_vctrl/1e9)
+    print("divider out freq (Mhz):",freq_fb/1e6)
+    print("division ratio:",division_ratio)
+
+    # freq_vco=0
+    # freq_vctrl=0
+    # freq_fb = 0
+    # division_ratio =0
+    measurements =[]
+    data = {}
+
+    data["vco_freq(Ghz)"]          = freq_vco/1e9
+    data["vctrl_freq(Ghz)"]        = freq_vctrl/1e9
+    data["divider out freq (Mhz)"] = freq_fb/1e6
+    data["division ratio"]         = division_ratio
+    measurements.append(data)
+
+    df = pd.DataFrame(measurements)
+    df.to_csv(os.path.join(run_folder_dir, "all_measurements.csv"), index=False)
     
-    # fig, ((ax1), (ax2), (ax3), (ax4)) = plt.subplots(nrows=4, ncols=1)
-    # #plotvec(ax,x,y,plabel,xlabel,ylabel,title,legendx,xlimt,ylimt):
-    # plotvec(ax1,arrs[1]["time"], arrs[1]["v(ref)"],'REF','Time(Sec)','Amplitude(V)','Ref signal',1e-6,1.4e-6,0,1.9)
-    # plotvec(ax2,arrs[1]["time"], arrs[1]["v(fb)"],'FB','Time(Sec)','Amplitude(V)','FB signal',1e-6,1.4e-6,0,1.9)
-    # plotvec(ax3,arrs[1]["time"], arrs[1]["v(up)"],'UP','Time(Sec)','Amplitude(V)','UP signal',1e-6,1.4e-6,0,1.9)
-    # plotvec(ax4,arrs[1]["time"], arrs[1]["v(dn)"],'DWN','Time(Sec)','Amplitude(V)','DWN signal',1e-6,1.4e-6,0,1.9)
-    # plt.suptitle("Before lock")
-    # plt.savefig('beforelock.png')
-    # fig2, ((ax1), (ax2), (ax3), (ax4)) = plt.subplots(nrows=4, ncols=1)
-    # #plotvec(ax,x,y,plabel,xlabel,ylabel,title,legendx,xlimt,ylimt):
-    # plotvec(ax1,arrs[1]["time"], arrs[1]["v(ref)"],'REF','Time(Sec)','Amplitude(V)','Ref signal',26e-6,26.4e-6,0,1.9)
-    # plotvec(ax2,arrs[1]["time"], arrs[1]["v(fb)"],'FB','Time(Sec)','Amplitude(V)','FB signal',26e-6,26.4e-6,0,1.9)
-    # plotvec(ax3,arrs[1]["time"], arrs[1]["v(up)"],'UP','Time(Sec)','Amplitude(V)','UP signal',26e-6,26.4e-6,0,1.9)
-    # plotvec(ax4,arrs[1]["time"], arrs[1]["v(dn)"],'DWN','Time(Sec)','Amplitude(V)','DWN signal',26e-6,26.4e-6,0,1.9)
-    # plt.suptitle("After lock")
-    # plt.savefig('afterlock.png')
 
-    # plt.show()
-# Local Variables:
-# mode: python
-# End:
-
-check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 200, 'rise')
-check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.fb)"], 1, 201, 'rise')
-freq_fb = 1/(t2-t1)
-
-check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 60000, 'rise')
-check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(vco_out)"], 1, 60001, 'rise')
-freq_vco = 1/(t2-t1)
-
-check1,t1 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.vctrl)"], 0.2, 60000, 'rise')
-check2,t2 = t_meas(arrs[1]["time"] , arrs[1]["v(xpll.vctrl)"], 0.2, 60001, 'rise')
-freq_vctrl = 1/(t2-t1)
-
-n = freq_vco/freq_fb
-
-print("vco_freq(Ghz):",freq_vco/1e9)
-print("vctrl_freq(Ghz):",freq_vctrl/1e9)
-print("divider out freq (Mhz):",freq_fb/1e6)
-print("division ratio:",n)
-
-plt.figure(6)
-check1, time, delta_t, freq = freq_meas(arrs[1]["time"], arrs[1]["v(vco_out)"], 0.9, 'rise')
-plt.plot(time[:-1], freq)
-plt.savefig('../../../results/vco_freq.png')
+   

@@ -242,7 +242,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('REF')
-    plt.xlim(24e-6, 24.4e-6)
+    plt.xlim(18e-6, 18.4e-6)
     plt.grid(True)
 
     plt.subplot(4,1,2)
@@ -250,7 +250,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('FB')
-    plt.xlim(24e-6, 24.4e-6)
+    plt.xlim(18e-6, 18.4e-6)
     plt.grid(True)
     
     plt.subplot(4,1,3)
@@ -258,7 +258,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('UP')
-    plt.xlim(24e-6, 24.4e-6)
+    plt.xlim(18e-6, 18.4e-6)
     plt.grid(True)
     
     plt.subplot(4,1,4)
@@ -266,7 +266,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('DWN')
-    plt.xlim(24e-6, 24.4e-6)
+    plt.xlim(18e-6, 18.4e-6)
     plt.grid(True)
     plt.legend()
     plt.suptitle("after lock")
@@ -285,16 +285,16 @@ if __name__ == '__main__':
     #####################################################################
     ###############################MAESURING FREQ########################
     #####################################################################
-    check1,t1 = t_meas(time_arr , fb_arr, 1, 290, 'rise')
-    check2,t2 = t_meas(time_arr , fb_arr, 1, 291, 'rise')
+    check1,t1 = t_meas(time_arr , fb_arr, 1, 30, 'rise')
+    check2,t2 = t_meas(time_arr , fb_arr, 1, 31, 'rise')
     freq_fb = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 72000, 'rise')
-    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 72001, 'rise')
+    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 9600, 'rise')
+    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 9601, 'rise')
     freq_vco = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 72000, 'rise')
-    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 72001, 'rise')
+    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 9600, 'rise')
+    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 9601, 'rise')
     freq_vctrl = 1/(t2-t1)
     # freq_vctrl = 0
 

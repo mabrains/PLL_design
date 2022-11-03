@@ -4,7 +4,7 @@
 *.include ../circuit/inv.ckt
 .include ../circuit/pll_cir.ckt
 
-.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice ff
 .temp 27
 .options tnom=27
 
@@ -42,7 +42,7 @@ VDD8 p7 GND DC {p7_val}
 .ic v(xpll.vctrl)=0
 .op
 *.tran 200p 30u uic
-.tran 10p 20u
+.tran 2p 15u
 .save v(ref) v(xpll.fb) v(xpll.up) v(xpll.dn) v(xpll.vctrl) v(xpll.vp) v(xpll.vn) v(vco_out) i(xpll.vtest)
 
 

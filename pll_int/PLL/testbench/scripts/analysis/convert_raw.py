@@ -242,7 +242,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('REF')
-    plt.xlim(18e-6, 18.4e-6)
+    plt.xlim(14e-6, 14.4e-6)
     plt.grid(True)
 
     plt.subplot(4,1,2)
@@ -250,7 +250,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('FB')
-    plt.xlim(18e-6, 18.4e-6)
+    plt.xlim(14e-6, 14.4e-6)
     plt.grid(True)
     
     plt.subplot(4,1,3)
@@ -258,7 +258,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('UP')
-    plt.xlim(18e-6, 18.4e-6)
+    plt.xlim(14e-6, 14.4e-6)
     plt.grid(True)
     
     plt.subplot(4,1,4)
@@ -266,7 +266,7 @@ if __name__ == '__main__':
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
     plt.title('DWN')
-    plt.xlim(18e-6, 18.4e-6)
+    plt.xlim(14e-6, 14.4e-6)
     plt.grid(True)
     plt.legend()
     plt.suptitle("after lock")
@@ -285,18 +285,19 @@ if __name__ == '__main__':
     #####################################################################
     ###############################MAESURING FREQ########################
     #####################################################################
-    check1,t1 = t_meas(time_arr , fb_arr, 1, 30, 'rise')
-    check2,t2 = t_meas(time_arr , fb_arr, 1, 31, 'rise')
+    check1,t1 = t_meas(time_arr , fb_arr, 1, 125, 'rise')
+    check2,t2 = t_meas(time_arr , fb_arr, 1, 126, 'rise')
     freq_fb = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 9600, 'rise')
-    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 9601, 'rise')
+    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 36000, 'rise')
+    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 36001, 'rise')
     freq_vco = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 9600, 'rise')
-    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 9601, 'rise')
-    freq_vctrl = 1/(t2-t1)
     # freq_vctrl = 0
+    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 36000, 'rise')
+    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 36001, 'rise')
+    freq_vctrl = 1/(t2-t1)
+ 
 
     division_ratio = freq_vco/freq_fb
 
@@ -323,16 +324,18 @@ if __name__ == '__main__':
     #####################################################################
     ############################PRINTING DATA############################
     #####################################################################
+    
+    # freq_vco=0
+    # freq_vctrl=0
+    # freq_fb = 0
+    # division_ratio =0
+
+    
     print("vco_freq(Ghz):",freq_vco/1e9)
     print("vctrl_freq(Ghz):",freq_vctrl/1e9)
     print("divider out freq (Mhz):",freq_fb/1e6)
     print("division ratio:",division_ratio)
     print("fs (Ghz):",fs/1e9)
-
-    # freq_vco=0
-    # freq_vctrl=0
-    # freq_fb = 0
-    # division_ratio =0
 
     #####################################################################
     #######################SAVING DATA IN CSV############################

@@ -13,7 +13,8 @@
 
 Xconventional_pfd  ref VDD GND fb up dn conventional_pfd
 Xcp up lf_input dn VDD GND CP_with_buffer 
-Xloop_filter_3rd_order lf_input vctrl GND loop_filter_3rd_order 
+Xloop_filter_3rd_order lf_input lf_output GND loop_filter_3rd_order 
+Ebuffer vctrl GND lf_output GND 1
 *************************VCO********************
 xvco vp vn vctrl ibias VDD GND vco_sch
 xind1 vp vn ind_model

@@ -1,0 +1,43 @@
+* NGSPICE file created from TOP.ext - technology: sky130A
+
+.subckt TOP Cin out Cout VDD GND
+X0 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=4.83e+13p pd=3.0644e+08u as=3.96e+13p ps=2.4528e+08u w=1.5e+07u l=150000u
+X1 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=4.83e+13p pd=3.0644e+08u as=3.96e+13p ps=2.4528e+08u w=1.5e+07u l=150000u
+X2 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X3 out Cout VDD VDD sky130_fd_pr__pfet_01v8 ad=4.35e+12p pd=3.058e+07u as=0p ps=0u w=1.5e+07u l=150000u
+X4 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X5 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X6 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X7 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X8 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X9 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X10 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X11 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X12 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X13 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X14 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X15 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X16 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X17 a_2823_n2663# a_2823_n787# GND sky130_fd_pr__res_xhigh_po w=350000u l=4.084e+07u
+X18 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X19 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X20 a_2823_n787# a_2823_1089# GND sky130_fd_pr__res_xhigh_po w=350000u l=4.084e+07u
+X21 Cout a_2823_n2663# GND sky130_fd_pr__res_xhigh_po w=350000u l=4.084e+07u
+X22 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X23 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X24 a_2823_1089# Cin GND sky130_fd_pr__res_xhigh_po w=350000u l=4.084e+07u
+X25 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X26 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X27 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X28 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X29 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X30 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X31 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X32 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X33 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X34 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X35 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X36 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
+X37 out Cout GND GND sky130_fd_pr__nfet_01v8 ad=4.35e+12p pd=3.058e+07u as=0p ps=0u w=1.5e+07u l=150000u
+.ends
+

@@ -1,0 +1,59 @@
+* NGSPICE file created from TOP.ext - technology: sky130A
+
+.subckt ring Vin out VDD GND
+X0 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X1 GND Cin Cout GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X2 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X3 out Cout VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X4 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X5 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X6 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X7 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X8 GND Cin Cout GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X9 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X10 Cout Cin GND GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X11 GND Cin Cout GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X12 Cout Cin GND GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X13 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X14 Cout Cin GND GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X15 Cout Cin GND GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X16 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X17 a_2823_n2663# a_2823_n787# GND sky130_fd_pr__res_xhigh_po w=0.35 l=4.084e+01
+X18 GND Cin Cout GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X19 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X20 a_2823_n787# a_2823_1089# GND sky130_fd_pr__res_xhigh_po w=0.35 l=4.084e+01
+X21 Cout a_2823_n2663# GND sky130_fd_pr__res_xhigh_po w=0.35 l=4.084e+01
+X22 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 w=15 l=0.15
+X23 GND Cin Cout GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+X24 a_2823_1089# Cin GND sky130_fd_pr__res_xhigh_po w=0.35 l=4.084e+01
+X25 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X26 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X27 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X28 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X29 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X30 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X31 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X32 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X33 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X34 Cout Cin GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X35 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X36 Cout Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=15 l=0.15
+X37 out Cout GND GND sky130_fd_pr__nfet_01v8 w=15 l=0.15
+C0 Cin VDD 4.05fF
+C1 Cout VDD 62.80fF
+C2 Cin a_2823_1089# 0.01fF
+C3 Cin out 0.04fF
+C4 Cout out 0.32fF
+C5 out VDD 4.37fF
+C6 a_2823_n787# a_2823_n2663# 0.06fF
+C7 a_2823_1089# a_2823_n787# 0.06fF
+C8 Cout a_2823_n2663# 0.06fF
+C9 Cin Cout 3.40fF
+C10 Cin GND 60p m=1
+C11 Cout GND 60p m=1
+Ls Cin net3 6.23m m=1
+Rs net3 net2 26.2965 m=1
+Cs net2 Cout 40f m=1
+Cp Cin Cout 7p m=1
+.ends
+

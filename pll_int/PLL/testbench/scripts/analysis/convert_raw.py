@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import sys
 import os
 import pandas as pd
-
+from numpy.fft import fft, ifft
 
 BSIZE_SP = 512 # Max size of a line of data; we don't want to read the
                # whole file to find a line, in case file does not have
@@ -166,7 +166,11 @@ if __name__ == '__main__':
     up_arr = arrs[1]["v(xpll.up)"]
     dn_arr = arrs[1]["v(xpll.dn)"]
 
+    #####################################################################
+    #####################PLOT INTENDED QUANTITIES########################
+    #####################################################################
     plt.figure(1)
+    plt.figure(figsize=(15,10))
     plt.plot(time_arr, vctrl_arr)
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
@@ -176,6 +180,7 @@ if __name__ == '__main__':
 
 
     plt.figure(2)
+    plt.figure(figsize=(15,10))
     plt.plot(time_arr, vco_out_arr)
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
@@ -185,6 +190,7 @@ if __name__ == '__main__':
 
 
     plt.figure(3)
+    plt.figure(figsize=(15,10))
     plt.plot(time_arr, vp_arr)
     plt.xlabel('time (sec)') 
     plt.ylabel('Amplitude (V)')
@@ -193,6 +199,7 @@ if __name__ == '__main__':
     plt.grid(True)
 
     plt.figure(4)
+    plt.figure(figsize=(15,10))
     plt.subplot(4,1,1)
     plt.plot(time_arr , ref_arr , color='b', label='REF')
     plt.xlabel('time (sec)') 
@@ -229,6 +236,7 @@ if __name__ == '__main__':
     plt.savefig(os.path.join(images_path, "beforelock.png"))
 
     plt.figure(5)
+    plt.figure(figsize=(15,10))
     plt.subplot(4,1,1)
     plt.plot(time_arr , ref_arr , color='b', label='REF')
     plt.xlabel('time (sec)') 
@@ -265,6 +273,7 @@ if __name__ == '__main__':
     plt.savefig(os.path.join(images_path, "aferlock.png"))
 
     plt.figure(6)
+    plt.figure(figsize=(15,10))
     check1, time, delta_t, freq = freq_meas(time_arr, vco_out_arr, 0.9, 'rise')
     plt.plot(time[:-1], freq)
     plt.xlabel('time (sec)') 
@@ -273,31 +282,61 @@ if __name__ == '__main__':
     plt.grid(True)
     plt.savefig(os.path.join(images_path, "vco_freq.png"))
 
-
-    check1,t1 = t_meas(time_arr , fb_arr, 1, 200, 'rise')
-    check2,t2 = t_meas(time_arr , fb_arr, 1, 201, 'rise')
+    #####################################################################
+    ###############################MAESURING FREQ########################
+    #####################################################################
+    check1,t1 = t_meas(time_arr , fb_arr, 1, 290, 'rise')
+    check2,t2 = t_meas(time_arr , fb_arr, 1, 291, 'rise')
     freq_fb = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 60000, 'rise')
-    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 60001, 'rise')
+    check1,t1 = t_meas(time_arr , vco_out_arr, 1, 72000, 'rise')
+    check2,t2 = t_meas(time_arr , vco_out_arr, 1, 72001, 'rise')
     freq_vco = 1/(t2-t1)
 
-    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 60000, 'rise')
-    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 60001, 'rise')
+    check1,t1 = t_meas(time_arr , vctrl_arr, 0.35, 72000, 'rise')
+    check2,t2 = t_meas(time_arr , vctrl_arr, 0.35, 72001, 'rise')
     freq_vctrl = 1/(t2-t1)
     # freq_vctrl = 0
 
     division_ratio = freq_vco/freq_fb
 
+    #####################################################################
+    ######################################FFT############################
+    #####################################################################
+    fs = 1/np.max(np.diff(time_arr))
+    vco_out_fft = np.fft.fft(vco_out_arr)/len(vco_out_arr)
+    # vco_out_fft = vco_out_fft[range(int(len(vco_out_arr)/2))]
+
+    # freq_arr = np.arange(int(len(vco_out_arr)/2))
+    # freq_arr = freq_arr *(fs/len(vco_out_arr))
+    freq_arr = np.fft.fftfreq(len(vco_out_fft), 1/fs)
+
+    plt.figure(7)
+    plt.figure(figsize=(15,10))
+    plt.plot(freq_arr, np.abs(vco_out_fft))
+    plt.xlabel('Freq (Hz)')
+    plt.ylabel('FFT Amplitude |X(freq)|')
+    plt.title('FFT of VCO Output')
+    plt.xlim(-10.1e9, 10.1e9)
+    plt.savefig(os.path.join(images_path, "vco_fft.png"))
+    
+    #####################################################################
+    ############################PRINTING DATA############################
+    #####################################################################
     print("vco_freq(Ghz):",freq_vco/1e9)
     print("vctrl_freq(Ghz):",freq_vctrl/1e9)
     print("divider out freq (Mhz):",freq_fb/1e6)
     print("division ratio:",division_ratio)
+    print("fs (Ghz):",fs/1e9)
 
     # freq_vco=0
     # freq_vctrl=0
     # freq_fb = 0
     # division_ratio =0
+
+    #####################################################################
+    #######################SAVING DATA IN CSV############################
+    #####################################################################
     measurements =[]
     data = {}
 
@@ -305,6 +344,8 @@ if __name__ == '__main__':
     data["vctrl_freq(Ghz)"]        = freq_vctrl/1e9
     data["divider out freq (Mhz)"] = freq_fb/1e6
     data["division ratio"]         = division_ratio
+    data["fs_min(Ghz)"]         = 1e-9/np.max(np.diff(time_arr))
+    data["fs_max(Ghz)"]         = 1e-9/np.min(np.diff(time_arr))
     measurements.append(data)
 
     df = pd.DataFrame(measurements)

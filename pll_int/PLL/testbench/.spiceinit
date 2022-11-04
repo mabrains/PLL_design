@@ -3,7 +3,7 @@
 set ngbehavior=hsa
 * "nomodcheck" speeds up loading time
 set ng_nomodcheck
-set num_threads=30
+set num_threads=29
 set wr_singlescale
 set wr_vecnames
 set option numdgt = 3

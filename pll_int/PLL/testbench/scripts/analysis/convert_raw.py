@@ -152,7 +152,7 @@ def rawread(fname: str):
 
 if __name__ == '__main__':
     run_folder_dir = sys.argv[1]
-    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll_int.raw") 
+    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll.raw") 
     images_path    = os.path.join(run_folder_dir, "images") 
     csv_files_path = os.path.join(run_folder_dir, "csv_files") 
     arrs, plots    = rawread(raw_file_path)  

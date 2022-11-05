@@ -2,7 +2,7 @@
 ******************************************************************************************************
 ** Test bench for VCO
 *.include ../circuit/inv.ckt
-.include ../circuit/pll_cir.ckt
+.include ../circuit/pll_int_cir.ckt
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
@@ -26,7 +26,7 @@
 .param p6_val=  0
 .param p7_val=  0
 
-xpll ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll
+xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll_int
 Vref ref GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
 VDD VDD GND DC 1.8
 VDD1 p2 GND DC {p2_val}
@@ -38,40 +38,12 @@ VDD6 p6 GND DC {p6_val}
 VDD7 p0 GND DC {p0_val}
 VDD8 p7 GND DC {p7_val}
 
-.ic v(xpll.vctrl)=0
+.ic v(xpll_int.vctrl)=0
 .op
 *.tran 200p 30u uic
-* .tran 0.01n 100n
-* .save v(ref) v(xpll.fb) v(xpll.up) v(xpll.dn) v(xpll.vctrl) v(xpll.vp) v(xpll.vn) v(vco_out) i(xpll.vtest)
+.tran 0.01n 100n
+.save v(ref) v(xpll_int.fb) v(xpll_int.up) v(xpll_int.dn) v(xpll_int.vctrl) v(xpll_int.vp) v(xpll_int.vn) v(vco_out) 
 
-.control
-    set appendwrite 
-
-    op
-    print all
-    tran 0.01n 200n
-    plot xpll.vp 
-    plot xpll.vn 
-    plot vco_out 
-    plot xpll.fb
-    plot xpll.vctrl
-
-
-
-    meas tran tperiod_pre_inv TRIG xpll.vp VAL=0.4 RISE=30 TARG xpll.vp VAL=0.4 RISE=31
-    let freq_pre_inv = 1/(tperiod_pre_inv*1G)
-
-    meas tran tperiod_post_inv TRIG vco_out VAL=0.4 RISE=30 TARG vco_out VAL=0.4 RISE=31
-    let freq_post_inv = 1/(tperiod_post_inv*1G)
-
-    meas tran tperiod_post_div TRIG xpll.fb VAL=0.9 RISE=1 TARG xpll.fb VAL=0.9 RISE=2
-    let freq_post_div = 1/(tperiod_post_div*1G)
-
-    let divission_ratio = (freq_post_inv)/(freq_post_div)
-    echo ==================================================
-    print freq_pre_inv  freq_post_inv freq_post_div divission_ratio
-    echo ==================================================
-.endc
 
 .GLOBAL GND
 .GLOBAL VDD
@@ -81,7 +53,7 @@ VDD8 p7 GND DC {p7_val}
 ***********************************************************************************************************
 * ** Test bench for VCO
 * *.include ../circuit/inv.ckt
-* .include ../circuit/pll_cir.ckt
+* .include ../circuit/pll_int_cir.ckt
 
 * .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 * .temp 27
@@ -106,7 +78,7 @@ VDD8 p7 GND DC {p7_val}
 * .param p7_val=  0
 
 
-* xpll ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll
+* xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll_int
 * Vref ref GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
 * VDD VDD GND DC 1.8
 * VDD1 p2 GND DC {p2_val}
@@ -123,20 +95,20 @@ VDD8 p7 GND DC {p7_val}
 
 *     op
 *     tran 0.01n 200n
-*     plot xpll.vp 
-*     plot xpll.vn 
+*     plot xpll_int.vp 
+*     plot xpll_int.vn 
 *     plot vco_out 
-*     plot xpll.fb
-*     plot xpll.vctrl
+*     plot xpll_int.fb
+*     plot xpll_int.vctrl
 
 
-*     meas tran tperiod_pre_inv TRIG xpll.vp VAL=0.4 RISE=30 TARG xpll.vp VAL=0.4 RISE=31
+*     meas tran tperiod_pre_inv TRIG xpll_int.vp VAL=0.4 RISE=30 TARG xpll_int.vp VAL=0.4 RISE=31
 *     let freq_pre_inv = 1/(tperiod_pre_inv*1G)
 
 *     meas tran tperiod_post_inv TRIG vco_out VAL=0.4 RISE=30 TARG vco_out VAL=0.4 RISE=31
 *     let freq_post_inv = 1/(tperiod_post_inv*1G)
 
-*     meas tran tperiod_post_div TRIG xpll.fb VAL=0.9 RISE=1 TARG xpll.fb VAL=0.9 RISE=2
+*     meas tran tperiod_post_div TRIG xpll_int.fb VAL=0.9 RISE=1 TARG xpll_int.fb VAL=0.9 RISE=2
 *     let freq_post_div = 1/(tperiod_post_div*1G)
 
 *     let divission_ratio = (freq_post_inv)/(freq_post_div)

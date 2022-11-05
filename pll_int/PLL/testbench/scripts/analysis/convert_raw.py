@@ -152,19 +152,19 @@ def rawread(fname: str):
 
 if __name__ == '__main__':
     run_folder_dir = sys.argv[1]
-    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll.raw") 
+    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll_int.raw") 
     images_path    = os.path.join(run_folder_dir, "images") 
     csv_files_path = os.path.join(run_folder_dir, "csv_files") 
     arrs, plots    = rawread(raw_file_path)  
     
     time_arr = arrs[1]["time"]
-    vctrl_arr = arrs[1]["v(xpll_int.vctrl)"]
+    vctrl_arr = arrs[1]["v(xpll_int_int.vctrl)"]
     vco_out_arr = arrs[1]["v(vco_out)"]
-    vp_arr = arrs[1]["v(xpll_int.vp)"]
+    vp_arr = arrs[1]["v(xpll_int_int.vp)"]
     ref_arr = arrs[1]["v(ref)"] 
-    fb_arr = arrs[1]["v(xpll_int.fb)"]
-    up_arr = arrs[1]["v(xpll_int.up)"]
-    dn_arr = arrs[1]["v(xpll_int.dn)"]
+    fb_arr = arrs[1]["v(xpll_int_int.fb)"]
+    up_arr = arrs[1]["v(xpll_int_int.up)"]
+    dn_arr = arrs[1]["v(xpll_int_int.dn)"]
 
     #####################################################################
     #####################PLOT INTENDED QUANTITIES########################

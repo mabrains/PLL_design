@@ -21,7 +21,7 @@ if [ -f $CIRCUIT_TESTBENCH ]
 then
     echo "==== CIRCUIT TESTBENCH ===="
     cd $TESTBENCH
-    ngspice -b cir_tb.spice -r $COMMAND_PATH/$run_folder/raw_files/pll.raw
+    ngspice -b cir_tb.spice -r $COMMAND_PATH/$run_folder/raw_files/pll_int.raw
     python3 $CONVERT_RAW_TESTBENCH $COMMAND_PATH/$run_folder
     echo $COMMAND_PATH/$run_folder
     cp -r $COMMAND_PATH/$run_folder/images    $RESULT_IMAGES_TESTBENCH

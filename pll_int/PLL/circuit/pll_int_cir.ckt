@@ -1,4 +1,4 @@
-* PLL subckt
+* pll_int subckt
 
 .include ../../PFD/circuit/pfd_cir.ckt
 .include ../../CP/circuit/cp_cir.ckt
@@ -10,7 +10,7 @@
 .include ../../LPF/circuit/lf_cir.ckt
 .include ../../Divider/circuit/divider.ckt
 
-.subckt pll ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND
+.subckt pll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND
 
 Xconventional_pfd  ref VDD GND fb up dn conventional_pfd
 Xcp up lf_input dn ibias_cp VDD GND CP_with_buffer_2   $rearranged charge pump
@@ -58,7 +58,7 @@ xdivider VDD fb GND p2 p7 p1 p6 p5 p4 p3 p0 vco_out float divider
 * .include ../../LPF/circuit/lf_cir.ckt
 * .include ../../Divider/circuit/divider.ckt
 
-* .subckt pll ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND
+* .subckt pll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND
 
 * Xconventional_pfd  ref VDD GND fb up dn conventional_pfd
 * *Xcp up lf_input dn VDD GND CP_with_buffer 

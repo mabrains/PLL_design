@@ -152,19 +152,19 @@ def rawread(fname: str):
 
 if __name__ == '__main__':
     run_folder_dir = sys.argv[1]
-    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll.raw") 
+    raw_file_path  = os.path.join(run_folder_dir, "raw_files/pll_int.raw") 
     images_path    = os.path.join(run_folder_dir, "images") 
     csv_files_path = os.path.join(run_folder_dir, "csv_files") 
     arrs, plots    = rawread(raw_file_path)  
     
     time_arr = arrs[1]["time"]
-    vctrl_arr = arrs[1]["v(xpll.vctrl)"]
+    vctrl_arr = arrs[1]["v(xpll_int.vctrl)"]
     vco_out_arr = arrs[1]["v(vco_out)"]
-    vp_arr = arrs[1]["v(xpll.vp)"]
+    vp_arr = arrs[1]["v(xpll_int.vp)"]
     ref_arr = arrs[1]["v(ref)"] 
-    fb_arr = arrs[1]["v(xpll.fb)"]
-    up_arr = arrs[1]["v(xpll.up)"]
-    dn_arr = arrs[1]["v(xpll.dn)"]
+    fb_arr = arrs[1]["v(xpll_int.fb)"]
+    up_arr = arrs[1]["v(xpll_int.up)"]
+    dn_arr = arrs[1]["v(xpll_int.dn)"]
 
     #####################################################################
     #####################PLOT INTENDED QUANTITIES########################
@@ -338,7 +338,7 @@ if __name__ == '__main__':
     print("fs (Ghz):",fs/1e9)
 
     #####################################################################
-    #######################SAVING DATA IN CSV############################
+    #######################SAVING DATA IN CSV############################freq_vctrl
     #####################################################################
     measurements =[]
     data = {}

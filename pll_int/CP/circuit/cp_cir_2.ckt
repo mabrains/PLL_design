@@ -4,11 +4,12 @@
 .include cp_bias.ckt
 
 
-.subckt CP_with_buffer_2  UP VOP DN VDD GND
+.subckt CP_with_buffer_2  UP DN VOP ibias_cp VDD GND
 X1 UP UBP VDD GND cp_inverter
 X2 DN DNB VDD GND cp_inverter
 X3 VOP VON VON nbias nbias_casc pbias pbias_casc VDD GND cp_ota
-xcp_bias_cp nbias nbias_casc pbias pbias_casc VDD GND cp_bias
+xcp_bias ibias_cp nbias nbias_casc pbias pbias_casc VDD GND cp_bias
+
 
 XM7 net4 nbias GND GND sky130_fd_pr__nfet_01v8 L=0.6 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'

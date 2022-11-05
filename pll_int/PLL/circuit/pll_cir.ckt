@@ -25,7 +25,7 @@ XMCP ibias_cp ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=25 nf=1 ad='int((n
 + sa=0 sb=0 sd=0 mult=1 m=1
 *************************************************
 Xconventional_pfd  ref VDD GND fb up dn conventional_pfd
-Xcp up dn lf_input ibias_cp VDD GND CP_with_buffer_2   $rearranged charge pump
+Xcp up dn lf_input ibias_cp VDD GND CP_with_buffer_2   $charge pump rearranged
 Xloop_filter_3rd_order lf_input vctrl GND loop_filter_3rd_order 
 *************************VCO********************
 xvco vp vn vctrl ibias_vco VDD GND vco_sch

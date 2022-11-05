@@ -1,0 +1,43 @@
+* non ideal current source in cp biasing cct
+.include {{ current_path }}/../../../../BGR/circuit/bgr_sch.ckt
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+VDD VDD GND 1.8
+
+** Isource VDD ibias 90u
+xbgr ibias GND VDD bgr_sch
+
+XMN1 ibias ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMN2 net1 ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=25 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMp1 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L={{lp}} W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+.control
+    op
+    save @m.xmp1.msky130_fd_pr__pfet_01v8  
+    save all
+    let vthp1  = @m.xmp1.msky130_fd_pr__pfet_01v8[vth]
+    let vgsp1  = @m.xmp1.msky130_fd_pr__pfet_01v8[vgs]
+    let in1    = @m.xmn1.msky130_fd_pr__nfet_01v8[id]*1000000
+    let in2    = @m.xmn2.msky130_fd_pr__nfet_01v8[id]*1000000
+    let ip1    = @m.xmp1.msky130_fd_pr__pfet_01v8[id]*1000000
+    print all
+
+
+    quit
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

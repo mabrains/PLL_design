@@ -1,6 +1,6 @@
 ** cp circuit 
 .include cp_inverter.ckt
-.include cp_ota.ckt
+.include cp_ota_folded.ckt
 .include cp_bias.ckt
 
 

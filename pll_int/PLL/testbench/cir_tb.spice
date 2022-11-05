@@ -4,7 +4,7 @@
 *.include ../circuit/inv.ckt
 .include ../circuit/pll_cir.ckt
 
-.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice ss
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
 .options tnom=27
 

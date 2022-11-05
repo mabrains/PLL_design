@@ -1,6 +1,6 @@
 * non ideal current source in cp biasing cct
 .include {{ current_path }}/../../../../BGR/circuit/bgr_sch.ckt
-
+.include {{ current_path }}/../../../../CP/circuit/cp_bias.ckt
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
 .options tnom=27
@@ -22,9 +22,11 @@ XMP1 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=40 nf=4 ad='int((nf+1)/2
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 
-XMP2 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L={{lp}} W={{wp}} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XMP2 nbias_casc net1 VDD VDD sky130_fd_pr__pfet_01v8 L={{lp}} W={{wp}} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
+
+xcp_bias nbias_casc VDD GND cp_bias
 
 .control
     op

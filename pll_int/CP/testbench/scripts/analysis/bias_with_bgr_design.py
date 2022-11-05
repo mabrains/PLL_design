@@ -36,7 +36,7 @@ NUM_WORKERS = 30 # maximum number of processor threds to operate on
 
 #lp_values = [0.42,0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5]
 lp_values = np.arange(0.15, 0.3, 0.15).tolist()
-wp_values = np.arange(40, 45, 0.5).tolist()
+wp_values = np.arange(10, 15, 0.5).tolist()
 
 def run_corner(all_corner_data):
 

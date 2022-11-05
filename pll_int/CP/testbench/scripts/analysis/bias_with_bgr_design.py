@@ -31,31 +31,33 @@ measure_dir = os.path.join("..", "analysis/measurements")
 current_path = os.getcwd()
 
 
-TEMPLATE_FILE = "inv_temp.spice" #name of the tb 
-NUM_WORKERS = 2 # maximum number of processor threds to operate on 
+TEMPLATE_FILE = "bias_cct_with_bgr_temp.spice" #name of the tb 
+NUM_WORKERS = 30 # maximum number of processor threds to operate on 
 
 #lp_values = [0.42,0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5]
-lp_values = np.arange(0.15, 3, 0.25).tolist()
+lp_values = np.arange(0.15, 0.3, 0.15).tolist()
+wp_values = np.arange(40, 45, 0.5).tolist()
 
 def run_corner(all_corner_data):
 
     templateLoader = jinja2.FileSystemLoader(searchpath=main_tb_path)
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(TEMPLATE_FILE)
-    lp = all_corner_data
+    lp = all_corner_data[0]
+    wp = all_corner_data[1]
 
     # update the tb with the new values and save the content in a variable
-    full_spice = template.render(lp = lp, current_path=current_path)
+    full_spice = template.render(lp = lp,wp = wp, current_path=current_path)
 
     # create a new tb for the intended corner and update it and then close it
-    spice_file_path = os.path.join(run_dir, "{}.spi".format(lp))
+    spice_file_path = os.path.join(run_dir, "{}_{}.spi".format(lp,wp))
     text_file = open(spice_file_path, "w")
     text_file.write(full_spice)
     text_file.close()
 
     # create a log file for the intended corner and 
     # then run the tb 
-    spice_run_log = os.path.join(run_dir, "{}.log".format(lp))
+    spice_run_log = os.path.join(run_dir, "{}_{}.log".format(lp,wp))
     log_file = open(spice_run_log, "w")
     subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
     log_file.close()
@@ -73,21 +75,69 @@ def run_corner(all_corner_data):
         s = line.split()
         #print (s)
         if len(s) > 2:
-            if s[0] == "vthp1":
-                results_dict["vthp1"] = s[2]
+            if s[0] == "vgs1":
+                results_dict["vgs1"] = s[2]
             
-            elif s[0] == "vgsp1":
-                results_dict["vgsp1"] = s[2]
+            elif s[0] == "vds1":
+                results_dict["vds1"] = s[2]
 
-            elif s[0] == "in1(uA)":
-                results_dict["in1"] = s[2]
+            elif s[0] == "vth1":
+                results_dict["vth1"] = s[2]
 
-            elif s[0] == "in2(uA)":
-                results_dict["in2"] = s[2]
+            elif s[0] == "sat1":
+                results_dict["sat1"] = s[2]
 
-            elif s[0] == "ip1(uA)":
-                results_dict["ip1"] = s[2]
+            elif s[0] == "i1":
+                results_dict["i1"] = s[2]
 
+
+
+            elif s[0] == "vgs2":
+                results_dict["vgs2"] = s[2]
+            
+            elif s[0] == "vds2":
+                results_dict["vds2"] = s[2]
+
+            elif s[0] == "vth2":
+                results_dict["vth2"] = s[2]
+
+            elif s[0] == "sat2":
+                results_dict["sat2"] = s[2]
+
+            elif s[0] == "i2":
+                results_dict["i2"] = s[2]
+
+
+
+            if s[0] == "vgs3":
+                results_dict["vgs3"] = s[2]
+            
+            elif s[0] == "vds3":
+                results_dict["vds3"] = s[2]
+
+            elif s[0] == "vth3":
+                results_dict["vth3"] = s[2]
+
+            elif s[0] == "sat3":
+                results_dict["sat3"] = s[2]
+
+            elif s[0] == "i3":
+                results_dict["i3"] = s[2]
+
+            if s[0] == "vgs4":
+                results_dict["vgs4"] = s[2]
+            
+            elif s[0] == "vds4":
+                results_dict["vds4"] = s[2]
+
+            elif s[0] == "vth4":
+                results_dict["vth4"] = s[2]
+
+            elif s[0] == "sat4":
+                results_dict["sat4"] = s[2]
+
+            elif s[0] == "i4":
+                results_dict["i4"] = s[2]
 
 
     log_file.close() # close the log file
@@ -109,17 +159,18 @@ if __name__ == "__main__":
     
     # create an empty list to carry all the measurements for all the corners
     my_results = []
-
+    all_comb = list(itertools.product(lp_values, wp_values))
     # We can use a with statement to ensure threads are cleaned up promptly
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
-        future_to_comb = {executor.submit(run_corner, comp): comp for comp in lp_values}
+        future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
         
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
             try:
                 data = {}
-                data["lp"] = comb
+                data["lp"] = comb[0]
+                data["wp"] = comb[1]
                 
                 new_data = future.result()
                 data.update(new_data)

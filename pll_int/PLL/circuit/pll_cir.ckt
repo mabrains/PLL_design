@@ -1,0 +1,80 @@
+* PLL subckt
+
+.include ../../PFD/circuit/pfd_cir.ckt
+.include ../../CP/circuit/cp_cir.ckt
+.include ../../CP/circuit/cp_cir_2.ckt
+.include ../../VCO/circuit/vco_sch.ckt
+.include ../../VCO/circuit/inductor_model_cct.ckt
+.include ../../VCO/circuit/vco_inverter.ckt
+.include ../../BGR/circuit/bgr_sch.ckt
+.include ../../LPF/circuit/lf_cir.ckt
+.include ../../Divider/circuit/divider.ckt
+
+.subckt pll ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND
+
+Xconventional_pfd  ref VDD GND fb up dn conventional_pfd
+Xcp up lf_input dn ibias_cp VDD GND CP_with_buffer_2   $rearranged charge pump
+Xloop_filter_3rd_order lf_input vctrl GND loop_filter_3rd_order 
+*************************VCO********************
+xvco vp vn vctrl ibias_vco VDD GND vco_sch
+xind1 vp vn ind_model
+XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=10 MF=1 m=1  $mim cap
+*************************BGR********************
+xbgr ibias_bgr GND VDD bgr_sch
+XMBGR ibias_bgr ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XMVCO ibias_vco ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XMCP ibias_cp ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=25 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+************************************************
+xinverter vp vco_out VDD GND vco_inverter     w_p=60 w_n=4.2 l=0.15
+xinverter2 vn fout_dummy VDD GND vco_inverter w_p=60 w_n=4.2 l=0.15
+*************************************************
+xdivider VDD fb GND p2 p7 p1 p6 p5 p4 p3 p0 vco_out float divider
+
+.ends
+.GLOBAL GND
+.GLOBAL VDD
+
+* Xcp up lf_input dn VDD GND CP_with_buffer    $old charge pump
+* IVCO VDD ibias 90u
+* ICP VDD nbias_casc 10u
+
+
+
+
+
+* .include ../../PFD/circuit/pfd_cir.ckt
+* .include ../../CP/circuit/cp_cir.ckt
+* .include ../../CP/circuit/cp_cir_2.ckt
+* .include ../../VCO/circuit/vco_sch.ckt
+* .include ../../VCO/circuit/inductor_model_cct.ckt
+* .include ../../VCO/circuit/vco_inverter.ckt
+* .include ../../BGR/circuit/bgr_sch.ckt
+* .include ../../LPF/circuit/lf_cir.ckt
+* .include ../../Divider/circuit/divider.ckt
+
+* .subckt pll ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND
+
+* Xconventional_pfd  ref VDD GND fb up dn conventional_pfd
+* *Xcp up lf_input dn VDD GND CP_with_buffer 
+* Xcp up lf_input dn VDD GND CP_with_buffer_2 
+* Xloop_filter_3rd_order lf_input vctrl GND loop_filter_3rd_order 
+* *************************VCO********************
+* xvco vp vn vctrl ibias VDD GND vco_sch
+* xind1 vp vn ind_model
+* XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=10 MF=1 m=1  $mim cap
+* xbgr ibias GND VDD bgr_sch
+* ** Isource VDD ibias 90u
+* xinverter vp vco_out VDD GND vco_inverter     w_p=60 w_n=4.2 l=0.15
+* xinverter2 vn fout_dummy VDD GND vco_inverter w_p=60 w_n=4.2 l=0.15
+* *************************************************
+* xdivider VDD fb GND p2 p7 p1 p6 p5 p4 p3 p0 vco_out float divider
+
+* .ends
+* .GLOBAL GND
+* .GLOBAL VDD

@@ -1,11 +1,11 @@
 
-.subckt vco_inverter vin vout VDD GND w_p=6 w_n=0.42 l=0.15
+.subckt vco_inverter vin vout VDD GND w_p=6 w_n=0.42 l=0.15 nfn=1 nfp=1
 
-XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L={l} W={w_n} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L={l} W={w_n} nf={nfn} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 
-XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L={l} W={w_p} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L={l} W={w_p} nf={nfp} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
 

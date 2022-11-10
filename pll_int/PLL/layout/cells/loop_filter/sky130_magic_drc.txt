@@ -1,4 +1,0 @@
-DRC errors report for current cell
---------------------------------------------
---------------------------------------------
-Total DRC errors count: 0

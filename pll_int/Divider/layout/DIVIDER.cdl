@@ -1,0 +1,96 @@
+** divider  cdl
+
+.subckt DIVIDER VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin modo
+
+XDIV_CELL VDD GND fin modo fout0 modi0 p0 DIV_CELL
+
+XDIV_CELL1 VDD GND fout0 modi0 fout1 modi1 p1 DIV_CELL
+
+XDIV_CELL2 VDD GND fout1 modi1 fout2 modi2 p2 DIV_CELL
+
+XDIV_CELL3 VDD GND fout2 modi2 fout3 modi3 p3 DIV_CELL
+
+XDIV_CELL7 VDD GND fout3 modi3 fout4 modi4 p4 DIV_CELL
+
+XDIV_CELL6 VDD GND fout4 modi4 fout5 modi5 p5 DIV_CELL
+
+XDIV_CELL5 VDD GND fout5 modi5 fout6 modi6 p6 DIV_CELL
+
+XDIV_CELL4 VDD GND fout6 modi6 fout modi p7 DIV_CELL
+
+.ends 
+
+.subckt DIV_CELL VDD GND fin modo fout modi P
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M0 fout 2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M1 fout 1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M2 fout 2 net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M3 net1 1 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M4 31 fout vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M5 31 modi vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M6 31 modi net2 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M7 net2 fout gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M8 3 31 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M9 3 31 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M10 finb fin vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M11 finb fin gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M12 2 fin vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M13 2 P vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M14 2 P net1_nand3 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M15 net1_nand3 fin net2_nand3 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M16 2 modo vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M17 net2_nand3 modo gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M18 net1_ff1 fout VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M19 net3_ff1 finb net1_ff1 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M20 net3_ff1 fin net2_ff1 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M21 net2_ff1 fout GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M22 net4_ff1 net3_ff1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M23 1 fin net4_ff1 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M24 1 finb net5_ff1 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M25 net5_ff1 net3_ff1 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M26 net1_ff2 3 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M27 net3_ff2 finb net1_ff2 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M28 net3_ff2 fin net2_ff2 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M29 net2_ff2 3 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M30 net4_ff2 net3_ff2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M31 modo fin net4_ff2 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M32 modo finb net5_ff2 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M33 net5_ff2 net3_ff2 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+
+.ends

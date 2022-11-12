@@ -1,42 +1,44 @@
-* NGSPICE file created from DIV_CELL.ext - technology: sky130A
+* NGSPICE file created from DIV_CELL.eXMt - technology: sky130AXM0
 
 .subckt DIV_CELL net1_ff2 fin P modo net1 net1_nand3 net2 net2_nand3 net1_ff1 net2_ff1
 + net4_ff1 net5_ff1 net4_ff2 net2_ff2 net5_ff2 2 1 3 modi fout 31 finb net3_ff1 net3_ff2
 + VDD GND
-X0 VDD.t14 2.t4 fout.t1 VDD.t13 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X1 net1_ff1.t0 fout.t3 VDD.t18 VDD.t17 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X2 GND.t7 modo.t2 net2_nand3.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X3 net2.t1 modi.t0 31.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X4 net4_ff1.t1 net3_ff1.t2 VDD.t12 VDD.t11 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X5 net1_nand3.t0 P.t0 2.t2 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X6 net5_ff2.t0 net3_ff2.t2 GND.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X7 GND.t11 31.t3 3.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X8 net3_ff1.t1 finb.t2 net1_ff1.t1 VDD.t23 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X9 VDD.t8 modi.t1 31.t2 VDD.t7 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X10 net1.t1 2.t5 fout.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X11 GND.t10 fin.t0 finb.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X12 VDD.t22 1.t2 fout.t2 VDD.t21 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X13 net3_ff1.t0 fin.t1 net2_ff1.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X14 modo.t1 finb.t3 net5_ff2.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X15 VDD.t10 fin.t2 2.t1 VDD.t9 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X16 GND.t1 1.t3 net1.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X17 modo.t0 fin.t3 net4_ff2.t1 VDD.t5 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X18 net3_ff2.t0 fin.t4 net2_ff2.t1 GND.t2 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X19 1.t0 fin.t5 net4_ff1.t0 VDD.t0 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X20 net2_ff1.t1 fout.t4 GND.t9 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X21 GND.t8 fout.t5 net2.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X22 1.t1 finb.t4 net5_ff1.t0 GND.t12 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X23 net2_nand3.t0 fin.t6 net1_nand3.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
-X24 net5_ff1.t1 net3_ff1.t3 GND.t4 GND.t3 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X25 net3_ff2.t1 finb.t5 net4_ff2 VDD.t6 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
-X26 finb.t1 fin.t7 VDD.t27 VDD.t26 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X27 net4_ff2.t3 net3_ff2.t3 VDD.t2 VDD.t1 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X28 VDD.t4 modo.t3 2.t0 VDD.t3 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X29 net4_ff2 3.t2 VDD.t29 VDD.t28 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X30 net2_ff2.t0 3.t3 GND.t6 GND.t5 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
-X31 VDD.t25 P.t1 2.t3 VDD.t24 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X32 VDD.t16 fout.t6 31.t0 VDD.t15 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
-X33 3.t0 31.t4 VDD.t20 VDD.t19 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+
+
+XM0 VDD.t14 2.t4 fout.t1 VDD.t13 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM1 net1_ff1.t0 fout.t3 VDD.t18 VDD.t17 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM2 GND.t7 modo.t2 net2_nand3.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM3 net2.t1 modi.t0 31.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM4 net4_ff1.t1 net3_ff1.t2 VDD.t12 VDD.t11 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM5 net1_nand3.t0 P.t0 2.t2 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM6 net5_ff2.t0 net3_ff2.t2 GND.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM7 GND.t11 31.t3 3.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM8 net3_ff1.t1 finb.t2 net1_ff1.t1 VDD.t23 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM9 VDD.t8 modi.t1 31.t2 VDD.t7 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM10 net1.t1 2.t5 fout.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM11 GND.t10 fin.t0 finb.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM12 VDD.t22 1.t2 fout.t2 VDD.t21 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM13 net3_ff1.t0 fin.t1 net2_ff1.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM14 modo.t1 finb.t3 net5_ff2.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM15 VDD.t10 fin.t2 2.t1 VDD.t9 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM16 GND.t1 1.t3 net1.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM17 modo.t0 fin.t3 net4_ff2.t1 VDD.t5 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM18 net3_ff2.t0 fin.t4 net2_ff2.t1 GND.t2 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM19 1.t0 fin.t5 net4_ff1.t0 VDD.t0 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM20 net2_ff1.t1 fout.t4 GND.t9 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM21 GND.t8 fout.t5 net2.t0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM22 1.t1 finb.t4 net5_ff1.t0 GND.t12 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM23 net2_nand3.t0 fin.t6 net1_nand3.t1 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=6 L=0.15
+XM24 net5_ff1.t1 net3_ff1.t3 GND.t4 GND.t3 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM25 net3_ff2.t1 finb.t5 net4_ff2 VDD.t6 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u W=4 L=0.15
+XM26 finb.t1 fin.t7 VDD.t27 VDD.t26 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM27 net4_ff2.t3 net3_ff2.t3 VDD.t2 VDD.t1 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM28 VDD.t4 modo.t3 2.t0 VDD.t3 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM29 net4_ff2 3.t2 VDD.t29 VDD.t28 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM30 net2_ff2.t0 3.t3 GND.t6 GND.t5 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u W=2 L=0.15
+XM31 VDD.t25 P.t1 2.t3 VDD.t24 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM32 VDD.t16 fout.t6 31.t0 VDD.t15 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
+XM33 3.t0 31.t4 VDD.t20 VDD.t19 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u W=4 L=0.15
 R0 2.n0 2.t5 1040.28
 R1 2.n0 2.t4 794.529
 R2 2.n188 2.n187 13.176

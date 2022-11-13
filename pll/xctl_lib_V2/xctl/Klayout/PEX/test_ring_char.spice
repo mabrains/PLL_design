@@ -8,7 +8,7 @@
 VDD VDD GND PWL(0 0 1u 1.8 0.8m 1.8)
 
 
-xring Vin out VDD GND ring
+xring Vin out VDD GND TOP
 
 **** begin user architecture code
 

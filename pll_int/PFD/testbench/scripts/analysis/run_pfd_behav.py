@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from jinja2 import Template
 import os
 from datetime import datetime
-
+from matplotlib.ticker import EngFormatter
 # datetime object containing current date and time
 now = datetime.now()
 run_folder = now.strftime("run_%d_%m_%Y_%H_%M_%S")
@@ -41,6 +41,10 @@ for i in range (0,3):
 
 plt.rcParams["figure.figsize"] = (12, 10)
 plt.rcParams["figure.autolayout"] = True
+
+
+time_formatter = EngFormatter(unit='Sec')
+volt_formatter = EngFormatter(unit='V')
 
 
 if __name__ == "__main__":
@@ -84,37 +88,41 @@ if __name__ == "__main__":
         plt.figure(i+1)
 
         plt.subplot(4,1,1)
-        plt.plot(timearr , REF , color='b', label='REF')
-        plt.xlabel('time (sec)') 
-        plt.ylabel('Amplitude (V)')
+        plt.plot(timearr , REF , color='blue', label='REF',linewidth=3)
         plt.title('REF')
         plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
+        ax = plt.gca()
+        ax.xaxis.set_major_formatter(time_formatter)
+        ax.yaxis.set_major_formatter(volt_formatter)
 
         plt.subplot(4,1,2)
-        plt.plot(timearr , FB, color='g', label='FB')
-        plt.xlabel('time (sec)') 
-        plt.ylabel('Amplitude (V)')
+        plt.plot(timearr , FB, color='g', label='FB',linewidth=3)
         plt.title('FB')
         plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
+        ax = plt.gca()
+        ax.xaxis.set_major_formatter(time_formatter)
+        ax.yaxis.set_major_formatter(volt_formatter)
         
         plt.subplot(4,1,3)
-        plt.plot(timearr , UP ,color='r', label='UP')
-        plt.xlabel('time (sec)') 
-        plt.ylabel('Amplitude (V)')
+        plt.plot(timearr , UP ,color='r', label='UP',linewidth=3)
         plt.title('UP')
         plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
+        ax = plt.gca()
+        ax.xaxis.set_major_formatter(time_formatter)
+        ax.yaxis.set_major_formatter(volt_formatter)
         
         plt.subplot(4,1,4)
-        plt.plot(timearr , DWN , color='c', label='DWN')
-        plt.xlabel('time (sec)') 
-        plt.ylabel('Amplitude (V)')
+        plt.plot(timearr , DWN , color='c', label='DWN',linewidth=3)
         plt.title('DWN')
         plt.xlim(4e-6, 4.2e-6)
         plt.grid(True)
-
+        ax = plt.gca()
+        ax.xaxis.set_major_formatter(time_formatter)
+        ax.yaxis.set_major_formatter(volt_formatter)
+        
         plt.legend()
         #plt.show()
         

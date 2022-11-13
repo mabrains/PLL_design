@@ -21,9 +21,11 @@ ainv1 d_d0 d_d1 invd1
 .PARAM cycle = {1.0/main_freq}
 
 .PARAM tpw = {cycle / 2}
-.PARAM trise = {cycle / 50}
-.PARAM tfall = {cycle / 50}
+* .PARAM trise = {cycle / 50}
+* .PARAM tfall = {cycle / 50}
 
+.PARAM trise = {0}
+.PARAM tfall = {0}
 
 {{line}}
 

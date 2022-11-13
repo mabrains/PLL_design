@@ -1,0 +1,6 @@
+
+Checking parameters for BSIM 4.5 model xm2:sky130_fd_pr__nfet_01v8__model.8
+Fatal: u0 at current temperature = -0.0665481 is not positive.
+Fatal: Pclm = -2.67126 is not positive.
+Warning: Nfactor = -8.18324 is negative.
+Warning: Cdscd = -0.0393678 is negative.

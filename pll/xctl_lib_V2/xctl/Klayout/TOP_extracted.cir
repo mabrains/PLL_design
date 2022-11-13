@@ -1,4 +1,4 @@
-* Extracted by KLayout with SKY130 LVS runset on : 27/10/2022 10:05
+* Extracted by KLayout with SKY130 LVS runset on : 13/11/2022 19:44
 
 .SUBCKT TOP Cin Cout out VDD GND
 M$1 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 L=0.15U W=240U AS=41.775P

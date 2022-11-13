@@ -51,7 +51,7 @@ C8 Cout a_2823_n2663# 0.06fF
 C9 Cin Cout 3.40fF
 C10 Cin GND 60p m=1
 C11 Cout GND 60p m=1
-Ls Cin net3 6.23m m=1
+Ls Cin net3 6.237m m=1
 Rs net3 net2 26.2965 m=1
 Cs net2 Cout 40f m=1
 Cp Cin Cout 7p m=1

@@ -1,6 +1,7 @@
-** Test bench for ring
+** Test bench for xctl
 
-.include ../behav/xctl_behave.ckt
+.include ../../behav/xctl_behave.ckt
+
 
 VDD VDD GND DC 1.8
 
@@ -11,15 +12,14 @@ xctl_behave REF VDD GND xctl_behave
 
 .control
 
-    op 
-    save all
-        
-    print all
-
+    set wr_singlescale
+    set wr_vecnames
+    option numdgt = 3
     tran 5n 1m
-    plot REF
-    meas tran tperiod TRIG REF VAL=1.5 RISE=750 TARG REF VAL=1.5 RISE=755
-    let freq = 5/(tperiod*1000000)
+    wrdata {{run_folder}}/csv/xctl_behave.csv v(REF)
+    *rusage
+    meas tran tperiod TRIG REF VAL=0.9 RISE=750 TARG REF VAL=0.9 RISE=751
+    let freq = 1/tperiod
     print freq
     
 .endc

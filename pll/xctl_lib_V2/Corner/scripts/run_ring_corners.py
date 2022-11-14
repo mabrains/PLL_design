@@ -98,10 +98,10 @@ def run_corner(all_corner_data):
             if s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
-                    results_dict["freq (GHZ)"] = s[2]
+                    results_dict["freq (MHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"
-                    results_dict["freq (GHZ)"] = "-"
+                    results_dict["freq (MHZ)"] = "-"
 
     log_file.close() # close the log file
     # print(results_dict)

@@ -1,0 +1,39 @@
+** sch_path: /home/mohamed/designs/MOSFET characteristics .sch
+**.subckt MOSFET characteristics
+vgs GND vgs 0
+vds GND vds 1.8
+XM2 vds vgs GND GND sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+**** begin user architecture code
+
+.options savecurrents
+.control
+set appendwrite
+compose  vgs_val   start=0.5          stop=2.6          step=0.25
+let start_vgs = 0.5
+let delta_vgs = 0.25
+let stop_vgs = 2.6
+let act_vgs = start_vgs
+let vgs_count =0
+while act_vgs < stop_vgs
+   alter @vgs[dc] vgs_val[vgs_count]
+   let vgs_val[vgs_count] = act_vgs
+   op
+   dc vds 0 2.5 0.01
+   wrdata csv/curve($&vgs_count).csv @m.xm2.msky130_fd_pr__pfet_01v8[id]
+   let act_vgs = act_vgs + delta_vgs
+   let vgs_count = vgs_count +1
+end
+
+.endc
+
+
+** opencircuitdesign pdks install
+.lib /home/mohamed/env/foundry/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice ss
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

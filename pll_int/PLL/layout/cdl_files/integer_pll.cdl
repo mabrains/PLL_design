@@ -1,33 +1,764 @@
-** sch_path: /home/ahmedelbadry/D_FF/conventional_pfd.sch
+** sch_path: /hoM_pfd_e/ahM_pfd_edelbadry/D_FF/conventional_pfd.sch
 
-.subckt integer_pll VDD GND 
+.subckt integer_pll VDD GND p0 p1 p2 p3 p4 p5 p6 p7 REF vco_out vp vn up dn VOP vctrl ibias_bgr ibias_vco ibias_cp   
 
-.subckt TOP VDD pfd_net5 dn_b up up_b pfd_net2 RST pfd_net4 pfd_net6 pfd_net7 pfd_net3 pfd_net1 GND REF FB
-M1 pfd_net1 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
-M2 pfd_net1 REF pfd_net2 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
-M3 pfd_net2 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
-M4 pfd_net3 pfd_net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
-M5 up_b pfd_net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
-M6 up_b REF pfd_net3 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1  
-M7 up up_b GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
-M8 up up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
-M9 pfd_net7 up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
-M10 RST dn_b pfd_net7 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1
-M11 dn dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
-M12 dn dn_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
-M13 RST up_b GND GND sky130_fd_pr__nfet_01v8 L=0.2U W=2U nf=1
-M14 RST dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.2U W=2U nf=1  
-M15 pfd_net6 pfd_net4 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
-M16 dn_b pfd_net4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
-M17 pfd_net4 FB pfd_net5 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
-M18 dn_b FB pfd_net6 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1  
-M19 pfd_net5 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
-M20 pfd_net4 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
- .ends
+*******************************pfd************************************
+**********************************************************************        
+**external nodes:up dn REF FB
 
-
-
-
+M_pfd_1 pfd_net1 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+M_pfd_2 pfd_net1 REF pfd_net2 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
+M_pfd_3 pfd_net2 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
+M_pfd_4 pfd_net3 pfd_net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+M_pfd_5 up_b pfd_net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
+M_pfd_6 up_b REF pfd_net3 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1  
+M_pfd_7 up up_b GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+M_pfd_8 up up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
+M_pfd_9 pfd_net7 up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
+M_pfd_10 RST dn_b pfd_net7 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1
+M_pfd_11 dn dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
+M_pfd_12 dn dn_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
+M_pfd_13 RST up_b GND GND sky130_fd_pr__nfet_01v8 L=0.2U W=2U nf=1
+M_pfd_14 RST dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.2U W=2U nf=1  
+M_pfd_15 pfd_net6 pfd_net4 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
+M_pfd_16 dn_b pfd_net4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
+M_pfd_17 pfd_net4 FB pfd_net5 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
+M_pfd_18 dn_b FB pfd_net6 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1  
+M_pfd_19 pfd_net5 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
+M_pfd_20 pfd_net4 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
 
 
+*******************************cp*************************************
+********************************************************************** 
+**external nodes:up dn VOP  VBN
 
+M_cp_p1 ibias_cp ibias_cp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=40 nf=4 m=1
+M_cp_p2 VBN      ibias_cp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=10 nf=1 m=1
+
+
+M_cp_1 cp_net1 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
+M_cp_2 cp_net2 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=1
+
+M_cp_3 VBp VBN cp_net1 GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
+M_cp_4 Nbais VBN cp_net2 GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=1
+
+R_cp_1 VBN Nbais VDD sky130_fd_pr__res_iso_pw r=25k m=1
+R_cp_2 p_bais VBp VDD sky130_fd_pr__res_iso_pw r=12.5k m=1 
+
+M_cp_5 p_bais VBp cp_net3 VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=2
+M_cp_6 cp_net3 p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=2
+
+M_cp_7 cp_net4 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=10
+M_cp_8 cp_net5 VBN cp_net4 GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=10
+M_cp_9 VON DNB cp_net5 GND sky130_fd_pr__nfet_01v8 L=0.15U W=4U nf=1 m=1
+M_cp_10 VOP dn cp_net5 GND sky130_fd_pr__nfet_01v8 L=0.15U W=4U nf=1 m=1
+M_cp_11 VOP UBP cp_net6 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=10U nf=1 m=1
+M_cp_12 VON up cp_net6 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=10U nf=1 m=1
+M_cp_13 cp_net6 VBp cp_net7 VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=10
+M_cp_14 cp_net7 p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=10
+
+M_cp_15 UBP up GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_16 UBP up VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_cp_17 DNB dn GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_18 DNB dn VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_cp_19 net2_ota Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
+M_cp_20 net1_ota p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=4U nf=1 m=2
+M_cp_21 net3_ota p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=4U nf=1 m=2
+M_cp_22 net3_ota VON net2_ota GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_23 net1_ota VOP net2_ota GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_24 net5_ota net4_ota GND GND sky130_fd_pr__nfet_01v8 L=1U W=1.3U nf=1 m=1
+M_cp_25 GND net4_ota GND GND sky130_fd_pr__nfet_01v8 L=1U W=1.3U nf=1 m=1
+M_cp_26 net4_ota VBN net5_ota GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_27 VON VBN GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_28 VON VBp net3_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_29 net4_ota VBp net1_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=1U nf=1 m=1
+M_cp_30 net6_ota p_bais VDD VDD sky130_fd_pr__pfet_01v8 L=0.6U W=6.66U nf=1 m=1
+M_cp_32 GND VON net6_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_cp_33 net5_ota VOP net6_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+
+*******************************lpf************************************
+********************************************************************** 
+**external nodes:VOP vctrl
+
+C_lpf_1 VOP   gnd sky130_fd_pr__model__cap_mim W=25.06 L=25.06 MF=1 m=20   
+c_lpf_2 r2c2  gnd sky130_fd_pr__model__cap_mim W=27.88 L=27.87 MF=1 m=320
+c_lpf_3 vctrl gnd sky130_fd_pr__model__cap_mim W=29.5  L=29.53 MF=1 m=1 
+
+R_lpf_2     VOP r2c2   GND sky130_fd_pr__res_xhigh_po_1p41 L=4.44u  W=1.41u m=1
+R_lpf_3     VOP vctrl  GND sky130_fd_pr__res_xhigh_po_1p41 L=62.16u W=1.41u m=1 
+R_lpf_dummy GND GND    GND sky130_fd_pr__res_xhigh_po_1p41 L=4.44u  W=2.82u m=1
+
+
+*******************************bgr************************************
+********************************************************************** 
+**external nodes:ibias_bgr
+
+Q_bgr_1 GND GND VBE GND sky130_fd_pr__pnp_05v5_W0p68L0p68 NE=1 m=1
+Q_bgr_2 GND GND bgr_net2 GND sky130_fd_pr__pnp_05v5_W0p68L0p68 NE=8
+
+
+R_bgr_4 bgr_net2 bgr_net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=20.24u W=1.41u m=1
+R_bgr_1 GND bgr_net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u m=1
+R_bgr_3 GND VBE GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u m=1
+
+R_bgr_d1 GND GND GND sky130_fd_pr__res_xhigh_po_1p41 L=10.12u W=5.64u m=1
+
+M_bgr_15 bgr_net5 bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=4u nf=4    
+M_bgr_13 bgr_net3 bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=20u nf=4    
+M_bgr_14 VBE bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=20u nf=4  
+M_bgr_16 bgr_net1 bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=44u nf=44
+M_bgr_17 bgr_net6 bgr_net3 bgr_net5 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=90u nf=6      
+M_bgr_18 bgr_net4 VBE bgr_net5 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=90u nf=6            
+M_bgr_19 bgr_net1 bgr_net6 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5u W=0.42u m=10      
+M_bgr_20 bgr_net6 bgr_net4 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5u W=0.42u m=4             
+M_bgr_21 bgr_net4 bgr_net4 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5u W=0.42u m=4             
+M_bgr_22 bgr_net7 bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1u W=40u nf=2     
+M_bgr_23 bgr_net7 bgr_net1 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=20u W=0.42u         
+M_bgr_24 VBE bgr_net7 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1u W=40u nf=2     
+M_bgr_2 ibias_bgr bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=200u nf=40 
+
+
+*******************************cm*************************************
+********************************************************************** 
+**external nodes:ibias_vco ibias_cp
+
+MBGR ibias_bgr ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1u W=50u  nf=2  m=1
+MVCO ibias_vco ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1u W=250u nf=10 m=1
+MCP  ibias_cp  ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1u W=25u  nf=1  m=1
+
+
+
+*******************************vco************************************
+********************************************************************** 
+**external nodes: vco_out
+
+M_vco_4 vco_net2  ibias_vco VDD VDD sky130_fd_pr__pfet_01v8 L=0.5u W=1000u nf=50 m=1
+M_vco_5 ibias_vco ibias_vco VDD VDD sky130_fd_pr__pfet_01v8 L=0.5u W=200u  nf=10 m=1
+
+M_vco_11 vp vn vco_net2 vco_net2 sky130_fd_pr__pfet_01v8 L=0.15u W=250u nf=5 m=1
+M_vco_1 vn vp vco_net2 vco_net2 sky130_fd_pr__pfet_01v8 L=0.15u W=250u  nf=5 m=1
+
+M_vco_2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=100u nf=5 m=1
+M_vco_7 vn vp GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=100u nf=5 m=1
+
+M_vco_6 vctrl vn vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8u W=17u nf=1 m=1
+M_vco_3 vctrl vp vctrl gnd sky130_fd_pr__nfet_01v8_lvt L=8u W=17u nf=1 m=1
+
+C_load vp vn sky130_fd_pr__model__cap_mim W=14u L=13u MF=1 m=1 A=182p P=54u
+
+*L1 vp vn 4.022n m=1
+
+M_vco_inv_1 vco_out vp GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=4.2u nf=1  m=1 
+M_vco_inv_2 vco_out vp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15u W=60u  nf=12 m=1
+
+M_vco_inv_3 fout_dummy vn GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=4.2u nf=1  m=1 
+M_vco_inv_4 fout_dummy vn VDD VDD sky130_fd_pr__pfet_01v8 L=0.15u W=60u  nf=12 m=1
+
+*******************************divider************************************
+********************************************************************** 
+**external nodes: p0 p1 p2 p3 p4 p5 p6 p7 fin FB
+
+*FIRST CELL
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_0 fout0 2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_1 fout0 1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_2 fout0 2 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_3 div_net1 1 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_4 31 fout0 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_5 31 modi0 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_6 31 modi0 div_net2 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_7 div_net2 fout0 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M8 3 31 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M9 3 31 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_10 finb vco_out vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_11 finb vco_out gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_12 2 vco_out vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_13 2 p0 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_14 2 p0 div_net1_nand3 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_15 div_net1_nand3 vco_out div_net2_nand3 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_16 2 modo vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_17 div_net2_nand3 modo gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_18 div_net1_ff1 fout0 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_19 div_net3_ff1 finb div_net1_ff1 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_20 div_net3_ff1 vco_out div_net2_ff1 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_21 div_net2_ff1 fout0 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_22 div_net4_ff1 div_net3_ff1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_23 1 vco_out div_net4_ff1 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_24 1 finb div_net5_ff1 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_25 div_net5_ff1 div_net3_ff1 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_26 div_net1_ff2 3 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_27 div_net3_ff2 finb div_net1_ff2 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_28 div_net3_ff2 vco_out div_net2_ff2 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_29 div_net2_ff2 3 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_30 div_net4_ff2 div_net3_ff2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_31 modo vco_out div_net4_ff2 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_32 modo finb div_net5_ff2 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_33 div_net5_ff2 div_net3_ff2 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+
+
+*********************************///////////////SECOND CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_100 fout1 201 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_101 fout1 101 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_102 fout1 201 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_103 div_net1 101 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_104 3101 fout1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_105 3101 modi1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_106 3101 modi1 div_net201 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_107 div_net201 fout1 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_108 301 3101 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_109 301 3101 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_110 finb01 fout0 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_111 finb01 fout0 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_112 201 fout0 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_113 201 p1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_114 201 p1 div_net1_nand301 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_115 div_net1_nand301 fout0 div_net2_nand301 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_116 291 modi0 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_117 div_net2_nand301 modi0 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_118 div_net1_ff101 fout1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_119 div_net3_ff101 finb01 div_net1_ff101 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_120 div_net3_ff101 fout0 div_net2_ff101 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_121 div_net2_ff101 fout1 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_122 div_net4_ff101 div_net3_ff101 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_123 101 fout0 div_net4_ff101 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_124 101 finb01 div_net5_ff101 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_125 div_net5_ff101 div_net3_ff101 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_126 div_net1_ff201 301 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_127 div_net3_ff201 finb01 div_net1_ff201 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_128 div_net3_ff201 fout0 div_net2_ff201 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_129 div_net2_ff201 301 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_130 div_net4_ff201 div_net3_ff201 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_131 modi0 fout0 div_net4_ff201 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_132 modi0 finb01 div_net5_ff201 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_133 div_net5_ff201 div_net3_ff201 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+
+
+*********************************///////////////THIRD CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_200 fout2 202 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_201 fout2 102 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_202 fout2 202 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_203 div_net1 102 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_204 3102 fout2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_205 3102 modi2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_206 3102 modi2 div_net202 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_207 div_net202 fout2 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_208 302 3102 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_209 302 3102 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_210 finb02 fout1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_211 finb02 fout1 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_212 202 fout1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_213 202 p2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_214 202 p2 div_net1_nand302 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_215 div_net1_nand302 fout1 div_net2_nand302 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_216 291 modi1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_217 div_net2_nand302 modi1 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_218 div_net1_ff102 fout2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_219 div_net3_ff102 finb02 div_net1_ff102 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_220 div_net3_ff102 fout1 div_net2_ff102 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_221 div_net2_ff102 fout2 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_222 div_net4_ff102 div_net3_ff102 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_223 102 fout1 div_net4_ff102 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_224 102 finb02 div_net5_ff102 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_225 div_net5_ff102 div_net3_ff102 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_226 div_net1_ff202 302 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_227 div_net3_ff202 finb02 div_net1_ff202 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_228 div_net3_ff202 fout1 div_net2_ff202 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_229 div_net2_ff202 302 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_230 div_net4_ff202 div_net3_ff202 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_231 modi1 fout1 div_net4_ff202 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_232 modi1 finb02 div_net5_ff202 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_233 div_net5_ff202 div_net3_ff202 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+
+
+*********************************///////////////FOURTH CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+
+
+** NAND_2
+M_div_300 fout3 203 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_301 fout3 103 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_302 fout3 203 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_303 div_net1 103 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_304 3103 fout3 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_305 3103 modi3 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_306 3103 modi3 div_net203 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_307 div_net203 fout3 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_308 303 3103 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_309 303 3103 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_310 finb03 fout2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_311 finb03 fout2 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_312 203 fout2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_313 203 p3 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_314 203 p3 div_net1_nand303 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_315 div_net1_nand303 fout2 div_net2_nand303 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_316 291 modi2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_317 div_net2_nand303 modi2 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_318 div_net1_ff103 fout3 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_319 div_net3_ff103 finb03 div_net1_ff103 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_320 div_net3_ff103 fout2 div_net2_ff103 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_321 div_net2_ff103 fout3 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_322 div_net4_ff103 div_net3_ff103 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_323 103 fout2 div_net4_ff103 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_324 103 finb03 div_net5_ff103 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_325 div_net5_ff103 div_net3_ff103 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_326 div_net1_ff203 303 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_327 div_net3_ff203 finb03 div_net1_ff203 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_328 div_net3_ff203 fout2 div_net2_ff203 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_329 div_net2_ff203 303 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_330 div_net4_ff203 div_net3_ff203 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_331 modi2 fout2 div_net4_ff203 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_332 modi2 finb03 div_net5_ff203 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_333 div_net5_ff203 div_net3_ff203 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+
+*********************************///////////////FIFTH CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_400 fout4 204 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_401 fout4 104 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_402 fout4 204 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_403 div_net1 104 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_404 3104 fout4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_405 3104 modi4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_406 3104 modi4 div_net204 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_407 div_net204 fout4 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_408 304 3104 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_409 304 3104 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_410 finb04 fout3 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_411 finb04 fout3 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_412 204 fout3 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_413 204 p4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_414 204 p4 div_net1_nand304 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_415 div_net1_nand304 fout3 div_net2_nand304 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_416 291 modi3 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_417 div_net2_nand304 modi3 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_418 div_net1_ff104 fout4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_419 div_net3_ff104 finb04 div_net1_ff104 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_420 div_net3_ff104 fout3 div_net2_ff104 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_421 div_net2_ff104 fout4 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_422 div_net4_ff104 div_net3_ff104 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_423 104 fout3 div_net4_ff104 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_424 104 finb04 div_net5_ff104 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_425 div_net5_ff104 div_net3_ff104 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_426 div_net1_ff204 304 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_427 div_net3_ff204 finb04 div_net1_ff204 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_428 div_net3_ff204 fout3 div_net2_ff204 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_429 div_net2_ff204 304 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_430 div_net4_ff204 div_net3_ff204 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_431 modi3 fout3 div_net4_ff204 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_432 modi3 finb04 div_net5_ff204 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_433 div_net5_ff204 div_net3_ff204 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*********************************///////////////SIXTHS CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_500 fout5 205 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_501 fout5 105 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_502 fout5 205 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_503 div_net1 105 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_504 3105 fout5 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_505 3105 modi5 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_506 3105 modi5 div_net205 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_507 div_net205 fout5 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_508 305 3105 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_509 305 3105 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_510 finb05 fout4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_511 finb05 fout4 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_512 205 fout4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_513 205 p5 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_514 205 p5 div_net1_nand305 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_515 div_net1_nand305 fout4 div_net2_nand305 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_516 291 modi4 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_517 div_net2_nand305 modi4 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_518 div_net1_ff105 fout5 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_519 div_net3_ff105 finb05 div_net1_ff105 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_520 div_net3_ff105 fout4 div_net2_ff105 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_521 div_net2_ff105 fout5 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_522 div_net4_ff105 div_net3_ff105 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_523 105 fout4 div_net4_ff105 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_524 105 finb05 div_net5_ff105 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_525 div_net5_ff105 div_net3_ff105 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_526 div_net1_ff205 305 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_527 div_net3_ff205 finb05 div_net1_ff205 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_528 div_net3_ff205 fout4 div_net2_ff205 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_529 div_net2_ff205 305 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_530 div_net4_ff205 div_net3_ff205 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_531 modi4 fout4 div_net4_ff205 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_532 modi4 finb05 div_net5_ff205 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_533 div_net5_ff205 div_net3_ff205 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*********************************///////////////SEVENTH CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_600 fout6 206 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_601 fout6 106 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_602 fout6 206 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_603 div_net1 106 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_604 3106 fout6 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_605 3106 modi6 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_606 3106 modi6 div_net206 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_607 div_net206 fout6 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_608 306 3106 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_609 306 3106 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_610 finb06 fout5 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_611 finb06 fout5 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_612 206 fout5 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_613 206 p6 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_614 206 p6 div_net1_nand306 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_615 div_net1_nand306 fout5 div_net2_nand306 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_616 291 modi5 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_617 div_net2_nand306 modi5 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_618 div_net1_ff106 fout6 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_619 div_net3_ff106 finb06 div_net1_ff106 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_620 div_net3_ff106 fout5 div_net2_ff106 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_621 div_net2_ff106 fout6 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_622 div_net4_ff106 div_net3_ff106 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_623 106 fout5 div_net4_ff106 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_624 106 finb06 div_net5_ff106 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_625 div_net5_ff106 div_net3_ff106 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_626 div_net1_ff206 306 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_627 div_net3_ff206 finb06 div_net1_ff206 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_628 div_net3_ff206 fout5 div_net2_ff206 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_629 div_net2_ff206 306 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_630 div_net4_ff206 div_net3_ff206 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_631 modi5 fout5 div_net4_ff206 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_632 modi5 finb06 div_net5_ff206 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_633 div_net5_ff206 div_net3_ff206 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+
+
+*********************************///////////////EIGHTS CELL\\\\\\\\\\\\\*****************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_2
+M_div_700 FB 207 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_701 FB 107 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_702 FB 207 div_net1 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+M_div_703 div_net1 107 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** AND
+M_div_704 3107 FB vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_705 3107 modi vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_706 3107 modi div_net207 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_707 div_net207 FB gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_708 307 3107 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_709 307 3107 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** INV
+M_div_710 finb07 fout6 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_711 finb07 fout6 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** NAND_3
+*M D G S B
+M_div_712 207 fout6 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_713 207 p7 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+
+M_div_714 207 p7 div_net1_nand307 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_715 div_net1_nand307 fout6 div_net2_nand307 gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+M_div_716 291 modi6 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_717 div_net2_nand307 modi6 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15U W=6U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 1 
+M_div_718 div_net1_ff107 FB VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_719 div_net3_ff107 finb07 div_net1_ff107 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_720 div_net3_ff107 fout6 div_net2_ff107 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_721 div_net2_ff107 FB GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_722 div_net4_ff107 div_net3_ff107 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_723 107 fout6 div_net4_ff107 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_724 107 finb07 div_net5_ff107 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_725 div_net5_ff107 div_net3_ff107 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+*****************************************************************************************************************
+*****************************************************************************************************************
+*****************************************************************************************************************
+** FF 2
+M_div_726 div_net1_ff207 307 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_727 div_net3_ff207 finb07 div_net1_ff207 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_728 div_net3_ff207 fout6 div_net2_ff207 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_729 div_net2_ff207 307 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+
+M_div_730 div_net4_ff207 div_net3_ff207 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_731 modi6 fout6 div_net4_ff207 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
+M_div_732 modi6 finb07 div_net5_ff207 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
+M_div_733 div_net5_ff207 div_net3_ff207 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1

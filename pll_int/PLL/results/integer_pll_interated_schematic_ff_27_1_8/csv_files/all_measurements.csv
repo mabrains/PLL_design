@@ -1,0 +1,2 @@
+vco_freq(Ghz),vctrl_freq(Ghz),divider out freq (Mhz),division ratio,fs_min(Ghz),fs_max(Ghz)
+2.403267108400499,4.805884818580643,10.004829781119204,240.21069433243812,499.9999998803191,50000.0

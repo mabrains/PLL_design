@@ -1,0 +1,30 @@
+
+.include divider_cell.ckt
+
+.subckt divider vdd fout gnd p2 p7 p1 p6 p5 p4 p3 p0 fin float
+*.ipin vdd
+*.ipin fin
+*.ipin gnd
+*.opin fout
+*.ipin p0
+*.ipin p4
+*.ipin p5
+*.ipin p6
+*.ipin p7
+*.ipin float
+*.ipin p3
+*.ipin p2
+*.ipin p1
+
+x8 vdd fout  net7   p7  net8  gnd vdd   cell
+x7 vdd net7  net5   p6  net6  gnd net8  cell
+x6 vdd net5  net1   p5  net4  gnd net6  cell
+x5 vdd net1  net2   p4  net3  gnd net4  cell
+x1 vdd net2  net9   p3  net10 gnd net3  cell
+x2 vdd net9  net11  p2  net12 gnd net10 cell
+x3 vdd net11 net13  p1  net14 gnd net12 cell
+x4 vdd net13 fin    p0  float gnd net14 cell
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND

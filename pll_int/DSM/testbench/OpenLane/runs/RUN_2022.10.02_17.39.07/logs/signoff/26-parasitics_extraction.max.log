@@ -1,0 +1,38 @@
+OpenROAD v2.0-4893-gb84718ffe 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.10.02_17.39.07/tmp/merged.max.lef
+[WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+The LEF parser will ignore this statement.
+To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.10.02_17.39.07/tmp/merged.max.lef at line 68342.
+
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0225]     Created 441 library cells
+[INFO ODB-0226] Finished LEF file:  /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.10.02_17.39.07/tmp/merged.max.lef
+[INFO ODB-0127] Reading DEF file: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.10.02_17.39.07/results/routing/DSM.def
+[INFO ODB-0128] Design: DSM
+[INFO ODB-0130]     Created 33 pins.
+[INFO ODB-0131]     Created 1473 components and 6142 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 5548 connections.
+[INFO ODB-0133]     Created 210 nets and 594 connections.
+[INFO ODB-0134] Finished DEF file: /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.10.02_17.39.07/results/routing/DSM.def
+[WARNING STA-0357] virtual clock clk can not be propagated.
+Using RCX ruleset '/home/farag/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/openlane/rules.openrcx.sky130A.max.spef_extractor'...
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0008] extracting parasitics of DSM ...
+[INFO RCX-0435] Reading extraction model file /home/farag/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/openlane/rules.openrcx.sky130A.max.spef_extractor ...
+[INFO RCX-0436] RC segment generation DSM (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 834 rc segments
+[INFO RCX-0439] Coupling Cap extraction DSM ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0043] 1423 wires to be extracted
+[INFO RCX-0442] 62% completion -- 895 wires have been extracted
+[INFO RCX-0442] 100% completion -- 1423 wires have been extracted
+[INFO RCX-0045] Extract 210 nets, 1027 rsegs, 1027 caps, 643 ccs
+[INFO RCX-0015] Finished extracting DSM.
+Writing result to /home/farag/open_design_environment/tools/OpenLane-2022.09.08/designs/DSM/runs/RUN_2022.10.02_17.39.07/results/routing/DSM.max.spef...
+[INFO RCX-0016] Writing SPEF ...
+[INFO RCX-0443] 210 nets finished
+[INFO RCX-0017] Finished writing SPEF ...

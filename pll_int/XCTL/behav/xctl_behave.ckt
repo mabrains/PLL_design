@@ -1,0 +1,14 @@
+* XCTL subckt
+
+.PARAM main_freq = {10.0Meg}
+.PARAM cycle     = {1.0/main_freq}
+.PARAM tpw       = {cycle/2}
+.PARAM t_rise    = {cycle/100}
+.PARAM t_fall    = {cycle/100}
+.PARAM t_delay   = {0}
+
+.subckt xctl_behave REF VDD GND
+
+    Vref REF GND PULSE (0 1.8 t_delay t_rise t_fall tpw cycle)
+
+.ends

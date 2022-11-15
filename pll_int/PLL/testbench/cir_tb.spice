@@ -1,0 +1,125 @@
+
+******************************************************************************************************
+** Test bench for VCO
+*.include ../circuit/inv.ckt
+.include ../circuit/pll_int_cir.ckt
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+.param W=2
+
+.param main_freq = 10.0Meg
+.param cycle = {1.0/main_freq}
+
+.param tpw = {cycle / 2}
+.param trise = {cycle / 50}
+.param tfall = {cycle / 50}
+
+.param p0_val = 0
+.param p1_val=  0
+.param p2_val=  0
+.param p3_val=  0
+.param p4_val=  1.8
+.param p5_val=  0
+.param p6_val=  0
+.param p7_val=  0
+
+xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll_int
+Vref ref GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
+VDD VDD GND DC 1.8
+VDD1 p2 GND DC {p2_val}
+VDD2 p4 GND DC {p4_val}
+VDD3 p1 GND DC {p1_val}
+VDD4 p3 GND DC {p3_val}
+VDD5 p5 GND DC {p5_val}
+VDD6 p6 GND DC {p6_val}
+VDD7 p0 GND DC {p0_val}
+VDD8 p7 GND DC {p7_val}
+
+.ic v(xpll_int.vctrl)=0
+.op
+*.tran 200p 30u uic
+.tran 2p 15u
+.save v(ref) v(xpll_int.fb) v(xpll_int.up) v(xpll_int.dn) v(xpll_int.vctrl) v(xpll_int.vp) v(xpll_int.vn) v(vco_out) 
+
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
+
+
+***********************************************************************************************************
+* ** Test bench for VCO
+* *.include ../circuit/inv.ckt
+* .include ../circuit/pll_int_cir.ckt
+
+* .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+* .temp 27
+* .options tnom=27
+
+* .param W=2
+
+* .param main_freq = 10.0Meg
+* .param cycle = {1.0/main_freq}
+
+* .param tpw = {cycle / 2}
+* .param trise = {cycle / 50}
+* .param tfall = {cycle / 50}
+
+* .param p0_val = 0
+* .param p1_val=  0
+* .param p2_val=  0
+* .param p3_val=  0
+* .param p4_val=  1.8
+* .param p5_val=  0
+* .param p6_val=  0
+* .param p7_val=  0
+
+
+* xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll_int
+* Vref ref GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
+* VDD VDD GND DC 1.8
+* VDD1 p2 GND DC {p2_val}
+* VDD2 p4 GND DC {p4_val}
+* VDD3 p1 GND DC {p1_val}
+* VDD4 p3 GND DC {p3_val}
+* VDD5 p5 GND DC {p5_val}
+* VDD6 p6 GND DC {p6_val}
+* VDD7 p0 GND DC {p0_val}
+* VDD8 p7 GND DC {p7_val}
+
+* .control
+*     set appendwrite 
+
+*     op
+*     tran 0.01n 200n
+*     plot xpll_int.vp 
+*     plot xpll_int.vn 
+*     plot vco_out 
+*     plot xpll_int.fb
+*     plot xpll_int.vctrl
+
+
+*     meas tran tperiod_pre_inv TRIG xpll_int.vp VAL=0.4 RISE=30 TARG xpll_int.vp VAL=0.4 RISE=31
+*     let freq_pre_inv = 1/(tperiod_pre_inv*1G)
+
+*     meas tran tperiod_post_inv TRIG vco_out VAL=0.4 RISE=30 TARG vco_out VAL=0.4 RISE=31
+*     let freq_post_inv = 1/(tperiod_post_inv*1G)
+
+*     meas tran tperiod_post_div TRIG xpll_int.fb VAL=0.9 RISE=1 TARG xpll_int.fb VAL=0.9 RISE=2
+*     let freq_post_div = 1/(tperiod_post_div*1G)
+
+*     let divission_ratio = (freq_post_inv)/(freq_post_div)
+*     echo ==================================================
+*     print freq_pre_inv  freq_post_inv freq_post_div divission_ratio
+*     echo ==================================================
+* .endc
+
+
+
+* .GLOBAL GND
+* .GLOBAL VDD
+* .end
+

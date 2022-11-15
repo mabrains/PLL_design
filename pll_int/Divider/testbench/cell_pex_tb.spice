@@ -1,0 +1,45 @@
+** pex of divider
+* div TB
+
+.include ../layout/DIV_CELL_pex_extracted.ckt
+
+.param W=2
+.param f_input =2.4G
+.param p0_val = 0
+
+VDD7 p0 GND {p0_val}
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.temp 27
+.options tnom=27
+VDD VDD GND DC 1.8
+
+
+V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)
+
+
+XDIV_CELL net1_ff2 fin p0 modo net1 net1_nand3 net2 net2_nand3 net1_ff1 net2_ff1
++ net4_ff1 net5_ff1 net4_ff2 net2_ff2 net5_ff2 2 1 3 modi fout 31 finb net3_ff1 net3_ff2
++ VDD GND DIV_CELL
+**** begin user architecture code
+
+.op
+.control
+tran 0.01n 0.5u
+plot fout fin
+meas tran tdiffin TRIG v(fin) VAL=0.9 RISE=3 TARG v(fin) VAL=0.9 RISE=4
+meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
+let freqin = 1/tdiffin
+let freqout = 1/tdiffout
+
+let n = freqin/freqout
+print freqin
+print freqout
+print n
+quit
+.endc
+.GLOBAL VDD
+.GLOBAL GND
+
+.end

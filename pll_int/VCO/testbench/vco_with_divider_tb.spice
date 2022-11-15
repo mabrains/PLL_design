@@ -1,0 +1,141 @@
+** Test bench for VCO
+*.include ../circuit/inv.ckt
+.include ../circuit/vco_sch.ckt
+.include ../circuit/vco_inverter.ckt
+.include ../circuit/inductor_model_cct.ckt
+.include ../../BGR/circuit/bgr_sch.ckt 
+.include ../../Divider/circuit/divider.ckt 
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+.param W=2
+.param p0_val = 0
+.param p1_val=  0
+.param p2_val=  0
+.param p3_val=  0
+.param p4_val=  1.8
+.param p5_val=  0
+.param p6_val=  0
+.param p7_val=  0
+
+VDD1 p2 GND DC {p2_val}
+VDD2 p4 GND DC {p4_val}
+VDD3 p1 GND DC {p1_val}
+VDD4 p3 GND DC {p3_val}
+VDD5 p5 GND DC {p5_val}
+VDD6 p6 GND DC {p6_val}
+VDD7 p0 GND DC {p0_val}
+VDD8 p7 GND DC {p7_val}
+
+
+VDD VDD GND DC 1.8
+VTuner vctrl GND DC 0.5
+
+xvco vp vn vctrl ibias_vco VDD GND vco_sch
+xind1 vp vn ind_model
+XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=13 L=9 MF=1 m=1  $mim cap
+xbgr ibias_bgr GND VDD bgr_sch
+XMBGR ibias_bgr ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XMVCO ibias_vco ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+** Isource VDD ibias_vco 90u
+
+xinverter vp vp2 VDD GND vco_inverter    w_p=60 w_n=4.2 l=0.15 nfn=1 nfp=12
+xinverter2 vn fout2 VDD GND vco_inverter w_p=60 w_n=4.2 l=0.15 nfn=1 nfp=12
+
+**xdivider2 VDD fout2 GND p2 p7 p1 p6 p5 p4 p3 p0 vn2 float2 divider
+xdivider VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 vp2 float divider
+*xcell VDD fout2 vn2 GND MODO GND VDD cell
+
+** C1 vp vp2 0.8p
+** R1 vp2 vp3 50
+
+** C2 vn vn2 0.8p
+** R2 vn2 vn3 50
+.control
+    set appendwrite 
+
+    op
+    save all
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm11.msky130_fd_pr__pfet_01v8 
+    save @m.xvco.xm1.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm2.msky130_fd_pr__nfet_01v8 
+
+    
+    let I_tail(mA)                = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_leftp(mA)               = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_leftn(mA)               = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_rightp(mA)              = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_rightn(mA)              = @m.xvco.xm7.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_source(mA)              = @m.xvco.xm8.msky130_fd_pr__nfet_01v8[id]*1000
+    let I_mirror_nmos_pmos(mA)    = @m.xvco.xm5.msky130_fd_pr__pfet_01v8[id]*1000
+
+    let gmn(mS) = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[gm]*1000
+    let gmp(mS) = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[gm]*1000
+
+    let tail_sat_check = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vth]
+    let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]
+    let pmos_sat_check = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vth]
+
+    let vcommon = xvco.net3
+
+    save I_tail(mA) I_leftp(mA) I_leftn(mA) I_rightp(mA) I_rightn(mA) I_sourc(mA) I_mirror_nmos_pmos(mA) 
+    save gmn(mS) gmp(mS)
+    ** save vp vn vcommon vinv_p vinv_n
+
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
+    tran 0.01n 130n
+    plot vp vn
+    plot vp2 vn2
+    plot fout fout2
+    ** plot vn-vp
+    ** plot vinv_p vinv_n
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
+    plot @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]
+
+    meas tran tperiod_p TRIG vp VAL=0.4 RISE=30 TARG vp VAL=0.4 RISE=31
+    let freq_p = 1/(tperiod_p*1G)
+
+    meas tran tperiod_p2 TRIG vp2 VAL=0.4 RISE=30 TARG vp2 VAL=0.4 RISE=31
+    let freq_p2 = 1/(tperiod_p2*1G)
+
+    meas tran tperiod_n TRIG vn VAL=0.4 RISE=30 TARG vn VAL=0.4 RISE=31
+    let freq_n = 1/(tperiod_n*1G)
+
+    *meas tran tperiod_n2 TRIG vn2 VAL=0.4 RISE=30 TARG vn2 VAL=0.4 RISE=31
+    *let freq_n2 = 1/(tperiod_n2*1G)
+
+    meas tran tperiod_out TRIG fout VAL=0.9 RISE=1 TARG fout VAL=0.9 RISE=2
+    let freq_out = 1/(tperiod_out*1G)
+
+    meas tran tperiod_out2 TRIG fout2 VAL=0.9 RISE=1 TARG fout2 VAL=0.9 RISE=2
+    let freq_out2 = 1/(tperiod_out2*1G)
+
+    let divission_ratio = (freq_p2)/(freq_out)
+    setplot op
+    echo ==================================================
+    print I_source(mA) I_mirror_nmos_pmos(mA) I_tail(mA) I_leftn(mA) I_leftp(mA) I_rightn(mA) I_rightp(mA)   
+    echo ==================================================
+    print vcommon vp vn 
+    *print vcommon vp vn vinv_p vinv_n
+    echo ==================================================
+    print gmn(mS) gmp(mS)
+    echo ==================================================
+    print tail_sat_check nmos_sat_check pmos_sat_check
+    echo ==================================================
+    print tran.freq_p tran.freq_p2 tran.freq_n tran.freq_out tran.freq_out2 tran.divission_ratio
+    echo ==================================================
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end
+
+

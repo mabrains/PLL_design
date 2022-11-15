@@ -1,0 +1,54 @@
+** Test bench for VCO
+.subckt inv vin vout VDD GND
+
+XMN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+.ends
+
+
+.include /home/shahat/PLL_design2/PLL_design/pll_int/VCO/testbench/scripts/analysis/../../../circuit/vco_sch.ckt
+.include /home/shahat/PLL_design2/PLL_design/pll_int/VCO/testbench/scripts/analysis/../../../../BGR/circuit/bgr_sch.ckt 
+.include /home/shahat/PLL_design2/PLL_design/pll_int/VCO/testbench/scripts/analysis/../../../circuit/inductor_model_cct.ckt
+
+
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+VDD VDD GND 1.8
+** VTuner vctrl GND 0.5
+** 
+xinv vin vout VDD GND inv
+Vpulse vin GND PULSE(0 1.8 1ns 1ns 1ns 4ns 10ns)
+** xvco vp vn vctrl ibias VDD GND vco_sch
+** xind1 vp vn ind_model
+** XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
+** xbgr ibias GND VDD bgr_sch
+** ** Isource VDD ibias 90u
+
+.control
+    set appendwrite 
+    op
+    save all
+    print all
+    tran 0.01ns 200ns
+    plot vin  vout
+    meas tran inv_delay  trig v(vin)  val=0.9  fall=10 targ v(vout) val=0.9   rise=10
+
+    let inv_delay2 =  inv_delay*1G*1000
+    print inv_delay2
+
+    quit
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

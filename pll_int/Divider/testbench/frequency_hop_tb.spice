@@ -1,0 +1,54 @@
+** sch_path: /home/mohamed/designs/Divider/divider_circuit/divider_tb_hopping.sch
+**.subckt divider_tb_hopping
+.include ../circuit/divider.ckt
+
+VDD VDD GND 1.8
+VDD5 p5 GND 0
+VDD6 p6 GND 0
+VDD8 p7 GND 0
+x1 VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin opennet divider
+V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)
+C1 fout GND 25f m=1
+I0 opennet GND 0
+VDD1 p2 GND PULSE(1.8 0 0 10p 10p 200n 400n)
+VDD2 p4 GND PULSE(0 1.8 0 10p 10p 200n 400n)
+VDD3 p1 GND PULSE(1.8 0 0 10p 10p 100n 400n)
+VDD4 p3 GND PULSE(1.8 0 0 10p 10p 200n 400n)
+VDD7 p0 GND PULSE(1.8 0 0 10p 10p 300n 400n)
+**** begin user architecture code
+
+.op
+.param W=2
+.param f_input= 2.404G
+.control
+tran 0.01n 0.8u
+plot fout
+.endc
+.measure tran tdiff1 TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
+.measure tran f_out1 param = {1/tdiff1}
+.measure tran N1 param = {f_input/f_out1}
+.measure tran tdiff2 TRIG v(fout) VAL=0.9 RISE=4 TARG v(fout) VAL=0.9 RISE=5
+.measure tran f_out2 param = {1/tdiff2}
+.measure tran N2 param = {f_input/f_out2}
+.measure tran tdiff3 TRIG v(fout) VAL=0.9 RISE=5 TARG v(fout) VAL=0.9 RISE=6
+.measure tran f_out3 param = {1/tdiff3}
+.measure tran N3 param = {f_input/f_out3}
+.measure tran tdiff4 TRIG v(fout) VAL=0.9 RISE=6 TARG v(fout) VAL=0.9 RISE=7
+.measure tran f_out4 param = {1/tdiff4}
+.measure tran N4 param = {f_input/f_out4}
+* N is calculated over 4 cycles
+.measure tran tdiff TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=7
+.measure tran f_out param = {4/tdiff}
+.measure tran N_total param = {f_input/f_out}
+.print N1 N2 N3 N4 N_total
+.print f_out
+.temp 27
+.options tnom= 27
+
+** opencircuitdesign pdks install
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

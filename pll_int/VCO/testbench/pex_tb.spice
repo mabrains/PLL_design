@@ -1,0 +1,42 @@
+** Test bench for VCO
+
+.include ../circuit/vco_pex.ext
+.include ../../BGR/circuit/bgr_pex.ext
+.include ../circuit/inductor_model_cct.ckt
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+VDD VDD GND 1.8
+VTuner vctrl GND 0.00
+
+xvco vp vn vctrl ibias VDD GND vco_pex
+xind1 vp vn ind_model
+X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=11 w=11  $mim cap
+** xbgr ibias GND VDD bgr_pex
+Isource VDD ibias 90u
+  
+.control
+    set wr_singlescale
+    set wr_vecnames
+    set appendwrite
+
+    op
+    print all
+
+    tran 0.01ns 200ns
+    *plot vp
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    print vdiff_max
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq = 1/(tperiod*1000000000)
+    print freq
+    
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

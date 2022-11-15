@@ -1,0 +1,275 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+Note: Starting dynamic gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Note: One successful gmin step
+Trying gmin =   1.0000E-07 Note: One successful gmin step
+Trying gmin =   1.0000E-08 Note: One successful gmin step
+Trying gmin =   1.0000E-09 Note: One successful gmin step
+Trying gmin =   1.0000E-10 Note: One successful gmin step
+Trying gmin =   1.0000E-11 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Warning: Further gmin increment
+Trying gmin =   5.6234E-12 Note: One successful gmin step
+Trying gmin =   2.3714E-12 Warning: Further gmin increment
+Trying gmin =   4.5316E-12 Note: One successful gmin step
+Trying gmin =   3.2781E-12 Note: One successful gmin step
+Trying gmin =   2.0169E-12 Warning: Further gmin increment
+Trying gmin =   2.9033E-12 Warning: Further gmin increment
+Trying gmin =   3.1801E-12 Note: One successful gmin step
+Trying gmin =   3.0385E-12 Note: One successful gmin step
+Trying gmin =   2.8379E-12 Note: One successful gmin step
+Trying gmin =   2.5616E-12 Note: One successful gmin step
+Trying gmin =   2.4337E-12 Warning: Further gmin increment
+Trying gmin =   2.5290E-12 Warning: Further gmin increment
+Trying gmin =   2.5534E-12 Warning: Further gmin increment
+Trying gmin =   2.5595E-12 Note: One successful gmin step
+Trying gmin =   2.5585E-12 Note: One successful gmin step
+Trying gmin =   2.5570E-12 Warning: Further gmin increment
+Trying gmin =   2.5581E-12 Note: One successful gmin step
+Trying gmin =   2.5579E-12 Warning: Further gmin increment
+Trying gmin =   2.5581E-12 Note: One successful gmin step
+Trying gmin =   2.5580E-12 Warning: Last gmin step failed
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Warning: Further gmin increment
+Trying gmin =   5.6234E-06 Note: One successful gmin step
+Trying gmin =   2.3714E-06 Note: One successful gmin step
+Trying gmin =   6.4938E-07 Note: One successful gmin step
+Trying gmin =   1.7783E-07 Note: One successful gmin step
+Trying gmin =   2.5483E-08 Note: One successful gmin step
+Trying gmin =   2.5483E-09 Note: One successful gmin step
+Trying gmin =   2.5483E-10 Note: One successful gmin step
+Trying gmin =   2.5483E-11 Note: One successful gmin step
+Trying gmin =   2.5483E-12 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Note: One successful gmin step
+Note: True gmin stepping completed
+ Reference value :  0.00000e+00
+Note: Compatibility modes selected: hs a
+
+
+Circuit: ** test bench for vco
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = -27.000000 and TNOM = -27.000000
+
+
+No. of Data Rows : 1
+bgr_tran_02_sat_check = 1.073305e+00
+bgr_tran_13_sat_check = 9.695918e-01
+bgr_tran_14_sat_check = 9.559853e-01
+bgr_tran_15_sat_check = -4.61394e-02
+bgr_tran_16_sat_check = 9.485603e-01
+bgr_tran_17_sat_check = 8.218428e-01
+bgr_tran_18_sat_check = 1.085650e+00
+bgr_tran_19_sat_check = 5.245591e-01
+bgr_tran_20_sat_check = 1.106684e+00
+bgr_tran_21_sat_check = 8.543256e-01
+bgr_tran_22_sat_check = 4.421637e-02
+bgr_tran_23_sat_check = 1.924133e+00
+bgr_tran_24_sat_check = 2.088994e+00
+gmn = 1.644522e+01
+gmp = 1.138494e+01
+i_left = 8.617300e-01
+i_right = 8.617300e-01
+i_tail = 1.723460e+00
+ibias = 7.074542e-01
+l.xind1.l1#branch = 2.148282e-14
+m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5#body = 9.122560e-12
+m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5#dbody = 2.280630e-11
+m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5#sbody = 4.561370e-12
+m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5#body = 1.324578e-11
+m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5#dbody = 3.311446e-11
+m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5#sbody = 6.622896e-12
+m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5#body = 1.008744e-11
+m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5#dbody = 2.521860e-11
+m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5#sbody = 5.043725e-12
+m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5#body = 2.252305e-11
+m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5#dbody = 5.626126e-11
+m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5#sbody = 1.126152e-11
+m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5#body = 1.800000e+00
+m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5#dbody = 1.800000e+00
+m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5#sbody = 1.800000e+00
+m.xvco.xm1.msky130_fd_pr__pfet_01v8#body = 1.702626e+00
+m.xvco.xm1.msky130_fd_pr__pfet_01v8#dbody = 1.702626e+00
+m.xvco.xm1.msky130_fd_pr__pfet_01v8#sbody = 1.702626e+00
+m.xvco.xm2.msky130_fd_pr__nfet_01v8#body = 1.178690e-10
+m.xvco.xm2.msky130_fd_pr__nfet_01v8#dbody = 7.863860e-11
+m.xvco.xm2.msky130_fd_pr__nfet_01v8#sbody = 5.893456e-11
+m.xvco.xm3.msky130_fd_pr__nfet_01v8_lvt#body = 2.500121e-12
+m.xvco.xm3.msky130_fd_pr__nfet_01v8_lvt#dbody = 3.750182e-12
+m.xvco.xm3.msky130_fd_pr__nfet_01v8_lvt#sbody = 3.750182e-12
+m.xvco.xm4.msky130_fd_pr__pfet_01v8#body = 1.800000e+00
+m.xvco.xm4.msky130_fd_pr__pfet_01v8#dbody = 1.800000e+00
+m.xvco.xm4.msky130_fd_pr__pfet_01v8#sbody = 1.800000e+00
+m.xvco.xm5.msky130_fd_pr__pfet_01v8#body = 1.800000e+00
+m.xvco.xm5.msky130_fd_pr__pfet_01v8#dbodNote: Starting dynamic gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Note: One successful gmin step
+Trying gmin =   1.0000E-07 Note: One successful gmin step
+Trying gmin =   1.0000E-08 Note: One successful gmin step
+Trying gmin =   1.0000E-09 Note: One successful gmin step
+Trying gmin =   1.0000E-10 Note: One successful gmin step
+Trying gmin =   1.0000E-11 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Warning: Further gmin increment
+Trying gmin =   5.6234E-12 Note: One successful gmin step
+Trying gmin =   2.3714E-12 Warning: Further gmin increment
+Trying gmin =   4.5316E-12 Note: One successful gmin step
+Trying gmin =   3.2781E-12 Note: One successful gmin step
+Trying gmin =   2.0169E-12 Warning: Further gmin increment
+Trying gmin =   2.9033E-12 Warning: Further gmin increment
+Trying gmin =   3.1801E-12 Note: One successful gmin step
+Trying gmin =   3.0385E-12 Note: One successful gmin step
+Trying gmin =   2.8379E-12 Note: One successful gmin step
+Trying gmin =   2.5616E-12 Note: One successful gmin step
+Trying gmin =   2.4337E-12 Warning: Further gmin increment
+Trying gmin =   2.5290E-12 Warning: Further gmin increment
+Trying gmin =   2.5534E-12 Warning: Further gmin increment
+Trying gmin =   2.5595E-12 Note: One successful gmin step
+Trying gmin =   2.5585E-12 Note: One successful gmin step
+Trying gmin =   2.5570E-12 Warning: Further gmin increment
+Trying gmin =   2.5581E-12 Note: One successful gmin step
+Trying gmin =   2.5579E-12 Warning: Further gmin increment
+Trying gmin =   2.5581E-12 Note: One successful gmin step
+Trying gmin =   2.5580E-12 Warning: Last gmin step failed
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Trying gmin =   1.0000E-03 Note: One successful gmin step
+Trying gmin =   1.0000E-04 Note: One successful gmin step
+Trying gmin =   1.0000E-05 Note: One successful gmin step
+Trying gmin =   1.0000E-06 Warning: Further gmin increment
+Trying gmin =   5.6234E-06 Note: One successful gmin step
+Trying gmin =   2.3714E-06 Note: One successful gmin step
+Trying gmin =   6.4938E-07 Note: One successful gmin step
+Trying gmin =   1.7783E-07 Note: One successful gmin step
+Trying gmin =   2.5483E-08 Note: One successful gmin step
+Trying gmin =   2.5483E-09 Note: One successful gmin step
+Trying gmin =   2.5483E-10 Note: One successful gmin step
+Trying gmin =   2.5483E-11 Note: One successful gmin step
+Trying gmin =   2.5483E-12 Note: One successful gmin step
+Trying gmin =   1.0000E-12 Note: One successful gmin step
+Note: True gmin stepping completed
+y = 1.800000e+00
+m.xvco.xm5.msky130_fd_pr__pfet_01v8#sbody = 1.800000e+00
+m.xvco.xm6.msky130_fd_pr__nfet_01v8_lvt#body = 2.500121e-12
+m.xvco.xm6.msky130_fd_pr__nfet_01v8_lvt#dbody = 3.750182e-12
+m.xvco.xm6.msky130_fd_pr__nfet_01v8_lvt#sbody = 3.750182e-12
+m.xvco.xm7.msky130_fd_pr__nfet_01v8#body = 1.178690e-10
+m.xvco.xm7.msky130_fd_pr__nfet_01v8#dbody = 7.863860e-11
+m.xvco.xm7.msky130_fd_pr__nfet_01v8#sbody = 5.893456e-11
+m.xvco.xm8.msky130_fd_pr__nfet_01v8#body = 8.868495e-12
+m.xvco.xm8.msky130_fd_pr__nfet_01v8#dbody = 2.212075e-11
+m.xvco.xm8.msky130_fd_pr__nfet_01v8#sbody = 4.434260e-12
+m.xvco.xm9.msky130_fd_pr__nfet_01v8#body = 7.060968e-12
+m.xvco.xm9.msky130_fd_pr__nfet_01v8#dbody = 1.765182e-11
+m.xvco.xm9.msky130_fd_pr__nfet_01v8#sbody = 3.530499e-12
+m.xvco.xm11.msky130_fd_pr__pfet_01v8#body = 1.702626e+00
+m.xvco.xm11.msky130_fd_pr__pfet_01v8#dbody = 1.702626e+00
+m.xvco.xm11.msky130_fd_pr__pfet_01v8#sbody = 1.702626e+00
+nmos_sat_check = 7.657154e-01
+pmos_sat_check = 8.168515e-01
+q.xbgr.xq2.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq3.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq4.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq5.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq6.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq7.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq8.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq9.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 5.297087e-05
+q.xbgr.xq10.qsky130_fd_pr__pnp_05v5_w0p68l0p68#collcx = 3.431089e-04
+tail_sat_check = -4.95225e-02
+vctrl = 1.000000e-01
+vdd = 1.800000e+00
+vdd#branch = -2.38887e-03
+vn = 7.881542e-01
+vp = 7.881542e-01
+vtuner#branch = -3.99680e-13
+xbgr.net1 = 7.298044e-01
+xbgr.net2 = 7.840068e-01
+xbgr.net3 = 8.117183e-01
+xbgr.net4 = 8.069954e-01
+xbgr.net5 = 1.748017e+00
+xbgr.net6 = 1.059663e+00
+xbgr.net7 = 1.799989e+00
+xbgr.vbe = 8.253971e-01
+xbgr.xr1.xsky130_fd_pr__res_xhigh_po_1p41.ra = 1.822706e-03
+xbgr.xr3.xsky130_fd_pr__res_xhigh_po_1p41.ra = 1.855543e-03
+xbgr.xr4.xsky130_fd_pr__res_xhigh_po_1p41.ra = 7.842140e-01
+xind1.net1 = 7.881542e-01
+xind1.net3 = 0.000000e+00
+xind1.net4 = 0.000000e+00
+xvco.net1 = 5.648331e-01
+xvco.net3 = 1.702626e+00
+xvco.xc_load.a = 7.881542e-01
+xvco.xc_load.b1 = 7.881542e-01
+Doing analysis at TEMP = -27.000000 and TNOM = -27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+vctrl                                      0.1
+ibias                                 0.707454
+xvco.net1                             0.564833
+xvco.net3                              1.70263
+vp                                    0.788154
+vn                                    0.788154
+xvco.xc_load.a                        0.788154
+xvco.xc_load.b1                       0.788154
+xind1.net1                            0.788154
+xind1.net3                                   0
+xind1.net4                                   0
+xbgr.net3                             0.811718
+xbgr.net1                             0.729804
+xbgr.vbe                              0.825397
+xbgr.net2                             0.784007
+xbgr.xr4.xsky130_fd_pr__res_xhigh_po_1p41.ra        0.784214
+xbgr.net5                              1.74802
+xbgr.net6                              1.05966
+xbgr.net4                             0.806995
+xbgr.net7                              1.79999
+xbgr.xr1.xsky130_fd_pr__res_xhigh_po_1p41.ra      0.00182271
+xbgr.xr3.xsky130_fd_pr__res_xhigh_po_1p41.ra      0.00185554
+l.xind1.l1#branch                  2.14828e-14
+vtuner#branch                      -3.9968e-13
+vdd#branch                         -0.00238887
+
+ Reference value :  0.00000e+00 Reference value :  5.74280e-09 Reference value :  9.78953e-09 Reference value :  1.39303e-08 Reference value :  1.80046e-08 Reference value :  2.20640e-08 Reference value :  2.61549e-08 Reference value :  3.03472e-08 Reference value :  3.46174e-08 Reference value :  3.89354e-08 Reference value :  4.33251e-08 Reference value :  4.76827e-08 Reference value :  5.20539e-08 Reference value :  5.64461e-08 Reference value :  6.07759e-08 Reference value :  6.51489e-08 Reference value :  6.95203e-08 Reference value :  7.38878e-08 Reference value :  7.82340e-08 Reference value :  8.26031e-08 Reference value :  8.69444e-08 Reference value :  9.13072e-08 Reference value :  9.56343e-08 Reference value :  9.99422e-08 Reference value :  1.04280e-07 Reference value :  1.08625e-07 Reference value :  1.12951e-07 Reference value :  1.17325e-07 Reference value :  1.21683e-07 Reference value :  1.26074e-07 Reference value :  1.30435e-07 Reference value :  1.34813e-07 Reference value :  1.39180e-07 Reference value :  1.43568e-07 Reference value :  1.47902e-07 Reference value :  1.52277e-07 Reference value :  1.56655e-07 Reference value :  1.61046e-07 Reference value :  1.65433e-07 Reference value :  1.69809e-07 Reference value :  1.74229e-07 Reference value :  1.78654e-07 Reference value :  1.83071e-07 Reference value :  1.86539e-07 Reference value :  1.89088e-07 Reference value :  1.93504e-07 Reference value :  1.97889e-07
+No. of Data Rows : 20202
+vdiff_max = 1.501453e+00
+Note: No ".plot", ".print", or ".fourier" lines; no simulations run
+tperiod             =  4.433414e-10 targ=  1.876511e-08 trig=  1.832177e-08
+freq = 2.255598e+00

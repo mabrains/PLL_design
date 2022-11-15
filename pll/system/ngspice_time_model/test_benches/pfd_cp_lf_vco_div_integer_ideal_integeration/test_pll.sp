@@ -8,14 +8,14 @@
 
 
 
-.csparam simtime=50u
+.csparam simtime=200u
 
 .global d_d0 d_d1
 
 *digital zero
 vzero A_0 0 dc 0
 
-abridgev3 [A_0] [d_d0] adc_vbuf
+abridgev3 [A_0 vdd] [d_d0 vddd] adc_vbuf
 .model adc_vbuf adc_bridge(in_low = 0.9 in_high = 0.9)
 
 *digital one
@@ -32,6 +32,7 @@ ainv1 d_d0 d_d1 invd1
 *test
 
 VDD vdd gnd 1.8V
+
 Vref REF gnd PULSE ( 0 1.8 0 0 0 tpw cycle 0)
 *Vref REF gnd DC 0 PULSE ( 0 1.8 {{delayup}} trise tfall tpw cycle 0 )
 *Vfb  FB gnd DC 0 PULSE ( 0 1.8 {{delaydwn}} trise tfall tpw cycle 0 )
@@ -42,13 +43,13 @@ XPFD REF FB UP DWN UP_bar DWN_bar vdd gnd PFD
 *XPFD REF FB UP DWN UP_bar DWN_bar vdd gnd PFD
 Xcp UP DWN out vdd gnd charge_pump_behav 
 
-Xloop_filter_3rd_order_ideal out vctrl gnd loop_filter_3rd_order_ideal
+Xloop_filter_3rd_orde out vctrl gnd loop_filter_3rd_order 
 
 XVCO vctrl divin vdd gnd vco_behav
 
-*X240DIV_lib divin FB 240DIV_lib
+X240DIV_lib divin FB 240DIV_lib
 
-Xdivider VDD gnd modo modi divin FB d_d0 d_d0 d_d0 d_d0 d_d1 d_d0 d_d0 d_d0 divider
+
 
 
 .control
@@ -58,11 +59,10 @@ set wr_vecnames
 option numdgt = 3
 set xtrtol=2
 tran 0.1n $&simtime 
-meas tran tdiff TRIG v(FB) VAL=0.9 RISE=340 TARG v(FB) VAL=0.9 RISE=341
-*wrdata pfd_cp_lf_behav.csv v(FB) v(REF) v(UP) v(DWN) v(out) v(vctrl) v(divin) v(fout)
-plot v(FB) v(REF) v(UP) v(DWN) 
-plot v(out) v(vctrl)
-plot divin vs vctrl title vco
+meas tran tdiff TRIG v(FB) VAL=0.9 RISE=20 TARG v(FB) VAL=0.9 RISE=21
+wrdata pll.csv v(vctrl) 
+
+plot v(vctrl)
+
 
 .endc
-

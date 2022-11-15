@@ -82,8 +82,7 @@
 *########################### 1/2 DIV ideal ###############################
 
 *########################### 240 DIV ideal ###############################
-.param div=240.1
-
+.param div=240
 .subckt 240DIV_lib FIn FOUT
 
 	* Analog to Digital nodes Models

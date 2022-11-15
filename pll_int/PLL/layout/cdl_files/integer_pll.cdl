@@ -1,6 +1,6 @@
 ** sch_path: /hoM_pfd_e/ahM_pfd_edelbadry/D_FF/conventional_pfd.sch
 
-.subckt integer_pll VDD GND p0 p1 p2 p3 p4 p5 p6 p7 REF vco_out vp vn up dn VOP vctrl ibias_bgr ibias_vco ibias_cp   
+.subckt integer_pll VDD GND p0 p1 p2 p3 p4 p5 p6 p7 REF modi modo vco_out vp vn up dn VOP vctrl ibias_bgr ibias_vco ibias_cp    
 
 *******************************pfd************************************
 **********************************************************************        
@@ -159,7 +159,7 @@ M_vco_inv_4 fout_dummy vn VDD VDD sky130_fd_pr__pfet_01v8 L=0.15u W=60u  nf=12 m
 
 *******************************divider************************************
 ********************************************************************** 
-**external nodes: p0 p1 p2 p3 p4 p5 p6 p7 fin FB
+**external nodes: p0 p1 p2 p3 p4 p5 p6 p7 vco_out FB
 
 *FIRST CELL
 *****************************************************************************************************************

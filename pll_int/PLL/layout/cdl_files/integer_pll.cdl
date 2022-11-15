@@ -1,0 +1,33 @@
+** sch_path: /home/ahmedelbadry/D_FF/conventional_pfd.sch
+
+.subckt integer_pll VDD GND 
+
+.subckt TOP VDD pfd_net5 dn_b up up_b pfd_net2 RST pfd_net4 pfd_net6 pfd_net7 pfd_net3 pfd_net1 GND REF FB
+M1 pfd_net1 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+M2 pfd_net1 REF pfd_net2 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
+M3 pfd_net2 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
+M4 pfd_net3 pfd_net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+M5 up_b pfd_net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
+M6 up_b REF pfd_net3 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1  
+M7 up up_b GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+M8 up up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
+M9 pfd_net7 up_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
+M10 RST dn_b pfd_net7 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1
+M11 dn dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
+M12 dn dn_b VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
+M13 RST up_b GND GND sky130_fd_pr__nfet_01v8 L=0.2U W=2U nf=1
+M14 RST dn_b GND GND sky130_fd_pr__nfet_01v8 L=0.2U W=2U nf=1  
+M15 pfd_net6 pfd_net4 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
+M16 dn_b pfd_net4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1 
+M17 pfd_net4 FB pfd_net5 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1 
+M18 dn_b FB pfd_net6 VDD sky130_fd_pr__pfet_01v8 L=0.2U W=4U nf=1  
+M19 pfd_net5 RST VDD VDD sky130_fd_pr__pfet_01v8 L=0.15U W=5U nf=1
+M20 pfd_net4 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1 
+ .ends
+
+
+
+
+
+
+

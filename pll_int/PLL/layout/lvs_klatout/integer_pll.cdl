@@ -32,8 +32,8 @@ M_pfd_20 pfd_net4 RST GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2.5U nf=1
 ********************************************************************** 
 **external nodes:up dn VOP  VBN
 
-M_cp_p1 ibias_cp ibias_cp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=40 nf=4 m=1
-M_cp_p2 VBN      ibias_cp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=10 nf=1 m=1
+M_cp_p1 ibias_cp ibias_cp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15u W=40u nf=4 m=1
+M_cp_p2 VBN      ibias_cp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15u W=10u nf=1 m=1
 
 
 M_cp_1 cp_net1 Nbais GND GND sky130_fd_pr__nfet_01v8 L=0.6U W=2U nf=1 m=2
@@ -82,13 +82,13 @@ M_cp_33 cp_net5_ota VOP cp_net6_ota VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=
 ********************************************************************** 
 **external nodes:VOP vctrl
 
-C_lpf_1 VOP   gnd sky130_fd_pr__model__cap_mim W=25.06u L=25.06u MF=1 m=20   
-c_lpf_2 r2c2  gnd sky130_fd_pr__model__cap_mim W=27.88u L=27.87u MF=1 m=320
-c_lpf_3 vctrl gnd sky130_fd_pr__model__cap_mim W=29.5u  L=29.53u MF=1 m=1 
+C_lpf_1 VOP   gnd sky130_fd_pr__model__cap_mim W=25.06u L=25.06u MF=1 m=20   A=12.560072n    P=2.0048m 
+c_lpf_2 r2c2  gnd sky130_fd_pr__model__cap_mim W=27.88u L=27.87u MF=1 m=320  A=0.248644992u    P=35.68m
+c_lpf_3 vctrl gnd sky130_fd_pr__model__cap_mim W=29.5u  L=29.53u MF=1 m=1    A=0.871135n P=0.11806m
 
-R_lpf_2     VOP r2c2   GND sky130_fd_pr__res_xhigh_po_1p41 L=4.44u  W=1.41u m=1
-R_lpf_3     VOP vctrl  GND sky130_fd_pr__res_xhigh_po_1p41 L=62.16u W=1.41u m=1 
-R_lpf_dummy GND GND    GND sky130_fd_pr__res_xhigh_po_1p41 L=4.44u  W=2.82u m=1
+R_lpf_4     VOP r2c2   GND sky130_fd_pr__res_xhigh_po_1p41 L=4.56u  W=1.41u m=1
+R_lpf_5     VOP vctrl  GND sky130_fd_pr__res_xhigh_po_1p41 L=63.84u W=1.41u m=1 
+** R_lpf_dummy GND GND    GND sky130_fd_pr__res_xhigh_po_1p41 L=4.44u  W=2.82u m=1 $ this dummy res is compined with the dummy res of the bgr
 
 
 *******************************bgr************************************
@@ -103,7 +103,7 @@ R_bgr_4 bgr_net2 bgr_net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=20.24u W=1.41u m
 R_bgr_1 GND bgr_net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u m=1
 R_bgr_3 GND VBE GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u m=1
 
-R_bgr_d1 GND GND GND sky130_fd_pr__res_xhigh_po_1p41 L=10.12u W=5.64u m=1
+R_bgr_d1 GND GND GND sky130_fd_pr__res_xhigh_po_1p41 L=7.07137723794u W=8.725u m=1 
 
 M_bgr_15 bgr_net5 bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=4u nf=4    
 M_bgr_13 bgr_net3 bgr_net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=20u nf=4    

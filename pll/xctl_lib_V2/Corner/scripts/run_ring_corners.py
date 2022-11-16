@@ -42,7 +42,7 @@ corner_str = """
 .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
-VDD VDD GND PWL(0 0 1u {vsup} 1m {vsup})"""
+VDD VDD GND PWL(0 0 1u {vsup} 1.2m {vsup})"""
 ##PWL(0 0 1u 1.8 0.5m 1.8)
 ## .nodeset v(vout)=0
 

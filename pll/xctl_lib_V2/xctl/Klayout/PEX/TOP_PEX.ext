@@ -1,6 +1,12 @@
 * NGSPICE file created from TOP.ext - technology: sky130A
 
+.include ../PEX/Crystal.ckt
+.include ../PEX/Off_chip_caps.ckt
+
 .subckt TOP Vin out VDD GND
+xcaps Cin Cout OffCaps
+xcrystal Cin Cout Crystal
+
 X0 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=4.83e+13p pd=3.0644e+08u as=3.96e+13p ps=2.4528e+08u w=1.5e+07u l=150000u
 X1 GND Cin Cout GND sky130_fd_pr__nfet_01v8 ad=4.83e+13p pd=3.0644e+08u as=3.96e+13p ps=2.4528e+08u w=1.5e+07u l=150000u
 X2 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.5e+07u l=150000u
@@ -49,11 +55,5 @@ C6 Cout Cin 3.41fF
 C7 out VDD 4.43fF
 C8 Cout VDD 62.97fF
 C9 Cout a_2823_n2663# 0.06fF
-C10 Cin GND 60p m=1
-C11 Cout GND 60p m=1
-Ls Cin net3 6.237m m=1
-Rs net3 net2 26.2965 m=1
-Cs net2 Cout 40f m=1
-Cp Cin Cout 7p m=1
 .ends
 

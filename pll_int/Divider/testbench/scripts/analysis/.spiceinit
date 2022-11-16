@@ -6,4 +6,4 @@ set ng_nomodcheck
 
 ***************
 set ngbehavior=hs
-set num_threads=10
+set num_threads=30

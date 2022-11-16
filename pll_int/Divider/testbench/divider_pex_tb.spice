@@ -2,7 +2,7 @@
 
 .include ../layout/DIVIDER_pex_extracted.ckt
 .param W=2
-.param f_input =2.4G
+.param f_input =2.42G
 .param p0_val = 0
 .param p1_val=  0
 .param p2_val=  0
@@ -27,7 +27,7 @@ VDD8 p7 GND {p7_val}
 .options tnom=27
 VDD VDD GND DC 1.8
 
-XDIVIDER P0 P1 P2 P7 P6 P5 P4 P3 fin modo modi fout0 modi0 fout1 modi1 modi2
+XDIVIDER P0 P1 P2 P3 P4 P5 P6 P7 fin modo modi fout0 modi0 fout1 modi1 modi2
 + fout2 modi3 fout3 fout4 modi4 fout5 modi5 fout6 modi6 fout VDD GND DIVIDER
 
 V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)

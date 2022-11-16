@@ -1,17 +1,17 @@
 * div TB
 
 
-.include /home/moataz/Desktop/ELGD/PLL_design/pll_int/Divider/testbench/scripts/analysis/../../../layout/DIVIDER_pex_extracted.ckt
+.include {{ current_path }}/../../../layout/DIVIDER_pex_extracted.ckt
 .param W=2
-.param f_input = 2.54G
-.param p0_val = 0.0
-.param p1_val=  1.8
-.param p2_val=  0.0
-.param p3_val=  0.0
-.param p4_val=  0.0
-.param p5_val=  0.0
-.param p6_val=  0.0
-.param p7_val=  0.0
+.param f_input = {{f_in}}G
+.param p0_val = {{p0}}
+.param p1_val=  {{p1}}
+.param p2_val=  {{p2}}
+.param p3_val=  {{p3}}
+.param p4_val=  {{p4}}
+.param p5_val=  {{p5}}
+.param p6_val=  {{p6}}
+.param p7_val=  {{p7}}
 
 VDD1 p2 GND {p2_val}
 VDD2 p4 GND {p4_val}

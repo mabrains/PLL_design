@@ -1,0 +1,1525 @@
+* NGSPICE file created from DIVIDER.ext - technology: sky130A
+
+.subckt DIVIDER P0 P1 P2 P7 P6 P5 P4 P3 fin modo modi fout0 modi0 fout1 modi1 modi2
++ fout2 modi3 fout3 fout4 modi4 fout5 modi5 fout6 modi6 fout VDD GND
+X0 a_n3749_8439# fout2 a_n4036_12366# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X1 a_n13930_2482# fout5 a_n14130_2482# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X2 fout6 a_n14423_5865# a_n14633_2483# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X3 VDD fin a_n24539_11543# VDD sky130_fd_pr__pfet_01v8 ad=1.2064e+14p pd=8.9232e+08u as=3.48e+12p ps=2.574e+07u w=4e+06u l=150000u
+X4 GND fout6 a_n15556_2475# GND sky130_fd_pr__nfet_01v8 ad=6.96e+13p pd=5.2176e+08u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X5 a_n15024_8436# a_n15419_8436# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X6 a_n18023_11547# a_n18753_11548# fout1 GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X7 a_n5255_5996# a_n6002_2899# a_n5699_5899# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X8 a_n11277_8440# fout2 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X9 a_n11129_2476# fout4 a_n11555_5898# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X10 GND a_n20158_11542# a_n21540_12270# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X11 GND a_n14372_11547# a_n15755_12275# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X12 a_n17810_11459# a_n17562_12353# a_n16468_12355# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X13 a_n10992_8440# fout1 a_n11283_12359# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X14 a_n10596_8440# a_n10992_8440# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X15 a_n9889_12279# a_n8507_11550# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X16 a_n20386_2489# a_n22077_2481# GND GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X17 a_n15419_8436# a_n17562_12353# a_n15705_8436# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X18 VDD a_n18722_2907# a_n18744_6000# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X19 VDD modi1 a_n14372_11547# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X20 a_n18744_6000# a_n18722_2907# GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X21 modi0 fout0 a_n15024_8436# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X22 a_n7001_2908# modi4 a_n6652_2485# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X23 VDD a_n5699_5899# a_n5936_5996# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X24 GND modi1 a_n12600_11551# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X25 a_n14423_5865# fout5 VDD VDD sky130_fd_pr__pfet_01v8 ad=3.48e+12p pd=2.574e+07u as=0p ps=0u w=4e+06u l=150000u
+X26 GND a_n2702_11550# a_n4084_12278# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X27 a_n21491_8431# a_n21540_12270# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X28 a_n15419_8436# fout0 a_n15707_12363# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X29 GND fout1 a_n14284_11547# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X30 a_n22643_8431# fin a_n22934_12350# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X31 a_n9554_8440# a_n11697_12356# a_n9840_8440# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X32 VDD a_n23172_5903# a_n23409_6000# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X33 a_n2913_2485# a_n4604_2477# GND GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X34 GND modi2 a_n6795_11551# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X35 a_n23348_12347# fin VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X36 a_n12857_2907# modi5 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X37 a_n4516_2477# a_n6002_2899# a_n4604_2477# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X38 a_n24497_6006# a_n24474_2912# GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X39 GND a_n6140_11462# a_n6353_11550# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X40 VDD a_n11944_11462# fout2 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X41 VDD a_n24497_6006# a_n22728_6000# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X42 GND a_n7023_6002# a_n5273_2477# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X43 a_n21540_12270# a_n20158_11542# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X44 a_n3835_2477# fout3 a_n4261_5899# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X45 GND fout a_n21308_2481# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X46 VDD fout0 a_n18753_11548# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.574e+07u w=4e+06u l=150000u
+X47 GND a_n5699_5899# a_n5954_2477# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X48 a_n9841_12367# a_n9889_12279# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X49 VDD a_n17419_5897# a_n17657_5994# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X50 VDD fout5 a_n9674_5995# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X51 a_n9554_8440# fout1 a_n9841_12367# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X52 a_n8558_5866# modi4 VDD VDD sky130_fd_pr__pfet_01v8 ad=3.48e+12p pd=2.574e+07u as=0p ps=0u w=4e+06u l=150000u
+X53 VDD fout6 a_n15538_5994# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X54 VDD a_n12888_11551# fout2 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X55 VDD modi2 a_n7083_11551# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.574e+07u w=4e+06u l=150000u
+X56 a_n12880_6001# a_n12857_2907# GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X57 a_n6353_11550# a_n7083_11551# fout3 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X58 a_n20175_5871# P7 VDD VDD sky130_fd_pr__pfet_01v8 ad=3.48e+12p pd=2.574e+07u as=0p ps=0u w=4e+06u l=150000u
+X59 a_n6002_2899# fout3 GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X60 fout5 a_n10460_2476# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X61 a_n16237_2475# a_n17722_2897# a_n16325_2475# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X62 a_n19682_2488# fout6 a_n19882_2488# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X63 a_n20815_12350# a_n21205_8431# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X64 a_n20175_5871# modi6 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X65 fout5 a_n8558_5866# a_n8769_2484# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X66 a_n15556_2475# fout5 a_n15981_5897# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X67 a_n8419_11550# modi2 a_n8507_11550# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X68 a_n18665_11548# P1 a_n18753_11548# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X69 a_n17143_8436# fout1 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X70 a_n2209_2484# fout3 a_n2409_2484# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X71 GND fout1 a_n11697_12356# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X72 VDD a_n24539_11543# fout0 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X73 a_n16462_8436# a_n16857_8436# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X74 a_n18722_2907# modi6 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X75 GND fout0 a_n20070_11542# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X76 a_n17149_12355# fout1 GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X77 VDD a_n12857_2907# a_n12880_6001# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X78 GND fout3 a_n2614_11550# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X79 VDD a_n7083_11551# fout3 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X80 GND fout2 a_n5892_12356# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X81 fout6 a_n16325_2475# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X82 a_n7001_2908# fout4 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X83 a_n16857_8436# a_n17562_12353# a_n17143_8436# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X84 a_n17562_12353# fout0 VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X85 VDD fout2 a_n8507_11550# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X86 a_n11112_5995# a_n11858_2898# a_n11555_5898# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X87 a_n8266_2483# modi4 GND GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X88 VDD fout1 a_n12888_11551# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.574e+07u w=4e+06u l=150000u
+X89 fout a_n20175_5871# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X90 a_n12857_2907# fout5 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X91 a_n22253_12350# a_n22643_8431# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X92 a_n4797_12358# a_n5187_8439# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X93 a_n23475_2903# fout6 GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X94 a_n2702_5867# fout3 VDD VDD sky130_fd_pr__pfet_01v8 ad=3.48e+12p pd=2.574e+07u as=0p ps=0u w=4e+06u l=150000u
+X95 a_n15707_12363# a_n15755_12275# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X96 a_n22928_8431# fout0 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X97 a_n21989_2481# a_n23475_2903# a_n22077_2481# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X98 VDD a_n10117_5898# a_n10355_5995# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X99 VDD a_n11555_5898# a_n11793_5995# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X100 a_n5954_2477# a_n6002_2899# modi3 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X101 a_n21308_2481# fout6 a_n21734_5903# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X102 GND a_n23172_5903# a_n23427_2481# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X103 VDD a_n12880_6001# a_n11112_5995# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X104 a_n10602_12359# a_n10992_8440# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X105 VDD fout6 a_n23475_2903# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X106 a_n9164_12359# a_n9554_8440# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X107 fout4 a_n2702_5867# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X108 VDD fout3 a_n6002_2899# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X109 a_n4036_12366# a_n4084_12278# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X110 a_n17810_11459# fout0 a_n16462_8436# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X111 a_n18722_2907# modi6 a_n18372_2483# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X112 a_n4498_5996# fout3 a_n4604_2477# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X113 GND fout0 a_n17562_12353# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X114 VDD modi0 a_n20158_11542# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X115 a_n24474_2912# modi VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X116 a_n18465_11548# fout0 a_n18665_11548# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X117 modi2 a_n5892_12356# a_n3360_12358# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X118 a_n3817_5996# a_n6002_2899# a_n4261_5899# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X119 modo a_n23348_12347# a_n20815_12350# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X120 a_n10992_8440# a_n11697_12356# a_n11277_8440# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X121 a_n12157_11550# a_n12888_11551# fout2 GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X122 a_n9840_8440# a_n9889_12279# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X123 a_n21972_6000# fout6 a_n22077_2481# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X124 a_n14633_2483# a_n16325_2475# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X125 a_n24451_11543# P0 a_n24539_11543# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X126 a_n11944_11462# fout1 a_n10596_8440# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X127 a_n17674_2475# a_n17722_2897# modi5 GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X128 a_n3360_12358# a_n3749_8439# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X129 a_n11697_12356# fout1 VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X130 a_n18722_2907# fout6 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X131 a_n14423_5865# P6 a_n13930_2482# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X132 a_n24125_2489# fout GND GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X133 VDD fout0 a_n20158_11542# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X134 a_n21291_6000# a_n23475_2903# a_n21734_5903# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X135 VDD modo a_n24539_11543# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X136 a_n5273_2477# fout3 a_n5699_5899# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X137 GND a_n17419_5897# a_n17674_2475# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X138 VDD a_n18753_11548# fout1 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X139 a_n4035_8439# a_n4084_12278# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X140 a_n16219_5994# fout5 a_n16325_2475# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X141 GND fout5 a_n9691_2476# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X142 GND a_n23595_11454# a_n23808_11542# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X143 a_n5473_8439# fout3 VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X144 GND a_n11944_11462# a_n12157_11550# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X145 a_n21205_8431# a_n23348_12347# a_n21491_8431# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X146 a_n14284_11547# modi1 a_n14372_11547# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X147 VDD P0 a_n24539_11543# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X148 a_n4792_8439# a_n5187_8439# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X149 a_n3354_8439# a_n3749_8439# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X150 a_n15538_5994# a_n17722_2897# a_n15981_5897# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X151 VDD a_n21734_5903# a_n21972_6000# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X152 modo fin a_n20810_8431# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X153 a_n6652_2485# fout4 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X154 a_n17722_2897# fout5 GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X155 fout a_n22077_2481# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X156 VDD P3 a_n7083_11551# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X157 a_n6140_11462# a_n5892_12356# a_n4797_12358# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X158 a_n3749_8439# a_n5892_12356# a_n4035_8439# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X159 a_n21492_12358# a_n21540_12270# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X160 VDD a_n6140_11462# fout3 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X161 a_n5892_12356# fout2 VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X162 a_n14423_5865# P6 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X163 fout6 a_n14423_5865# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X164 a_n7001_2908# modi4 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X165 a_n16857_8436# fout0 a_n17149_12355# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X166 a_n15030_12355# a_n15419_8436# GND GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=0p ps=0u w=2e+06u l=150000u
+X167 a_n23427_2481# a_n23475_2903# modi6 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X168 GND modi0 a_n18465_11548# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X169 a_n11944_11462# a_n11697_12356# a_n10602_12359# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X170 GND a_n24497_6006# a_n22746_2481# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X171 fout4 a_n4604_2477# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X172 a_n12857_2907# modi5 a_n12508_2484# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u
+X173 a_n18372_2483# fout6 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X174 a_n22746_2481# fout6 a_n23172_5903# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X175 VDD modi0 a_n18753_11548# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X176 a_n20070_11542# modi0 a_n20158_11542# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X177 GND a_n15981_5897# a_n16237_2475# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X178 a_n24251_11543# fin a_n24451_11543# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X179 a_n6995_11551# P3 a_n7083_11551# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X180 a_n15705_8436# a_n15755_12275# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X181 VDD a_n24474_2912# a_n24497_6006# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X182 a_n5187_8439# fout2 a_n5478_12358# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
+X183 VDD fout3 a_n2702_11550# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=2.32e+12p ps=1.716e+07u w=4e+06u l=150000u
+X184 a_n8558_5866# fout4 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X185 VDD P1 a_n18753_11548# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X186 a_n5936_5996# fout3 modi3 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X187 modi0 a_n17562_12353# a_n15030_12355# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X188 a_n11810_2476# a_n11858_2898# modi4 GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X189 a_n23595_11454# a_n23348_12347# a_n22253_12350# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X190 VDD a_n17810_11459# fout1 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X191 a_n10372_2476# a_n11858_2898# a_n10460_2476# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X192 a_n2614_11550# modi3 a_n2702_11550# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X193 a_n8769_2484# a_n10460_2476# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X194 GND a_n12880_6001# a_n11129_2476# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X195 a_n20175_5871# P7 a_n19682_2488# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X196 VDD fout2 a_n7083_11551# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X197 a_n23409_6000# fout6 modi6 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X198 a_n20175_5871# fout6 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X199 GND a_n10117_5898# a_n10372_2476# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X200 GND a_n11555_5898# a_n11810_2476# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X201 a_n22247_8431# a_n22643_8431# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X202 a_n12800_11551# P2 a_n12888_11551# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X203 a_n4084_12278# a_n2702_11550# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X204 a_n9691_2476# fout4 a_n10117_5898# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X205 a_n19882_2488# modi6 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X206 a_n22728_6000# a_n23475_2903# a_n23172_5903# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X207 a_n2702_5867# P4 a_n2209_2484# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X208 fout5 a_n8558_5866# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X209 VDD fout4 a_n11858_2898# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X210 GND a_n17810_11459# a_n18023_11547# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X211 modi1 a_n11697_12356# a_n9164_12359# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X212 a_n17657_5994# fout5 modi5 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X213 a_n22643_8431# a_n23348_12347# a_n22928_8431# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X214 a_n2409_2484# modi3 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X215 a_n9674_5995# a_n11858_2898# a_n10117_5898# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X216 GND a_n8507_11550# a_n9889_12279# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X217 a_n11858_2898# fout4 GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X218 a_n5478_12358# fout3 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X219 a_n23595_11454# fin a_n22247_8431# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X220 VDD a_n23595_11454# fout0 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X221 VDD modi2 a_n8507_11550# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X222 GND a_n21734_5903# a_n21989_2481# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X223 a_n8558_5866# P5 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X224 a_n9159_8440# a_n9554_8440# VDD VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=0p ps=0u w=4e+06u l=150000u
+X225 a_n8066_2483# fout4 a_n8266_2483# GND sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=0p ps=0u w=6e+06u l=150000u
+X226 VDD a_n15981_5897# a_n16219_5994# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X227 a_n16993_2475# fout5 a_n17419_5897# GND sky130_fd_pr__nfet_01v8 ad=1.16e+12p pd=9.16e+06u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X228 VDD a_n4261_5899# a_n4498_5996# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X229 GND modo a_n24251_11543# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X230 a_n16468_12355# a_n16857_8436# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X231 VDD modi1 a_n12888_11551# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X232 a_n2702_5867# P4 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X233 a_n11283_12359# fout2 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X234 GND fout2 a_n8419_11550# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X235 a_n12508_2484# fout5 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X236 a_n14130_2482# modi5 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X237 fout a_n20175_5871# a_n20386_2489# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X238 VDD a_n7023_6002# a_n5255_5996# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X239 VDD fout4 a_n3817_5996# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X240 VDD fout1 a_n14372_11547# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X241 VDD P2 a_n12888_11551# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X242 a_n16976_5994# a_n17722_2897# a_n17419_5897# VDD sky130_fd_pr__pfet_01v8 ad=2.32e+12p pd=1.716e+07u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X243 VDD fout5 a_n17722_2897# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X244 a_n2702_5867# modi3 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X245 a_n20810_8431# a_n21205_8431# VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X246 VDD modi3 a_n2702_11550# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X247 a_n21205_8431# fin a_n21492_12358# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X248 a_n15755_12275# a_n14372_11547# VDD VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X249 VDD fout a_n21291_6000# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X250 modi1 fout1 a_n9159_8440# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X251 a_n7023_6002# a_n7001_2908# GND GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=0p ps=0u w=2e+06u l=150000u
+X252 a_n22934_12350# fout0 GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X253 a_n12600_11551# fout1 a_n12800_11551# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X254 GND a_n4261_5899# a_n4516_2477# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X255 a_n23808_11542# a_n24539_11543# fout0 GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.74e+12p ps=1.258e+07u w=6e+06u l=150000u
+X256 a_n5187_8439# a_n5892_12356# a_n5473_8439# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X257 fout4 a_n2702_5867# a_n2913_2485# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X258 GND fin a_n23348_12347# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=5.8e+11p ps=4.58e+06u w=2e+06u l=150000u
+X259 GND fout4 a_n3835_2477# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X260 a_n6140_11462# fout2 a_n4792_8439# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X261 modi2 fout2 a_n3354_8439# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4e+06u l=150000u
+X262 VDD a_n18744_6000# a_n16976_5994# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X263 a_n24474_2912# modi a_n24125_2489# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X264 a_n6795_11551# fout2 a_n6995_11551# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=6e+06u l=150000u
+X265 a_n14423_5865# modi5 VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X266 a_n8558_5866# P5 a_n8066_2483# GND sky130_fd_pr__nfet_01v8 ad=1.74e+12p pd=1.258e+07u as=0p ps=0u w=6e+06u l=150000u
+X267 GND a_n18744_6000# a_n16993_2475# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2e+06u l=150000u
+X268 a_n10355_5995# fout4 a_n10460_2476# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X269 a_n24474_2912# fout VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=4e+06u l=150000u
+X270 a_n11793_5995# fout4 modi4 VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+X271 VDD a_n7001_2908# a_n7023_6002# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=1.16e+12p ps=8.58e+06u w=4e+06u l=150000u
+C0 a_n20158_11542# P1 0.09fF
+C1 a_n9889_12279# a_n11944_11462# 0.09fF
+C2 a_n17562_12353# a_n16468_12355# 0.05fF
+C3 a_n23409_6000# a_n23172_5903# 0.15fF
+C4 fout2 a_n11277_8440# 0.02fF
+C5 fout2 modi3 0.12fF
+C6 modi2 a_n6353_11550# 0.09fF
+C7 modi1 a_n15755_12275# 0.83fF
+C8 VDD P6 0.34fF
+C9 a_n21308_2481# a_n22077_2481# 0.04fF
+C10 a_n18722_2907# modi6 0.78fF
+C11 a_n2702_5867# VDD 4.59fF
+C12 modi0 VDD 1.38fF
+C13 a_n11858_2898# a_n11810_2476# 0.02fF
+C14 fout a_n20175_5871# 0.81fF
+C15 a_n7083_11551# VDD 4.82fF
+C16 fout3 a_n2702_5867# 0.77fF
+C17 a_n11858_2898# a_n10117_5898# 0.93fF
+C18 a_n11112_5995# a_n10117_5898# 0.06fF
+C19 a_n10992_8440# VDD 1.45fF
+C20 fout6 VDD 4.57fF
+C21 fout3 a_n7083_11551# 0.86fF
+C22 a_n19882_2488# a_n20386_2489# 0.02fF
+C23 a_n9840_8440# a_n8507_11550# 0.01fF
+C24 modi2 a_n9889_12279# 0.83fF
+C25 fout4 a_n9691_2476# 0.05fF
+C26 fout4 VDD 4.84fF
+C27 a_n8769_2484# a_n11858_2898# 0.08fF
+C28 a_n7023_6002# a_n5273_2477# 0.01fF
+C29 a_n20810_8431# a_n23595_11454# 0.06fF
+C30 a_n22728_6000# a_n22077_2481# 0.12fF
+C31 modi5 a_n11858_2898# 0.13fF
+C32 a_n15419_8436# a_n15030_12355# 0.08fF
+C33 modi5 a_n16976_5994# 0.06fF
+C34 fout4 fout3 2.95fF
+C35 fout0 VDD 4.42fF
+C36 a_n9889_12279# modi1 0.53fF
+C37 P2 fout1 0.67fF
+C38 a_n12857_2907# a_n11810_2476# 0.03fF
+C39 a_n4035_8439# a_n4792_8439# 0.02fF
+C40 a_n16237_2475# a_n15981_5897# 0.08fF
+C41 a_n4084_12278# a_n5892_12356# 0.79fF
+C42 a_n18722_2907# fout6 1.49fF
+C43 a_n7023_6002# a_n7001_2908# 1.74fF
+C44 a_n21205_8431# a_n21540_12270# 0.22fF
+C45 modi5 a_n12857_2907# 0.75fF
+C46 fout VDD 2.98fF
+C47 a_n6002_2899# a_n4516_2477# 0.05fF
+C48 a_n8066_2483# P5 0.02fF
+C49 a_n14372_11547# a_n15705_8436# 0.01fF
+C50 a_n21540_12270# a_n23348_12347# 0.79fF
+C51 a_n22728_6000# a_n23409_6000# 0.02fF
+C52 a_n15024_8436# a_n15705_8436# 0.02fF
+C53 a_n24474_2912# a_n22746_2481# 0.01fF
+C54 a_n14372_11547# a_n17562_12353# 0.18fF
+C55 a_n4604_2477# a_n2702_5867# 0.48fF
+C56 a_n5473_8439# VDD 0.94fF
+C57 a_n12157_11550# a_n11697_12356# 0.08fF
+C58 a_n17149_12355# modi0 0.02fF
+C59 fout3 a_n5473_8439# 0.03fF
+C60 a_n16325_2475# a_n16976_5994# 0.12fF
+C61 fin VDD 1.32fF
+C62 a_n17722_2897# a_n17419_5897# 0.48fF
+C63 a_n19882_2488# modi6 0.12fF
+C64 P1 fout1 0.04fF
+C65 a_n12888_11551# a_n11697_12356# 0.20fF
+C66 a_n21734_5903# a_n20386_2489# 0.04fF
+C67 a_n8066_2483# fout5 0.12fF
+C68 a_n4084_12278# a_n5187_8439# 0.05fF
+C69 a_n23427_2481# modi6 0.36fF
+C70 a_n4084_12278# a_n4036_12366# 0.01fF
+C71 fout4 a_n4604_2477# 0.39fF
+C72 a_n18722_2907# fout 0.03fF
+C73 a_n5892_12356# modi3 0.14fF
+C74 a_n17419_5897# a_n16993_2475# 0.35fF
+C75 P3 a_n8507_11550# 0.09fF
+C76 a_n16857_8436# a_n16468_12355# 0.09fF
+C77 a_n22247_8431# VDD 1.01fF
+C78 fout0 a_n17149_12355# 0.03fF
+C79 a_n14372_11547# a_n12888_11551# 0.19fF
+C80 a_n10460_2476# fout5 0.46fF
+C81 a_n12600_11551# a_n11697_12356# 0.05fF
+C82 a_n17562_12353# fout1 2.75fF
+C83 a_n24474_2912# a_n24497_6006# 1.71fF
+C84 a_n10117_5898# a_n10372_2476# 0.08fF
+C85 a_n2702_5867# a_n2409_2484# 0.12fF
+C86 fout2 P3 0.68fF
+C87 a_n15755_12275# modi0 0.53fF
+C88 a_n14284_11547# a_n15419_8436# 0.06fF
+C89 a_n19882_2488# fout6 0.04fF
+C90 a_n10460_2476# a_n9674_5995# 0.11fF
+C91 a_n17722_2897# a_n18744_6000# 0.79fF
+C92 a_n20158_11542# a_n21492_12358# 0.01fF
+C93 a_n6353_11550# a_n7083_11551# 0.13fF
+C94 fout4 a_n2409_2484# 0.13fF
+C95 a_n20158_11542# a_n18665_11548# 0.02fF
+C96 fout2 a_n6140_11462# 1.51fF
+C97 a_n6002_2899# modi3 0.86fF
+C98 a_n12157_11550# fout1 0.05fF
+C99 a_n8507_11550# a_n8419_11550# 1.05fF
+C100 P5 a_n11858_2898# 0.02fF
+C101 fout2 a_n8507_11550# 1.46fF
+C102 modi4 a_n7023_6002# 0.80fF
+C103 a_n18744_6000# a_n16993_2475# 0.01fF
+C104 a_n23172_5903# VDD 1.34fF
+C105 a_n4084_12278# a_n3360_12358# 0.03fF
+C106 a_n21540_12270# modi0 0.84fF
+C107 a_n14633_2483# a_n14423_5865# 0.13fF
+C108 a_n20815_12350# a_n23595_11454# 0.03fF
+C109 fout0 a_n15755_12275# 0.37fF
+C110 a_n12888_11551# fout1 0.66fF
+C111 fout4 a_n7001_2908# 1.38fF
+C112 a_n6995_11551# a_n6795_11551# 0.97fF
+C113 a_n21734_5903# modi6 0.11fF
+C114 a_n21491_8431# a_n22643_8431# 0.06fF
+C115 a_n15707_12363# a_n15419_8436# 0.33fF
+C116 a_n24539_11543# P0 0.24fF
+C117 a_n9889_12279# a_n7083_11551# 0.47fF
+C118 a_n2209_2484# modi3 0.07fF
+C119 a_n9889_12279# a_n10992_8440# 0.05fF
+C120 fout2 a_n8419_11550# 0.05fF
+C121 a_n11858_2898# fout5 2.70fF
+C122 a_n24474_2912# a_n23475_2903# 0.14fF
+C123 fout5 a_n16976_5994# 0.02fF
+C124 a_n5255_5996# modi3 0.06fF
+C125 a_n3354_8439# a_n6140_11462# 0.06fF
+C126 modi a_n24125_2489# 0.07fF
+C127 a_n2702_11550# a_n4084_12278# 1.53fF
+C128 P2 a_n12888_11551# 0.25fF
+C129 fout0 a_n21540_12270# 1.33fF
+C130 a_n11283_12359# a_n11944_11462# 0.04fF
+C131 a_n22928_8431# VDD 0.91fF
+C132 a_n21734_5903# a_n21989_2481# 0.08fF
+C133 fout a_n19882_2488# 0.13fF
+C134 a_n18465_11548# modi0 0.11fF
+C135 a_n11555_5898# a_n10355_5995# 0.07fF
+C136 a_n4084_12278# VDD 1.69fF
+C137 a_n12600_11551# fout1 0.04fF
+C138 a_n9691_2476# a_n10460_2476# 0.04fF
+C139 a_n11555_5898# a_n12508_2484# 0.06fF
+C140 a_n4084_12278# a_n3749_8439# 0.22fF
+C141 a_n10460_2476# VDD 1.40fF
+C142 fout3 a_n4084_12278# 1.40fF
+C143 a_n18753_11548# a_n17810_11459# 0.43fF
+C144 a_n24539_11543# a_n22643_8431# 0.02fF
+C145 a_n11858_2898# a_n9674_5995# 0.12fF
+C146 a_n17562_12353# P1 0.02fF
+C147 a_n16219_5994# a_n17419_5897# 0.07fF
+C148 a_n8558_5866# a_n7023_6002# 0.42fF
+C149 modi2 a_n6995_11551# 0.09fF
+C150 a_n17674_2475# a_n17419_5897# 0.08fF
+C151 a_n15755_12275# a_n15030_12355# 0.03fF
+C152 a_n12857_2907# fout5 1.42fF
+C153 a_n8769_2484# a_n10117_5898# 0.04fF
+C154 a_n3354_8439# fout2 0.03fF
+C155 a_n21734_5903# fout6 0.86fF
+C156 fout6 a_n14633_2483# 1.07fF
+C157 a_n18465_11548# fout0 0.04fF
+C158 a_n2702_5867# a_n2913_2485# 0.13fF
+C159 fout4 a_n3835_2477# 0.04fF
+C160 a_n17562_12353# a_n15705_8436# 0.01fF
+C161 a_n22934_12350# a_n23595_11454# 0.04fF
+C162 a_n11283_12359# modi1 0.02fF
+C163 modi2 a_n4035_8439# 0.06fF
+C164 a_n10596_8440# a_n9554_8440# 0.07fF
+C165 a_n7023_6002# a_n8266_2483# 0.03fF
+C166 a_n12800_11551# a_n11697_12356# 0.04fF
+C167 a_n4604_2477# a_n4516_2477# 0.34fF
+C168 a_n22728_6000# VDD 1.03fF
+C169 a_n9554_8440# a_n11944_11462# 0.50fF
+C170 P3 a_n5892_12356# 0.02fF
+C171 a_n2702_11550# modi3 0.93fF
+C172 a_n20158_11542# modo 1.43fF
+C173 fout4 a_n2913_2485# 1.05fF
+C174 a_n21540_12270# fin 0.37fF
+C175 a_n7023_6002# a_n5699_5899# 0.23fF
+C176 a_n16857_8436# fout1 0.26fF
+C177 a_n4261_5899# a_n7023_6002# 0.05fF
+C178 a_n21491_8431# modo 0.06fF
+C179 a_n11277_8440# VDD 0.91fF
+C180 a_n9841_12367# a_n11944_11462# 0.06fF
+C181 VDD modi3 1.57fF
+C182 modi4 a_n11129_2476# 0.05fF
+C183 a_n3749_8439# modi3 0.05fF
+C184 a_n18665_11548# fout1 0.12fF
+C185 a_n5936_5996# modi3 0.68fF
+C186 a_n12857_2907# a_n13930_2482# 0.02fF
+C187 a_n17722_2897# a_n16237_2475# 0.05fF
+C188 a_n9691_2476# a_n11858_2898# 0.07fF
+C189 a_n4797_12358# a_n6140_11462# 0.34fF
+C190 fout3 modi3 3.35fF
+C191 a_n6140_11462# a_n5892_12356# 0.63fF
+C192 a_n11112_5995# VDD 1.02fF
+C193 a_n14372_11547# a_n12800_11551# 0.02fF
+C194 a_n23808_11542# a_n22643_8431# 0.04fF
+C195 a_n11858_2898# VDD 2.41fF
+C196 a_n16976_5994# VDD 1.02fF
+C197 a_n20810_8431# VDD 1.07fF
+C198 a_n18023_11547# fout1 1.07fF
+C199 a_n12880_6001# a_n14423_5865# 0.42fF
+C200 a_n17674_2475# a_n18744_6000# 0.03fF
+C201 a_n21734_5903# fout 0.23fF
+C202 a_n10596_8440# a_n11697_12356# 0.06fF
+C203 fout4 modi4 2.14fF
+C204 a_n16237_2475# a_n16993_2475# 0.01fF
+C205 a_n11697_12356# a_n11944_11462# 0.62fF
+C206 modi2 a_n9554_8440# 0.05fF
+C207 a_n17419_5897# modi6 0.05fF
+C208 a_n5273_2477# a_n4516_2477# 0.01fF
+C209 a_n11793_5995# VDD 1.13fF
+C210 a_n24539_11543# modo 0.74fF
+C211 modi1 a_n9554_8440# 0.81fF
+C212 modi5 a_n16325_2475# 0.27fF
+C213 fout2 a_n5892_12356# 2.07fF
+C214 a_n12857_2907# VDD 2.85fF
+C215 a_n23427_2481# a_n23172_5903# 0.08fF
+C216 a_n15419_8436# a_n17810_11459# 0.43fF
+C217 modi6 P7 0.14fF
+C218 a_n9841_12367# modi1 0.05fF
+C219 a_n18722_2907# a_n16976_5994# 0.01fF
+C220 a_n9840_8440# VDD 1.02fF
+C221 modi2 a_n11697_12356# 0.15fF
+C222 a_n12157_11550# a_n12888_11551# 0.13fF
+C223 a_n12880_6001# P6 0.07fF
+C224 a_n6140_11462# a_n5187_8439# 0.85fF
+C225 a_n6140_11462# a_n4036_12366# 0.06fF
+C226 a_n12800_11551# fout1 0.03fF
+C227 a_n12880_6001# a_n11129_2476# 0.01fF
+C228 a_n23409_6000# a_n22077_2481# 0.06fF
+C229 a_n8066_2483# a_n7001_2908# 0.02fF
+C230 a_n14284_11547# a_n15755_12275# 0.10fF
+C231 modi1 a_n11697_12356# 0.74fF
+C232 fout4 a_n8558_5866# 0.89fF
+C233 a_n21291_6000# fout6 0.02fF
+C234 a_n21205_8431# a_n20158_11542# 0.19fF
+C235 a_n12880_6001# fout6 0.03fF
+C236 a_n4604_2477# modi3 0.27fF
+C237 a_n6002_2899# a_n6652_2485# 0.01fF
+C238 a_n21205_8431# a_n21491_8431# 0.66fF
+C239 a_n17419_5897# fout6 0.20fF
+C240 a_n19682_2488# a_n20175_5871# 0.99fF
+C241 a_n18744_6000# modi6 0.83fF
+C242 P2 a_n12800_11551# 0.02fF
+C243 P4 a_n2702_5867# 0.23fF
+C244 P1 a_n18665_11548# 0.02fF
+C245 a_n20158_11542# a_n23348_12347# 0.18fF
+C246 fout4 a_n12880_6001# 0.36fF
+C247 a_n23808_11542# modo 0.08fF
+C248 a_n4261_5899# a_n2702_5867# 0.02fF
+C249 a_n12600_11551# a_n12157_11550# 0.02fF
+C250 fout2 a_n5187_8439# 0.81fF
+C251 a_n21491_8431# a_n23348_12347# 0.01fF
+C252 fout2 a_n4036_12366# 0.04fF
+C253 a_n10596_8440# fout1 0.03fF
+C254 a_n14372_11547# modi1 0.89fF
+C255 a_n17810_11459# VDD 1.30fF
+C256 a_n11944_11462# fout1 1.50fF
+C257 fout6 P7 0.41fF
+C258 modi6 a_n22746_2481# 0.05fF
+C259 fout4 a_n8266_2483# 0.04fF
+C260 P4 fout4 0.04fF
+C261 a_n16857_8436# a_n15705_8436# 0.06fF
+C262 a_n12600_11551# a_n12888_11551# 0.12fF
+C263 a_n15707_12363# a_n15755_12275# 0.01fF
+C264 fout4 a_n5699_5899# 0.14fF
+C265 modi5 a_n18372_2483# 0.04fF
+C266 fout4 a_n4261_5899# 0.23fF
+C267 a_n17562_12353# a_n16857_8436# 0.88fF
+C268 a_n21734_5903# a_n23172_5903# 0.09fF
+C269 a_n3835_2477# a_n4516_2477# 0.01fF
+C270 a_n6995_11551# a_n7083_11551# 0.99fF
+C271 a_n17562_12353# a_n18665_11548# 0.04fF
+C272 a_n5273_2477# modi3 0.05fF
+C273 a_n21291_6000# fout 0.03fF
+C274 modi2 a_n2614_11550# 0.04fF
+C275 a_n21989_2481# a_n22746_2481# 0.01fF
+C276 a_n6140_11462# a_n3360_12358# 0.03fF
+C277 a_n9691_2476# a_n10372_2476# 0.01fF
+C278 a_n24539_11543# a_n23348_12347# 0.20fF
+C279 a_n17722_2897# a_n15981_5897# 0.93fF
+C280 fout5 a_n10117_5898# 0.27fF
+C281 a_n2409_2484# modi3 0.09fF
+C282 modi2 fout1 0.12fF
+C283 a_n17562_12353# a_n18023_11547# 0.08fF
+C284 a_n18744_6000# fout6 1.34fF
+C285 a_n11283_12359# a_n10992_8440# 0.35fF
+C286 a_n23475_2903# a_n20386_2489# 0.08fF
+C287 a_n8769_2484# fout5 1.05fF
+C288 P3 VDD 0.32fF
+C289 a_n15981_5897# a_n16993_2475# 0.03fF
+C290 modi1 fout1 1.98fF
+C291 modi5 fout5 2.23fF
+C292 a_n16468_12355# modi0 0.02fF
+C293 fout P7 0.04fF
+C294 P3 fout3 0.04fF
+C295 a_n10117_5898# a_n9674_5995# 0.69fF
+C296 a_n4797_12358# a_n5892_12356# 0.05fF
+C297 a_n24539_11543# a_n24451_11543# 1.00fF
+C298 a_n7001_2908# modi3 1.15fF
+C299 fout6 a_n22746_2481# 0.04fF
+C300 modi6 a_n24497_6006# 0.55fF
+C301 a_n6140_11462# VDD 1.27fF
+C302 a_n6140_11462# a_n3749_8439# 0.43fF
+C303 P2 modi1 0.11fF
+C304 a_n8507_11550# VDD 2.76fF
+C305 fout3 a_n6140_11462# 0.44fF
+C306 a_n21734_5903# a_n21308_2481# 0.35fF
+C307 a_n9164_12359# a_n8507_11550# 0.03fF
+C308 a_n21540_12270# a_n20810_8431# 0.06fF
+C309 fout3 a_n8507_11550# 0.02fF
+C310 a_n8066_2483# modi4 0.10fF
+C311 a_n17149_12355# a_n17810_11459# 0.04fF
+C312 a_n21972_6000# fout6 0.02fF
+C313 a_n9159_8440# a_n9840_8440# 0.02fF
+C314 a_n20158_11542# modi0 0.89fF
+C315 a_n20175_5871# a_n22077_2481# 0.44fF
+C316 a_n19682_2488# a_n18722_2907# 0.03fF
+C317 a_n2702_11550# fout2 0.17fF
+C318 a_n23808_11542# a_n23348_12347# 0.08fF
+C319 a_n18744_6000# fout 0.06fF
+C320 a_n17143_8436# fout1 0.03fF
+C321 modi5 a_n13930_2482# 0.10fF
+C322 a_n10992_8440# a_n9554_8440# 0.09fF
+C323 modi VDD 0.25fF
+C324 fout2 VDD 4.38fF
+C325 fout2 a_n3749_8439# 0.74fF
+C326 a_n16237_2475# a_n15556_2475# 0.01fF
+C327 fout5 a_n16325_2475# 1.40fF
+C328 a_n9841_12367# a_n10992_8440# 0.03fF
+C329 a_n21734_5903# a_n22728_6000# 0.06fF
+C330 a_n4797_12358# a_n5187_8439# 0.08fF
+C331 fout2 fout3 2.94fF
+C332 modi4 a_n10460_2476# 0.27fF
+C333 a_n4797_12358# a_n4036_12366# 0.01fF
+C334 a_n5892_12356# a_n5187_8439# 0.90fF
+C335 a_n12157_11550# a_n12800_11551# 0.02fF
+C336 a_n9691_2476# a_n10117_5898# 0.35fF
+C337 a_n5892_12356# a_n4036_12366# 0.01fF
+C338 fout0 a_n20158_11542# 1.49fF
+C339 a_n3835_2477# modi3 0.02fF
+C340 fout6 a_n24497_6006# 0.41fF
+C341 a_n10117_5898# VDD 1.46fF
+C342 a_n23808_11542# a_n24451_11543# 0.02fF
+C343 a_n17722_2897# a_n14130_2482# 0.05fF
+C344 a_n23475_2903# modi6 0.86fF
+C345 a_n12888_11551# a_n12800_11551# 1.00fF
+C346 a_n2702_11550# a_n3354_8439# 0.04fF
+C347 a_n10992_8440# a_n11697_12356# 0.88fF
+C348 VDD a_n23595_11454# 1.27fF
+C349 modi5 VDD 1.37fF
+C350 a_n8066_2483# a_n8558_5866# 0.99fF
+C351 a_n9889_12279# a_n9840_8440# 0.02fF
+C352 a_n2913_2485# modi3 0.09fF
+C353 a_n15755_12275# a_n17810_11459# 0.09fF
+C354 a_n3354_8439# VDD 1.07fF
+C355 a_n16325_2475# a_n15538_5994# 0.11fF
+C356 a_n3354_8439# a_n3749_8439# 0.15fF
+C357 a_n14372_11547# modi0 1.43fF
+C358 a_n21989_2481# a_n23475_2903# 0.05fF
+C359 a_n18753_11548# a_n20070_11542# 0.08fF
+C360 a_n15024_8436# modi0 0.64fF
+C361 a_n22077_2481# VDD 1.30fF
+C362 a_n12157_11550# a_n11944_11462# 0.03fF
+C363 a_n6002_2899# a_n4498_5996# 0.06fF
+C364 a_n16219_5994# a_n15981_5897# 0.15fF
+C365 a_n24539_11543# fout0 0.84fF
+C366 a_n12600_11551# a_n12800_11551# 0.97fF
+C367 a_n8558_5866# a_n10460_2476# 0.47fF
+C368 a_n4516_2477# a_n5699_5899# 0.04fF
+C369 a_n4036_12366# a_n5187_8439# 0.03fF
+C370 a_n8066_2483# a_n8266_2483# 0.97fF
+C371 a_n12888_11551# a_n11944_11462# 0.44fF
+C372 a_n4261_5899# a_n4516_2477# 0.08fF
+C373 modi4 modi3 0.07fF
+C374 a_n16857_8436# a_n18023_11547# 0.04fF
+C375 fout a_n24497_6006# 1.05fF
+C376 modi5 a_n18722_2907# 1.15fF
+C377 a_n22643_8431# a_n21492_12358# 0.03fF
+C378 modi1 a_n17562_12353# 0.14fF
+C379 a_n18665_11548# a_n18023_11547# 0.02fF
+C380 a_n14372_11547# fout0 0.17fF
+C381 a_n5954_2477# a_n7023_6002# 0.03fF
+C382 modi4 a_n11858_2898# 0.85fF
+C383 a_n23475_2903# fout6 1.95fF
+C384 a_n12880_6001# a_n10460_2476# 0.09fF
+C385 a_n11112_5995# modi4 0.06fF
+C386 a_n20158_11542# fin 0.17fF
+C387 fout0 a_n15024_8436# 0.03fF
+C388 a_n5892_12356# a_n3360_12358# 0.02fF
+C389 a_n5478_12358# a_n6140_11462# 0.04fF
+C390 a_n21491_8431# fin 0.03fF
+C391 a_n19682_2488# a_n19882_2488# 0.97fF
+C392 P5 fout5 0.04fF
+C393 a_n16325_2475# VDD 1.39fF
+C394 a_n5255_5996# a_n4498_5996# 0.02fF
+C395 a_n6002_2899# a_n2209_2484# 0.04fF
+C396 modi0 fout1 0.56fF
+C397 modi4 a_n11793_5995# 0.68fF
+C398 a_n23409_6000# VDD 1.10fF
+C399 a_n18372_2483# a_n20175_5871# 0.08fF
+C400 modi1 a_n12157_11550# 0.09fF
+C401 a_n5255_5996# a_n6002_2899# 0.01fF
+C402 a_n9159_8440# a_n8507_11550# 0.04fF
+C403 a_n22247_8431# a_n21491_8431# 0.02fF
+C404 a_n2702_11550# a_n5892_12356# 0.18fF
+C405 modi4 a_n12857_2907# 1.15fF
+C406 fout4 a_n3817_5996# 0.03fF
+C407 a_n10992_8440# fout1 0.86fF
+C408 a_n23172_5903# a_n22746_2481# 0.35fF
+C409 a_n5478_12358# fout2 0.03fF
+C410 a_n17562_12353# a_n17143_8436# 0.12fF
+C411 modi1 a_n12888_11551# 0.92fF
+C412 fout0 a_n23808_11542# 1.07fF
+C413 a_n6140_11462# a_n6353_11550# 0.03fF
+C414 a_n4797_12358# a_n3749_8439# 0.04fF
+C415 a_n5892_12356# VDD 2.36fF
+C416 a_n5892_12356# a_n3749_8439# 0.45fF
+C417 a_n24539_11543# fin 0.57fF
+C418 a_n21540_12270# a_n20815_12350# 0.03fF
+C419 a_n9889_12279# P3 0.07fF
+C420 a_n14372_11547# a_n15030_12355# 0.03fF
+C421 a_n14423_5865# a_n15981_5897# 0.02fF
+C422 fout0 fout1 2.91fF
+C423 fout3 a_n5892_12356# 2.78fF
+C424 fout a_n23475_2903# 2.64fF
+C425 a_n8558_5866# a_n11858_2898# 0.20fF
+C426 a_n18753_11548# VDD 4.83fF
+C427 a_n15556_2475# a_n15981_5897# 0.35fF
+C428 a_n4036_12366# a_n3360_12358# 0.01fF
+C429 a_n21972_6000# a_n23172_5903# 0.07fF
+C430 P0 modo 0.06fF
+C431 fout5 a_n9674_5995# 0.03fF
+C432 a_n6652_2485# a_n7001_2908# 1.05fF
+C433 a_n12880_6001# a_n11858_2898# 0.79fF
+C434 a_n11112_5995# a_n12880_6001# 0.02fF
+C435 fout2 a_n15755_12275# 0.03fF
+C436 a_n17419_5897# a_n16976_5994# 0.70fF
+C437 a_n16462_8436# a_n15705_8436# 0.02fF
+C438 a_n12600_11551# modi1 0.11fF
+C439 a_n4035_8439# a_n4084_12278# 0.02fF
+C440 fout5 a_n15538_5994# 0.02fF
+C441 a_n9889_12279# a_n8507_11550# 1.46fF
+C442 fout2 a_n6353_11550# 0.05fF
+C443 P4 modi3 0.10fF
+C444 modo a_n21492_12358# 0.05fF
+C445 a_n17562_12353# a_n16462_8436# 0.06fF
+C446 a_n5699_5899# modi3 0.82fF
+C447 a_n12508_2484# a_n14423_5865# 0.07fF
+C448 a_n11858_2898# a_n8266_2483# 0.05fF
+C449 a_n2702_11550# a_n4036_12366# 0.01fF
+C450 a_n4498_5996# VDD 1.01fF
+C451 fout5 a_n13930_2482# 0.03fF
+C452 a_n11793_5995# a_n12880_6001# 0.07fF
+C453 a_n4261_5899# modi3 0.11fF
+C454 P5 VDD 0.34fF
+C455 fout3 a_n4498_5996# 0.04fF
+C456 a_n23172_5903# a_n24497_6006# 0.23fF
+C457 a_n5187_8439# VDD 1.44fF
+C458 a_n3749_8439# a_n5187_8439# 0.09fF
+C459 a_n22643_8431# modo 0.10fF
+C460 a_n12880_6001# a_n12857_2907# 1.72fF
+C461 a_n4036_12366# a_n3749_8439# 0.33fF
+C462 a_n6002_2899# VDD 2.44fF
+C463 a_n23808_11542# fin 0.05fF
+C464 a_n9889_12279# fout2 1.22fF
+C465 a_n9889_12279# a_n8419_11550# 0.11fF
+C466 fout3 a_n5187_8439# 0.27fF
+C467 P1 modi0 0.11fF
+C468 a_n17722_2897# a_n16993_2475# 0.01fF
+C469 a_n6002_2899# fout3 2.00fF
+C470 a_n15707_12363# a_n16468_12355# 0.01fF
+C471 a_n11555_5898# a_n11129_2476# 0.35fF
+C472 fout6 a_n15981_5897# 0.29fF
+C473 a_n23427_2481# a_n22077_2481# 0.03fF
+C474 a_n9691_2476# fout5 0.04fF
+C475 modi4 a_n10372_2476# 0.02fF
+C476 a_n21540_12270# a_n23595_11454# 0.09fF
+C477 fout5 VDD 4.75fF
+C478 a_n18722_2907# a_n18372_2483# 1.05fF
+C479 a_n18744_6000# a_n16976_5994# 0.02fF
+C480 a_n2209_2484# fout3 0.03fF
+C481 fout4 a_n11555_5898# 0.82fF
+C482 a_n5255_5996# VDD 1.02fF
+C483 fout0 P1 0.68fF
+C484 a_n15705_8436# modi0 0.06fF
+C485 a_n14423_5865# a_n14130_2482# 0.12fF
+C486 a_n5255_5996# a_n5936_5996# 0.02fF
+C487 a_n5255_5996# fout3 0.04fF
+C488 a_n20175_5871# VDD 4.76fF
+C489 a_n17562_12353# modi0 0.74fF
+C490 a_n9674_5995# VDD 0.94fF
+C491 a_n22728_6000# a_n21972_6000# 0.02fF
+C492 fout4 a_n10355_5995# 0.04fF
+C493 a_n15419_8436# VDD 1.40fF
+C494 a_n23475_2903# a_n23172_5903# 0.48fF
+C495 a_n5478_12358# a_n4797_12358# 0.01fF
+C496 a_n2702_11550# a_n3360_12358# 0.03fF
+C497 a_n5478_12358# a_n5892_12356# 0.07fF
+C498 a_n15538_5994# VDD 0.94fF
+C499 a_n18722_2907# fout5 0.18fF
+C500 fout0 a_n15705_8436# 0.03fF
+C501 a_n14284_11547# a_n14372_11547# 1.06fF
+C502 P0 a_n23348_12347# 0.02fF
+C503 a_n4604_2477# a_n4498_5996# 0.73fF
+C504 a_n3749_8439# a_n3360_12358# 0.08fF
+C505 a_n21205_8431# a_n21492_12358# 0.33fF
+C506 a_n16857_8436# a_n17143_8436# 0.66fF
+C507 fout0 a_n17562_12353# 2.07fF
+C508 modi4 a_n6652_2485# 0.08fF
+C509 modi5 a_n14633_2483# 0.10fF
+C510 a_n18722_2907# a_n20175_5871# 0.20fF
+C511 a_n10596_8440# a_n11944_11462# 0.67fF
+C512 a_n23348_12347# a_n21492_12358# 0.01fF
+C513 a_n6002_2899# a_n4604_2477# 0.71fF
+C514 a_n22728_6000# a_n24497_6006# 0.02fF
+C515 a_n10992_8440# a_n12157_11550# 0.04fF
+C516 a_n21205_8431# a_n22643_8431# 0.09fF
+C517 a_n20158_11542# a_n20810_8431# 0.04fF
+C518 a_n17657_5994# a_n16976_5994# 0.02fF
+C519 P0 a_n24451_11543# 0.02fF
+C520 a_n2702_11550# VDD 2.54fF
+C521 modi1 a_n12800_11551# 0.09fF
+C522 a_n21734_5903# a_n22077_2481# 0.83fF
+C523 a_n21491_8431# a_n20810_8431# 0.02fF
+C524 a_n6353_11550# a_n5892_12356# 0.08fF
+C525 a_n2702_11550# a_n3749_8439# 0.19fF
+C526 modi4 a_n11810_2476# 0.36fF
+C527 a_n22643_8431# a_n23348_12347# 0.88fF
+C528 fout6 a_n14130_2482# 0.13fF
+C529 a_n24474_2912# modi6 1.15fF
+C530 a_n10992_8440# a_n12888_11551# 0.02fF
+C531 a_n2702_11550# fout3 1.48fF
+C532 a_n14372_11547# a_n15707_12363# 0.01fF
+C533 a_n11277_8440# a_n11697_12356# 0.12fF
+C534 modi4 a_n10117_5898# 0.11fF
+C535 a_n3749_8439# VDD 1.32fF
+C536 modi2 a_n6795_11551# 0.11fF
+C537 a_n5478_12358# a_n5187_8439# 0.35fF
+C538 a_n5936_5996# VDD 1.10fF
+C539 a_n16857_8436# a_n16462_8436# 0.15fF
+C540 a_n21308_2481# a_n23475_2903# 0.07fF
+C541 a_n5255_5996# a_n4604_2477# 0.12fF
+C542 fout3 VDD 5.72fF
+C543 fout3 a_n3749_8439# 0.18fF
+C544 a_n17722_2897# a_n16219_5994# 0.06fF
+C545 a_n14284_11547# fout1 0.05fF
+C546 fout3 a_n5936_5996# 0.04fF
+C547 a_n24539_11543# a_n24251_11543# 0.12fF
+C548 modi4 a_n8769_2484# 0.10fF
+C549 a_n17722_2897# a_n17674_2475# 0.02fF
+C550 modi5 modi4 0.07fF
+C551 a_n6002_2899# a_n5273_2477# 0.01fF
+C552 a_n4084_12278# a_n2614_11550# 0.11fF
+C553 a_n18753_11548# a_n21540_12270# 0.48fF
+C554 a_n17562_12353# a_n15030_12355# 0.02fF
+C555 a_n19682_2488# P7 0.02fF
+C556 a_n8558_5866# a_n6652_2485# 0.07fF
+C557 modi1 a_n11944_11462# 0.25fF
+C558 a_n14633_2483# a_n16325_2475# 0.03fF
+C559 a_n9840_8440# a_n9554_8440# 0.66fF
+C560 a_n6002_2899# a_n2409_2484# 0.05fF
+C561 a_n16468_12355# a_n17810_11459# 0.34fF
+C562 a_n17674_2475# a_n16993_2475# 0.01fF
+C563 a_n22728_6000# a_n23475_2903# 0.01fF
+C564 a_n18722_2907# VDD 2.78fF
+C565 a_n6353_11550# a_n5187_8439# 0.04fF
+C566 P5 a_n7001_2908# 0.09fF
+C567 a_n24474_2912# fout6 0.18fF
+C568 a_n6995_11551# P3 0.02fF
+C569 a_n6002_2899# a_n7001_2908# 0.14fF
+C570 a_n2209_2484# a_n2409_2484# 0.97fF
+C571 a_n8558_5866# a_n10117_5898# 0.02fF
+C572 a_n18465_11548# a_n18753_11548# 0.12fF
+C573 a_n12880_6001# a_n11810_2476# 0.03fF
+C574 a_n9840_8440# a_n11697_12356# 0.01fF
+C575 a_n19682_2488# a_n18744_6000# 0.05fF
+C576 modi2 modi1 0.07fF
+C577 a_n6652_2485# a_n5699_5899# 0.06fF
+C578 a_n21205_8431# modo 0.81fF
+C579 a_n8558_5866# a_n8769_2484# 0.13fF
+C580 a_n16857_8436# modi0 0.10fF
+C581 a_n12880_6001# a_n10117_5898# 0.05fF
+C582 a_n23808_11542# a_n24251_11543# 0.02fF
+C583 a_n19882_2488# a_n20175_5871# 0.12fF
+C584 fout5 a_n7001_2908# 0.02fF
+C585 a_n6995_11551# a_n8507_11550# 0.02fF
+C586 a_n17722_2897# a_n14423_5865# 0.20fF
+C587 a_n2614_11550# modi3 0.07fF
+C588 modo a_n23348_12347# 0.74fF
+C589 a_n18665_11548# modi0 0.09fF
+C590 a_n4792_8439# a_n5473_8439# 0.02fF
+C591 a_n11277_8440# fout1 0.02fF
+C592 a_n4604_2477# VDD 1.37fF
+C593 a_n5255_5996# a_n7001_2908# 0.01fF
+C594 a_n17722_2897# a_n15556_2475# 0.07fF
+C595 fout0 P0 0.04fF
+C596 a_n4604_2477# a_n5936_5996# 0.06fF
+C597 a_n21540_12270# a_n20070_11542# 0.10fF
+C598 modi5 a_n12880_6001# 0.82fF
+C599 modi5 a_n17419_5897# 0.82fF
+C600 a_n17722_2897# modi6 0.13fF
+C601 a_n4604_2477# fout3 1.64fF
+C602 a_n18023_11547# modi0 0.09fF
+C603 a_n15755_12275# a_n15419_8436# 0.22fF
+C604 a_n8769_2484# a_n8266_2483# 0.02fF
+C605 a_n4035_8439# a_n6140_11462# 0.12fF
+C606 fout0 a_n16857_8436# 0.81fF
+C607 a_n21291_6000# a_n22077_2481# 0.10fF
+C608 a_n24474_2912# fout 1.20fF
+C609 modo a_n24451_11543# 0.06fF
+C610 a_n6995_11551# fout2 0.03fF
+C611 fout0 a_n18665_11548# 0.03fF
+C612 a_n6002_2899# a_n3835_2477# 0.07fF
+C613 a_n11555_5898# a_n10460_2476# 0.49fF
+C614 fout0 a_n18023_11547# 0.05fF
+C615 a_n5478_12358# fout3 0.04fF
+C616 a_n11283_12359# fout2 0.04fF
+C617 fout0 a_n22643_8431# 0.25fF
+C618 a_n17722_2897# P6 0.02fF
+C619 a_n20158_11542# a_n20815_12350# 0.03fF
+C620 a_n9159_8440# VDD 1.14fF
+C621 a_n4035_8439# fout2 0.03fF
+C622 a_n15024_8436# a_n17810_11459# 0.06fF
+C623 fout3 a_n5273_2477# 0.04fF
+C624 a_n6002_2899# a_n2913_2485# 0.08fF
+C625 a_n10355_5995# a_n10460_2476# 0.73fF
+C626 a_n14284_11547# a_n17562_12353# 0.01fF
+C627 a_n17722_2897# fout6 2.78fF
+C628 fout5 a_n14633_2483# 0.05fF
+C629 a_n9840_8440# fout1 0.03fF
+C630 fout3 a_n2409_2484# 0.04fF
+C631 a_n15755_12275# VDD 2.28fF
+C632 a_n17419_5897# a_n16325_2475# 0.50fF
+C633 a_n8507_11550# a_n9554_8440# 0.19fF
+C634 fin P0 0.65fF
+C635 modi5 a_n18744_6000# 0.55fF
+C636 a_n2209_2484# a_n2913_2485# 0.02fF
+C637 modi4 P5 0.13fF
+C638 a_n21734_5903# a_n20175_5871# 0.02fF
+C639 a_n9841_12367# a_n8507_11550# 0.01fF
+C640 a_n7001_2908# VDD 2.79fF
+C641 fout3 a_n6353_11550# 1.08fF
+C642 a_n5954_2477# modi3 0.36fF
+C643 a_n5936_5996# a_n7001_2908# 0.04fF
+C644 fin a_n21492_12358# 0.05fF
+C645 a_n6002_2899# modi4 0.13fF
+C646 fout3 a_n7001_2908# 0.18fF
+C647 a_n21205_8431# a_n23348_12347# 0.45fF
+C648 a_n3354_8439# a_n4035_8439# 0.02fF
+C649 a_n21540_12270# VDD 2.24fF
+C650 a_n9554_8440# a_n8419_11550# 0.06fF
+C651 a_n17562_12353# a_n15707_12363# 0.01fF
+C652 a_n7083_11551# a_n6795_11551# 0.12fF
+C653 fout2 a_n9554_8440# 0.16fF
+C654 a_n15981_5897# a_n16976_5994# 0.06fF
+C655 modo modi0 0.07fF
+C656 a_n9889_12279# VDD 2.27fF
+C657 a_n11555_5898# a_n11858_2898# 0.48fF
+C658 a_n17810_11459# fout1 0.43fF
+C659 a_n22643_8431# fin 0.87fF
+C660 a_n11697_12356# a_n8507_11550# 0.18fF
+C661 a_n14284_11547# a_n12888_11551# 0.07fF
+C662 a_n11112_5995# a_n11555_5898# 0.70fF
+C663 a_n9889_12279# a_n9164_12359# 0.03fF
+C664 a_n10596_8440# a_n10992_8440# 0.15fF
+C665 modi4 fout5 0.57fF
+C666 a_n22077_2481# a_n22746_2481# 0.06fF
+C667 modi a_n24497_6006# 0.72fF
+C668 a_n10992_8440# a_n11944_11462# 0.85fF
+C669 a_n14633_2483# a_n13930_2482# 0.02fF
+C670 a_n9889_12279# fout3 0.04fF
+C671 a_n19682_2488# a_n23475_2903# 0.04fF
+C672 a_n10355_5995# a_n11858_2898# 0.06fF
+C673 a_n11112_5995# a_n10355_5995# 0.02fF
+C674 a_n11555_5898# a_n11793_5995# 0.15fF
+C675 a_n18744_6000# a_n16325_2475# 0.09fF
+C676 a_n24451_11543# a_n23348_12347# 0.04fF
+C677 a_n24497_6006# a_n24125_2489# 0.10fF
+C678 a_n4604_2477# a_n5273_2477# 0.06fF
+C679 a_n22247_8431# a_n22643_8431# 0.15fF
+C680 a_n12508_2484# a_n11858_2898# 0.01fF
+C681 modi5 a_n17657_5994# 0.68fF
+C682 a_n24474_2912# a_n23172_5903# 0.19fF
+C683 fout0 modo 0.51fF
+C684 a_n17143_8436# a_n16462_8436# 0.02fF
+C685 a_n21972_6000# a_n22077_2481# 0.71fF
+C686 fout2 a_n11697_12356# 2.72fF
+C687 a_n21491_8431# a_n23595_11454# 0.12fF
+C688 a_n11697_12356# a_n8419_11550# 0.01fF
+C689 a_n8558_5866# P5 0.25fF
+C690 modi6 a_n20386_2489# 0.10fF
+C691 a_n11555_5898# a_n12857_2907# 0.19fF
+C692 modi2 a_n7083_11551# 0.94fF
+C693 a_n21734_5903# VDD 1.45fF
+C694 a_n18372_2483# a_n17419_5897# 0.06fF
+C695 a_n6995_11551# a_n5892_12356# 0.04fF
+C696 a_n3835_2477# fout3 0.03fF
+C697 modi1 modi0 0.07fF
+C698 a_n11283_12359# a_n10602_12359# 0.01fF
+C699 a_n14372_11547# fout2 0.02fF
+C700 modi1 a_n10992_8440# 0.10fF
+C701 a_n4498_5996# a_n5699_5899# 0.07fF
+C702 a_n12508_2484# a_n12857_2907# 1.04fF
+C703 a_n8558_5866# fout5 0.88fF
+C704 a_n22077_2481# a_n24497_6006# 0.09fF
+C705 a_n4261_5899# a_n4498_5996# 0.15fF
+C706 fout3 a_n2913_2485# 0.05fF
+C707 a_n22253_12350# a_n21492_12358# 0.01fF
+C708 a_n24539_11543# a_n23595_11454# 0.44fF
+C709 modi a_n23475_2903# 0.13fF
+C710 P4 a_n6002_2899# 0.02fF
+C711 a_n4035_8439# a_n5892_12356# 0.01fF
+C712 a_n12880_6001# fout5 1.28fF
+C713 fout5 a_n17419_5897# 0.79fF
+C714 modi1 fout0 0.12fF
+C715 a_n6002_2899# a_n5699_5899# 0.48fF
+C716 a_n4261_5899# a_n6002_2899# 0.93fF
+C717 a_n8507_11550# fout1 0.17fF
+C718 a_n17657_5994# a_n16325_2475# 0.06fF
+C719 a_n21205_8431# modi0 0.05fF
+C720 a_n22253_12350# a_n22643_8431# 0.08fF
+C721 a_n23475_2903# a_n24125_2489# 0.01fF
+C722 fin modo 1.14fF
+C723 modi4 a_n9691_2476# 0.02fF
+C724 fout6 a_n20386_2489# 0.05fF
+C725 modi4 VDD 1.37fF
+C726 a_n16237_2475# modi5 0.02fF
+C727 fout5 a_n8266_2483# 0.13fF
+C728 P4 a_n2209_2484# 0.02fF
+C729 modi4 fout3 0.13fF
+C730 a_n23348_12347# modi0 0.15fF
+C731 a_n18744_6000# a_n18372_2483# 0.10fF
+C732 a_n5273_2477# a_n7001_2908# 0.01fF
+C733 a_n10602_12359# a_n9554_8440# 0.04fF
+C734 fout2 fout1 2.85fF
+C735 a_n5255_5996# a_n5699_5899# 0.70fF
+C736 a_n23409_6000# a_n24497_6006# 0.07fF
+C737 a_n4261_5899# a_n5255_5996# 0.06fF
+C738 a_n20175_5871# P7 0.25fF
+C739 a_n24474_2912# a_n22728_6000# 0.01fF
+C740 a_n22928_8431# a_n22643_8431# 0.66fF
+C741 a_n21205_8431# fout0 0.15fF
+C742 a_n15705_8436# a_n17810_11459# 0.12fF
+C743 fout4 a_n7023_6002# 1.22fF
+C744 a_n3835_2477# a_n4604_2477# 0.04fF
+C745 a_n9841_12367# a_n10602_12359# 0.01fF
+C746 a_n12880_6001# a_n13930_2482# 0.05fF
+C747 fout0 a_n17143_8436# 0.03fF
+C748 a_n23475_2903# a_n22077_2481# 0.69fF
+C749 a_n4035_8439# a_n5187_8439# 0.06fF
+C750 a_n17562_12353# a_n17810_11459# 0.63fF
+C751 a_n15707_12363# a_n16857_8436# 0.03fF
+C752 fout0 a_n23348_12347# 2.72fF
+C753 a_n11555_5898# a_n10372_2476# 0.04fF
+C754 a_n18753_11548# a_n20158_11542# 0.21fF
+C755 a_n9889_12279# a_n9159_8440# 0.06fF
+C756 a_n23808_11542# a_n23595_11454# 0.03fF
+C757 P2 fout2 0.04fF
+C758 a_n18744_6000# fout5 0.42fF
+C759 a_n21989_2481# modi6 0.02fF
+C760 a_n14423_5865# P6 0.25fF
+C761 a_n4604_2477# a_n2913_2485# 0.03fF
+C762 a_n10602_12359# a_n11697_12356# 0.05fF
+C763 fout a_n20386_2489# 1.05fF
+C764 a_n8558_5866# VDD 4.82fF
+C765 a_n16237_2475# a_n16325_2475# 0.34fF
+C766 fout0 a_n24451_11543# 0.12fF
+C767 a_n21291_6000# VDD 0.94fF
+C768 a_n18744_6000# a_n20175_5871# 0.44fF
+C769 fout6 a_n14423_5865# 0.84fF
+C770 a_n12880_6001# VDD 2.57fF
+C771 a_n17419_5897# VDD 1.37fF
+C772 fout0 a_n16462_8436# 0.03fF
+C773 a_n15556_2475# fout6 0.04fF
+C774 fout6 modi6 2.24fF
+C775 a_n22253_12350# modo 0.02fF
+C776 a_n21205_8431# fin 0.73fF
+C777 P7 VDD 0.35fF
+C778 P4 VDD 0.29fF
+C779 P4 fout3 0.57fF
+C780 a_n5699_5899# VDD 1.32fF
+C781 a_n4261_5899# VDD 1.43fF
+C782 fin a_n23348_12347# 2.07fF
+C783 a_n5936_5996# a_n5699_5899# 0.15fF
+C784 fout3 a_n5699_5899# 0.84fF
+C785 a_n16468_12355# a_n15419_8436# 0.04fF
+C786 a_n20158_11542# a_n20070_11542# 1.06fF
+C787 a_n4261_5899# fout3 0.91fF
+C788 a_n17657_5994# fout5 0.02fF
+C789 a_n2913_2485# a_n2409_2484# 0.02fF
+C790 a_n22247_8431# a_n21205_8431# 0.07fF
+C791 a_n18465_11548# a_n21540_12270# 0.04fF
+C792 a_n18722_2907# a_n17419_5897# 0.19fF
+C793 a_n11555_5898# a_n11810_2476# 0.08fF
+C794 fout6 P6 0.04fF
+C795 a_n11555_5898# a_n10117_5898# 0.09fF
+C796 a_n22247_8431# a_n23348_12347# 0.06fF
+C797 fin a_n24451_11543# 0.03fF
+C798 a_n6995_11551# fout3 0.12fF
+C799 fout4 a_n2702_5867# 0.81fF
+C800 a_n18722_2907# P7 0.10fF
+C801 fout4 a_n11129_2476# 0.05fF
+C802 a_n18744_6000# VDD 2.48fF
+C803 a_n5892_12356# a_n2614_11550# 0.01fF
+C804 modi5 a_n15981_5897# 0.11fF
+C805 fout modi6 0.54fF
+C806 a_n2702_11550# a_n4035_8439# 0.01fF
+C807 fout0 modi0 2.00fF
+C808 modi5 a_n11555_5898# 0.05fF
+C809 a_n17722_2897# a_n16976_5994# 0.01fF
+C810 a_n10355_5995# a_n10117_5898# 0.15fF
+C811 a_n4035_8439# VDD 1.03fF
+C812 a_n4035_8439# a_n3749_8439# 0.66fF
+C813 a_n18753_11548# fout1 0.84fF
+C814 modi2 a_n4084_12278# 0.53fF
+C815 a_n14284_11547# modi1 0.07fF
+C816 modi4 a_n7001_2908# 0.71fF
+C817 modi5 a_n12508_2484# 0.08fF
+C818 a_n18722_2907# a_n18744_6000# 1.71fF
+C819 a_n21205_8431# a_n22253_12350# 0.04fF
+C820 a_n16857_8436# a_n17810_11459# 0.85fF
+C821 a_n10596_8440# a_n11277_8440# 0.02fF
+C822 a_n3817_5996# a_n4498_5996# 0.02fF
+C823 a_n4792_8439# a_n6140_11462# 0.67fF
+C824 a_n24251_11543# modo 0.09fF
+C825 a_n11277_8440# a_n11944_11462# 0.09fF
+C826 a_n21972_6000# VDD 1.02fF
+C827 a_n4604_2477# a_n5699_5899# 0.46fF
+C828 fout2 a_n12157_11550# 1.07fF
+C829 a_n4261_5899# a_n4604_2477# 0.85fF
+C830 a_n22253_12350# a_n23348_12347# 0.05fF
+C831 a_n6002_2899# a_n3817_5996# 0.12fF
+C832 fout2 a_n12888_11551# 0.84fF
+C833 a_n9554_8440# VDD 1.38fF
+C834 fout fout6 2.92fF
+C835 modo a_n20810_8431# 0.64fF
+C836 a_n16325_2475# a_n15981_5897# 0.85fF
+C837 modi0 a_n15030_12355# 0.35fF
+C838 a_n8066_2483# a_n7023_6002# 0.05fF
+C839 a_n18023_11547# a_n17810_11459# 0.03fF
+C840 a_n17657_5994# VDD 1.10fF
+C841 a_n20158_11542# VDD 2.72fF
+C842 a_n9164_12359# a_n9554_8440# 0.08fF
+C843 a_n14372_11547# a_n15419_8436# 0.19fF
+C844 a_n21491_8431# VDD 1.03fF
+C845 fin modi0 0.12fF
+C846 a_n15024_8436# a_n15419_8436# 0.15fF
+C847 a_n9841_12367# a_n9164_12359# 0.01fF
+C848 a_n23475_2903# a_n20175_5871# 0.20fF
+C849 fout2 a_n4792_8439# 0.03fF
+C850 a_n24497_6006# VDD 1.92fF
+C851 a_n22928_8431# a_n23348_12347# 0.12fF
+C852 a_n8558_5866# a_n7001_2908# 0.18fF
+C853 modi2 modi3 0.07fF
+C854 modi5 a_n14130_2482# 0.12fF
+C855 a_n5273_2477# a_n5699_5899# 0.35fF
+C856 a_n12600_11551# fout2 0.13fF
+C857 a_n4261_5899# a_n5273_2477# 0.03fF
+C858 a_n11697_12356# VDD 2.31fF
+C859 a_n9164_12359# a_n11697_12356# 0.02fF
+C860 fout0 fin 2.82fF
+C861 a_n18722_2907# a_n17657_5994# 0.04fF
+C862 a_n10596_8440# a_n9840_8440# 0.02fF
+C863 a_n20815_12350# a_n21492_12358# 0.01fF
+C864 a_n24474_2912# modi 0.68fF
+C865 a_n9840_8440# a_n11944_11462# 0.12fF
+C866 a_n18753_11548# P1 0.25fF
+C867 a_n24539_11543# VDD 4.68fF
+C868 modi6 a_n23172_5903# 0.82fF
+C869 a_n16468_12355# a_n17149_12355# 0.01fF
+C870 a_n14372_11547# VDD 2.76fF
+C871 a_n15419_8436# fout1 0.17fF
+C872 a_n24474_2912# a_n24125_2489# 1.05fF
+C873 a_n15024_8436# VDD 1.14fF
+C874 a_n7001_2908# a_n5699_5899# 0.19fF
+C875 a_n21989_2481# a_n23172_5903# 0.04fF
+C876 a_n23475_2903# VDD 2.42fF
+C877 a_n18744_6000# a_n19882_2488# 0.04fF
+C878 a_n6995_11551# a_n6353_11550# 0.02fF
+C879 a_n16219_5994# a_n16976_5994# 0.02fF
+C880 a_n24251_11543# a_n23348_12347# 0.05fF
+C881 a_n5954_2477# a_n6002_2899# 0.02fF
+C882 a_n18753_11548# a_n17562_12353# 0.20fF
+C883 a_n7023_6002# modi3 0.55fF
+C884 a_n21205_8431# a_n20810_8431# 0.15fF
+C885 a_n2702_11550# a_n2614_11550# 1.06fF
+C886 a_n21291_6000# a_n21734_5903# 0.69fF
+C887 modi1 a_n9840_8440# 0.06fF
+C888 fout6 a_n23172_5903# 0.79fF
+C889 a_n23427_2481# a_n22746_2481# 0.01fF
+C890 a_n21308_2481# modi6 0.02fF
+C891 a_n3817_5996# VDD 0.94fF
+C892 a_n2614_11550# a_n3749_8439# 0.06fF
+C893 a_n24251_11543# a_n24451_11543# 0.97fF
+C894 a_n9889_12279# a_n6995_11551# 0.05fF
+C895 fout5 a_n15981_5897# 0.86fF
+C896 fout3 a_n3817_5996# 0.04fF
+C897 fout3 a_n2614_11550# 0.06fF
+C898 fout1 VDD 4.56fF
+C899 a_n23595_11454# a_n21492_12358# 0.06fF
+C900 a_n14284_11547# modi0 0.04fF
+C901 a_n11555_5898# fout5 0.17fF
+C902 a_n8066_2483# fout4 0.03fF
+C903 a_n22247_8431# fin 0.03fF
+C904 a_n4261_5899# a_n3835_2477# 0.35fF
+C905 a_n9159_8440# a_n9554_8440# 0.15fF
+C906 a_n21308_2481# a_n21989_2481# 0.01fF
+C907 a_n10460_2476# a_n11129_2476# 0.06fF
+C908 a_n22728_6000# modi6 0.06fF
+C909 a_n22643_8431# a_n23595_11454# 0.85fF
+C910 P2 VDD 0.32fF
+C911 a_n4792_8439# a_n5892_12356# 0.06fF
+C912 a_n22934_12350# a_n22643_8431# 0.35fF
+C913 a_n8558_5866# modi4 0.95fF
+C914 a_n12508_2484# fout5 0.04fF
+C915 modo a_n20815_12350# 0.35fF
+C916 a_n15981_5897# a_n15538_5994# 0.69fF
+C917 modi4 a_n12880_6001# 0.55fF
+C918 a_n4261_5899# a_n2913_2485# 0.04fF
+C919 fout0 a_n22928_8431# 0.03fF
+C920 a_n24474_2912# a_n23409_6000# 0.04fF
+C921 fout4 a_n10460_2476# 1.45fF
+C922 a_n15707_12363# modi0 0.05fF
+C923 fout a_n23172_5903# 0.14fF
+C924 fout2 a_n12800_11551# 0.12fF
+C925 a_n21308_2481# fout6 0.03fF
+C926 a_n10355_5995# a_n9674_5995# 0.02fF
+C927 a_n23427_2481# a_n24497_6006# 0.03fF
+C928 modi4 a_n8266_2483# 0.12fF
+C929 a_n21540_12270# a_n20158_11542# 1.50fF
+C930 a_n15419_8436# a_n15705_8436# 0.66fF
+C931 modi4 a_n5699_5899# 0.05fF
+C932 a_n17722_2897# modi5 0.85fF
+C933 modi2 P3 0.11fF
+C934 a_n9889_12279# a_n9554_8440# 0.22fF
+C935 a_n21540_12270# a_n21491_8431# 0.02fF
+C936 a_n12857_2907# a_n14423_5865# 0.18fF
+C937 a_n21734_5903# a_n22746_2481# 0.03fF
+C938 a_n17143_8436# a_n17810_11459# 0.10fF
+C939 fout0 a_n15707_12363# 0.04fF
+C940 a_n4604_2477# a_n3817_5996# 0.11fF
+C941 fout2 a_n6795_11551# 0.04fF
+C942 a_n17562_12353# a_n15419_8436# 0.45fF
+C943 a_n2702_5867# modi3 0.85fF
+C944 a_n22728_6000# fout6 0.02fF
+C945 a_n9841_12367# a_n9889_12279# 0.01fF
+C946 a_n4792_8439# a_n5187_8439# 0.15fF
+C947 modi5 a_n16993_2475# 0.05fF
+C948 fout2 a_n11944_11462# 0.40fF
+C949 modi2 a_n6140_11462# 0.26fF
+C950 fout5 a_n14130_2482# 0.04fF
+C951 a_n11858_2898# a_n11129_2476# 0.01fF
+C952 a_n10992_8440# a_n11277_8440# 0.66fF
+C953 a_n15981_5897# VDD 1.45fF
+C954 a_n17149_12355# fout1 0.04fF
+C955 P1 VDD 0.33fF
+C956 modi2 a_n8507_11550# 0.86fF
+C957 a_n11555_5898# VDD 1.39fF
+C958 a_n14372_11547# a_n15755_12275# 1.51fF
+C959 a_n21734_5903# a_n21972_6000# 0.15fF
+C960 a_n15024_8436# a_n15755_12275# 0.06fF
+C961 fout0 a_n24251_11543# 0.13fF
+C962 fout4 modi3 0.51fF
+C963 a_n22928_8431# fin 0.02fF
+C964 a_n21308_2481# fout 0.04fF
+C965 a_n9889_12279# a_n11697_12356# 0.79fF
+C966 modi1 a_n8507_11550# 1.43fF
+C967 a_n19682_2488# a_n20386_2489# 0.02fF
+C968 a_n19882_2488# a_n23475_2903# 0.05fF
+C969 a_n18753_11548# a_n16857_8436# 0.02fF
+C970 fout4 a_n11858_2898# 1.94fF
+C971 a_n11112_5995# fout4 0.04fF
+C972 modo a_n23595_11454# 0.25fF
+C973 a_n10355_5995# VDD 1.01fF
+C974 a_n8558_5866# a_n8266_2483# 0.12fF
+C975 a_n18753_11548# a_n18665_11548# 0.99fF
+C976 a_n23475_2903# a_n23427_2481# 0.02fF
+C977 a_n16462_8436# a_n17810_11459# 0.67fF
+C978 a_n22934_12350# modo 0.02fF
+C979 a_n12857_2907# P6 0.09fF
+C980 a_n15705_8436# VDD 1.03fF
+C981 modi2 fout2 1.99fF
+C982 modi2 a_n8419_11550# 0.07fF
+C983 a_n12857_2907# a_n11129_2476# 0.01fF
+C984 a_n17722_2897# a_n16325_2475# 0.70fF
+C985 a_n22247_8431# a_n22928_8431# 0.02fF
+C986 a_n21205_8431# a_n20815_12350# 0.08fF
+C987 a_n15707_12363# a_n15030_12355# 0.01fF
+C988 a_n17562_12353# VDD 2.37fF
+C989 a_n18753_11548# a_n18023_11547# 0.13fF
+C990 a_n21734_5903# a_n24497_6006# 0.05fF
+C991 fout4 a_n11793_5995# 0.04fF
+C992 a_n14130_2482# a_n13930_2482# 0.97fF
+C993 fout2 modi1 0.54fF
+C994 modi1 a_n8419_11550# 0.04fF
+C995 a_n9159_8440# fout1 0.03fF
+C996 a_n12857_2907# fout6 0.02fF
+C997 a_n23348_12347# a_n20815_12350# 0.02fF
+C998 a_n16325_2475# a_n16993_2475# 0.06fF
+C999 fout4 a_n12857_2907# 0.18fF
+C1000 a_n10992_8440# a_n9840_8440# 0.06fF
+C1001 a_n15755_12275# fout1 1.25fF
+C1002 modi2 a_n3354_8439# 0.64fF
+C1003 a_n5954_2477# a_n4604_2477# 0.03fF
+C1004 a_n4261_5899# a_n5699_5899# 0.09fF
+C1005 fin a_n24251_11543# 0.04fF
+C1006 a_n7023_6002# a_n6652_2485# 0.10fF
+C1007 P2 a_n15755_12275# 0.07fF
+C1008 a_n18744_6000# a_n17419_5897# 0.24fF
+C1009 a_n12888_11551# VDD 4.79fF
+C1010 a_n21540_12270# fout1 0.05fF
+C1011 a_n17810_11459# modi0 0.26fF
+C1012 fin a_n20810_8431# 0.03fF
+C1013 a_n9889_12279# fout1 0.35fF
+C1014 a_n19682_2488# modi6 0.10fF
+C1015 a_n21734_5903# a_n23475_2903# 0.93fF
+C1016 a_n18744_6000# P7 0.07fF
+C1017 a_n4792_8439# a_n3749_8439# 0.07fF
+C1018 a_n4792_8439# VDD 1.03fF
+C1019 a_n5892_12356# a_n6795_11551# 0.05fF
+C1020 a_n10602_12359# a_n11944_11462# 0.34fF
+C1021 a_n17722_2897# a_n18372_2483# 0.01fF
+C1022 a_n21205_8431# a_n23595_11454# 0.50fF
+C1023 modi5 a_n17674_2475# 0.36fF
+C1024 a_n5954_2477# a_n5273_2477# 0.01fF
+C1025 a_n16857_8436# a_n15419_8436# 0.09fF
+C1026 fout0 a_n17810_11459# 1.51fF
+C1027 a_n21291_6000# a_n21972_6000# 0.02fF
+C1028 a_n11129_2476# a_n10372_2476# 0.01fF
+C1029 a_n18465_11548# fout1 0.13fF
+C1030 a_n23348_12347# a_n23595_11454# 0.62fF
+C1031 a_n17562_12353# a_n17149_12355# 0.07fF
+C1032 a_n20386_2489# a_n22077_2481# 0.03fF
+C1033 a_n22934_12350# a_n23348_12347# 0.07fF
+C1034 a_n24474_2912# VDD 2.55fF
+C1035 a_n17657_5994# a_n17419_5897# 0.15fF
+C1036 a_n17722_2897# fout5 2.05fF
+C1037 modi modi6 0.07fF
+C1038 P3 a_n7083_11551# 0.26fF
+C1039 a_n22728_6000# a_n23172_5903# 0.70fF
+C1040 a_n4797_12358# modi2 0.02fF
+C1041 a_n5954_2477# a_n7001_2908# 0.03fF
+C1042 modi2 a_n5892_12356# 0.74fF
+C1043 a_n19682_2488# fout6 0.03fF
+C1044 modi1 a_n10602_12359# 0.02fF
+C1045 P0 VDD 0.25fF
+C1046 fout5 a_n16993_2475# 0.05fF
+C1047 a_n16219_5994# a_n16325_2475# 0.73fF
+C1048 a_n4516_2477# modi3 0.02fF
+C1049 modi6 a_n24125_2489# 0.04fF
+C1050 a_n17674_2475# a_n16325_2475# 0.03fF
+C1051 a_n6140_11462# a_n7083_11551# 0.44fF
+C1052 a_n16857_8436# VDD 1.47fF
+C1053 a_n17810_11459# a_n15030_12355# 0.03fF
+C1054 a_n21540_12270# P1 0.07fF
+C1055 a_n7083_11551# a_n8507_11550# 0.20fF
+C1056 modi5 a_n14423_5865# 0.95fF
+C1057 a_n15755_12275# a_n15705_8436# 0.02fF
+C1058 modi5 a_n15556_2475# 0.02fF
+C1059 a_n17722_2897# a_n15538_5994# 0.12fF
+C1060 a_n8066_2483# a_n11858_2898# 0.04fF
+C1061 a_n17562_12353# a_n15755_12275# 0.79fF
+C1062 modi5 modi6 0.07fF
+C1063 a_n20070_11542# modo 0.04fF
+C1064 a_n17722_2897# a_n13930_2482# 0.04fF
+C1065 a_n22643_8431# VDD 1.43fF
+C1066 a_n11810_2476# a_n11129_2476# 0.01fF
+C1067 fout4 a_n6652_2485# 0.04fF
+C1068 modi fout6 0.13fF
+C1069 a_n4084_12278# modi3 0.85fF
+C1070 fout2 a_n7083_11551# 0.73fF
+C1071 a_n7083_11551# a_n8419_11550# 0.08fF
+C1072 modi6 a_n22077_2481# 0.27fF
+C1073 a_n18744_6000# a_n17657_5994# 0.07fF
+C1074 modi2 a_n5187_8439# 0.10fF
+C1075 a_n16237_2475# a_n17419_5897# 0.04fF
+C1076 a_n19682_2488# fout 0.12fF
+C1077 fout2 a_n10992_8440# 0.25fF
+C1078 modi2 a_n4036_12366# 0.05fF
+C1079 a_n11129_2476# a_n10117_5898# 0.03fF
+C1080 a_n10460_2476# a_n11858_2898# 0.71fF
+C1081 a_n21291_6000# a_n23475_2903# 0.12fF
+C1082 a_n11112_5995# a_n10460_2476# 0.12fF
+C1083 modi5 P6 0.13fF
+C1084 a_n14633_2483# a_n15981_5897# 0.04fF
+C1085 a_n21989_2481# a_n22077_2481# 0.34fF
+C1086 a_n15755_12275# a_n12888_11551# 0.45fF
+C1087 a_n14423_5865# a_n16325_2475# 0.48fF
+C1088 fout4 a_n10117_5898# 0.89fF
+C1089 a_n17722_2897# VDD 2.45fF
+C1090 a_n11793_5995# a_n10460_2476# 0.06fF
+C1091 a_n15556_2475# a_n16325_2475# 0.04fF
+C1092 modi5 fout6 0.65fF
+C1093 a_n24497_6006# a_n22746_2481# 0.01fF
+C1094 a_n23475_2903# P7 0.02fF
+C1095 a_n11283_12359# a_n11697_12356# 0.07fF
+C1096 fout4 a_n8769_2484# 0.04fF
+C1097 a_n5473_8439# a_n6140_11462# 0.10fF
+C1098 a_n18465_11548# a_n17562_12353# 0.05fF
+C1099 fout4 modi5 0.13fF
+C1100 a_n23409_6000# modi6 0.68fF
+C1101 fout0 a_n23595_11454# 0.40fF
+C1102 a_n22934_12350# fout0 0.04fF
+C1103 modi fout 0.72fF
+C1104 fout6 a_n22077_2481# 1.38fF
+C1105 a_n16857_8436# a_n17149_12355# 0.35fF
+C1106 a_n12600_11551# a_n15755_12275# 0.03fF
+C1107 P5 a_n7023_6002# 0.07fF
+C1108 a_n21491_8431# a_n20158_11542# 0.01fF
+C1109 a_n9841_12367# a_n9554_8440# 0.33fF
+C1110 a_n6002_2899# a_n7023_6002# 0.79fF
+C1111 a_n17722_2897# a_n18722_2907# 0.14fF
+C1112 a_n4261_5899# a_n3817_5996# 0.69fF
+C1113 a_n10596_8440# VDD 1.01fF
+C1114 fout a_n24125_2489# 0.04fF
+C1115 fout2 a_n5473_8439# 0.03fF
+C1116 modi2 a_n3360_12358# 0.35fF
+C1117 modi1 a_n15419_8436# 0.05fF
+C1118 a_n11555_5898# modi4 0.82fF
+C1119 fout3 a_n6795_11551# 0.13fF
+C1120 a_n16219_5994# fout5 0.02fF
+C1121 modo VDD 1.03fF
+C1122 a_n11944_11462# VDD 1.28fF
+C1123 a_n11112_5995# a_n11858_2898# 0.01fF
+C1124 a_n21205_8431# a_n20070_11542# 0.06fF
+C1125 a_n9164_12359# a_n11944_11462# 0.03fF
+C1126 a_n24474_2912# a_n23427_2481# 0.03fF
+C1127 a_n18722_2907# a_n16993_2475# 0.01fF
+C1128 a_n20175_5871# a_n20386_2489# 0.13fF
+C1129 fout5 a_n7023_6002# 0.03fF
+C1130 a_n11697_12356# a_n9554_8440# 0.44fF
+C1131 a_n20070_11542# a_n23348_12347# 0.01fF
+C1132 fout6 a_n16325_2475# 0.49fF
+C1133 a_n23475_2903# a_n22746_2481# 0.01fF
+C1134 modi4 a_n12508_2484# 0.04fF
+C1135 a_n11112_5995# a_n11793_5995# 0.02fF
+C1136 a_n5255_5996# a_n7023_6002# 0.02fF
+C1137 a_n2702_11550# modi2 1.43fF
+C1138 a_n9841_12367# a_n11697_12356# 0.01fF
+C1139 a_n23409_6000# fout6 0.02fF
+C1140 a_n14633_2483# a_n14130_2482# 0.02fF
+C1141 a_n16219_5994# a_n15538_5994# 0.02fF
+C1142 fout a_n22077_2481# 0.38fF
+C1143 fin a_n23595_11454# 1.51fF
+C1144 a_n12857_2907# a_n11858_2898# 0.14fF
+C1145 a_n11112_5995# a_n12857_2907# 0.01fF
+C1146 modi2 VDD 1.30fF
+C1147 modi2 a_n3749_8439# 0.80fF
+C1148 a_n16857_8436# a_n15755_12275# 0.05fF
+C1149 a_n22934_12350# fin 0.06fF
+C1150 a_n10992_8440# a_n10602_12359# 0.08fF
+C1151 a_n11283_12359# fout1 0.06fF
+C1152 a_n18372_2483# modi6 0.07fF
+C1153 a_n5892_12356# a_n7083_11551# 0.20fF
+C1154 modi2 fout3 0.60fF
+C1155 a_n21972_6000# a_n23475_2903# 0.06fF
+C1156 a_n15707_12363# a_n17810_11459# 0.06fF
+C1157 a_n18753_11548# modi0 0.92fF
+C1158 modi1 VDD 1.37fF
+C1159 modi1 a_n9164_12359# 0.35fF
+C1160 a_n11793_5995# a_n12857_2907# 0.04fF
+C1161 a_n17419_5897# a_n15981_5897# 0.09fF
+C1162 a_n10460_2476# a_n10372_2476# 0.34fF
+C1163 a_n22247_8431# a_n23595_11454# 0.67fF
+C1164 a_n11555_5898# a_n12880_6001# 0.24fF
+C1165 fout5 a_n14423_5865# 0.73fF
+C1166 a_n21540_12270# a_n21492_12358# 0.01fF
+C1167 a_n15556_2475# fout5 0.06fF
+C1168 a_n21540_12270# a_n18665_11548# 0.05fF
+C1169 fout5 modi6 0.13fF
+C1170 a_n5954_2477# a_n5699_5899# 0.08fF
+C1171 a_n18753_11548# fout0 0.67fF
+C1172 a_n23475_2903# a_n24497_6006# 0.79fF
+C1173 modi a_n23172_5903# 0.05fF
+C1174 a_n16219_5994# VDD 1.01fF
+C1175 a_n15419_8436# a_n16462_8436# 0.07fF
+C1176 a_n21540_12270# a_n22643_8431# 0.05fF
+C1177 a_n21205_8431# VDD 1.34fF
+C1178 a_n12508_2484# a_n12880_6001# 0.10fF
+C1179 a_n6002_2899# a_n2702_5867# 0.20fF
+C1180 a_n20175_5871# modi6 0.97fF
+C1181 a_n9554_8440# fout1 0.73fF
+C1182 a_n18372_2483# fout6 0.06fF
+C1183 a_n20158_11542# fout1 0.03fF
+C1184 a_n4084_12278# a_n6140_11462# 0.09fF
+C1185 a_n7083_11551# a_n5187_8439# 0.02fF
+C1186 a_n17143_8436# VDD 0.94fF
+C1187 a_n23172_5903# a_n24125_2489# 0.06fF
+C1188 a_n7023_6002# VDD 2.45fF
+C1189 a_n23348_12347# VDD 2.38fF
+C1190 a_n5936_5996# a_n7023_6002# 0.07fF
+C1191 a_n9841_12367# fout1 0.05fF
+C1192 a_n14372_11547# a_n15024_8436# 0.04fF
+C1193 fout3 a_n7023_6002# 0.42fF
+C1194 a_n15755_12275# a_n12800_11551# 0.05fF
+C1195 a_n18465_11548# a_n18665_11548# 0.97fF
+C1196 fout4 P5 0.56fF
+C1197 fout5 P6 0.56fF
+C1198 a_n14423_5865# a_n13930_2482# 0.99fF
+C1199 a_n20070_11542# modi0 0.07fF
+C1200 a_n2209_2484# a_n2702_5867# 0.99fF
+C1201 fout4 a_n6002_2899# 2.65fF
+C1202 a_n5473_8439# a_n5892_12356# 0.12fF
+C1203 a_n22253_12350# a_n23595_11454# 0.34fF
+C1204 a_n18744_6000# a_n15981_5897# 0.05fF
+C1205 a_n22934_12350# a_n22253_12350# 0.01fF
+C1206 a_n18465_11548# a_n18023_11547# 0.02fF
+C1207 a_n11858_2898# a_n10372_2476# 0.05fF
+C1208 a_n8066_2483# a_n8769_2484# 0.02fF
+C1209 a_n17674_2475# a_n18722_2907# 0.03fF
+C1210 fout2 a_n4084_12278# 0.37fF
+C1211 fout5 fout6 2.98fF
+C1212 a_n11697_12356# fout1 2.03fF
+C1213 a_n9159_8440# a_n11944_11462# 0.06fF
+C1214 a_n10460_2476# a_n11810_2476# 0.03fF
+C1215 a_n24539_11543# a_n23808_11542# 0.13fF
+C1216 fout4 fout5 3.03fF
+C1217 fout4 a_n2209_2484# 0.12fF
+C1218 a_n23172_5903# a_n22077_2481# 0.43fF
+C1219 a_n16462_8436# VDD 1.02fF
+C1220 a_n12880_6001# a_n14130_2482# 0.03fF
+C1221 a_n6353_11550# a_n6795_11551# 0.02fF
+C1222 fout0 a_n20070_11542# 0.05fF
+C1223 a_n10460_2476# a_n10117_5898# 0.85fF
+C1224 a_n22928_8431# a_n23595_11454# 0.09fF
+C1225 fout6 a_n20175_5871# 0.77fF
+C1226 a_n15419_8436# modi0 0.80fF
+C1227 a_n14423_5865# VDD 4.80fF
+C1228 a_n5478_12358# modi2 0.02fF
+C1229 P2 a_n11697_12356# 0.02fF
+C1230 a_n8769_2484# a_n10460_2476# 0.03fF
+C1231 a_n14372_11547# fout1 1.52fF
+C1232 a_n13930_2482# P6 0.02fF
+C1233 modi6 VDD 1.37fF
+C1234 fout4 a_n9674_5995# 0.04fF
+C1235 fout6 a_n15538_5994# 0.03fF
+C1236 a_n3354_8439# a_n4084_12278# 0.06fF
+C1237 a_n5473_8439# a_n5187_8439# 0.66fF
+C1238 a_n9889_12279# a_n6795_11551# 0.04fF
+C1239 a_n6652_2485# modi3 0.04fF
+C1240 a_n21540_12270# modo 0.53fF
+C1241 fout6 a_n13930_2482# 0.12fF
+C1242 fout0 a_n15419_8436# 0.79fF
+C1243 a_n17722_2897# a_n14633_2483# 0.08fF
+C1244 a_n4604_2477# a_n7023_6002# 0.09fF
+C1245 modi1 a_n9159_8440# 0.64fF
+C1246 P2 a_n14372_11547# 0.08fF
+.ends
+

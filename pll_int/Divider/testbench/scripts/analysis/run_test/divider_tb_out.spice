@@ -1,15 +1,15 @@
 * div TB
 
 
-.include /home/shahat/PLL_design2/PLL_design/pll_int/Divider/testbench/scripts/analysis/../../../circuit/divider.ckt
+.include /home/moataz/Desktop/ELGD/PLL_design/pll_int/Divider/testbench/scripts/analysis/../../../layout/DIVIDER_pex_extracted.ckt
 .param W=2
-.param f_input = 2.21G
-.param p0_val = 1.8
+.param f_input = 2.54G
+.param p0_val = 0.0
 .param p1_val=  1.8
 .param p2_val=  0.0
 .param p3_val=  0.0
 .param p4_val=  0.0
-.param p5_val=  1.8
+.param p5_val=  0.0
 .param p6_val=  0.0
 .param p7_val=  0.0
 
@@ -28,8 +28,7 @@ VDD8 p7 GND {p7_val}
 .temp 27
 .options tnom=27
 VDD VDD GND 1.80
-
-x1 VDD fout GND p2 p7 p1 p6 p5 p4 p3 p0 fin opennet divider
+XDIV P0 P1 P2 P7 P6 P5 P4 P3 fin opennet modi fout0 modi0 fout1 modi1 modi2 fout2 modi3 fout3 fout4 modi4 fout5 modi5 fout6 modi6 fout VDD GND DIVIDER
 V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)
 C1 fout GND 25f m=1
 I0 opennet GND 0

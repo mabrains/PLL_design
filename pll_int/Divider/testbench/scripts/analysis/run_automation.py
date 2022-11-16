@@ -49,12 +49,12 @@ def dec_2_bin(d):
     return b
 
 
-N_start = 220  # input to the code (strat N)
-N_end= 222    # input to the code (end N)256
+N_start = 235  # input to the code (strat N)
+N_end= 255    # input to the code (end N)256
 
 # for loop for simulation automation
 p=[] # p's at specific divide ratio
-netlist_tmp =f"../../../testbench/cir_tb_automation_temp.spice"
+netlist_tmp =f"../../../testbench/cir_tb_automation_temp2.spice"
 my_results= []
 results_dict = {} 
 k=1

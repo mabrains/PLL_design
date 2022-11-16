@@ -1,6 +1,6 @@
 * NGSPICE file created from DIVIDER.ext - technology: sky130A
 
-.subckt DIVIDER P0 P1 P2 P7 P6 P5 P4 P3 fin modo modi fout0 modi0 fout1 modi1 modi2
+.subckt DIVIDER P0 P1 P2 P3 P4 P5 P6 P7 fin modo modi fout0 modi0 fout1 modi1 modi2
 + fout2 modi3 fout3 fout4 modi4 fout5 modi5 fout6 modi6 fout VDD GND
 X0 a_n3749_8439# fout2.t3 a_n4036_12366# GND sky130_fd_pr__nfet_01v8 ad=5.8e+11p pd=4.58e+06u as=1.16e+12p ps=9.16e+06u w=2e+06u l=150000u
 X1 a_n13930_2482# fout5.t3 a_n14130_2482# GND.t103 sky130_fd_pr__nfet_01v8 ad=3.48e+12p pd=2.516e+07u as=3.48e+12p ps=2.516e+07u w=6e+06u l=150000u

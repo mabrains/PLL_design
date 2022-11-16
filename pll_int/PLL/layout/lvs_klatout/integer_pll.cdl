@@ -765,4 +765,5 @@ M731 modi6 fout6 net4_ff207 VDD sky130_fd_pr__pfet_01v8 L=0.15U W=4U nf=1 m=1
 M732 modi6 finb07 net5_ff207 GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
 M733 net5_ff207 net3_ff207 GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=2U nf=1 m=1
 
+
 .ends

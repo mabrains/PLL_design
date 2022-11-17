@@ -2,12 +2,20 @@
 * div TB
 
 .include ../layout/DIV_CELL_pex_extracted.ckt
+* .include ../circuit/divider_cell.ckt
 
 .param W=2
-.param f_input =2.4G
-.param p0_val = 0
+.param f_input   = {2.55G}
+.PARAM cycle     = {1.0/f_input}
+.PARAM tpw       = {cycle/2}
+.PARAM t_rise    = {cycle/100}
+.PARAM t_fall    = {cycle/100}
+.PARAM t_delay   = {0}
 
-VDD7 p0 GND {p0_val}
+.csparam simtime = 100n
+
+VPulse p0 GND PULSE(1.8 0 t_delay t_rise t_fall 50n 100n)
+* VDCd p0 GND DC 1.8
 
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
@@ -15,29 +23,42 @@ VDD7 p0 GND {p0_val}
 .options tnom=27
 VDD VDD GND DC 1.8
 
+VDD1 modi GND DC 1.8
 
-V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)
+V1 fin GND SIN (0.9 0.9 f_input 0 0 0)
 
 
-XDIV_CELL net1_ff2 fin p0 modo net1 net1_nand3 net2 net2_nand3 net1_ff1 net2_ff1
-+ net4_ff1 net5_ff1 net4_ff2 net2_ff2 net5_ff2 2 1 3 modi fout 31 finb net3_ff1 net3_ff2
-+ VDD GND DIV_CELL
+XDIV_CELL fin p0 modo net1 net1_nand3 net2 net2_nand3 net1_ff1 net2_ff1 net4_ff1
++ net5_ff1 net4_ff2 net2_ff2 net5_ff2 2 1 3 modi fout 31 finb net3_ff1 net3_ff2 VDD
++ GND DIV_CELL
+
+* Xcell vdd fout fin p0 MODO gnd MODI cell
 **** begin user architecture code
 
 .op
 .control
-tran 0.01n 0.5u
+tran 1p $&simtime
 plot fout fin
+plot modo
 meas tran tdiffin TRIG v(fin) VAL=0.9 RISE=3 TARG v(fin) VAL=0.9 RISE=4
-meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
+meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=12 TARG v(fout) VAL=0.9 RISE=13
 let freqin = 1/tdiffin
 let freqout = 1/tdiffout
-
-let n = freqin/freqout
+let n_div = freqin/freqout
 print freqin
 print freqout
-print n
-quit
+print n_div
+
+
+meas tran tdiffout2 TRIG v(fout) VAL=0.9 RISE=121 TARG v(fout) VAL=0.9 RISE=122
+
+let freqout2 = 1/tdiffout2
+let n_buff = freqin/freqout2
+
+print freqout
+print n_buff
+
+plot p0
 .endc
 .GLOBAL VDD
 .GLOBAL GND

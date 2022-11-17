@@ -1,6 +1,7 @@
 ** div  cdl
 
-.subckt DIV_CELL VDD GND fin modo fout modi P net1 net2 3 31 finb 2 1 net2_nand3 net1_nand3 net1_ff1 net2_ff1 net3_ff1 net4_ff1 net5_ff1 net1_ff2 net2_ff2 net3_ff2 net4_ff2 net5_ff2
+*.subckt DIV_CELL VDD GND fin modo fout modi P net1 net2 3 31 finb 2 1 net2_nand3 net1_nand3 net1_ff1 net2_ff1 net3_ff1 net4_ff1 net5_ff1 net1_ff2 net2_ff2 net3_ff2 net4_ff2 net5_ff2
+.subckt DIV_CELL VDD GND fin modo fout modi P 
 *****************************************************************************************************************
 *****************************************************************************************************************
 *****************************************************************************************************************

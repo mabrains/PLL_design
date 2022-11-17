@@ -1,0 +1,47 @@
+Warning: m=xx on .subckt line will override multiplier m hierarchy!
+
+Warning: vpulse: no DC value, transient time 0 value used
+ Reference value :  0.00000e+00Warning: vpulse: no DC value, transient time 0 value used
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: ** test bench for vco
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+m.xinv.xmn.msky130_fd_pr__nfet_01v8#body = 2.250871e-11
+m.xinv.xmn.msky130_fd_pr__nfet_01v8#dbody = 5.627051e-11
+m.xinv.xmn.msky130_fd_pr__nfet_01v8#sbody = 1.125436e-11
+m.xinv.xmp.msky130_fd_pr__pfet_01v8#body = 1.800000e+00
+m.xinv.xmp.msky130_fd_pr__pfet_01v8#dbody = 1.800000e+00
+m.xinv.xmp.msky130_fd_pr__pfet_01v8#sbody = 1.800000e+00
+vdd = 1.800000e+00
+vdd#branch = -1.83320e-12
+vin = 0.000000e+00
+vout = 1.800000e+00
+vpulse#branch = 0.000000e+00
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vdd                                        1.8
+vout                                       1.8
+vin                                          0
+vpulse#branch                                0
+vdd#branch                         -1.8332e-12
+
+ Reference value :  9.40150e-08 Reference value :  1.79325e-07ERROR: (internal)  This operation is not defined for display type PrinterOnly.
+Can't open viewport for graphics.
+
+No. of Data Rows : 20248
+inv_delay           =  -1.329446e-11 targ=  9.648671e-08 trig=  9.650000e-08
+inv_delay2 = -1.32945e+01
+ngspice-37 done

@@ -28,9 +28,9 @@ main_tb_path = os.path.join("..", "spice_files")
 run_dir = os.path.join("..", "run_test")  
 
 TEMPLATE_FILE = "test_ring_char.spice" #name of the tb 
-NUM_WORKERS = 1 # maximum number of processor threds to operate on 
+NUM_WORKERS = 3 # maximum number of processor threds to operate on 
 
-process_corners = ["ss", "sf", "fs", "ff", "ss"]
+process_corners = ["ss", "sf", "fs", "ff"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 
@@ -42,8 +42,8 @@ corner_str = """
 .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
-VDD VDD GND {vsup}"""
-
+VDD VDD GND PWL(0 0 1u {vsup} 1m {vsup})"""
+##PWL(0 0 1u 1.8 0.5m 1.8)
 ## .nodeset v(vout)=0
 
 def run_corner(all_corner_data):
@@ -98,10 +98,10 @@ def run_corner(all_corner_data):
             if s[0] == "freq":
                 if (float (s[2]) > 0):
                     results_dict["Oscillation Status"] = "True"
-                    results_dict["freq (GHZ)"] = s[2]
+                    results_dict["freq (MHZ)"] = s[2]
                 else:
                     results_dict["Oscillation Status"] = "False"
-                    results_dict["freq (GHZ)"] = "-"
+                    results_dict["freq (MHZ)"] = "-"
 
     log_file.close() # close the log file
     # print(results_dict)

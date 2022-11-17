@@ -1,0 +1,28 @@
+****************
+
+.subckt BGR  Iref net7 net1 net3 VBE net2 net5 net6 net4 VDD GND
+XQ1 GND GND VBE GND sky130_fd_pr__pnp_05v5_W0p68L0p68 NE=1 m=1
+XQ2 GND GND net2 GND sky130_fd_pr__pnp_05v5_W0p68L0p68 NE=8
+
+
+XR4 net2 net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=20.24u W=1.41u mult=1 m=1
+XR1 GND net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u mult=1 m=1
+XR3 GND VBE GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u mult=1 m=1
+
+XRd1 GND GND GND sky130_fd_pr__res_xhigh_po_1p41 L=10.12u W=5.64u mult=1 m=1
+
+XM15 net5 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=4u nf=4    
+XM13 net3 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=20u nf=4    
+XM14 VBE net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=20u nf=4  
+XM16 net1 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=44u nf=44
+XM17 net6 net3 net5 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=90u nf=6      
+XM18 net4 VBE net5 VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=90u nf=6            
+XM19 net1 net6 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5u W=0.42u m=10      
+XM20 net6 net4 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5u W=0.42u m=4             
+XM21 net4 net4 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5u W=0.42u m=4             
+XM22 net7 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1u W=40u nf=2     
+XM23 net7 net1 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=20u W=0.42u         
+XM24 VBE net7 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1u W=40u nf=2     
+XM2 Iref net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=200u nf=40    
+  
+.ends

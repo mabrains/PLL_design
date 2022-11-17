@@ -1,0 +1,25 @@
+* Extracted by KLayout with SKY130 LVS runset on : 19/10/2022 16:24
+
+.SUBCKT vco VDD vp net1 vn ibias vctrl net2 GND
+C$1 vn vp 3.64e-13 sky130_fd_pr__model__cap_mim A=182P P=54U
+M$2 vp vn GND GND sky130_fd_pr__nfet_01v8 L=0.15U W=100U AS=19.4P AD=16.5P
++ PS=121.94U PD=101.65U
+M$3 GND vp vn GND sky130_fd_pr__nfet_01v8 L=0.15U W=100U AS=16.5P AD=19.4P
++ PS=101.65U PD=121.94U
+M$12 vp vn net2 net2 sky130_fd_pr__pfet_01v8 L=0.15U W=250U AS=48.5P AD=41.25P
++ PS=301.94U PD=251.65U
+M$13 net2 vp vn net2 sky130_fd_pr__pfet_01v8 L=0.15U W=250U AS=41.25P AD=48.5P
++ PS=251.65U PD=301.94U
+M$22 vctrl vn vctrl GND sky130_fd_pr__nfet_01v8_lvt L=8U W=17U AS=4.93P
++ AD=2.465P PS=34.58U PD=17.29U
+M$23 vctrl vp vctrl GND sky130_fd_pr__nfet_01v8_lvt L=8U W=17U AS=2.465P
++ AD=4.93P PS=17.29U PD=34.58U
+M$24 net1 ibias GND GND sky130_fd_pr__nfet_01v8 L=1U W=250U AS=39.875P
++ AD=39.875P PS=278.19U PD=278.19U
+M$29 GND ibias ibias GND sky130_fd_pr__nfet_01v8 L=1U W=50U AS=7.25P AD=7.25P
++ PS=50.58U PD=50.58U
+M$36 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5U W=1000U AS=147.9P
++ AD=147.9P PS=1034.79U PD=1034.79U
+M$45 VDD net1 net1 VDD sky130_fd_pr__pfet_01v8 L=0.5U W=200U AS=29P AD=29P
++ PS=202.9U PD=202.9U
+.ENDS vco

@@ -9,7 +9,7 @@ Accumulator_Bits = 7                    # Bits
 Accumulator_Size = 2**Accumulator_Bits  
 
 
-Fraction = 0.2256                              # From 0 to 1
+Fraction = 0.2                             # From 0 to 1
 Fraction_Internal = (2**Bus_Size)*Fraction
 #Fraction_Internal = 5                      # Choosing channel aka choosing the fraction to divide by
 

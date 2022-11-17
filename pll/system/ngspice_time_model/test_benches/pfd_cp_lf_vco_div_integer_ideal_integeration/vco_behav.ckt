@@ -6,7 +6,7 @@
 .PARAM tanh_num_points = 11
 
 .subckt vco_behav vctrl out vdd gnd
-+ vout_cm=0.7 vout_amp=0.8 kvco=200Meg mid_freq=2.45G min_freq=2.35G max_freq=2.55G comp_speed=0.5 
++ vout_cm=0.7 vout_amp=0.8 kvco=300Meg mid_freq=2.45G min_freq=2.35G max_freq=2.55G comp_speed=0.5 
 + vctl_min=0.1 vctl_max=1.7 model_type=1
 
 * Maybe needs an array parsing with too many values 

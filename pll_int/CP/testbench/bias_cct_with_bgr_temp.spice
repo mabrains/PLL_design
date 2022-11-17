@@ -1,0 +1,69 @@
+* non ideal current source in cp biasing cct
+.include {{ current_path }}/../../../../BGR/circuit/bgr_sch.ckt
+.include {{ current_path }}/../../../../CP/circuit/cp_bias.ckt
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+VDD VDD GND 1.8
+
+** Isource VDD ibias 90u
+xbgr ibias GND VDD bgr_sch
+
+XMN1 ibias ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMN2 net1 ibias GND GND sky130_fd_pr__nfet_01v8 L=1 W=25 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMP1 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=40 nf=4 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+XMP2 nbias_casc net1 VDD VDD sky130_fd_pr__pfet_01v8 L={{lp}} W={{wp}} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+xcp_bias nbias_casc VDD GND cp_bias
+
+.control
+    op
+    save @m.xmp1.msky130_fd_pr__pfet_01v8  
+    save all
+
+    let vgs1   = @m.xmn1.msky130_fd_pr__nfet_01v8[vgs]
+    let vds1   = @m.xmn1.msky130_fd_pr__nfet_01v8[vds]
+    let vth1   = @m.xmn1.msky130_fd_pr__nfet_01v8[vth]
+    let sat1   = vds1-vgs1+vth1 
+    let i1     = @m.xmn1.msky130_fd_pr__nfet_01v8[id]*1000000
+
+    let vgs2   = @m.xmn2.msky130_fd_pr__nfet_01v8[vgs]
+    let vds2   = @m.xmn2.msky130_fd_pr__nfet_01v8[vds]
+    let vth2   = @m.xmn2.msky130_fd_pr__nfet_01v8[vth]
+    let sat2   = vds2-vgs2+vth2 
+    let i2     = @m.xmn2.msky130_fd_pr__nfet_01v8[id]*1000000
+
+    let vgs3   = @m.xmp1.msky130_fd_pr__pfet_01v8[vgs]
+    let vds3   = @m.xmp1.msky130_fd_pr__pfet_01v8[vds]
+    let vth3   = @m.xmp1.msky130_fd_pr__pfet_01v8[vth]
+    let sat3   = vds3-vgs3+vth3 
+    let i3     = @m.xmp1.msky130_fd_pr__pfet_01v8[id]*1000000
+
+    let vgs4   = @m.xmp2.msky130_fd_pr__pfet_01v8[vgs]
+    let vds4   = @m.xmp2.msky130_fd_pr__pfet_01v8[vds]
+    let vth4   = @m.xmp2.msky130_fd_pr__pfet_01v8[vth]
+    let sat4   = vds4-vgs4+vth4 
+    let i4     = @m.xmp2.msky130_fd_pr__pfet_01v8[id]*1000000
+
+    print all
+
+
+    quit
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

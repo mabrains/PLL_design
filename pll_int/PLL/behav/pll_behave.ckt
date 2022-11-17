@@ -1,0 +1,25 @@
+* PLL subckt
+
+.INCLUDE ../../XCTL/behav/xctl_behave.ckt
+.INCLUDE ../../CP/behav/cp_behave.ckt
+.INCLUDE ../../PFD/behav/pfd_behave.ckt
+.INCLUDE ../../LPF/behav/lf_behave.ckt
+.include ../../VCO/behav/vco_behave.ckt
+.include ../../Divider/behav/div_behave.ckt
+
+.subckt pll_behave REF FB UP DWN iout vctrl vco_out VDD GND
+
+Xctl_behave REF VDD GND xctl_behave
+
+* frequency phase detector
+XPFD REF FB UP DWN UP_bar DWN_bar VDD GND PFD
+*XPFD REF FB UP DWN UP_bar DWN_bar VDD GND PFD
+Xcp UP DWN iout VDD GND charge_pump_behav 
+
+Xloop_filter_3rd_orde iout vctrl GND loop_filter_3rd_order 
+
+XVCO vctrl vco_out VDD GND vco_behav
+
+X240DIV_lib vco_out FB 240DIV_lib
+
+.ends

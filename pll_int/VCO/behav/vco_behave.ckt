@@ -1,0 +1,31 @@
+* VCO subckt
+
+
+.PARAM min_system_voltage = 0.0
+.PARAM max_system_voltage = 1.8
+.PARAM tanh_num_points = 11
+
+.subckt vco_behav vctrl out vdd gnd
++ vout_cm=0.7 vout_amp=0.8 kvco=300Meg mid_freq=2.45G min_freq=2.35G max_freq=2.55G comp_speed=0.5 
++ vctl_min=0.1 vctl_max=1.7 model_type=1
+
+* Maybe needs an array parsing with too many values 
+asine vctrl out in_sine
+
+.if ( model_type == 0 )
+
+.model in_sine sine(cntl_array = [min_system_voltage vctl_min vctl_max max_system_voltage] 
++ freq_array = [min_freq min_freq max_freq max_freq]
++ out_low = {vout_cm - vout_amp}  out_high = {vout_cm + vout_amp})
+
+.else
+
+.model in_sine sine(cntl_array = [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8] 
++ freq_array = [2.355G 2.357G 2.361G 2.366G 2.373G 2.383G 2.396G 2.412G 2.430G 2.450G 2.469G 2.487G 2.503G 
++ 2.516G 2.526G 2.533G 2.538G 2.542G 2.55G]
++ out_low = {vout_cm - vout_amp}  out_high = {vout_cm + vout_amp})
+
+.endif
+
+    
+.ends VCO

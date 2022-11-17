@@ -1,0 +1,14 @@
+* Extracted by KLayout with SKY130 LVS runset on : 13/11/2022 20:49
+
+.SUBCKT TOP Cin Cout out VDD GND
+M$1 VDD Cin Cout VDD sky130_fd_pr__pfet_01v8 L=0.15U W=240U AS=41.775P
++ AD=41.775P PS=260.57U PD=260.57U
+M$17 VDD Cout out VDD sky130_fd_pr__pfet_01v8 L=0.15U W=15U AS=4.35P AD=4.35P
++ PS=30.58U PD=30.58U
+M$18 GND Cin Cout GND sky130_fd_pr__nfet_01v8 L=0.15U W=240U AS=41.775P
++ AD=41.775P PS=260.57U PD=260.57U
+M$34 GND Cout out GND sky130_fd_pr__nfet_01v8 L=0.15U W=15U AS=4.35P AD=4.35P
++ PS=30.58U PD=30.58U
+R$35 Cout Cin GND 1016228.57143 sky130_fd_pr__res_xhigh_po_0p35 L=177.84U
++ W=0.35U
+.ENDS TOP

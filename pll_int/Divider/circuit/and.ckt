@@ -1,0 +1,14 @@
+
+
+.subckt and vdd A out B gnd
+*.ipin A
+*.ipin B
+*.ipin gnd
+*.ipin vdd
+*.opin out
+x1 vdd net1 A B gnd nand
+x2 vdd net1 out gnd inv
+.ends
+.GLOBAL VDD
+.GLOBAL GND
+

@@ -1,0 +1,111 @@
+** Test bench for VCO
+
+.include {{ current_path }}/../../../circuit/vco_sch.ckt
+.include {{ current_path }}/../../../circuit/vco_pex.ext
+.include {{ current_path }}/../../../../BGR/circuit/bgr_sch.ckt 
+.include {{ current_path }}/../../../../BGR/circuit/bgr_pex.ext
+.include {{ current_path }}/../../../circuit/inductor_model_cct.ckt
+
+
+
+{{ corner_setup }}
+
+* xvco vp vn vctrl ibias VDD GND vco_sch
+* xind1 vp vn ind_model
+* XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=9 MF=1 m=1  $mim cap
+* xbgr ibias GND VDD bgr_sch
+* ** Isource VDD ibias 90u
+
+***********************************************************
+***************************PEX*****************************
+***********************************************************
+xvco vp vn vctrl ibias VDD GND vco_pex
+xind1 vp vn ind_model
+X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=11 w=11  $mim cap
+* xbgr ibias GND VDD bgr_pex
+Isource VDD ibias 90u
+  
+
+.control
+    set wr_singlescale
+    set wr_vecnames
+    set appendwrite
+
+    op
+    save @m.xvco.xm4.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm11.msky130_fd_pr__pfet_01v8 
+    save @m.xvco.xm1.msky130_fd_pr__pfet_01v8  
+    save @m.xvco.xm2.msky130_fd_pr__nfet_01v8  
+
+    ** biasing cct **
+    save @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5
+    save @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5
+    save @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5
+
+    
+    save all
+    
+    let I_tail  = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_left  = @m.xvco.xm11.msky130_fd_pr__pfet_01v8[id]*1000
+    let I_right = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[id]*1000
+    let gmn = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[gm]*1000
+    let gmp = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[gm]*1000
+
+    let tail_sat_check = @m.xvco.xm4.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm4.msky130_fd_pr__pfet_01v8[vth]
+    let nmos_sat_check = @m.xvco.xm2.msky130_fd_pr__nfet_01v8[vds]-@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vgs]+@m.xvco.xm2.msky130_fd_pr__nfet_01v8[vth]
+    let pmos_sat_check = @m.xvco.xm1.msky130_fd_pr__pfet_01v8[vds]-@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vgs]+@m.xvco.xm1.msky130_fd_pr__pfet_01v8[vth]
+
+    ** biasing cct **
+    let bgr_tran_02_sat_check  = @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vgs] +@m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_13_sat_check = @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_14_sat_check = @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_15_sat_check = @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_16_sat_check = @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_17_sat_check = @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_18_sat_check = @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_19_sat_check = @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_20_sat_check = @m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm20.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_21_sat_check = @m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm21.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_22_sat_check = @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    let bgr_tran_23_sat_check = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vds]-@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vgs]+@m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[vth]
+    let bgr_tran_24_sat_check = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vds]-@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vgs]+@m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[vth]
+    
+    let I13 = @m.xbgr.xm13.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I14 = @m.xbgr.xm14.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I15 = @m.xbgr.xm15.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I18 = @m.xbgr.xm18.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I17 = @m.xbgr.xm17.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I16 = @m.xbgr.xm16.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I19 = @m.xbgr.xm19.msky130_fd_pr__nfet_g5v0d10v5[id]*1000000
+    let I22 = @m.xbgr.xm22.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I23 = @m.xbgr.xm23.msky130_fd_pr__nfet_g5v0d10v5[id]*1000000
+    let I24 = @m.xbgr.xm24.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    let I2 =  @m.xbgr.xm2.msky130_fd_pr__pfet_g5v0d10v5[id]*1000000
+    
+    print all
+
+    tran 0.01ns 200ns
+    *plot vp
+    let vdiff = v(vp)-v(vn)
+    let vdiff_max =  vecmax(vp-vn)
+    print vdiff_max
+    meas tran tperiod TRIG vdiff VAL=0.4 RISE=30 TARG vdiff VAL=0.4 RISE=31
+    let freq = 1/(tperiod*1000000000)
+    print freq
+    
+
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

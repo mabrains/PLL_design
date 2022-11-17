@@ -1,13 +1,13 @@
 * div TB
 
-.include ../layout/DIVIDER_pex_extracted.ckt
+.include ../layout/DIVIDER_PEX_NO_R.ckt
 .param W=2
-.param f_input =2.42G
-.param p0_val = 0
-.param p1_val=  0
+.param f_input =2.52G
+.param p0_val = 1.8
+.param p1_val=  1.8
 .param p2_val=  0
 .param p3_val=  0
-.param p4_val=  1.8
+.param p4_val=  0
 .param p5_val=  0
 .param p6_val=  0
 .param p7_val=  0
@@ -38,8 +38,7 @@ I0 opennet GND 0
 ** opencircuitdesign pdks install
 .op
 .control
-tran 0.01n 0.5u
-plot fout fin
+tran 0.01n 0.6u
 meas tran tdiffin TRIG v(fin) VAL=0.9 RISE=3 TARG v(fin) VAL=0.9 RISE=4
 meas tran tdiffout TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
 let freqin = 1/tdiffin
@@ -49,7 +48,7 @@ let n = freqin/freqout
 print freqin
 print freqout
 print n
-quit
+plot fout fin
 .endc
 .GLOBAL VDD
 .GLOBAL GND

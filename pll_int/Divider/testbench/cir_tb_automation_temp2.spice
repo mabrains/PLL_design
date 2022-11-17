@@ -1,7 +1,7 @@
 * div TB
 
 
-.include {{ current_path }}/../../../layout/DIVIDER_pex_extracted.ckt
+.include {{ current_path }}/../../../layout/DIVIDER_PEX_NO_R.ckt
 .param W=2
 .param f_input = {{f_in}}G
 .param p0_val = {{p0}}
@@ -37,7 +37,7 @@ I0 opennet GND 0
 ** opencircuitdesign pdks install
 .op
 .control
-tran 0.01n 0.5u
+tran 0.01n 600n
 quit
 .endc
 .measure tran tdiff TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4

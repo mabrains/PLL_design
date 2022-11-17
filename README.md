@@ -209,7 +209,7 @@ First simple PLL employs a phase detector PD which fundamentally measures the ph
 
 * simple phase detector 
 
-![image](https://user-images.githubusercontent.com/110326591/194726489-5bacad90-0453-42b2-8d83-d677471ecaad.png)
+![image](images/Diagrams/PFD/png/Simple_PFD.png)
 
 A phase detector produces an output signal proportional to the phase difference of the signals applied to its inputs. But Normal phase detectors faced many problems. For example, the nominal lock point with an XOR phase detector is at the 90° static phase shift point and the phase detector range is only 𝜋 Also, if there is a frequency difference between the input reference and PLL feedback signals the phase detector can jump between regions of different gain which cause cycle slipping phenomenon as the PLL is no longer acting as a linear system and if the frequency difference is too large the PLL may not lock
  
@@ -217,9 +217,9 @@ A phase detector produces an output signal proportional to the phase difference 
 
 For these problems of simple phase detector. Phase frequency detector is used to overcome these problems and have wide acquisition range. Phase frequency detector is a block that detects the phase and frequency differences between two signals which are reference signal and feedback signal from the divider in our case. Phase frequency detector has potential over normal phase detectors as it can detect both phase and frequency differences and herefor it allows wide locking range for the PLL
 
-![image](https://user-images.githubusercontent.com/110326591/194726521-99ab7a9f-97da-4830-9702-63e090210ad7.png)
+![image](images/Diagrams/PFD/png/pfd_operation.png)
 
-![image](https://user-images.githubusercontent.com/110326591/194726535-6c2e9cf7-e199-4129-8a70-84e6785d300e.png)
+![image](images/Diagrams/PFD/png/state_diagram.png)
 
 This PFD generates an Up and a Down signal that switches the current of the charge pump. The DFFs are triggered by the inputs to the PFD. Initially, both outputs are low. When one of the PFD inputs rises, the corresponding output becomes high. The state of the finite-state machine (FSM) moves from an initial state to an Up or Down state. The state is held until the second input goes high, which in turn resets the circuit and returns the FSM to the initial state and illustrates a common linear PFD architecture using resettable DFFs.
 
@@ -227,7 +227,13 @@ This PFD generates an Up and a Down signal that switches the current of the char
 
 1. Dead zone
 
-	Dead zone is defined as the maximum difference in phase between the two inputs that can’t be detecte by a PFD. When the phase difference is very narrow, this 		requires narrow pulses by the PFD, but due to the propagation delay of the internal devices these narrow pulses will not be generated. This can be avoided by 		some structures that remove the reset path, but these generated narrow pulses cannot activate the charge pump. So, the average output current will not 		follow the phase error and hence the transfer characteristics of the PFD and charge pump will exhibit a region of small or zero gain near the phase lock. 		Dead zone causes low loop gain and increases jitter and phase noise, so no dead zone is very important for better performance of the PLL. So, the     solution is to insert a delay in the reset path.
+	Dead zone is defined as the maximum difference in phase between the two inputs that can’t be detecte by a PFD. When the phase difference is very narrow, this 		requires narrow pulses by the PFD, but due to the propagation delay of the internal devices these narrow pulses will not be generated. 
+	
+	![alt-text-1](images/Diagrams/PFD/png/deadzoneexits.png)
+	
+	This can be avoided by some structures that remove the reset path, but these generated narrow pulses cannot activate the charge pump. So, the average output current will not follow the phase error and hence the transfer characteristics of the PFD and charge pump will exhibit a region of small or zero gain near the phase lock.Dead zone causes low loop gain and increases jitter and phase noise, so no dead zone is very important for better performance of the PLL. So, the solution is to insert a delay in the reset path.
+	
+	![alt-text-2](images/Diagrams/PFD/png/deadzonefree.png)
 
 2. Skew between UP and DOWN signals and mismatch between their pulse widths
 
@@ -235,35 +241,36 @@ This PFD generates an Up and a Down signal that switches the current of the char
 
 3.  Blind zone
 
-	due to the delay of the reset path, the linear range is less than 4π, which results in an insensitivity to some transitions in the input signal. This is called 	the blind zone, at which the PFD generates wrong polarity pulses leading to wrong behavior in the loop which increases the acquisition time. This effect 	appears when phase difference is larger than 2π − ∆ where ∆ = 2π ∗ treset/Tref . So, to eliminate the blind zone we have to eliminate the reset path which is 		not a choice in our case as stated in the dead zone section.
-
+	due to the delay of the reset path, the linear range is less than 4π, which results in an insensitivity to some transitions in the input signal. This is called the blind zone, at which the PFD generates wrong polarity pulses leading to wrong behavior in the loop which increases the acquisition time. This effect appears when phase difference is larger than 2π − ∆ where ∆ = 2π ∗ treset/Tref . So, to eliminate the blind zone we have to eliminate the reset path which is not a choice in our case as stated in the dead zone section.
+	
+	![image](images/Diagrams/PFD/png/blindzone.png)
 
 * PFD operation 
 
-![image](https://user-images.githubusercontent.com/110326591/194724205-38e69cbe-569f-446f-89b1-5a87e106e28e.png)
+![image](images/Diagrams/PFD/png/UP_DFF_PFD_RED_LABEL.png)
 
 * the signal passes less gate for a high speed; on the other hand, the NOR gate can provide some delay to reduce the dead-zone. The operations of this PFD are very simple: when the input signal (REF) and the reset signal (RESET) are both low, node A is charged up to VDD though MP1 and MP2. At the rising edge of the signal, node B is connected to ground though MN2 and MN3, yielding the output signal (UP) to be HIGH due to the inversion. Then after that, node B is not affected by the input signal since charges at node A turn off MP3 and prevent node B from pulled up. Therefore, the output is always high after the rising edge of the input signal. When RESET is applied, node A is discharged to ground through MN1 and node B is pulled up though MP3, causing output UP signal to reset. The RESET signal is asserted when the second DFF input signal (FB) experiences a rising edge. When the PFD collects two rising edges the REF and FB, the NOR gate will assert the RESET signal and reset the output signals. The PFD is a 4-state PFD Since it has a state when the outputs are both high. The width of the reset pulse is determined by the delay in the NOR gate. The effect of this delay on the maximum operating frequency is discussed in the following subsection. In the design, the NOR gate has a delay of 150 ps.
 
 
 * Conventional PFD
 
-![PFD_Sym](images/Diagrams/PFD/Conv%20PFD.jpg)
+![image](images/Diagrams/PFD/png/conv_pfd.png)
 
 * PFD Implemented
 
-![PFD](images/Diagrams/PFD/Implemented%20PFD.jpg)
+![image](images/Diagrams/PFD/png/Implementation.png)
 
 * UP flip-flop 
 
-![PFD](images/Diagrams/PFD/up%20ff.jpg)
+![image](images/Diagrams/PFD/png/UP_PFD_FF.png)
 
 * DOWN flip-flop
 
-![PFD](images/Diagrams/PFD/dwn%20ff.jpg)
+![image](images/Diagrams/PFD/png/DWN_DFF_PFD.png)
 
 * NOR-Gate
 
-![PFD](images/Diagrams/PFD/Nor%20gate.jpg)
+![image](images/Diagrams/PFD/png/NOR.png)
 
 ## Simulation Results
 * REF lags from FB  by 1ns 
@@ -284,7 +291,7 @@ This PFD generates an Up and a Down signal that switches the current of the char
 
 * Reason for dead zone
 
-![image](https://user-images.githubusercontent.com/110326591/194724556-ce090f51-5c64-4ec5-b75a-0907f018593e.png)
+![image](images/Diagrams/PFD/png/deadzone_reason.png)
 
 the small phase error cannot be detected properly explains the reason for dead-zone: if the phase difference is small, the output pulses may not be able to activate the CP completely, yielding a zero PD gain and loop gain, and the loop is basically open and the PLL noise is the same as a free running VCO noise. Delay can be added at the reset path to avoid this issue.
 

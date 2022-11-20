@@ -41,8 +41,8 @@ VDD8 p7 GND DC {p7_val}
 .ic v(xpll_int.vctrl)=0
 .op
 *.tran 200p 30u uic
-.tran 2p 15u
-.save v(ref) v(xpll_int.fb) v(xpll_int.up) v(xpll_int.dn) v(xpll_int.vctrl) v(xpll_int.vp) v(xpll_int.vn) v(vco_out) 
+.tran 2p 30u
+.save v(ref) v(fb) v(up) v(dn) v(vctrl) v(vp) v(vn) v(vco_out) 
 
 
 .GLOBAL GND

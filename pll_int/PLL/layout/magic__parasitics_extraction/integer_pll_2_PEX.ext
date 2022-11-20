@@ -716,7 +716,7 @@ X710 VDD a_n13854_75307# ibias_bgr VDD sky130_fd_pr__pfet_g5v0d10v5 ad=0p pd=0u 
 X711 GND VOP sky130_fd_pr__cap_mim_m3_1 l=2.506e+01 w=2.506e+01
 X712 GND a_57163_120049# a_56908_116627# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2 l=0.15
 X713 VDD a_n13854_75307# a_n13854_75307# VDD sky130_fd_pr__pfet_g5v0d10v5 ad=0p pd=0u as=0p ps=0u w=1 l=0.5
-X714 GND vctrl sky130_fd_pr__cap_mim_m3_1 l=2.95e+06 w=2.953e+01
+X714 GND vctrl sky130_fd_pr__cap_mim_m3_1 l=2.95e+01 w=2.953e+01
 X715 GND a_82405_120224# sky130_fd_pr__cap_mim_m3_1 l=2.788e+01 w=2.787e+01
 X716 a_50423_122587# a_49718_126504# a_50138_122587# VDD sky130_fd_pr__pfet_01v8 ad=1.16e+12p pd=8.58e+06u as=0p ps=0u w=4 l=0.15
 X717 a_82405_120224# GND sky130_fd_pr__cap_mim_m3_1 l=2.788e+01 w=2.787e+01

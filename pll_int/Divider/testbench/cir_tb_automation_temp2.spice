@@ -1,0 +1,52 @@
+* div TB
+
+
+.include {{ current_path }}/../../../layout/DIVIDER_PEX_NO_R.ckt
+.param W=2
+.param f_input = {{f_in}}G
+.param p0_val = {{p0}}
+.param p1_val=  {{p1}}
+.param p2_val=  {{p2}}
+.param p3_val=  {{p3}}
+.param p4_val=  {{p4}}
+.param p5_val=  {{p5}}
+.param p6_val=  {{p6}}
+.param p7_val=  {{p7}}
+
+VDD1 p2 GND {p2_val}
+VDD2 p4 GND {p4_val}
+VDD3 p1 GND {p1_val}
+VDD4 p3 GND {p3_val}
+VDD5 p5 GND {p5_val}
+VDD6 p6 GND {p6_val}
+VDD7 p0 GND {p0_val}
+VDD8 p7 GND {p7_val}
+
+
+
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+VDD VDD GND 1.80
+XDIV P0 P1 P2 P7 P6 P5 P4 P3 fin opennet modi fout0 modi0 fout1 modi1 modi2 fout2 modi3 fout3 fout4 modi4 fout5 modi5 fout6 modi6 fout VDD GND DIVIDER
+V1 fin GND SIN (0.9 0.9 {f_input} 0 0 0)
+C1 fout GND 25f m=1
+I0 opennet GND 0
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.op
+.control
+tran 0.01n 600n
+quit
+.endc
+.measure tran tdiff TRIG v(fout) VAL=0.9 RISE=3 TARG v(fout) VAL=0.9 RISE=4
+.measure tran f_out param = {1/tdiff}
+.measure tran n param = {f_input/f_out}
+.print f_out
+.print f_input
+.print n
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

@@ -1,0 +1,50 @@
+
+***********************************************************
+*************POST LAYOUT INTEGER PLL TESTBENCH*************
+***********************************************************
+
+.include ../circuit/pll_int_pex.ext
+.lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.temp 27
+.options tnom=27
+
+.param main_freq = 10.0Meg
+.param cycle = {1.0/main_freq}
+
+.param tpw = {cycle / 2}
+.param trise = {cycle / 50}
+.param tfall = {cycle / 50}
+
+.param p0_val = 0
+.param p1_val=  0
+.param p2_val=  0
+.param p3_val=  0
+.param p4_val=  1.8
+.param p5_val=  0
+.param p6_val=  0
+.param p7_val=  0
+
+** xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll_int
+xpll_int VOP ref ibias_bgr ibias_vco ibias_cp fb vp vctrl VDD vn dn up vco_out p0 p1 p2 p3 p4 p5 p6 p7 modo VDD GND integer_pll_pex
+
+Vref ref GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
+VDD VDD GND DC 1.8
+VDD1 p2 GND DC {p2_val}
+VDD2 p4 GND DC {p4_val}
+VDD3 p1 GND DC {p1_val}
+VDD4 p3 GND DC {p3_val}
+VDD5 p5 GND DC {p5_val}
+VDD6 p6 GND DC {p6_val}
+VDD7 p0 GND DC {p0_val}
+VDD8 p7 GND DC {p7_val}
+
+.ic v(xpll_int.vctrl)=0
+.op
+*.tran 200p 30u uic
+.tran 2p 30u
+.save v(ref) v(fb) v(up) v(dn) v(vctrl) v(vp) v(vn) v(vco_out) 
+
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

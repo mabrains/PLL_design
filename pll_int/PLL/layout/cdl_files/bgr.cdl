@@ -1,6 +1,6 @@
 ****************
 
-.subckt BGR  Iref GND VDD VBE net1 net2 net3 net4 net6 
+.subckt bgr VDD GND Iref   
 Q1 GND GND VBE GND sky130_fd_pr__pnp_05v5_W0p68L0p68 NE=1 m=1
 Q2 GND GND net2 GND sky130_fd_pr__pnp_05v5_W0p68L0p68 NE=8
 
@@ -9,7 +9,6 @@ R4 net2 net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=20.24u W=1.41u mult=1 m=1
 R1 GND net3 GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u mult=1 m=1
 R3 GND VBE GND sky130_fd_pr__res_xhigh_po_1p41 L=70.84u W=1.41u mult=1 m=1
 
-Rd1 GND GND GND sky130_fd_pr__res_xhigh_po_1p41 L=10.12u W=5.64u mult=1 m=1
 
 M15 net5 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=4u nf=4    
 M13 net3 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5u W=20u nf=4    

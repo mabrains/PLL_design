@@ -1,0 +1,16 @@
+*********************************************************
+**********hierarchial cdl file of the divider************ 
+*********************************************************
+
+.include DIV_CELL.cdl
+
+.subckt DIVIDER VDD GND p0 p1 p2 p3 p4 p5 p6 p7 fin fout modi modo
+x_cell1 VDD GND fin   modo  fout0 modi0  p0 DIV_CELL
+x_cell2 VDD GND fout0 modi0 fout1 modi1  p1 DIV_CELL
+x_cell3 VDD GND fout1 modi1 fout2 modi2  p2 DIV_CELL
+x_cell4 VDD GND fout2 modi2 fout3 modi3  p3 DIV_CELL
+x_cell5 VDD GND fout3 modi3 fout4 modi4  p4 DIV_CELL
+x_cell6 VDD GND fout4 modi4 fout5 modi5  p5 DIV_CELL
+x_cell7 VDD GND fout5 modi5 fout6 modi6  p6 DIV_CELL
+x_cell8 VDD GND fout6 modi6 fout  modi   p7 DIV_CELL
+.ends

@@ -1,0 +1,14 @@
+*********************************************************
+***********third order loop filter cdl file************** 
+*********************************************************
+.subckt lpf VDD GND vin vctrl
+**external nodes:vin vctrl
+
+C_lpf_1 vin   gnd sky130_fd_pr__model__cap_mim W=25.06u L=25.06u MF=1 m=20   A=12.560072n     P=2.0048m 
+c_lpf_2 r2c2  gnd sky130_fd_pr__model__cap_mim W=27.88u L=27.87u MF=1 m=320  A=0.248644992u   P=35.68m
+c_lpf_3 vctrl gnd sky130_fd_pr__model__cap_mim W=29.5u  L=29.53u MF=1 m=1    A=0.871135n      P=0.11806m
+
+R_lpf_4     vin r2c2   GND sky130_fd_pr__res_xhigh_po_1p41 L=4.56u  W=1.41u m=1
+R_lpf_5     vin vctrl  GND sky130_fd_pr__res_xhigh_po_1p41 L=63.84u W=1.41u m=1 
+
+.ends

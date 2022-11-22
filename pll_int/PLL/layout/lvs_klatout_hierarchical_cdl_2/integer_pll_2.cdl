@@ -1,0 +1,33 @@
+*********************************************************
+**********hierarchial cdl file of the divider************ 
+*********************************************************
+
+.include ../cdl_files/pfd.cdl
+.include ../cdl_files/bgr.cdl
+.include ../cdl_files/cp.cdl
+.include ../cdl_files/lpf.cdl
+.include ../cdl_files/vco.cdl
+.include ../cdl_files/divider.cdl
+.include ../cdl_files/DIV_CELL.cdl
+.include ../cdl_files/vco_inverter.cdl
+
+
+.subckt integer_pll_2 VDD GND p0 p1 p2 p3 p4 p5 p6 p7 ref fb modi modo vco_out vp vn up dn VOP vctrl ibias_bgr ibias_vco ibias_cp   
+xpfd VDD GND up dn ref fb pfd
+xcp  VDD GND up dn VOP ibias_cp CP
+xlpf VDD GND VOP vctrl lpf 
+xvco VDD GND vp vn vctrl ibias_vco  vco
+C_load vp vn sky130_fd_pr__model__cap_mim W=14u L=13u MF=1 m=1 A=182p P=54u
+xinverter1 VDD GND vp vco_out vco_inverter     
+xinverter2 VDD GND vn fout_dummy vco_inverter 
+xdivider VDD GND p0 p1 p2 p3 p4 p5 p6 p7 vco_out fb modi modo DIVIDER
+
+xbgr VDD GND ibias_bgr bgr
+MBGR ibias_bgr ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1u W=50u  nf=2  m=1
+MVCO ibias_vco ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1u W=250u nf=10 m=1
+MCP  ibias_cp  ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1u W=25u  nf=1  m=1
+
+R_dummy GND GND GND sky130_fd_pr__res_xhigh_po_1p41 L=7.07137723794u W=8.725u m=1 
+
+*L1 vp vn 4.022n m=1
+.ends

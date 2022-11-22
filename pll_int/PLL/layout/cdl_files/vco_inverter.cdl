@@ -1,0 +1,8 @@
+*********************************************************
+**********VCO inverter cdl file************************** 
+*********************************************************
+.subckt vco_inverter VDD GND vin vout 
+MN vout vin GND GND sky130_fd_pr__nfet_01v8 L=0.15u W=4.2u nf=1  m=1
+MP vout vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15u W=60u  nf=12 m=1
+.ends
+

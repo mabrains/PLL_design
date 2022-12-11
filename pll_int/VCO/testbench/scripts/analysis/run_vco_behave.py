@@ -13,13 +13,15 @@ import numpy as np
 plt.rcParams["figure.figsize"] = (12, 10)
 plt.rcParams["figure.autolayout"] = True
 
-NUM_WORKERS  = 8 # maximum number of processor threds to operate on
-TEMP_TB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),"../../test_vco_behave.sp" )  
+NUM_WORKERS = 8  # maximum number of processor threds to operate on
+TEMP_TB_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "../../test_vco_behave.sp"
+)
 run_dir = os.path.join("..", "run_test")
- 
+
 
 def run_corner(vctrl):
-    # This function gets a corner case and returns a list of 
+    # This function gets a corner case and returns a list of
     # values of all the intended measurments
 
     templateLoader = jinja2.FileSystemLoader(searchpath=".")
@@ -36,8 +38,8 @@ def run_corner(vctrl):
     text_file.write(full_spice)
     text_file.close()
 
-    # create a log file for the intended corner and 
-    # then run the tb 
+    # create a log file for the intended corner and
+    # then run the tb
     spice_run_log = os.path.join(run_dir, "{}.log".format(vctrl))
     log_file = open(spice_run_log, "w")
     subprocess.run(["ngspice", "-b", spice_file_path], stdout=log_file, stderr=log_file)
@@ -46,37 +48,36 @@ def run_corner(vctrl):
     ## read the data from log
     log_file = open(spice_run_log, "r")
 
-    #create an empty list to save the measurements
+    # create an empty list to save the measurements
     # this list has labels of the name of the  measurement
     # you can append whatever you want of measurments
-    results_dict = {} 
+    results_dict = {}
 
-    #iterate on the log file and extract the values of the intended measurments
+    # iterate on the log file and extract the values of the intended measurments
     for line in log_file.readlines():
         s = line.split()
-        #print (s)
+        # print (s)
         if len(s) > 2 and len(s) < 4:
             if s[1] == "=":
                 results_dict[s[0]] = s[2]
 
-    log_file.close() # close the log file
+    log_file.close()  # close the log file
 
     # return the list carrying the measurments
     return results_dict
 
 
 if __name__ == "__main__":
-    
+
     output_file = "vco_behav.csv"
 
     ## Delete existing output file
     if os.path.isfile(output_file):
         os.remove(output_file)
-    
+
     if not os.path.isdir(run_dir):
         os.makedirs(run_dir)
 
-    
     # create an empty list to carry all the measurements for all the corners
     vctrl = list(np.arange(0.0, 1.8, 0.01))
 
@@ -86,22 +87,22 @@ if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
         future_to_comb = {executor.submit(run_corner, comp): comp for comp in vctrl}
-        
+
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
             try:
                 data = {}
                 data["vctrl"] = comb
-                
+
                 new_data = future.result()
 
                 data.update(new_data)
                 my_results.append(data)
 
             except Exception as exc:
-                print('%{:.2f} generated an exception: %s' % (comb, exc))
+                print("%{:.2f} generated an exception: %s" % (comb, exc))
             else:
-                print('%s voltage completed' % (str(comb)))
+                print("%s voltage completed" % (str(comb)))
 
     # loop on the csv file to plot and sort the measurement
     if len(my_results) > 0:

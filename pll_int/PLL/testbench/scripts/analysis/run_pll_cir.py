@@ -3,7 +3,7 @@
 ################################################################################################
 
 from genericpath import isfile
-import subprocess 
+import subprocess
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -15,5 +15,4 @@ plt.rcParams["figure.autolayout"] = True
 if __name__ == "__main__":
 
     ## Run the simulation
-    subprocess.run(["ngspice","-b", "../../PLL_raw.sp","-r","PLL.raw"])
-            
+    subprocess.run(["ngspice", "-b", "../../PLL_raw.sp", "-r", "PLL.raw"])

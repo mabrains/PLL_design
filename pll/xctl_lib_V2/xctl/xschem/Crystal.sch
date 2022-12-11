@@ -168,14 +168,14 @@ device="ceramic capacitor"}
 C {devices/lab_wire.sym} 310 -400 0 0 {name=l8 sig_type=std_logic lab=Vin}
 C {sky130_fd_pr/pfet_01v8.sym} 410 -440 0 0 {name=M11
 L=0.15
-W=15
+W=240
 nf=16 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 410 -360 0 0 {name=M2
 L=0.15
-W=15  
+W=240  
 nf=16 mult=1
 model=nfet_01v8
 spiceprefix=X

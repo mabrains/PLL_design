@@ -48,11 +48,14 @@ plt.subplots_adjust(left=0.079)
 plt.subplots_adjust(top=0.92)
 plt.subplots_adjust(bottom=0.088)
 
-for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corners)):
-    control_list = df["control"][itr : itr + len(vctrl_corners) - 1].tolist()
-    freq_list = df["freq (GHZ)"][itr : itr + len(vctrl_corners) - 1].tolist()
+for itr in range(
+           0,
+           len(df["control"]) - len(vctrl_corners) + 1,
+           len(vctrl_corners)):
+    control_list = df["control"][itr:itr + len(vctrl_corners) - 1].tolist()
+    freq_list = df["freq (GHZ)"][itr:itr + len(vctrl_corners) - 1].tolist()
     oscilation_state = df["Oscillation Status"][
-        itr : itr + len(vctrl_corners) - 1
+        itr:itr + len(vctrl_corners) - 1
     ].tolist()
     if False not in oscilation_state or 1:
         if df["corner name"][itr] == "tt,27,1.0":
@@ -66,7 +69,8 @@ for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corne
             )
         else:
             plt.plot(
-                control_list, freq_list, linewidth=2.5, label=df["corner name"][itr]
+                control_list, freq_list, linewidth=2.5,
+                label=df["corner name"][itr]
             )
 
 
@@ -90,9 +94,12 @@ plt.subplots_adjust(left=0.079)
 plt.subplots_adjust(top=0.92)
 plt.subplots_adjust(bottom=0.088)
 
-for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corners)):
-    control_list = df["control"][itr : itr + len(vctrl_corners) - 1].tolist()
-    freq_list = df["freq (GHZ)"][itr : itr + len(vctrl_corners) - 1].tolist()
+for itr in range(
+           0,
+           len(df["control"]) - len(vctrl_corners) + 1,
+           len(vctrl_corners)):
+    control_list = df["control"][itr:itr + len(vctrl_corners) - 1].tolist()
+    freq_list = df["freq (GHZ)"][itr:itr + len(vctrl_corners) - 1].tolist()
     control_list_prime, kvco = D(control_list, freq_list)
 
     # freq_arr = np.array(freq_list)
@@ -100,7 +107,7 @@ for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corne
     # kvco2 = np.diff(freq_arr,n=1)/np.diff(control_arr,n=1)
 
     oscilation_state = df["Oscillation Status"][
-        itr : itr + len(vctrl_corners) - 1
+        itr:itr + len(vctrl_corners) - 1
     ].tolist()
     if False not in oscilation_state:
         if df["corner name"][itr] == "tt,27,1.0":
@@ -138,12 +145,16 @@ plt.subplots_adjust(left=0.079)
 plt.subplots_adjust(top=0.92)
 plt.subplots_adjust(bottom=0.088)
 
-for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corners)):
-    control_list = df["control"][itr : itr + len(vctrl_corners) - 1].tolist()
-    swing_list = df["differential swing"][itr : itr + len(vctrl_corners) - 1].tolist()
+for itr in range(
+           0,
+           len(df["control"]) - len(vctrl_corners) + 1,
+           len(vctrl_corners)):
+
+    control_list = df["control"][itr:itr + len(vctrl_corners) - 1].tolist()
+    swing_list = df["differential swing"][itr:itr + len(vctrl_corners) - 1].tolist()
     # print(swing_list)
     oscilation_state = df["Oscillation Status"][
-        itr : itr + len(vctrl_corners) - 1
+        itr:itr + len(vctrl_corners) - 1
     ].tolist()
     if False not in oscilation_state:
         if df["corner name"][itr] == "tt,27,1.0":
@@ -157,7 +168,9 @@ for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corne
             )
         else:
             plt.plot(
-                control_list, swing_list, linewidth=2.5, label=df["corner name"][itr]
+                control_list, swing_list,
+                linewidth=2.5,
+                label=df["corner name"][itr]
             )
 
 
@@ -180,12 +193,16 @@ plt.subplots_adjust(left=0.079)
 plt.subplots_adjust(top=0.92)
 plt.subplots_adjust(bottom=0.088)
 
-for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corners)):
-    control_list = df["control"][itr : itr + len(vctrl_corners) - 1].tolist()
-    power_list = df["Power (mW)"][itr : itr + len(vctrl_corners) - 1].tolist()
+for itr in range(
+           0,
+           len(df["control"]) - len(vctrl_corners) + 1,
+           len(vctrl_corners)):
+
+    control_list = df["control"][itr:itr + len(vctrl_corners) - 1].tolist()
+    power_list = df["Power (mW)"][itr:itr + len(vctrl_corners) - 1].tolist()
     # print(swing_list)
     oscilation_state = df["Oscillation Status"][
-        itr : itr + len(vctrl_corners) - 1
+        itr:itr + len(vctrl_corners) - 1
     ].tolist()
     if False not in oscilation_state:
         if df["corner name"][itr] == "tt,27,1.0":
@@ -199,7 +216,10 @@ for itr in range(0, len(df["control"]) - len(vctrl_corners) + 1, len(vctrl_corne
             )
         else:
             plt.plot(
-                control_list, power_list, linewidth=2.5, label=df["corner name"][itr]
+                control_list,
+                power_list,
+                linewidth=2.5,
+                label=df["corner name"][itr]
             )
 
 

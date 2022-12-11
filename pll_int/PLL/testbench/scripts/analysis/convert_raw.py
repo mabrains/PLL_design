@@ -159,7 +159,8 @@ def rawread(fname: str):
                 plot["varnames"] = []
                 plot["varunits"] = []
                 for varn in range(nvars):
-                    varspec = fp.readline(BSIZE_SP).strip().decode("ascii").split()
+                    varspec = fp.readline(BSIZE_SP)\
+                        .strip().decode("ascii").split()
                     assert varn == int(varspec[0])
                     plot["varnames"].append(varspec[1])
                     plot["varunits"].append(varspec[2])
@@ -380,4 +381,7 @@ if __name__ == "__main__":
     measurements.append(data)
 
     df = pd.DataFrame(measurements)
-    df.to_csv(os.path.join(csv_files_path, "all_measurements.csv"), index=False)
+    df.to_csv(os.path.join(
+        csv_files_path,
+        "all_measurements.csv"),
+        index=False)

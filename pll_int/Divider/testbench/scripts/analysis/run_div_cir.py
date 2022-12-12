@@ -16,4 +16,3 @@ if __name__ == "__main__":
 
     ## Run the simulation
     subprocess.run(["ngspice", "../../test_div_cir.sp"])
-            

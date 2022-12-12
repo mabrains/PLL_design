@@ -16,4 +16,3 @@ if __name__ == "__main__":
 
     ## Run the simulation
     subprocess.run(["ngspice", "../../test_cp_lf_behave.sp"])
-            

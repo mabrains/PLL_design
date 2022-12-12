@@ -6,26 +6,9 @@
 # and saves the output in an csv file
 ########################################################
 
-# server:
-# .spiceinit path in server:
-# "/open_design_environment/foundry/pdks/skywaters
-# /sky130A/libs.tech/ngspice/spinit"
-#
-# corner file in server:
-# .lib /open_design_environment/foundry/pdks/skywaters
-# /sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
-
-# VM:
-# .spiceinit path in VM:
-#  "/foundry/pdks/skywaters/share/pdk/sky130A
-# /libs.tech/ngspice/spinit"
-#
-# corner file in VM:
-# .lib /foundry/pdks/skywaters/share/pdk/sky130A
-# /libs.tech/ngspice/sky130.lib.spice {corner}
-
 
 import pandas as pd
+import sys
 import os
 import subprocess
 import jinja2
@@ -33,14 +16,16 @@ import itertools
 import concurrent.futures
 import shutil
 
+
 # get he path of the folder which contain the tb
-main_tb_path = os.path.join("..", "../../testbench")
-run_dir = os.path.join("..", "corners/run_test")
-measure_dir = os.path.join("..", "corners/measurements")
+run_dir = sys.argv[1]
+main_tb_path = os.path.join(run_dir, "spice_files")
+measure_dir = os.path.join(run_dir, "csv_files")
 current_path = os.getcwd()
+PDK = os.environ['PDK']
+PDK_ROOT = os.environ['PDK_ROOT']
 
-
-TEMPLATE_FILE = "cir_tb_corner_temp.spice"  # name of the tb
+TEMPLATE_FILE = "template_tb.spice"  # name of the tb
 NUM_WORKERS = 30  # maximum number of processor threds to operate on
 """
 process_corners = ["tt", "sf", "fs", "ff", "ss"]
@@ -80,8 +65,6 @@ supply_value = 1.8
 
 # create a string to carry all the lines related to the corners
 corner_str = """
-.lib /open_design_environment/foundry/pdks/skywaters\
-    /sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
 VDD VDD GND {vsup}
@@ -108,11 +91,11 @@ def run_corner(all_corner_data):
     vc = "{:.2f}".format(all_corner_data[3])
 
     # updatet the corner lines with the values of the intended corner
-    new_corners_str = corner_str.format(corner=pc, temp=tc, vsup=sc, vctrl=vc)
+    new_corners_str = corner_str.format(temp=tc, vsup=sc, vctrl=vc)
 
     # update the tb with the new values and save the content in a variable
     full_spice = template.render(
-        corner_setup=new_corners_str, current_path=current_path
+        corner_setup=new_corners_str, current_path=current_path, corner=pc, PDK=PDK, PDK_ROOT=PDK_ROOT
     )
 
     # create a new tb for the intended corner and update it and then close it
@@ -161,9 +144,7 @@ def run_corner(all_corner_data):
                     results_dict["Oscillation Status"] = "False"
                     results_dict["freq (GHZ)"] = "0"
 
-            elif s[0].lower() == "error:"\
-                and "measure" in s\
-                    and "tperiod" in s:
+            elif s[0].lower() == "error:" and "measure" in s and "tperiod" in s:
                 results_dict["Oscillation Status"] = "False"
                 results_dict["freq (GHZ)"] = "0"
 
@@ -345,20 +326,18 @@ if __name__ == "__main__":
     # copy the spiceinit file to the run folder
     # so there is comaptibility mode during the simulation
     shutil.copyfile(
-        "/open_design_environment/foundry/pdks/\
-            skywaters/sky130A/libs.tech/ngspice/spinit",
+        f"{PDK_ROOT}/{PDK}/libs.tech/ngspice/spinit",
         os.path.join(os.getcwd(), ".spiceinit"),
     )
 
     # create an empty list to carry all the measurements for all the corners
     my_results = []
     failed_corners = []
-
     # We can use a with statement to ensure threads are cleaned up promptly
-    with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS)as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         # Start the load operations and mark each future with its URL
         future_to_comb = {executor.submit(run_corner, comp): comp for comp in all_comb}
-
+        
         for future in concurrent.futures.as_completed(future_to_comb):
             comb = future_to_comb[future]
             try:
@@ -367,36 +346,26 @@ if __name__ == "__main__":
                 data["temp"] = comb[1]
                 data["supply"] = comb[2]
                 data["control"] = comb[3]
-                data["corner name"] = comb[0]
-                + ","
-                + str(comb[1])
-                + ","
-                + str(comb[2])
-
+                data["corner name"] = comb[0]+','+str(comb[1])+','+str(comb[2])
+                
                 new_data = future.result()
-
                 data.update(new_data)
-                if data["Oscillation Status"] == "False":
-                    fetched_corner = (
-                        data["process"]
-                        + ","
-                        + str(data["temp"])
-                        + ","
-                        + str(data["supply"] * supply_value)
-                    )
-                    if fetched_corner not in failed_corners:
+                if data['Oscillation Status'] == 'False':
+                    
+                    fetched_corner = data['process']+','+str(data['temp'])+','+str(data['supply']*supply_value)
+                    if (fetched_corner not in failed_corners ):
                         failed_corners.append(fetched_corner)
                         data["failed corners"] = fetched_corner
-
+                
                 my_results.append(data)
 
             except Exception as exc:
-                print("generated an exception: %s" % (exc))
+                print('generated an exception: %s' % (exc))
             else:
-                print("%s corner completed" % (str(comb)))
+                print('%s corner completed' % (str(comb)))
 
     # loop on the csv file to plot and sort the measurement
     if len(my_results) > 0:
         df = pd.DataFrame(my_results)
         df.sort_values(by=["corner name", "control"], inplace=True)
-        df.to_csv("measurements/all_measurements.csv", index=False)
+        df.to_csv(measure_dir+"/all_measurements.csv", index=False)

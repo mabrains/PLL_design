@@ -8,6 +8,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
+import os
 
 
 def D(xlist, ylist):
@@ -40,7 +42,9 @@ vctrl_corners = [
     1.7,
     1.8,
 ]
-df = pd.read_csv("measurements/all_measurements.csv")
+run_dir = sys.argv[1]
+images_path = os.path.join(run_dir, "images")
+df = pd.read_csv(run_dir+"csv_files/all_measurements.csv")
 
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
@@ -86,7 +90,8 @@ plt.plot(control_list, [2.4] * len(control_list), linewidth=4, color="black")
 plt.plot(control_list, [2.5] * len(control_list), linewidth=4, color="black")
 plt.xlim([0, 1.25])
 # plt.ylim([2.3 , 2.6])
-plt.show()
+plt.savefig(os.path.join(images_path, "fosc.png"))
+# plt.show()
 
 fig, ax = plt.subplots(figsize=(8, 10))
 plt.subplots_adjust(right=0.9)
@@ -136,7 +141,8 @@ plt.grid()
 plt.tight_layout()
 plt.xlim([0, 1.25])
 # plt.ylim([0 , 800])
-plt.show()
+plt.savefig(os.path.join(images_path, "kvco.png"))
+# plt.show()
 
 
 fig, ax = plt.subplots(figsize=(8, 10))
@@ -182,7 +188,8 @@ plt.grid()
 plt.tight_layout()
 plt.xlim([0, 1.25])
 # plt.ylim([2.3 , 2.6])
-plt.show()
+plt.savefig(os.path.join(images_path, "swing.png"))
+# plt.show()
 
 
 # POWER PLOTTING
@@ -231,4 +238,5 @@ plt.grid()
 plt.tight_layout()
 plt.xlim([0, 1.25])
 # plt.ylim([2.3 , 2.6])
-plt.show()
+plt.savefig(os.path.join(images_path, "power.png"))
+# plt.show()

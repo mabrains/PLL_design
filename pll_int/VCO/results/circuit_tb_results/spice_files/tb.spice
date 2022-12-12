@@ -1,14 +1,16 @@
 ** Test bench for VCO
 
-.include {{ current_path }}/../circuit/vco_sch.ckt
-.include {{ current_path }}/../circuit/vco_pex.ext
-.include {{ current_path }}/../../BGR/circuit/bgr_sch.ckt 
-.include {{ current_path }}/../../BGR/circuit/bgr_pex.ext
-.include {{ current_path }}/../circuit/inductor_model_cct.ckt
+.include ../circuit/vco_sch.ckt
+.include ../../BGR/circuit/bgr_sch.ckt 
+.include ../circuit/inductor_model_cct.ckt
 
+.lib "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+.temp 27
+.options tnom=27
 
-.lib "{{PDK_ROOT}}/{{PDK}}/libs.tech/ngspice/sky130.lib.spice" {{corner}}
-{{ corner_setup }}
+VDD VDD GND 1.8
+VTuner vctrl GND 0.00
+
 
 xvco vp vn vctrl ibias_vco VDD GND vco_sch
 xind1 vp vn ind_model
@@ -93,7 +95,9 @@ XMVCO ibias_vco ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='in
     print all
 
     tran 0.01ns 200ns
-    *plot vp
+    plot vp
+    plot vn
+    plot vp-vn
     let vdiff = v(vp)-v(vn)
     let vdiff_max =  vecmax(vp-vn)
     print vdiff_max

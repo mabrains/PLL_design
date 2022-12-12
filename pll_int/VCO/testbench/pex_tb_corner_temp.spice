@@ -10,19 +10,12 @@
 .lib "{{PDK_ROOT}}/{{PDK}}/libs.tech/ngspice/sky130.lib.spice" {{corner}}
 {{ corner_setup }}
 
-xvco vp vn vctrl ibias_vco VDD GND vco_sch
+xvco vp vn vctrl ibias VDD GND vco_pex
 xind1 vp vn ind_model
-XC_load vp vn sky130_fd_pr__cap_mim_m3_1 W=15 L=10 MF=1 m=1  $mim cap
-*************************BGR********************
-xbgr ibias_bgr GND VDD bgr_sch
-** Isource VDD ibias 90u
-
-XMBGR ibias_bgr ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=50 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
-XMVCO ibias_vco ibias_bgr GND GND sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
-+ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
-+ sa=0 sb=0 sd=0 mult=1 m=1
+X18 vp vn sky130_fd_pr__cap_mim_m3_1 l=11 w=11  $mim cap
+* xbgr ibias GND VDD bgr_pex
+Isource VDD ibias 90u
+  
 
 .control
     set wr_singlescale

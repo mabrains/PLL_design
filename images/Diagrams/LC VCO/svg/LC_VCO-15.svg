@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="238.32pt" height="194.04pt" viewBox="0 0 238.32 194.04">
+<g enable-background="new">
+<g>
+<clipPath id="cp0">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000003815 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 58.057 55.419 L 58.057 28.768 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 49.605 28.768 L 65.741 28.768 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 52.404 24.326 L 63.128 24.326 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 56.366 19.884 L 59.536 19.884 "/>
+<clipPath id="cp1">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000003815 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp1)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 58.057 55.419 L 58.057 28.768 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 49.605 28.768 L 65.741 28.768 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 52.404 24.326 L 63.128 24.326 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 56.366 19.884 L 59.536 19.884 "/>
+<clipPath id="cp2">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000003815 194.04 L 238.32 194.04 L 238.32 .000015259 L -.000003815 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp2)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.56 64.045 L 57.56 113.01 "/>
+</g>
+<clipPath id="cp3">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000030518 L 0 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp3)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.532 137.01 L 57.532 151.28 "/>
+</g>
+<clipPath id="cp4">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000007629 194.04 L 238.32 194.04 L 238.32 .000076294 L -.000011444 .000061035 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp4)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.532 151.28 L 100.69 151.16 "/>
+</g>
+<clipPath id="cp5">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 0 L 0 0 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp5)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.604 78.966 L 57.604 94.775 "/>
+</g>
+<clipPath id="cp6">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 0 L 0 0 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp6)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.604 28.884 L 57.604 43.762 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 70.581 65.865 C 70.581 73.101 64.802 78.966 57.673 78.966 C 50.543 78.966 44.764 73.101 44.764 65.865 C 44.764 58.629 50.543 52.764 57.673 52.764 C 64.802 52.764 70.581 58.629 70.581 65.865 Z " fill="#ffffff" fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 70.581 65.865 C 70.581 73.101 64.802 78.966 57.673 78.966 C 50.543 78.966 44.764 73.101 44.764 65.865 C 44.764 58.629 50.543 52.764 57.673 52.764 C 64.802 52.764 70.581 58.629 70.581 65.865 Z "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 70.581 56.232 C 70.581 63.467 64.802 69.333 57.673 69.333 C 50.543 69.333 44.764 63.467 44.764 56.232 C 44.764 48.996 50.543 43.13 57.673 43.13 C 64.802 43.13 70.581 48.996 70.581 56.232 Z " fill="#ffffff" fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 70.581 56.232 C 70.581 63.467 64.802 69.333 57.673 69.333 C 50.543 69.333 44.764 63.467 44.764 56.232 C 44.764 48.996 50.543 43.13 57.673 43.13 C 64.802 43.13 70.581 48.996 70.581 56.232 Z "/>
+<clipPath id="cp7">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp7)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.576 66.25 L 57.481 53.141 "/>
+</g>
+<clipPath id="cp8">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp8)">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 60.922 53.164 L 57.432 46.309 L 54.042 53.214 C 56.215 54.281 58.764 54.263 60.922 53.164 Z " fill-rule="evenodd"/>
+</g>
+<clipPath id="cp9">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 0 L 0 0 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp9)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.604 78.966 L 57.604 94.775 "/>
+</g>
+<clipPath id="cp10">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 0 L 0 0 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp10)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.604 28.884 L 57.604 43.762 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 70.581 65.865 C 70.581 73.101 64.802 78.966 57.673 78.966 C 50.543 78.966 44.764 73.101 44.764 65.865 C 44.764 58.629 50.543 52.764 57.673 52.764 C 64.802 52.764 70.581 58.629 70.581 65.865 Z " fill="#ffffff" fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 70.581 65.865 C 70.581 73.101 64.802 78.966 57.673 78.966 C 50.543 78.966 44.764 73.101 44.764 65.865 C 44.764 58.629 50.543 52.764 57.673 52.764 C 64.802 52.764 70.581 58.629 70.581 65.865 Z "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 70.581 56.232 C 70.581 63.467 64.802 69.333 57.673 69.333 C 50.543 69.333 44.764 63.467 44.764 56.232 C 44.764 48.996 50.543 43.13 57.673 43.13 C 64.802 43.13 70.581 48.996 70.581 56.232 Z " fill="#ffffff" fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 70.581 56.232 C 70.581 63.467 64.802 69.333 57.673 69.333 C 50.543 69.333 44.764 63.467 44.764 56.232 C 44.764 48.996 50.543 43.13 57.673 43.13 C 64.802 43.13 70.581 48.996 70.581 56.232 Z "/>
+<clipPath id="cp11">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp11)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.576 66.25 L 57.481 53.141 "/>
+</g>
+<clipPath id="cp12">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp12)">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 60.922 53.164 L 57.432 46.309 L 54.042 53.214 C 56.215 54.281 58.764 54.263 60.922 53.164 Z " fill-rule="evenodd"/>
+</g>
+<clipPath id="cp13">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 29.174 69.398 L 55.423 69.398 L 55.423 42.384 L 29.174 42.384 L 29.174 69.398 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp13)">
+<clipPath id="cp14">
+<path transform="matrix(1.0371652,0,-.0000001308245,-1.0443692,29.174,151.65599)" d="M 0 0 L 25.308 0 L 25.308 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp14)">
+<clipPath id="cp15">
+<path transform="matrix(1.0371652,0,-.0000001308245,-1.0443692,29.174,151.65599)" d="M 0 .019093 L 25.344 .019093 L 25.344 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp15)">
+<text xml:space="preserve" transform="matrix(1.0371652 0 .0000001308245 1.0443692 29.174 151.65599)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="5.424">&#x1d470;</tspan></text>
+</g>
+<clipPath id="cp16">
+<path transform="matrix(1.0371652,0,-.0000001308245,-1.0443692,29.174,151.65599)" d="M 0 .019093 L 25.344 .019093 L 25.344 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp16)">
+<text xml:space="preserve" transform="matrix(1.0371652 0 .0000001308245 1.0443692 29.174 151.65599)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="11.592"> </tspan></text>
+</g>
+</g>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.13 88.634 L 57.604 88.634 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.558 141.76 L 57.558 134.45 C 53.058 134.55 48.557 134.55 44.058 134.45 "/>
+<clipPath id="cp17">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000003815 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp17)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 44.058 137.37 L 44.058 114.2 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 44.058 116.45 L 57.558 116.45 L 57.558 107.45 "/>
+<clipPath id="cp18">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000003815 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp18)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 39.558 136.7 L 39.558 114.2 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 21.558 125.45 L 39.558 125.45 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 44.133 116.45 L 50.908 116.45 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 49.958 120.25 L 57.558 116.45 L 49.958 112.65 L 49.958 120.25 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 57.558 141.76 L 57.558 134.45 C 53.058 134.55 48.557 134.55 44.058 134.45 "/>
+<clipPath id="cp19">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000003815 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp19)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 44.058 137.37 L 44.058 114.2 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 44.058 116.45 L 57.558 116.45 L 57.558 107.45 "/>
+<clipPath id="cp20">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000003815 194.04 L 238.32 194.04 L 238.32 .000045776 L .000003815 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp20)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 39.558 136.7 L 39.558 114.2 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 21.558 125.45 L 39.558 125.45 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 44.133 116.45 L 50.908 116.45 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 49.958 120.25 L 57.558 116.45 L 49.958 112.65 L 49.958 120.25 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 19 125.45 C 19 126.86 20.145 128 21.558 128 C 22.97 128 24.116 126.86 24.116 125.45 C 24.116 124.03 22.97 122.89 21.558 122.89 C 20.145 122.89 19 124.03 19 125.45 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 19 125.45 C 19 126.86 20.145 128 21.558 128 C 22.97 128 24.116 126.86 24.116 125.45 C 24.116 124.03 22.97 122.89 21.558 122.89 C 20.145 122.89 19 124.03 19 125.45 Z "/>
+<clipPath id="cp21">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000045776 L .000007629 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp21)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 151.07 L 100.67 140.53 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.107 140.53 L 110.38 140.53 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.691 134.35 C 97.443 139.62 104.05 139.62 109.8 134.35 "/>
+<clipPath id="cp22">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000061035 L .000007629 .000061035 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp22)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 136.1 L 100.67 115.97 "/>
+</g>
+<clipPath id="cp23">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000045776 L .000007629 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp23)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 151.07 L 100.67 140.53 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.107 140.53 L 110.38 140.53 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.691 134.35 C 97.443 139.62 104.05 139.62 109.8 134.35 "/>
+<clipPath id="cp24">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000061035 L .000007629 .000061035 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp24)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 136.1 L 100.67 115.97 "/>
+</g>
+<clipPath id="cp25">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000030518 L .000007629 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp25)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 88.353 L 100.67 77.816 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.107 77.816 L 110.38 77.816 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.691 71.627 C 97.443 76.906 104.05 76.906 109.8 71.627 "/>
+<clipPath id="cp26">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000045776 L .000007629 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp26)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 73.379 L 100.67 53.248 "/>
+</g>
+<clipPath id="cp27">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000030518 L .000007629 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp27)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 88.353 L 100.67 77.816 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.107 77.816 L 110.38 77.816 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 91.691 71.627 C 97.443 76.906 104.05 76.906 109.8 71.627 "/>
+<clipPath id="cp28">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000045776 L .000007629 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp28)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 73.379 L 100.67 53.248 "/>
+</g>
+<clipPath id="cp29">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000015259 L 0 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp29)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.67 88.071 L 100.67 122.38 "/>
+</g>
+<clipPath id="cp30">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000045776 L .000007629 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp30)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.7 55.446 L 100.7 28.795 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 92.25 28.795 L 108.39 28.795 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 95.05 24.353 L 105.77 24.353 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 99.012 19.911 L 102.18 19.911 "/>
+<clipPath id="cp31">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000007629 194.04 L 238.32 194.04 L 238.32 .000045776 L .000007629 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp31)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 100.7 55.446 L 100.7 28.795 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 92.25 28.795 L 108.39 28.795 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 95.05 24.353 L 105.77 24.353 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 99.012 19.911 L 102.18 19.911 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 119.42 151.14 L 129.99 151.14 "/>
+<clipPath id="cp32">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000015259 L 0 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp32)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 129.99 141.54 L 129.99 160.88 "/>
+</g>
+<clipPath id="cp33">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000015259 L -.000015259 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp33)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 136.2 142.13 C 130.92 147.9 130.92 154.52 136.2 160.29 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 134.44 151.14 L 154.63 151.14 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 119.42 151.14 L 129.99 151.14 "/>
+<clipPath id="cp34">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000015259 L 0 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp34)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 129.99 141.54 L 129.99 160.88 "/>
+</g>
+<clipPath id="cp35">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000015259 L -.000015259 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp35)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 136.2 142.13 C 130.92 147.9 130.92 154.52 136.2 160.29 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 134.44 151.14 L 154.63 151.14 "/>
+<clipPath id="cp36">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000007629 194.04 L 238.32 194.04 L 238.32 .000061035 L -.000015259 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp36)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 99.563 151.16 L 129.99 151.14 "/>
+</g>
+<clipPath id="cp37">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000015259 L -.000015259 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp37)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.65 63.884 L 154.65 70.652 "/>
+</g>
+<clipPath id="cp38">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000030518 194.04 L 238.32 194.04 L 238.32 -.000030518 L -.000030518 -.000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp38)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.65 70.652 L 147.14 72.709 "/>
+</g>
+<clipPath id="cp39">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000030518 L -.000030518 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp39)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 147.14 72.709 L 162 76.192 "/>
+</g>
+<clipPath id="cp40">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 -.000015259 L -.000030518 -.000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp40)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 162 76.192 L 147.14 79.676 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 147.14 79.676 L 162 83.392 L 147.14 87.107 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 147.14 87.107 L 162 91.288 L 154.53 93.61 L 154.53 99.183 "/>
+<clipPath id="cp41">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000015259 L -.000015259 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp41)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.65 63.884 L 154.65 70.652 "/>
+</g>
+<clipPath id="cp42">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000030518 194.04 L 238.32 194.04 L 238.32 -.000030518 L -.000030518 -.000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp42)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.65 70.652 L 147.14 72.709 "/>
+</g>
+<clipPath id="cp43">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000030518 L -.000030518 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp43)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 147.14 72.709 L 162 76.192 "/>
+</g>
+<clipPath id="cp44">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 -.000015259 L -.000030518 -.000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp44)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 162 76.192 L 147.14 79.676 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 147.14 79.676 L 162 83.392 L 147.14 87.107 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 147.14 87.107 L 162 91.288 L 154.53 93.61 L 154.53 99.183 "/>
+<clipPath id="cp45">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 174.38 99.261 L 198.42 99.261 L 198.42 57.978 L 174.38 57.978 L 174.38 99.261 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp45)">
+<clipPath id="cp46">
+<path transform="matrix(-.086143467,.000000024245422,-.00000002907984,.088690418,198.42,94.77899)" d="M 0 0 L 279.15 0 L 279.15 465.48 L 0 465.48 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp46)">
+<g transform="matrix(-.36379955,.00000010239283,.00000011856158,-.3616002,198.41999,136.06238)">
+<symbol id="im47" viewBox="0 0 66 114">
+<image width="66" height="114" xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAEIAAAByCAIAAABoTJASAAAACXBIWXMAAA7EAAAO
+xAGVKw4bAAAOPklEQVR4nO2ce1RVxR7HD9kDfJGimY8sTCgxkzRRJNHUFEgUFEqF
+QFvqSl0Z2ANfZYUmmaaC1kJ6iGVprSwtTZdJar5CLEUyKw3FHpqab0vh1v1cz71z
+Z+3zYPaczTlrtfz94XJmn/2b+e6Z+f2+39mz8fv7779tltq77747dOhQ+//PnTtX
+p04da/07Nb8rMJzbFRj6dgWGC/sHwvj888+joqKuueYaa5twNIthVFZWxsTEFBUV
+/de7n1+zZs2SkpLS09PDw8MpWtiWbBbDKCsra9++/V9//WWoZ0B69+797LPPdurU
+qSbAeAmG3QDz0EMPzZw5MygoyMJGbZbDqKqqio2N/eyzz9z8pmXLlm+88UavXr0s
+bNf6Jf7777/n5eWtW7eutLT07NmzTn/j7+8/d+7cUaNGWTXBrIch7MiRI2vWrCko
+KNi+fbvjNLv66quff/75iRMnWtJWDcKwG/4Ju1OnTt28ebPj1cLCwrS0NM9bqXEY
+dmPN5OfnZ2VlnT9/Xq4PCAhYv359ZGSkh/69BMNuJSUliYmJP/30k1wZFha2bdu2
++vXre+LZqzCw/fv39+3b98cff5QrySfMOk/cehuG7fKYkApPnz4tagIDA7/99tum
+TZtq+/QBDOzVV18dO3as3DRR6+mnn9Z26BsYly5d6tatW3FxsagJDQ395ptviMJ6
+Dn0DA1uxYkVCQoIoXnXVVTt27OjQoYOeN5/B+OOPP4KDg48ePSpq5s2bN27cOD1v
+PoOBpaSkvPPOO6L48MMPv/7663quLIDx559/njx58sSJE4GXrV69eopMacaMGZMm
+TRLFe++9VwgVs6YJA3kEuWB+8+/evXv/ddlq1arFFCeRkdG6dOly3333de7c2Y2I
+XbJkSWpqqihyC3lQB4QGDEje6tWrSVhfffVVtfc2b9584MCBjzzySJs2bRyHSJa7
+Nm/CIGeNHj2a5k21ce211yYnJ0+bNu2WW26R62fNmvXkk0+KYo8ePSCRpjwLMwHj
++PHj8fHxsG69lurWrZudnU3WEzsMKMG3335b/IDi4sWL9ZyrwmAdg8G9rKu+MT+/
+mJiYN998s0mTJhcvXgwJCTl8+LC4iriVB8ecZ0UYhglgN5IuWpSlfMcdd1x33XWs
+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
+WKYL8wmMfwPA4gyVzy4/3wAAAABJRU5ErkJggg=="/>
+</symbol>
+<use xlink:href="#im47" x="0" y="0" width="66" height="114"/>
+</g>
+</g>
+</g>
+<clipPath id="cp48">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000030518 194.04 L 238.32 194.04 L 238.32 -.000015259 L -.000045776 0 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp48)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.53 99.183 L 154.63 151.14 "/>
+</g>
+<clipPath id="cp49">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000015259 L 0 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp49)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 187.88 97.634 L 187.88 151.14 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 153 151.14 L 187.88 151.14 "/>
+<clipPath id="cp50">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000030518 L -.000015259 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp50)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.66 55.427 L 154.66 28.02 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 145.97 28.02 L 162.56 28.02 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 148.85 23.452 L 159.88 23.452 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 152.92 18.884 L 156.18 18.884 "/>
+<clipPath id="cp51">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000030518 L -.000015259 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp51)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.66 55.427 L 154.66 28.02 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 145.97 28.02 L 162.56 28.02 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 148.85 23.452 L 159.88 23.452 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 152.92 18.884 L 156.18 18.884 "/>
+<clipPath id="cp52">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000015259 194.04 L 238.32 194.04 L 238.32 .000045776 L .000015259 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp52)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 187.7 55.446 L 187.7 28.795 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 179.24 28.795 L 195.38 28.795 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 182.04 24.353 L 192.77 24.353 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 186.01 19.911 L 189.18 19.911 "/>
+<clipPath id="cp53">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M .000015259 194.04 L 238.32 194.04 L 238.32 .000045776 L .000015259 .000045776 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp53)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 187.7 55.446 L 187.7 28.795 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 179.24 28.795 L 195.38 28.795 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 182.04 24.353 L 192.77 24.353 "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 186.01 19.911 L 189.18 19.911 "/>
+<clipPath id="cp54">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000015259 194.04 L 238.32 194.04 L 238.32 .000015259 L -.000015259 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp54)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 154.65 52.937 L 154.65 63.884 "/>
+</g>
+<clipPath id="cp55">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 0 194.04 L 238.32 194.04 L 238.32 .000015259 L 0 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp55)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 187.7 53.759 L 187.7 61.071 "/>
+</g>
+<clipPath id="cp56">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 195.75 61.634 L 203.9988 61.634 L 203.9988 88.647998 L 195.75 88.647998 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp56)">
+<clipPath id="cp57">
+<path transform="matrix(1.0243017,0,-.000000523298,-1.0443692,195.75,132.40599)" d="M 0 0 L 8.0533 0 L 8.0533 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp57)">
+<clipPath id="cp58">
+<path transform="matrix(1.0243017,0,-.000000523298,-1.0443692,195.75,132.40599)" d="M 0 .019093 L 8.016 .019093 L 8.016 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp58)">
+<text xml:space="preserve" transform="matrix(1.0243017 0 .000000523298 1.0443692 195.75 132.40599)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="0">&#x1d473;</tspan></text>
+</g>
+<clipPath id="cp59">
+<path transform="matrix(1.0243017,0,-.000000523298,-1.0443692,195.75,132.40599)" d="M 0 .019093 L 8.016 .019093 L 8.016 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp59)">
+<text xml:space="preserve" transform="matrix(1.0243017 0 .000000523298 1.0443692 195.75 132.40599)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="8.016"> </tspan></text>
+</g>
+</g>
+</g>
+<clipPath id="cp60">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 132.75 62.745 L 142.5012 62.745 L 142.5012 89.759 L 132.75 89.759 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp60)">
+<clipPath id="cp61">
+<path transform="matrix(.98827329,.0000006859462,0,-1.0443692,132.75,131.295)" d="M 0 0 L 9.8667 0 L 9.8667 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp61)">
+<clipPath id="cp62">
+<path transform="matrix(.98827329,.0000006859462,0,-1.0443692,132.75,131.295)" d="M 0 .019093 L 9.816 .019093 L 9.816 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp62)">
+<text xml:space="preserve" transform="matrix(.98827329 .0000006859462 -0 1.0443692 132.75 131.295)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="0">&#x1d479;</tspan></text>
+</g>
+<clipPath id="cp63">
+<path transform="matrix(.98827329,.0000006859462,0,-1.0443692,132.75,131.295)" d="M 0 .019093 L 9.816 .019093 L 9.816 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp63)">
+<text xml:space="preserve" transform="matrix(.98827329 .0000006859462 -0 1.0443692 132.75 131.295)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="9.816"> </tspan></text>
+</g>
+</g>
+</g>
+<clipPath id="cp64">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 127.13 142.09 L 136.14 142.09 L 136.14 115.07 L 127.13 115.07 L 127.13 142.09 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp64)">
+<clipPath id="cp65">
+<path transform="matrix(1.0124799,.0000015203372,-.000000523298,-1.0443692,127.12,78.96999)" d="M 0 0 L 8.9033 0 L 8.9033 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp65)">
+<clipPath id="cp66">
+<path transform="matrix(1.0124799,.0000015203372,-.000000523298,-1.0443692,127.12,78.96999)" d="M 0 .019093 L 8.856 .019093 L 8.856 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp66)">
+<text xml:space="preserve" transform="matrix(1.0124799 .0000015203372 .000000523298 1.0443692 127.12 78.96999)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="0">&#x1d46a;</tspan></text>
+</g>
+<clipPath id="cp67">
+<path transform="matrix(1.0124799,.0000015203372,-.000000523298,-1.0443692,127.12,78.96999)" d="M 0 .019093 L 8.856 .019093 L 8.856 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp67)">
+<text xml:space="preserve" transform="matrix(1.0124799 .0000015203372 .000000523298 1.0443692 127.12 78.96999)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="8.856"> </tspan></text>
+</g>
+</g>
+</g>
+<clipPath id="cp68">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 78.75 146.58 L 87.764 146.58 L 87.764 119.56 L 78.75 119.56 L 78.75 146.58 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp68)">
+<clipPath id="cp69">
+<path transform="matrix(1.0124799,.0000015203372,-.000000261649,-1.0443692,78.75,74.479999)" d="M 0 0 L 8.9033 0 L 8.9033 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp69)">
+<clipPath id="cp70">
+<path transform="matrix(1.0124799,.0000015203372,-.000000261649,-1.0443692,78.75,74.479999)" d="M 0 .019093 L 8.856 .019093 L 8.856 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp70)">
+<text xml:space="preserve" transform="matrix(1.0124799 .0000015203372 .000000261649 1.0443692 78.75 74.479999)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="0">&#x1d46a;</tspan></text>
+</g>
+<clipPath id="cp71">
+<path transform="matrix(1.0124799,.0000015203372,-.000000261649,-1.0443692,78.75,74.479999)" d="M 0 .019093 L 8.856 .019093 L 8.856 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp71)">
+<text xml:space="preserve" transform="matrix(1.0124799 .0000015203372 .000000261649 1.0443692 78.75 74.479999)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="8.856"> </tspan></text>
+</g>
+</g>
+</g>
+<clipPath id="cp72">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 78.736 56.845 L 87.7502 56.845 L 87.7502 83.859 L 78.736 83.859 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp72)">
+<clipPath id="cp73">
+<path transform="matrix(1.0124799,.0000003800843,-.000000261649,-1.0443692,78.736,137.19499)" d="M 0 0 L 8.9033 0 L 8.9033 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp73)">
+<clipPath id="cp74">
+<path transform="matrix(1.0124799,.0000003800843,-.000000261649,-1.0443692,78.736,137.19499)" d="M 0 .019093 L 8.856 .019093 L 8.856 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp74)">
+<text xml:space="preserve" transform="matrix(1.0124799 .0000003800843 .000000261649 1.0443692 78.736 137.19499)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="0">&#x1d46a;</tspan></text>
+</g>
+<clipPath id="cp75">
+<path transform="matrix(1.0124799,.0000003800843,-.000000261649,-1.0443692,78.736,137.19499)" d="M 0 .019093 L 8.856 .019093 L 8.856 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp75)">
+<text xml:space="preserve" transform="matrix(1.0124799 .0000003800843 .000000261649 1.0443692 78.736 137.19499)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="8.856"> </tspan></text>
+</g>
+</g>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 197.75 151.2 C 197.75 152.61 198.89 153.75 200.3 153.75 C 201.72 153.75 202.86 152.61 202.86 151.2 C 202.86 149.78 201.72 148.64 200.3 148.64 C 198.89 148.64 197.75 149.78 197.75 151.2 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 197.75 151.2 C 197.75 152.61 198.89 153.75 200.3 153.75 C 201.72 153.75 202.86 152.61 202.86 151.2 C 202.86 149.78 201.72 148.64 200.3 148.64 C 198.89 148.64 197.75 149.78 197.75 151.2 Z "/>
+<clipPath id="cp76">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 192.38 175.04 L 219.39 175.04 L 219.39 148.03 L 192.38 148.03 L 192.38 175.04 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp76)">
+<clipPath id="cp77">
+<path transform="matrix(1.0316124,.000000516906,-.000000523298,-1.0443692,192.37,46.009996)" d="M 0 0 L 26.187 0 L 26.187 25.867 L 0 25.867 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp77)">
+<clipPath id="cp78">
+<path transform="matrix(1.0316124,.000000516906,-.000000523298,-1.0443692,192.37,46.009996)" d="M 0 .019093 L 26.136 .019093 L 26.136 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp78)">
+<text xml:space="preserve" transform="matrix(1.0316124 .000000516906 .000000523298 1.0443692 192.37 46.009996)" font-size="14.136" font-family="CambriaMath"><tspan y="-12.451" x="0">&#x1d47d;</tspan></text>
+</g>
+<clipPath id="cp79">
+<path transform="matrix(1.0316124,.000000516906,-.000000523298,-1.0443692,192.37,46.009996)" d="M 0 .019093 L 26.136 .019093 L 26.136 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp79)">
+<text xml:space="preserve" transform="matrix(1.0316124 .000000516906 .000000523298 1.0443692 192.37 46.009996)" font-size="10.032" font-family="CambriaMath"><tspan y="-9.5471" x="9.144 14.962601 21.5837">&#x1d490;&#x1d496;&#x1d495;</tspan></text>
+</g>
+<clipPath id="cp80">
+<path transform="matrix(1.0316124,.000000516906,-.000000523298,-1.0443692,192.37,46.009996)" d="M 0 .019093 L 26.136 .019093 L 26.136 25.867093 L 0 25.867093 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp80)">
+<text xml:space="preserve" transform="matrix(1.0316124 .000000516906 .000000523298 1.0443692 192.37 46.009996)" font-size="14.136" font-family="Calibri" font-weight="bold"><tspan y="-12.451" x="26.136"> </tspan></text>
+</g>
+</g>
+</g>
+<clipPath id="cp81">
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M -.000030518 194.04 L 238.32 194.04 L 238.32 .000076294 L -.000030518 .000076294 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp81)">
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 166.5 151.14 L 200.3 151.2 "/>
+</g>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 98.117 88.353 C 98.117 89.765 99.262 90.91 100.67 90.91 C 102.09 90.91 103.23 89.765 103.23 88.353 C 103.23 86.94 102.09 85.795 100.67 85.795 C 99.262 85.795 98.117 86.94 98.117 88.353 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 98.117 88.353 C 98.117 89.765 99.262 90.91 100.67 90.91 C 102.09 90.91 103.23 89.765 103.23 88.353 C 103.23 86.94 102.09 85.795 100.67 85.795 C 99.262 85.795 98.117 86.94 98.117 88.353 Z "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 55.047 88.634 C 55.047 90.046 56.192 91.192 57.604 91.192 C 59.017 91.192 60.162 90.046 60.162 88.634 C 60.162 87.221 59.017 86.076 57.604 86.076 C 56.192 86.076 55.047 87.221 55.047 88.634 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 55.047 88.634 C 55.047 90.046 56.192 91.192 57.604 91.192 C 59.017 91.192 60.162 90.046 60.162 88.634 C 60.162 87.221 59.017 86.076 57.604 86.076 C 56.192 86.076 55.047 87.221 55.047 88.634 Z "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 98.117 151.07 C 98.117 152.48 99.262 153.63 100.67 153.63 C 102.09 153.63 103.23 152.48 103.23 151.07 C 103.23 149.66 102.09 148.51 100.67 148.51 C 99.262 148.51 98.117 149.66 98.117 151.07 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 98.117 151.07 C 98.117 152.48 99.262 153.63 100.67 153.63 C 102.09 153.63 103.23 152.48 103.23 151.07 C 103.23 149.66 102.09 148.51 100.67 148.51 C 99.262 148.51 98.117 149.66 98.117 151.07 Z "/>
+<path transform="matrix(1,0,0,-1,0,194.04)" d="M 152.08 151.14 C 152.08 152.55 153.22 153.7 154.63 153.7 C 156.05 153.7 157.19 152.55 157.19 151.14 C 157.19 149.73 156.05 148.58 154.63 148.58 C 153.22 148.58 152.08 149.73 152.08 151.14 Z " fill-rule="evenodd"/>
+<path transform="matrix(1,0,0,-1,0,194.04)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000000" d="M 152.08 151.14 C 152.08 152.55 153.22 153.7 154.63 153.7 C 156.05 153.7 157.19 152.55 157.19 151.14 C 157.19 149.73 156.05 148.58 154.63 148.58 C 153.22 148.58 152.08 149.73 152.08 151.14 Z "/>
+</g>
+</g>
+</svg>

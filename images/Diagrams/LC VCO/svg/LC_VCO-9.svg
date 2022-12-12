@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="504.36pt" height="245.04pt" viewBox="0 0 504.36 245.04">
+<g enable-background="new">
+<g>
+<clipPath id="cp0">
+<path transform="matrix(1,0,0,-1,0,245.04)" d="M -.000019073 245.04 L 504.36 245.04 L 504.36 .000061035 L -.000015259 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(1,0,0,-1,0,245.04)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0070c0" d="M 36.185 122.49 C 36.185 172.2 68.42 212.49 108.18 212.49 "/>
+</g>
+<clipPath id="cp1">
+<path transform="matrix(1,0,0,-1,0,245.04)" d="M -.000030518 245.04 L 504.36 245.04 L 504.36 -.000045776 L -.000030518 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp1)">
+<path transform="matrix(1,0,0,-1,0,245.04)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0070c0" d="M 180.18 122.49 C 180.18 172.2 147.95 212.49 108.18 212.49 "/>
+</g>
+<clipPath id="cp2">
+<path transform="matrix(1,0,0,-1,0,245.04)" d="M 0 245.04 L 504.36 245.04 L 504.36 .000015259 L .000030518 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp2)">
+<path transform="matrix(1,0,0,-1,0,245.04)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0070c0" d="M 324.18 122.49 C 324.18 72.786 291.95 32.492 252.18 32.492 "/>
+</g>
+<clipPath id="cp3">
+<path transform="matrix(1,0,0,-1,0,245.04)" d="M -.000015259 245.04 L 504.36 245.04 L 504.36 .000061035 L -.000061035 .000015259 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp3)">
+<path transform="matrix(1,0,0,-1,0,245.04)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0070c0" d="M 180.18 122.49 C 180.18 72.786 212.42 32.492 252.18 32.492 "/>
+</g>
+<clipPath id="cp4">
+<path transform="matrix(1,0,0,-1,0,245.04)" d="M -.000030518 245.04 L 504.36 245.04 L 504.36 .000045776 L -.000030518 .000030518 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp4)">
+<path transform="matrix(1,0,0,-1,0,245.04)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0070c0" d="M 324.18 122.49 C 324.18 172.2 356.42 212.49 396.18 212.49 "/>
+</g>
+<clipPath id="cp5">
+<path transform="matrix(1,0,0,-1,0,245.04)" d="M -.000030518 245.04 L 504.36 245.04 L 504.36 -.000030518 L -.000061035 .000061035 " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp5)">
+<path transform="matrix(1,0,0,-1,0,245.04)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0070c0" d="M 468.18 122.49 C 468.18 172.2 435.95 212.49 396.18 212.49 "/>
+</g>
+</g>
+</g>
+</svg>

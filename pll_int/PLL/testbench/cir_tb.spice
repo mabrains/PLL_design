@@ -1,9 +1,9 @@
 
-******************************************************************************************************
-** Test bench for VCO
-*.include ../circuit/inv.ckt
-.include ../circuit/pll_int_cir.ckt
+***********************************************************
+*************SCHEMATIC VIEW INTEGER PLL TESTBENCH**********
+***********************************************************
 
+.include ../circuit/pll_int_cir.ckt
 .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .temp 27
 .options tnom=27
@@ -26,7 +26,8 @@
 .param p6_val=  0
 .param p7_val=  0
 
-xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND pll_int
+
+xpll_int ref p0 p1 p2 p3 p4 p5 p6 p7 vco_out VDD GND up dn vp vn fb vctrl pll_int
 Vref ref GND DC 0 PULSE ( 0 1.8 0 trise tfall tpw cycle 0 )
 VDD VDD GND DC 1.8
 VDD1 p2 GND DC {p2_val}
@@ -42,8 +43,7 @@ VDD8 p7 GND DC {p7_val}
 .op
 *.tran 200p 30u uic
 .tran 2p 15u
-.save v(ref) v(xpll_int.fb) v(xpll_int.up) v(xpll_int.dn) v(xpll_int.vctrl) v(xpll_int.vp) v(xpll_int.vn) v(vco_out) 
-
+.save v(ref) v(fb) v(up) v(dn) v(vctrl) v(vp) v(vn) v(vco_out) 
 
 .GLOBAL GND
 .GLOBAL VDD

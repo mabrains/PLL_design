@@ -4,7 +4,7 @@
 ***********************************************************
 
 .include ../circuit/pll_int_cir.ckt
-.lib "{{PDK_ROOT}}/{{PDK}}/libs.tech/ngspice/sky130.lib.spice" tt
+.lib "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
 .temp 27
 .options tnom=27
 
@@ -122,4 +122,3 @@ VDD8 p7 GND DC {p7_val}
 * .GLOBAL GND
 * .GLOBAL VDD
 * .end
-

@@ -2,3 +2,7 @@
 /precheck_results/
 */tmp
 */*/tmp
+*.lvsdb
+*.lyrdb
+*_extracted.cir
+

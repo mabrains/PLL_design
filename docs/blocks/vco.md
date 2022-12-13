@@ -9,6 +9,7 @@
 
 ### Layout design 
 ----------------------
+![vco_layout](../../images/Layout/vco_layout.png)
 
 ### Post-Layout simulation
 ----------------------

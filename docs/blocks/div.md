@@ -78,6 +78,7 @@ Divider simulation has been done using various testing techniques. First of all,
 
 ### Layout design 
 ----------------------
+![div_layout](../../images/Layout/div_layout.png)
 
 ### Post-Layout simulation
 ----------------------

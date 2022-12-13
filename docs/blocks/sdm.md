@@ -55,7 +55,7 @@ The designed Delta-Sgima Modulator (DSM) is implemented using Verilog HDL and is
 
 ### Layout design 
 ----------------------
-
+![sdm_layout](../../images/Layout/dsm_layout.png)
 ### Post-Layout simulation
 ----------------------
 

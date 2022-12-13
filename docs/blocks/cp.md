@@ -74,6 +74,7 @@ We settled on the modified current steering charge pump with unity gain active a
 
 ### Layout design 
 ----------------------
+![cp_layout](../../images/Layout/cp_layout.png)
 
 ### Post-Layout simulation
 ----------------------

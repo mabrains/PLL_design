@@ -13,6 +13,7 @@ Circuit Simulation
 
 ### Layout design 
 ----------------------
+![xctl_layout](../../images/Layout/xtcl_layout.png)
 
 ### Post-Layout simulation
 ----------------------

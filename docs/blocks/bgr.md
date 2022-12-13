@@ -25,6 +25,7 @@
 
 ### Layout design 
 ----------------------
+![bgr_layout](../../images/Layout/bgr_layout.png)
 
 ### Post-Layout simulation
 ----------------------

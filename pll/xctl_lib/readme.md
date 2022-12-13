@@ -1,6 +1,8 @@
 # Full description of crystal files
+Please find all the details of each file in this folder structure below.
+
 ## corner
-- Run _test
+This folder has the following structure:
 - scripts
   - all_measurements.csv: This CSV file contain the results of corner simulation.
   - run_ring_corners.py: a python script to automate corner simulations
@@ -8,6 +10,7 @@
   - ring_cir.ckt:   The used crystal subcircuit in corner simulations. 
   - test_ring_char.spice: the testbench used to run the crystal subcircuit.
 ## xctl
+This folder has the following structure:
 - Klayout
   - Layout.png: a figure showing the layout of the crystal oscillator.
   - crystal.gds: The gds file of the crystal oscillator.

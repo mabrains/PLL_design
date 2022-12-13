@@ -120,7 +120,7 @@ Phase Noise $@\  1\  MHz$ offset	$<-140$ dBc/Hz
 
 ## System specifications 
 
-| Spec | Value |
+| `Spec` | Value |
 | --- | --- |
 | `Center frequencies` | 2.402-2.480 GHz|
 | `Phase noise @ 1MHz offset (From Standard)` |<-74 dBc/Hz |

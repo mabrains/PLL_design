@@ -2,19 +2,8 @@
 ## Mabrains LLC
 ##########################################################################
 
-## server:
-## .spiceinit path in server:   "/open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/spinit"
-## corner file in server:      .lib /open_design_environment/foundry/pdks/skywaters/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
-
-## VM: 
-##  "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit"
-## .lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
-
-
-from calendar import c
 import pandas as pd
 import os
-import glob
 import subprocess
 import jinja2
 import itertools
@@ -34,12 +23,23 @@ process_corners = ["ss", "sf", "fs", "ff"]
 temp_corners = [-40, 27, 125]
 supply_corners = [0.9, 1.0, 1.1]
 
+if not os.environ["PDK_ROOT"]:
+    print("Please specify PDK_ROOT to run script.")
+    exit(1)
+
+if not os.environ["PDK"]:
+    print("Please specify PDK to run script.")
+    exit(1)
+
+pdk_root = os.environ["PDK_ROOT"]
+pdk = os.environ["PDK"]
+
 
 supply_value = 1.8
 
 # create a string to carry all the lines related to the corners
 corner_str = """
-.lib /foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice {corner}
+.lib {pdk_root}/{pdk}/libs.tech/ngspice/sky130.lib.spice {corner}
 .temp {temp}
 .options tnom={temp}
 VDD VDD GND PWL(0 0 1u {vsup} 1m {vsup})"""
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         os.makedirs(run_dir)
     
     # copy the spiceinit file to the run folder so there is comaptibility mode during the simulation
-    shutil.copyfile("/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
+    shutil.copyfile(f"{pdk_root}/{pdk}/libs.tech/ngspice/spinit", os.path.join(os.getcwd(), ".spiceinit"))
     
     # create an empty list to carry all the measurements for all the corners
     my_results = []

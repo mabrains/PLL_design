@@ -1,7 +1,7 @@
 *** Ring Circuit implementation 
 
-.include ../spice_files/Crystal.ckt
-.include ../spice_files/Off_chip_caps.ckt
+.include ../xschem/Crystal.ckt
+.include ../xschem/Off_chip_caps.ckt
 
 .subckt ring Vin out VDD GND
 

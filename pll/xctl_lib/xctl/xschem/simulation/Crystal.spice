@@ -1,13 +1,13 @@
-*** Ring Circuit implementation 
-
-.include ../spice_files/Crystal.ckt
-.include ../spice_files/Off_chip_caps.ckt
-
-.subckt ring Vin out VDD GND
-
-xcaps Vin net1 OffCaps
-xcrystal Vin net1 Crystal
-
+** sch_path:
+*+ /home/atork/companies/mabrains/internships/pll_design_2022/PLL_design/pll/xctl_lib/xctl/xschem/Crystal.sch
+**.subckt Crystal
+C1 net1 GND 60p m=1
+C3 Vin GND 60p m=1
+V1 VDD GND PWL(0 0 1u 1.8 1m 1.8)
+Ls net1 net3 6.237e-3 m=1
+Rs net3 net2 26.2965 m=1
+Cs net2 Vin 40f m=1
+Cp net1 Vin 7p m=1
 XM11 net1 Vin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=240 nf=16 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
@@ -20,8 +20,25 @@ XM1 out net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=15 nf=1 ad='int((nf+1)/2) 
 XM3 out net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=15 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XR2 Vin net1 Vin sky130_fd_pr__res_xhigh_po_0p35 L=177.84 mult=1 m=1
-		  
+XR1 Vin net1 Vin sky130_fd_pr__res_xhigh_po_0p35 L=177.84 mult=1 m=1
 **** begin user architecture code
-.ends
 
+** opencircuitdesign pdks install
+.lib /home/atork/companies/mabrains/internships/pll_design_2022/PLL_design/pll/xctl_lib/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+.control
+tran 5n 1m
+plot out
+meas tran tperiod TRIG out VAL=0.9 RISE=750 TARG out VAL=0.9 RISE=751
+let freq = 1/(tperiod*1000000)
+print freq
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

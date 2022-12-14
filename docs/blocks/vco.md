@@ -208,20 +208,36 @@ A buffer stage between the VCO and the divider is needed to isolate the capaciti
 * Vcontrol range 0.26:0.92 V
 * Fosc range 2.35:2.55 GHZ
 * The curve is linear at most regions of the the tuning range
+
 ![](vco_images/ttof.png)
+
 #### KVCO
+
 * The KVCO is around 300 MHZ/V 
+
 ![](vco_images/ttkvco.png)
+
+
 #### Corners
+
 * By taking into account all the possibilities, we get 45 possible corners as shown in the following image. 
+
 ![](vco_images/corn.png)
+
 #### Oscillation Frequency 
+
 The required tunning range is achieved
+
 ![](vco_images/cof.png)
+
 #### KVCO
+
 The required KVCO is achieved
+
 ![](vco_images/ckvco.png)
+
 #### Diffriential swing level
+
 ![](vco_images/cdf.png)
 
 ### Layout design 

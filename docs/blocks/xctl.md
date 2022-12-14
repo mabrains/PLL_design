@@ -37,7 +37,7 @@ Where $C_1$, $C_0$, $C_L$ and $L_1$ are the series capacitance, shunt capacitanc
 Meanwhile, the equivalent series resistance needs to be eliminated using a negative resistance in order to ensure sustained oscillations. There are many ways to generate a negative resistance among them we will use Pierce topology as shown in Fig. The equivalent negative resistance seen between the inverter terminal can be calculated using the following Eqn.         
 
 
-$$R_n  = g_{m_1}*g_{m_2}/w^2*C_1*C_2$$
+$$R_n  = g_{m_1}*g_{m_2}/w^{2}*C_{1}*C_{2}$$
 
 Where $C_1$ and $C_2$ are the load capacitance.
 

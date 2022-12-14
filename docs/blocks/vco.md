@@ -257,3 +257,23 @@ interconnects associated parasitics
 ![](vco_images/postlayoutof.png)
 
 ![](vco_images/cornernpostlayout.png)
+
+[^1]:
+    ![Optimization Based Design of LC Voltage Controlled Oscillators by Pedro Miguel](https://run.unl.pt/bitstream/10362/11349/1/Pereira_2013.pdf)
+ [^2]:
+    ![VOLTAGE CONTROLLED OSCILLATORS By  
+Jeff Wilkin](https://www.eecg.utoronto.ca/~kphang/papers/2001/wilkin_vco.pdf)
+ [^3]:
+    ![The Phase-locked Loop (PLL)](https://sci-hub.wf/10.1016/B978-1-78548-301-1.50003-9)
+ [^4]:
+    ![Design of CMOS Phase-Locked Loops by Behzad Razavi](http://xn--webducation-dbb.com/wp-content/uploads/2020/08/Behzad-Razavi-Design-of-CMOS-phase-locked-loops_-from-circuit-level-to-architecture-level-Cambridge-University-Press-2020.pdf)
+ [^5]:
+    ![MULTIPHASE REFERENCE SIGNAL GENERATION USING COUPLED OSCILLATORS by Mohammad Hekmat](https://stacks.stanford.edu/file/druid:rk497xk1645/Mohammad_thesis-augmented.pdf)
+ [^6]:
+    ![Voltage Controlled Oscillator for mm-wave Radio Systems by Yasir Shafiullah](http://jultika.oulu.fi/files/nbnfioulu-202006212612.pdf)
+ [^7]:
+    ![A Simple Model of Feedback Oscillator Noise Spectrum by Palo Alto](https://sci-hub.wf/10.1109)
+ [^8]:
+    ![Design and Analysis of CMOS LC Voltage Controlled Oscillator in 32nm SOI Process by Abhishek Arun](https://conservancy.umn.edu/bitstream/handle/11299/108796/Arun_Abhishek_May2011.pdf;jsessionid=7602FA8EC6F862D7E07D46E6CDF4ACB8?sequence=1)
+    
+   

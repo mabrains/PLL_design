@@ -76,9 +76,16 @@ Divider simulation has been done using various testing techniques. First of all,
 ![out](../../images/Simulations/out_tran.png)
 *Output transient signal at input freq =2.5 GHz & N=250*
 
+![](div_images/sim1.png)
+
+![](div_images/sim2.png)
+
+![](div_images/sim3.png)
+
 ### Layout design 
 ----------------------
 ![div_layout](../../images/Layout/div_layout.png)
 
 ### Post-Layout simulation
 ----------------------
+![](div_images/dividerratios_17wed.png)

@@ -161,11 +161,12 @@ Right terminal of the inductor      |  Left terminal of the inductor
 ![](vco_images/LC_VCO-3-1.png)  |  ![](vco_images/LC_VCO-4-1.png) 
 
 
-where $L_s$ represents the inductance along the spiral inductor, $R_s$ represents the associated loss, $R_{sub1}\&R_{sub2}$ represent losses within the substrate material and $C_{sub1}\&C_{sub2}$ represent the parasitic capacitance between the inductor metal routing and the substrate underneath it.
+where $L_s$ represents the inductance along the spiral inductor, $R_s$ represents the associated loss, $R_{sub1},R_{sub2}$ represent losses within the substrate material and $C_{sub1},C_{sub2}$ represent the parasitic capacitance between the inductor metal routing and the substrate underneath it.
 As mentioned before, there is a relation between the inductor losses, swing amplitude and the value of the current going through the negative resistance circuit as shown in equation\ref{swing equation}. Since the value of the current equals $2mA$, the inductance value can be calculated ($L_s = 4nH$ for $Q=10$ and $V_{PP} = 3V$).
 
 
-$$V_{PP} = (8/\pi)*R_P*I_{ss}$$
+$$V_{PP} = (8\pi)*R_{P}*I_{ss}$$
+
 $$R_P = R_s*(1+Q^2)$$
 
 

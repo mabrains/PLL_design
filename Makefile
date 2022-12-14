@@ -150,3 +150,70 @@ check-pdk:
 help:
 	cd $(CARAVEL_ROOT) && $(MAKE) help 
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
+
+# Make sure we are using bash as the shell.
+SHELL = bash
+
+# These directories are excluded from format checks and such.
+ALL_EXCLUDE = third_party .git env docs/env
+
+# Install the requirements when they change
+REQ_RUN_FILE=requirements.txt
+REQ_RUN = .$(REQ_RUN_FILE)
+$(REQ_RUN): $(REQ_RUN_FILE)
+	$(IN_ENV) pip install -r $(REQ_RUN_FILE)
+	touch --reference $(REQ_RUN_FILE) $(REQ_RUN)
+
+REQ_DEV_FILE=requirements.dev.txt
+REQ_DEV = .$(REQ_DEV_FILE)
+$(REQ_DEV): $(REQ_DEV_FILE)
+	$(IN_ENV) pip install -r $(REQ_DEV_FILE)
+	touch --reference $(REQ_DEV_FILE) $(REQ_DEV)
+
+# Create a virtualenv to install Python modules into.
+# ------------------
+
+# Run a command in the locally created environment if it exists.
+ACTIVATE_SRC := env/bin/activate
+
+IN_ENV = if [ -e $(ACTIVATE_SRC) ]; then source $(ACTIVATE_SRC); fi;
+env:
+	python -m virtualenv --python python3 env
+	$(IN_ENV) pip install --upgrade pip
+	make $(REQ_RUN)
+
+devenv:
+	make env
+	make $(REQ_DEV)
+
+.PHONY: env
+
+# Helpful tools for developers
+# ------------------
+
+# Automatically format Python scripts and files.
+FIND_EXCLUDE = $(foreach x,$(ALL_EXCLUDE),-and -not -path './$(x)/*')
+
+PYTHON_FORMAT ?= yapf
+format: $(REQ_DEV)
+	[[ -z $$(git status -s) ]] # Verify no local changes before running.
+	$(IN_ENV) find . -name \*.py $(FIND_EXCLUDE) -print0 | xargs -0 -P $$(nproc) yapf -p -i
+	git diff
+
+.PHONY: format
+
+# Check the python scripts
+pycodestyle: $(REQ_DEV)
+	$(IN_ENV) find . -name \*.py $(FIND_EXCLUDE) -print0 | xargs -0 pycodestyle
+
+.PHONY: pycodestyle
+
+# Alias pep8 to the new pycodestyle name
+pep8: pycodestyle
+	true
+
+PYLINT_ARGS := --extension-pkg-allow-list=gdstk
+lint: $(REQ_DEV)
+	$(IN_ENV) find . -name \*.py $(FIND_EXCLUDE) -print0 | xargs -0 pylint $(PYLINT_ARGS)
+
+.PHONY: lint

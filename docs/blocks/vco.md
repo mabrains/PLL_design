@@ -214,7 +214,7 @@ A buffer stage between the VCO and the divider is needed to isolate the capaciti
 #### KVCO
 
 * The KVCO is around 300 MHZ/V 
-* 
+
 ![](vco_images/ttkvco.png)
 
 

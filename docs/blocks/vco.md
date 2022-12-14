@@ -142,6 +142,8 @@ The full schematic for the proposed voltage controlled oscillator. The design pr
 
 VCO core is considered to be fully designed when the sizing of the four cross-coupled transistors is selected. Thus, there are 4 different variables have to be chosen($L_1,L_2,W_1,W_2$). The length of ($M_1\&M_2$) is chosen to be minimum ($0.15 um$) to increase the gm and decrease the parasitics and so make it more possible to increase the varactor size for the sake  of increasing the tuning range. This reduces the number of the variables to just 2 which are ($W_1\&W_2$). There is no specification on the power consumption of the proposed PLL. Therefore, the current source will be a designer selection. The swing value of the output oscillating signal is proportional to the multiplication of the LC tank losses and the current going through the negative resistance circuit ($R_P*I_{SS}$). The value of the current source has to be selected carefully to achieve a reasonable compromise between power consumption, tuning range and phase noise, however the power consumption is the least priority quantity as there is no spec on it. Higher current means larger transistor sizes and then higher phase noise. Lower current means larger inductance and larger added parasitics and then lower tuning range. Therefore, the tail current source is selected to be $2mA$ which gives good compromise between phase noise and the tuning range. To satisfy the oscillation condition, the active conductance has to be larger than the passive conductance by a factor of more than 3, it is highly recommended to be around 5. Therefore, the gm/id value of the transistors has to be large enough. After some iterations, it is found that the suitable value for the gm/id is to be a higher than 10 which makes the active conductance larger than the passive conductance by a factor of 5 at least. There are 2 strategies while selecting ($W_1\$W_2$). Firstly, obtaining ($W_1\$W_2$) from the $g_m/i_d$ charts using the proposed vales of ($L\&g_m\&i_d$). At this technology, the PMOS size has to be at least 4 times the size of the NMOS transistor to exhibit equal $g_m$. The good thing of that method is that $g{m1} = g_{m2}$ which results in phase noise enhancement. Second method depends on not designing for same $g_m$ for PMOS and NMOS but the design depends on selecting the size of the PMOS  not much higher than that of the NMOS (for example $W_1 = W_2$). The latter method makes the dc level of the output signal around $VDD/2$. Therefore, the oscillation frequency curve versus the control voltage will be centered around $VDD/2$.
 
+#### Sizing the negative resistance providing transistors (M3:M6)
+![](vco_images/sizingnegR.png)
 #### Design Of Current Mirror Circuit
 The current mirror circuit can be either NMOS  type and connected to the NMOS  cross-coupled transistors or can be PMOS type and connected to the PMOS cross-coupled transistor as shown in Fig\ref{cmos lc vco}. Each topology provides different type of noise isolation. NMOS  current mirroe is more robust against the ground noise, on the other hand PMOS (which is the case) current mirror is more robust against the supply noise.
 To reduce the phase noise value as can as possible, the voltage swing has to be the higher possible value maintaining the transistors operation at saturation region which is the current-limited regime. At the current-limited regime, the voltage swing is strongly linearly proportional with the current value. Then to have the most higher possible swing in the linear region, the circuit has to be operated at the end of the current-limited regime and the tail current source transistor has to be biased at the edge of the saturation region.The circuit is biased to make the current source of 2mA at the end of the current-limited regime satisfying the best phase noise value.
@@ -159,16 +161,17 @@ Right terminal of the inductor      |  Left terminal of the inductor
 ![](vco_images/LC_VCO-3-1.png)  |  ![](vco_images/LC_VCO-4-1.png) 
 
 
-where $L_s$ represents the inductance along the spiral inductor, $R_s$ represents the associated loss, $R_{sub1}\&R_{sub2}$ represent losses within the substrate material and $C_{sub1}\&C_{sub2}$ represent the parasitic capacitance between the inductor metal routing and the substrate underneath it.
+where $L_s$ represents the inductance along the spiral inductor, $R_s$ represents the associated loss, $R_{sub1},R_{sub2}$ represent losses within the substrate material and $C_{sub1},C_{sub2}$ represent the parasitic capacitance between the inductor metal routing and the substrate underneath it.
 As mentioned before, there is a relation between the inductor losses, swing amplitude and the value of the current going through the negative resistance circuit as shown in equation\ref{swing equation}. Since the value of the current equals $2mA$, the inductance value can be calculated ($L_s = 4nH$ for $Q=10$ and $V_{PP} = 3V$).
 
 
-$$V_{PP} = (8/\pi)*R_P*I_{ss}$$
+$$V_{PP} = (8\pi)*R_{P}*I_{ss}$$
+
 $$R_P = R_s*(1+Q^2)$$
 
 
 #### Design Of Varactor
-
+![](vco_images/LC_VCO-1-1.png)
 The MOS-varactor is used to act as a voltage controlled capacitor because  it provides a good tuning range for the low voltage circuits. Basically, to use the MOSFET transistor as a varactor, its source and drain terminals are connected to each other providing one terminal of the varactor. The other terminal of the varactor is the transistor gate itself. There are four regions for the MOS-cap to operate depending on the transistor biasing which are accumulation, depletion, weak inversion and strong inversion region. From the perspective of the VCO, it is desired to operate within the most linear monotonic capacitance portion of the $C-V$ curve for the sake of smoother $K_{VCO}$ response and so more stability. A comparison between the four MOS-cap topologies is performed to select the most appropriate topology.The bulk connection and transistor type is what differentiate between these four topologies. The bulk can be connected either GND or VDD or the drian-source terminal.
 
 ![](vco_images/varactor%20topologies.png)
@@ -194,6 +197,32 @@ A buffer stage between the VCO and the divider is needed to isolate the capaciti
 
 ### Simulation results 
 ----------------------
+#### CM output @ Vcontrol = 0.26 V , Frequency = 2.35 GHz 
+![](vco_images/sim1.png)
+#### Differential output @ Vcontrol = 0.26 V , Frequency = 2.35 GHz
+![](vco_images/sim2.png)
+#### Differential output @ Vcontrol = 0.92 V , Frequency = 2.55 GHz
+![](vco_images/sim3.png)
+#### Oscillation Frequency - Typical
+
+* Vcontrol range 0.26:0.92 V
+* Fosc range 2.35:2.55 GHZ
+* The curve is linear at most regions of the the tuning range
+![](vco_images/ttof.png)
+#### KVCO
+* The KVCO is around 300 MHZ/V 
+![](vco_images/ttkvco.png)
+#### Corners
+* By taking into account all the possibilities, we get 45 possible corners as shown in the following image. 
+![](vco_images/corn.png)
+#### Oscillation Frequency 
+The required tunning range is achieved
+![](vco_images/cof.png)
+#### KVCO
+The required KVCO is achieved
+![](vco_images/ckvco.png)
+#### Diffriential swing level
+![](vco_images/cdf.png)
 
 ### Layout design 
 ----------------------
@@ -208,3 +237,7 @@ interconnects associated parasitics
 
 ### Post-Layout simulation
 ----------------------
+
+![](vco_images/postlayoutof.png)
+
+![](vco_images/cornernpostlayout.png)

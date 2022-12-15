@@ -1,0 +1,29 @@
+** Test bench for ring
+
+.include ../spice_files/ring_cir.ckt
+
+
+{{ corner_setup }}
+
+xring Vin out VDD GND ring
+
+**** begin user architecture code
+
+.control
+
+    op 
+    save all
+        
+    print all
+
+    tran 5n 1.2m
+    plot out
+    meas tran tperiod TRIG out VAL=1.5 RISE=750 TARG out VAL=1.5 RISE=755
+    let freq = 5/(tperiod*1000000)
+    print freq
+    
+.endc
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

@@ -18,7 +18,7 @@ DSM plays an important role in a fractional-N PLL, they are responsible for deth
 There are many topologies to implement N-divider. Most common topologies are pulse swallow
 divider, and multi modulus divider. Benefits of pulse swallow topology may be summarized in its ability to cover very large division ratios which exceeds N=1000 but at the cost of the power, and relatively limited speed compared to other topologies. Speed limitation in pulse swallow topology is a result of larges parasitic caps added by the 2 counters. On the other hand, MMD topology provides a better speed, power consumption. What does MMD mean? 
 
-MMD is abbreviation of Multi-Modulus Divider. It is built from consequtive cells, each cell divides by 2 numbers do it is called dual-modulus which may be 2/3, 1/2, or any other combination. Most common cells in the MMD are 2/3 and 1/2 dual-modulus. Proposed implementation of our divider is MMD using 2/1 cells since it has a relatively better power consumption, phase noise.
+MMD is abbreviation of Multi-Modulus Divider[^1]. It is built from consequtive cells, each cell divides by 2 numbers do it is called dual-modulus which may be 2/3, 1/2, or any other combination. Most common cells in the MMD are 2/3 and 1/2 dual-modulus. Proposed implementation of our divider is MMD using 2/1 cells since it has a relatively better power consumption, phase noise.
 
 
  The structure of the proposed divider is depicted below,
@@ -76,8 +76,18 @@ Divider simulation has been done using various testing techniques. First of all,
 ![out](../../images/Simulations/out_tran.png)
 *Output transient signal at input freq =2.5 GHz & N=250*
 
+![](div_images/sim1.png)
+
+![](div_images/sim2.png)
+
+![](div_images/sim3.png)
+
 ### Layout design 
 ----------------------
+![div_layout](../../images/Layout/div_layout.png)
 
 ### Post-Layout simulation
 ----------------------
+![](div_images/dividerratios_17wed.png)
+
+[^1]:![A 5.5-GHz 1-mW Full-Modulus-Range Programmable Frequency Divider in 90-nm CMOS Process](https://ieeexplore.ieee.org/document/5985510)

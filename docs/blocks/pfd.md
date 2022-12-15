@@ -117,6 +117,8 @@ the small phase error cannot be detected properly explains the reason for dead-z
 ### Layout design 
 ----------------------
 
+![pfd_layout](../../images/Layout/pfd_layout.png)
+
 ### Post-Layout simulation
 ----------------------
 

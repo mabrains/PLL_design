@@ -22,9 +22,20 @@
 
 ### Simulation results 
 ----------------------
+#### Biasing Circuit  : Simulation of Banba Bandgap
+
+Iref vs Temperature (-40 to 125 )
+![](bgr_images/1.png)
+#### Transient Analysis
+![](bgr_images/tran.png)
+
 
 ### Layout design 
 ----------------------
+![bgr_layout](../../images/Layout/bgr_layout.png)
 
 ### Post-Layout simulation
 ----------------------
+![](bgr_images/play.png)
+
+![](bgr_images/play2.png)

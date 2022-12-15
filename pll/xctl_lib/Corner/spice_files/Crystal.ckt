@@ -1,0 +1,8 @@
+*** Crystal Circuit implementation 
+
+.subckt Crystal Vin net1
+Ls net1 net3 6.237e-3 m=1
+Rs net3 net2 26.2965 m=1
+Cs net2 Vin 40f m=1
+Cp net1 Vin 7p m=1
+.ends

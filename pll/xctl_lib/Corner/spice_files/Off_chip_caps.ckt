@@ -1,0 +1,6 @@
+*** Off_chip caps
+.subckt OffCaps Vin net1
+C1 net1 GND 60p m=1
+C3 Vin GND 60p m=1
+.ends
+ 

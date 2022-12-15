@@ -4,7 +4,7 @@
 .include ../../BGR/circuit/bgr_pex.ext
 .include ../circuit/inductor_model_cct.ckt
 
-.lib "{{PDK_ROOT}}/{{PDK}}/libs.tech/ngspice/sky130.lib.spice" tt
+.lib "/foundry/pdks/skywaters/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
 .temp 27
 .options tnom=27
 
